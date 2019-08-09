@@ -1,7 +1,24 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+// exports.createPages = async function({ actions, graphql }) {
+//   const { jsSubcategories } = await graphql(`
+//     query {
+//       allContentfulToolEntry(filter: {category: {eq: "js"}}) {
+//         distinct(field: subcategory)
+//       }
+//     }
+//   `);
 
-// You can delete this file if you're not using it
+//   jsSubcategories.allContentfulToolEntry.distinct.forEach(subcategory => {
+//     const slug = subcategory;
+//     actions.createPage({
+//       path: slug,
+//       component: require.resolve(`./src/templates/subcategory.tsx`),
+//       context: { subcategory: subcategory },
+//     })
+//   })
+// }
+
+// exports.createPages = () => {
+//   return new Promise((resolve, reject) => {
+//     // do async work
+//   })
+// }

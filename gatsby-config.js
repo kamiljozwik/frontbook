@@ -1,3 +1,7 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: `Frontstate`,
@@ -8,6 +12,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-typescript',
     `gatsby-plugin-emotion`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `${process.env.CONTENTFUL_SPACE_ID}`,
+        accessToken: `${process.env.CONTENTFUL_ACCESS_TOKEN}`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
