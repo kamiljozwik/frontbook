@@ -8,9 +8,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
 import Header from './header';
 import './layout.css';
+import 'semantic-ui-css/semantic.min.css';
+
+const Wrapper = styled('div')`
+  margin: 0 auto;
+  max-width: 960px;
+  padding: 0px 1.0875rem 1.45rem;
+  padding-top: 0px;
+`;
 
 const Layout = ({ children }: any) => {
   const data = useStaticQuery(graphql`
@@ -26,7 +36,7 @@ const Layout = ({ children }: any) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
+      <Wrapper
         style={{
           margin: '0 auto',
           maxWidth: 960,
@@ -34,13 +44,21 @@ const Layout = ({ children }: any) => {
           paddingTop: 0,
         }}
       >
+        <Global
+          styles={css`
+            * {
+              font-family: monospace;
+              color: #3c3ccc;
+            }
+          `}
+        />
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}, Built with
           {' '}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
-      </div>
+      </Wrapper>
     </>
   );
 };
