@@ -26,10 +26,8 @@
     "typescript": "^3.5.3"
   },
   "devDependencies": {
-    "gatsby-plugin-tslint": "^0.0.2",
     "prettier": "^1.18.2",
-    "tslint": "^5.18.0",
-    "tslint-loader": "^3.5.4"
+    "tslint": "^5.18.0"
   },
   "keywords": [
     "gatsby"
@@ -39,7 +37,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "lint": "tslint -p . -e */**/*.js -e */client/**/*.ts",
+    "lint": "tslint -p . -e */**/*.js",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests!"
