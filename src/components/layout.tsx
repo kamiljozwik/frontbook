@@ -17,7 +17,6 @@ import 'semantic-ui-css/semantic.min.css';
 
 const Wrapper = styled('div')`
   margin: 0 auto;
-  max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
   padding-top: 0px;
 `;
@@ -36,14 +35,7 @@ const Layout = ({ children }: any) => {
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <Wrapper
-        style={{
-          margin: '0 auto',
-          maxWidth: 960,
-          padding: '0px 1.0875rem 1.45rem',
-          paddingTop: 0,
-        }}
-      >
+      <Wrapper>
         <Global
           styles={css`
             * {
@@ -54,9 +46,7 @@ const Layout = ({ children }: any) => {
         />
         <main>{children}</main>
         <footer>
-          © {new Date().getFullYear()}, Built with
-          {' '}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          A State Of Front
         </footer>
       </Wrapper>
     </>

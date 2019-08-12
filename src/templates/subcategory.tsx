@@ -1,25 +1,16 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
+import { Button } from 'semantic-ui-react';
+
 import Layout from '../components/layout';
-export default ({ data }: any) => {
-  const subcategoryTools = data.allContentfulToolEntry.nodes;
-  console.log(subcategoryTools);
+
+export default () => {
   return (
     <Layout>
       <div>
         <h1>SUBCATEGORY PAGE</h1>
       </div>
+      <Button primary as={Link} to="/">Home</Button>
     </Layout>
   );
 };
-
-export const query = graphql`
-  query($subcategory: String!) {
-    allContentfulToolEntry(filter: {subcategory: {eq: $subcategory}}) {
-      nodes {
-        subcategory
-        name
-      }
-    }
-  }
-`;
