@@ -45,9 +45,6 @@ const Layout = ({ children }: any) => {
           `}
         />
         <main>{children}</main>
-        <footer>
-          A State Of Front
-        </footer>
       </Wrapper>
     </>
   );

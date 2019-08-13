@@ -20,7 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
           !path.includes('empty') && createPage({
             path: path,
             component: subcategoryTemplate,
-            context: {subcategory},
+            context: { subcategory },
           });
         });
       })

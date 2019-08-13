@@ -29,7 +29,7 @@ const JavaScriptPage = ({ data }: any) => (
     <Menu>
       <Subcategories names={data.allContentfulToolEntry.distinct} />
     </Menu>
-    <Button primary as={Link} to="/">Go back</Button>
+    <Button primary as={Link} to="/">Home</Button>
   </Layout>
 );
 
