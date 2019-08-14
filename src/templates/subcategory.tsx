@@ -4,7 +4,29 @@ import { Button, List } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
 
-const ListItem = ({item}: any) => (
+interface ListItem {
+  name: string;
+  slogan: {
+    slogan: string
+  };
+}
+
+interface SubcategoryNode {
+  node: ListItem;
+}
+
+interface SubcategoryProps {
+  data: {
+    allContentfulToolEntry: {
+      edges: SubcategoryNode[]
+    }
+  };
+  pageContext: {
+    subcategory: string;
+  };
+}
+
+const ListItem = ({ item }: {item: ListItem}) => (
   <List.Item>
     <List.Content>
       <List.Header as="a">{item.name}</List.Header>
@@ -13,15 +35,15 @@ const ListItem = ({item}: any) => (
   </List.Item>
 );
 
-const ListItems = ({ items }: any) => (
+const ListItems = ({ items }: {items: SubcategoryNode[]}) => (
   <>
     {
-      items.map((item: any) => <ListItem key={item.node.name} item={item.node}/>)
+      items.map(item => <ListItem key={item.node.name} item={item.node}/>)
     }
   </>
 );
 
-export default ({ data, pageContext }: any) => {
+export default ({ data, pageContext }: SubcategoryProps) => {
   return (
     <Layout>
       <div>

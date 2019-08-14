@@ -6,7 +6,23 @@ import { Button, Menu } from 'semantic-ui-react';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 
-const Subcategory = ({ name }: {name: string}) => (
+interface SubcategoryProps {
+  name: string;
+}
+
+interface Subcategories {
+  names: string[];
+}
+
+interface CategoryPage {
+  data: {
+    allContentfulToolEntry: {
+      distinct: string[]
+    }
+  };
+}
+
+const Subcategory = ({ name }: SubcategoryProps) => (
   <Menu.Item
     name={name}
     content={name.split('_')[1]}
@@ -15,7 +31,7 @@ const Subcategory = ({ name }: {name: string}) => (
   />
 );
 
-const Subcategories = ({ names }: {names: any[]}) => {
+const Subcategories = ({ names }: Subcategories) => {
   return (
     <>
       {names.map(name => <Subcategory key={name} name={name} />)}
@@ -23,7 +39,7 @@ const Subcategories = ({ names }: {names: any[]}) => {
   );
 };
 
-const JavaScriptPage = ({ data }: any) => (
+const JavaScriptPage = ({ data }: CategoryPage) => (
   <Layout>
     <SEO title="JavaScript" />
     <Menu>
