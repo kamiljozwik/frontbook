@@ -15,7 +15,26 @@ exports.createPages = ({ graphql, actions }) => {
         if (subcategories.errors) {
           reject(subcategories.errors);
         }
-        subcategories.data.allContentfulToolEntry.distinct.forEach(subcategory => {
+
+        subcategories.data.allContentfulToolEntry.distinct.forEach(async (subcategory) => {
+
+          const owner = "facebook";
+          const name = "react";
+          const { data } = await graphql(`
+          query {
+            github {
+              repository (
+                owner: "facebook"
+                name: "react"
+              ) {
+                name
+                description
+              }
+            }
+          }
+          `)
+          console.log(data);
+
           const path = subcategory.replace('_', '/')
           !path.includes('empty') && createPage({
             path: path,

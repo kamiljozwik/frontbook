@@ -1,44 +1,26 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { Button, List } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
+import Item from './Item';
+import { ListItem, SubcategoryNode, SubcategoryProps} from './types';
 
-interface ListItem {
-  name: string;
-  slogan: {
-    slogan: string
-  };
-}
-
-interface SubcategoryNode {
-  node: ListItem;
-}
-
-interface SubcategoryProps {
-  data: {
-    allContentfulToolEntry: {
-      edges: SubcategoryNode[]
-    }
-  };
-  pageContext: {
-    subcategory: string;
-  };
-}
-
-const ListItem = ({ item }: {item: ListItem}) => (
-  <List.Item>
-    <List.Content>
-      <List.Header as="a">{item.name}</List.Header>
-      <List.Description>{item.slogan.slogan}</List.Description>
-    </List.Content>
-  </List.Item>
-);
+// const Item = ({ item }: {item: ListItem}) => {
+//   return (
+//     <List.Item>
+//       <List.Content>
+//         <List.Header as="a">{item.name}</List.Header>
+//         <List.Description>{item.slogan.slogan}</List.Description>
+//       </List.Content>
+//     </List.Item>
+//   );
+// };
 
 const ListItems = ({ items }: {items: SubcategoryNode[]}) => (
   <>
     {
-      items.map(item => <ListItem key={item.node.name} item={item.node}/>)
+      items.map(item => <Item key={item.node.name} item={item.node}/>)
     }
   </>
 );
@@ -46,6 +28,7 @@ const ListItems = ({ items }: {items: SubcategoryNode[]}) => (
 export default ({ data, pageContext }: SubcategoryProps) => {
   return (
     <Layout>
+      {console.log(pageContext)}
       <div>
         <h2>{pageContext.subcategory}</h2>
       </div>
