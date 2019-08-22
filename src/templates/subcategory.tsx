@@ -1,21 +1,10 @@
 import React from 'react';
-import { graphql, useStaticQuery, Link } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { Button, List } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
 import Item from './Item';
-import { ListItem, SubcategoryNode, SubcategoryProps} from './types';
-
-// const Item = ({ item }: {item: ListItem}) => {
-//   return (
-//     <List.Item>
-//       <List.Content>
-//         <List.Header as="a">{item.name}</List.Header>
-//         <List.Description>{item.slogan.slogan}</List.Description>
-//       </List.Content>
-//     </List.Item>
-//   );
-// };
+import { SubcategoryNode, SubcategoryProps} from './types';
 
 const ListItems = ({ items }: {items: SubcategoryNode[]}) => (
   <>
@@ -28,8 +17,8 @@ const ListItems = ({ items }: {items: SubcategoryNode[]}) => (
 export default ({ data, pageContext }: SubcategoryProps) => {
   return (
     <Layout>
-      {console.log(pageContext)}
       <div>
+        {console.log(pageContext)}
         <h2>{pageContext.subcategory}</h2>
       </div>
       <List divided>
