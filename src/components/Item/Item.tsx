@@ -3,7 +3,11 @@ import { List } from 'semantic-ui-react';
 import Octokit from '@octokit/rest';
 import { ListItem } from '../../shared/types';
 
-const octokit = new Octokit();
+const octokit = new Octokit(
+  {
+    auth: process.env.GITHUB_TOKEN,
+  }
+);
 
 export const Item = ({ item }: {item: ListItem}) => {
   const [githubData, setGithubData] = useState();
