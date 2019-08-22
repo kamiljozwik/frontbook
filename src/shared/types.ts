@@ -3,6 +3,7 @@ export interface ListItem {
   slogan: {
     slogan: string
   };
+  github: string;
 }
 
 export interface SubcategoryNode {

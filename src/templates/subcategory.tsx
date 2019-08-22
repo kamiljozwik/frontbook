@@ -3,8 +3,8 @@ import { graphql, Link } from 'gatsby';
 import { Button, List } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
-import Item from './Item';
-import { SubcategoryNode, SubcategoryProps} from './types';
+import { Item } from '../components/Item';
+import { SubcategoryNode, SubcategoryProps} from '../shared/types';
 
 const ListItems = ({ items }: {items: SubcategoryNode[]}) => (
   <>
@@ -18,7 +18,6 @@ export default ({ data, pageContext }: SubcategoryProps) => {
   return (
     <Layout>
       <div>
-        {console.log(pageContext)}
         <h2>{pageContext.subcategory}</h2>
       </div>
       <List divided>
@@ -38,6 +37,7 @@ export const query = graphql`
           slogan {
             slogan
           }
+          github
         }
       }
     }
