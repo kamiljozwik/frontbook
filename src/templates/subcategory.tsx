@@ -38,6 +38,16 @@ export const query = graphql`
             slogan
           }
           github
+          fields {
+            githubData {
+              repository {
+                name
+                stargazers {
+                  totalCount
+                }
+              }
+            }
+          }
         }
       }
     }

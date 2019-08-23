@@ -4,6 +4,7 @@ export interface ListItem {
     slogan: string
   };
   github: string;
+  fields: any;
 }
 
 export interface SubcategoryNode {
