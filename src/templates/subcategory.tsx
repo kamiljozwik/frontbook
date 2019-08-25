@@ -1,18 +1,10 @@
 import React from 'react';
 import { graphql, Link } from 'gatsby';
-import { Button, List } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 import Layout from '../components/layout';
-import { Item } from '../components/Item';
-import { SubcategoryNode, SubcategoryProps} from '../shared/types';
-
-const ListItems = ({ items }: {items: SubcategoryNode[]}) => (
-  <>
-    {
-      items.map(item => <Item key={item.node.name} item={item.node}/>)
-    }
-  </>
-);
+import { ToolsTable } from '../components/Tables';
+import { SubcategoryProps} from '../shared/types';
 
 export default ({ data, pageContext }: SubcategoryProps) => {
   return (
@@ -20,10 +12,8 @@ export default ({ data, pageContext }: SubcategoryProps) => {
       <div>
         <h2>{pageContext.subcategory}</h2>
       </div>
-      <List divided>
-        <ListItems items={data.allContentfulToolEntry.edges} />
-      </List>
       <Button primary as={Link} to={`/${pageContext.subcategory.split('_')[0]}`}>Back</Button>
+      <ToolsTable items={data.allContentfulToolEntry.edges} />
     </Layout>
   );
 };
