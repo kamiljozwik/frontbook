@@ -29,6 +29,9 @@ export const query = graphql`
           }
           github
           fields {
+            npmData {
+              downloads
+            }
             githubData {
               repository {
                 name
