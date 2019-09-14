@@ -35,9 +35,22 @@ export const query = graphql`
             githubData {
               repository {
                 name
+                description
+                diskUsage
+                isArchived
+                isLocked
+                isDisabled
+                issues {
+                  totalCount
+                }
                 stargazers {
                   totalCount
                 }
+                licenseInfo {
+                  spdxId
+                  url
+                }
+                pushedAt
               }
             }
           }

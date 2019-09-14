@@ -31,10 +31,22 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
             query {
               repository(owner:"${owner}", name:"${name}") {
                 name
+                description
+                diskUsage
+                isArchived
+                isLocked
+                isDisabled
+                issues {
+                  totalCount
+                }
                 stargazers {
                   totalCount
                 }
-                createdAt
+                licenseInfo {
+                  spdxId
+                  url
+                }
+                pushedAt
               }
             }
           `);
