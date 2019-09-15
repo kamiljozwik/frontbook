@@ -37,9 +37,6 @@ export const query = graphql`
                 name
                 description
                 diskUsage
-                isArchived
-                isLocked
-                isDisabled
                 issues {
                   totalCount
                 }

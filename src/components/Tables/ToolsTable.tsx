@@ -14,6 +14,7 @@ export const ToolsTable = ({ items }: ToolsTableProps) => {
   return (
     <ReactTable
       data={items}
+      filterable
       // tslint:disable-next-line: jsx-no-lambda
       resolveData={data => data.map((node: any) => node.node)}
       columns={columns}

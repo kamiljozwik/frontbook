@@ -33,9 +33,6 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
                 name
                 description
                 diskUsage
-                isArchived
-                isLocked
-                isDisabled
                 issues {
                   totalCount
                 }
