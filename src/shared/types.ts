@@ -1,3 +1,8 @@
+export type CategoriesCodes = 'js' | 'css';
+export type Subcategories =
+  | 'js_animations'
+  | 'js_authorization';
+
 export interface ListItem {
   name: string;
   slogan: {

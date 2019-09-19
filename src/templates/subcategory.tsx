@@ -2,16 +2,16 @@ import React from 'react';
 import { graphql, Link } from 'gatsby';
 import { Button } from 'semantic-ui-react';
 
-import Layout from '../components/layout';
+import { Layout } from '../components';
 import { ToolsTable } from '../components/Tables';
-import { SubcategoryProps} from '../shared/types';
+import { categoriesNames } from '../shared';
+import { SubcategoryProps, CategoriesCodes } from '../shared/types';
 
 export default ({ data, pageContext }: SubcategoryProps) => {
+  const category = pageContext.subcategory.split('_')[0] as CategoriesCodes;
+  const subcategory = pageContext.subcategory.split('_')[1];
   return (
-    <Layout>
-      <div>
-        <h2>{pageContext.subcategory}</h2>
-      </div>
+    <Layout category={`${categoriesNames[category].name} / ${subcategory}`}>
       <Button primary as={Link} to={`/${pageContext.subcategory.split('_')[0]}`}>Back</Button>
       <ToolsTable items={data.allContentfulToolEntry.edges} />
     </Layout>

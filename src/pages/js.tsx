@@ -1,18 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Link } from 'gatsby';
-import { Button, Menu } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 
-import Layout from '../components/layout';
+import { Layout, Subcategory } from '../components';
 import SEO from '../components/seo';
-
-interface SubcategoryProps {
-  name: string;
-}
-
-interface Subcategories {
-  names: string[];
-}
+import { categoriesNames } from '../shared';
 
 interface CategoryPage {
   data: {
@@ -22,30 +14,15 @@ interface CategoryPage {
   };
 }
 
-const Subcategory = ({ name }: SubcategoryProps) => (
-  <Menu.Item
-    name={name}
-    content={name.split('_')[1]}
-    as={Link}
-    to={`/${name.replace('_', '/')}`}
-  />
-);
-
-const Subcategories = ({ names }: Subcategories) => {
-  return (
-    <>
-      {names.map(name => <Subcategory key={name} name={name} />)}
-    </>
-  );
-};
-
 const JavaScriptPage = ({ data }: CategoryPage) => (
-  <Layout>
-    <SEO title="JavaScript" />
-    <Menu>
-      <Subcategories names={data.allContentfulToolEntry.distinct} />
-    </Menu>
-    <Button primary as={Link} to="/">Home</Button>
+  <Layout category={categoriesNames.js.name}>
+    <SEO title={categoriesNames.js.name} />
+    <Grid columns={2} centered relaxed >
+      {
+        data.allContentfulToolEntry.distinct
+          .map((name: any) => <Subcategory key={name} name={name} />)
+      }
+    </Grid>
   </Layout>
 );
 
