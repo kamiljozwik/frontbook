@@ -3,6 +3,7 @@ import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
 import Header from './header';
+import { colors } from '../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -25,8 +26,8 @@ export const Layout = ({ children, category = 'Frontstate' }: LayoutProps) => {
         <Global
           styles={css`
             * {
-              font-family: monospace;
-              color: #3c3ccc;
+              font-family: inherit;
+              color: ${colors.black};
             }
           `}
         />

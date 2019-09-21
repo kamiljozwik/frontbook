@@ -12,7 +12,6 @@ export default ({ data, pageContext }: SubcategoryProps) => {
   const subcategory = pageContext.subcategory.split('_')[1];
   return (
     <Layout category={`${categoriesNames[category].name} / ${subcategory}`}>
-      <Button primary as={Link} to={`/${pageContext.subcategory.split('_')[0]}`}>Back</Button>
       <ToolsTable items={data.allContentfulToolEntry.edges} />
     </Layout>
   );
@@ -28,6 +27,7 @@ export const query = graphql`
             slogan
           }
           github
+          website
           fields {
             npmData {
               downloads
