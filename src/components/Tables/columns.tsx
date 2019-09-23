@@ -6,13 +6,33 @@ import { LicenseDropdown, FilterInput } from './components/filters';
 import { LastActive, WebsiteLink, ToolIcon } from './components/cells';
 
 /**
+ * Custom Sorting Methods
+ */
+const sortNumbers = (a: any, b: any) => {
+  a = numeral(a).value();
+  b = numeral(b).value();
+  // force null and undefined to the bottom
+  a = a === null || a === undefined ? -Infinity : a;
+  b = b === null || b === undefined ? -Infinity : b;
+  // Return either 1 or -1 to indicate a sort priority
+  if (a > b) {
+    return 1;
+  }
+  if (a < b) {
+    return -1;
+  }
+  return 0;
+};
+
+/**
  * Custom Filter Methods
  */
-const filterSlogan = (filter: any, row: any) => row['slogan.slogan'].includes(filter.value);
-const filterSize = (filter: any, row: any) => row['github-diskUsage'] <= parseInt(filter.value, 10);
-const filterStars = (filter: any, row: any) => row['github-stars'] >= parseInt(filter.value, 10);
-const filterDownloads = (filter: any, row: any) => row['npm-weekly-downloads'] >= parseInt(filter.value, 10);
-const filterIssues = (filter: any, row: any) => row['github-issues'] <= parseInt(filter.value, 10);
+const filterName = (filter: any, row: any) => row.name.toLowerCase().includes(filter.value.toLowerCase());
+const filterSlogan = (filter: any, row: any) => row['slogan.slogan'].toLowerCase().includes(filter.value.toLowerCase());
+const filterSize = (filter: any, row: any) => numeral(row['github-diskUsage']).value() <= parseInt(filter.value, 10);
+const filterStars = (filter: any, row: any) => numeral(row['github-stars']).value() >= parseInt(filter.value, 10);
+const filterDownloads = (filter: any, row: any) => numeral(row['npm-weekly-downloads']).value() >= parseInt(filter.value, 10);
+const filterIssues = (filter: any, row: any) => numeral(row['github-issues']).value() <= parseInt(filter.value, 10);
 const filterLicence = (filter: any, row: any) => filter.value === 'all'
   ? true
   : (
@@ -36,7 +56,8 @@ export const columns = [
   {
     Header: () => <TableHeader content="Name" icon="star" />,
     accessor: 'name',
-    Filter: ({ filter = {}, onChange }: any) => <FilterInput label="starts:" onChange={event => onChange(event.target.value)} />,
+    filterMethod: filterName,
+    Filter: ({ filter = {}, onChange }: any) => <FilterInput label="includes:" onChange={event => onChange(event.target.value)} />,
     minWidth: 150,
   },
   {
@@ -53,6 +74,7 @@ export const columns = [
     accessor: (d: any) => d.fields.githubData ? numeral(d.fields.githubData.repository.diskUsage).format('0,0') : <Label color={undefined}>unknown</Label>,
     filterMethod: filterSize,
     Filter: ({ filter = {}, onChange }: any) => <FilterInput label="max:" onChange={event => onChange(event.target.value)} />,
+    sortMethod: sortNumbers,
   },
   {
     id: 'github-stars',
@@ -60,6 +82,7 @@ export const columns = [
     accessor: (d: any) => d.fields.githubData ?  numeral(d.fields.githubData.repository.stargazers.totalCount).format('0,0') : <Label color={undefined}>unknown</Label>,
     filterMethod: filterStars,
     Filter: ({ filter = {}, onChange }: any) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
+    sortMethod: sortNumbers,
   },
   {
     id: 'npm-weekly-downloads',
@@ -67,6 +90,7 @@ export const columns = [
     accessor: (d: any) => d.fields.npmData ? numeral(d.fields.npmData.downloads).format('0,0') : <Label color={undefined}>unknown</Label>,
     filterMethod: filterDownloads,
     Filter: ({ filter = {}, onChange }: any) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
+    sortMethod: sortNumbers,
   },
   {
     id: 'github-issues',
@@ -74,6 +98,7 @@ export const columns = [
     accessor: (d: any) => d.fields.githubData ? numeral(d.fields.githubData.repository.issues.totalCount).format('0,0') : <Label color={undefined}>unknown</Label>,
     filterMethod: filterIssues,
     Filter: ({ filter = {}, onChange }: any) => <FilterInput label="max:" onChange={event => onChange(event.target.value)} />,
+    sortMethod: sortNumbers,
   },
   {
     id: 'github-license',
