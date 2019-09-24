@@ -65,7 +65,7 @@ export const columns = [
     accessor: 'slogan.slogan',
     filterMethod: filterSlogan,
     Filter: ({ filter = {}, onChange }: any) => <FilterInput label="includes:" width="90%" onChange={event => onChange(event.target.value)} />,
-    minWidth: 300,
+    minWidth: 250,
     sortable: false,
   },
   {

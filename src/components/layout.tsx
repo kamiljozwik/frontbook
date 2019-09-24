@@ -9,8 +9,8 @@ import 'semantic-ui-css/semantic.min.css';
 
 const Wrapper = styled('div')`
   margin: 0 auto;
-  padding: 0px 1.0875rem 1.45rem;
-  padding-top: 0px;
+  width: 80vw;
+  min-width: 1400px;
 `;
 
 interface LayoutProps {

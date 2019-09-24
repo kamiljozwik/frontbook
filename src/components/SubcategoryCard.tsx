@@ -10,9 +10,9 @@ interface SubcategoryProps {
   name: Subcategories;
 }
 
-export const Subcategory = ({ name }: SubcategoryProps) => (
-  <SubcategoryCard>
-    <SubcategoryTitle size="large">{name.split('_')[1]}</SubcategoryTitle>
+export const SubcategoryCard = ({ name }: SubcategoryProps) => (
+  <SubcategorySegment>
+    <SubcategoryTitle size="large">{name.split('_')[1].replace('-', ' ')}</SubcategoryTitle>
     <Segment basic>
       {subcategoriesInfo[name] ? subcategoriesInfo[name] : ''}
     </Segment>
@@ -21,10 +21,10 @@ export const Subcategory = ({ name }: SubcategoryProps) => (
       to={`/${name.replace('_', '/')}`}
       content="More"
     />
-  </SubcategoryCard>
+  </SubcategorySegment>
 );
 
-const SubcategoryCard = styled(Segment)`
+const SubcategorySegment = styled(Segment)`
   &&& {
     width: 40%;
     height: 20em;

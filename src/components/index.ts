@@ -1,4 +1,4 @@
-export * from './Subcategory';
+export * from './SubcategoryCard';
 export * from './layout';
 export * from './seo';
 export * from './header';

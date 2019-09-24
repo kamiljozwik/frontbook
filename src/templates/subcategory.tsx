@@ -1,6 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
-import { Button } from 'semantic-ui-react';
+import { graphql } from 'gatsby';
 
 import { Layout } from '../components';
 import { ToolsTable } from '../components/Tables';
@@ -22,35 +21,7 @@ export const query = graphql`
     allContentfulToolEntry(filter: {subcategory: {eq: $subcategory}}) {
       edges {
         node {
-          name
-          slogan {
-            slogan
-          }
-          github
-          website
-          fields {
-            npmData {
-              downloads
-            }
-            githubData {
-              repository {
-                name
-                description
-                diskUsage
-                issues {
-                  totalCount
-                }
-                stargazers {
-                  totalCount
-                }
-                licenseInfo {
-                  spdxId
-                  url
-                }
-                pushedAt
-              }
-            }
-          }
+          ...ToolsDataFragment
         }
       }
     }

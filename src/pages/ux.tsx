@@ -14,9 +14,9 @@ interface CategoryPage {
   };
 }
 
-const CSSPage = ({ data }: CategoryPage) => (
-  <Layout category={categoriesNames.css.name}>
-    <SEO title={categoriesNames.css.name} />
+const UXPage = ({ data }: CategoryPage) => (
+  <Layout category={categoriesNames.ux.name}>
+    <SEO title={categoriesNames.ux.name} />
     <Grid columns={2} centered relaxed >
       {
         data.allContentfulToolEntry.distinct
@@ -27,11 +27,11 @@ const CSSPage = ({ data }: CategoryPage) => (
 );
 
 export const query = graphql`
-  query cssSubcategoriesQuery {
-    allContentfulToolEntry(filter: {category: {eq: "css"}}) {
+  query uxSubcategoriesQuery {
+    allContentfulToolEntry(filter: {category: {eq: "ux"}}) {
       distinct(field: subcategory)
     }
   }
 `;
 
-export default CSSPage;
+export default UXPage;
