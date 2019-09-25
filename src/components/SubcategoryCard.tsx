@@ -4,10 +4,10 @@ import { Button, Segment, Header } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
 import { subcategoriesInfo } from '../shared';
-import { Subcategories } from '../shared/types';
+import { Subcategory } from '../shared/types';
 
 interface SubcategoryProps {
-  name: Subcategories;
+  name: Subcategory;
 }
 
 export const SubcategoryCard = ({ name }: SubcategoryProps) => (

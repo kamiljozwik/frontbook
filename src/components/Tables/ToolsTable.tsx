@@ -1,12 +1,12 @@
 import React from 'react';
-import ReactTable, {RowInfo, Column} from 'react-table';
+import ReactTable, { RowInfo, Column, FinalState, Instance, ComponentDecoratorProps } from 'react-table';
 
 import 'react-table/react-table.css';
-import { colors } from '../../shared';
+import { colors, SubcategoryNode } from '../../shared';
 import { columns } from './';
 
 interface ToolsTableProps {
-  items: any;
+  items: SubcategoryNode[];
 }
 
 export const ToolsTable = ({ items }: ToolsTableProps) => {
@@ -90,7 +90,7 @@ const TableBodyRow = () => {
   };
 };
 
-const TableBodyCell = (finalState: any, rowInfo?: RowInfo, column?: Column, instance?: any) => {
+const TableBodyCell = (finalState: FinalState, rowInfo?: RowInfo, column?: Column, instance?: Instance) => {
   return {
     style: {
       border: 'none',

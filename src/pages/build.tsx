@@ -4,9 +4,9 @@ import { graphql } from 'gatsby';
 import { Layout } from '../components';
 import SEO from '../components/seo';
 import { ToolsTable } from '../components/Tables';
-import { categoriesNames, CategoryPage } from '../shared';
+import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
-const BuildPage = ({ data }: CategoryPage) => (
+const BuildPage = ({ data }: CategoryPageNoSubcategories) => (
   <Layout category={categoriesNames.build.name}>
     <SEO title={categoriesNames.build.name} />
     <ToolsTable items={data.allContentfulToolEntry.edges} />

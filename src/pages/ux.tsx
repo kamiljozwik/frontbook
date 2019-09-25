@@ -2,26 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { Grid } from 'semantic-ui-react';
 
-import { Layout, SubcategoryCard } from '../components';
+import { Layout, SubcategoriesList } from '../components';
 import SEO from '../components/seo';
-import { categoriesNames } from '../shared';
-
-interface CategoryPage {
-  data: {
-    allContentfulToolEntry: {
-      distinct: string[]
-    }
-  };
-}
+import { categoriesNames, CategoryPage, Subcategory } from '../shared';
 
 const UXPage = ({ data }: CategoryPage) => (
   <Layout category={categoriesNames.ux.name}>
     <SEO title={categoriesNames.ux.name} />
     <Grid columns={2} centered relaxed >
-      {
-        data.allContentfulToolEntry.distinct
-          .map((name: any) => <SubcategoryCard key={name} name={name} />)
-      }
+      <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
     </Grid>
   </Layout>
 );

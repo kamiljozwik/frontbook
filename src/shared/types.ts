@@ -1,15 +1,65 @@
 export type CategoriesCodes = 'js' | 'css' | 'seo' | 'ide' | 'build' | 'task' | 'monitor' | 'ux';
-export type Subcategories =
+export type Subcategory =
   | 'js_animations'
-  | 'js_authorization';
+  | 'js_authorization'
+  | 'js_animations'
+  | 'js_authorization'
+  | 'js_cheatsheets'
+  | 'js_data-visualization'
+  | 'js_data-layer'
+  | 'js_extensions'
+  | 'js_frameworks'
+  | 'js_graphic'
+  | 'js_interactions'
+  | 'js_linters'
+  | 'js_package-managers'
+  | 'js_search'
+  | 'js_tests'
+  | 'js_translations'
+  | 'js_utils'
+  | 'css_animations'
+  | 'css_cheatsheets'
+  | 'css_css-in-js'
+  | 'css_frameworks'
+  | 'css_processors'
+  | 'css_utils'
+  | 'ux_colors'
+  | 'ux_design'
+  | 'ux_fonts'
+  | 'ux_graphics'
+  | 'ux_icons'
+  | 'ux_logos';
 
 export interface ListItem {
   name: string;
   slogan: {
     slogan: string
   };
-  github: string;
-  fields: any;
+  github?: string;
+  website?: string;
+  fields: {
+    githubData?: {
+      repository: {
+        name: string;
+        description?: string;
+        diskUsage: number;
+        issues: {
+          totalCount: number;
+        }
+        stargazers: {
+          totalCount: number;
+        }
+        licenseInfo: {
+          spdxId?: string;
+          url?: string;
+        }
+        pushedAt: Date;
+      }
+    };
+    npmData?: {
+      downloads: number;
+    };
+  };
 }
 
 export interface SubcategoryNode {
@@ -27,10 +77,18 @@ export interface SubcategoryProps {
   };
 }
 
+export interface CategoryPageNoSubcategories {
+  data: {
+    allContentfulToolEntry: {
+      edges: SubcategoryNode[]
+    }
+  };
+}
+
 export interface CategoryPage {
   data: {
     allContentfulToolEntry: {
-      edges: any;
+      distinct: string[]
     }
   };
 }

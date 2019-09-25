@@ -1,9 +1,10 @@
+import { ChangeEvent } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
 interface FilterDropdownProps {
   value: string;
-  onChange?: (e: any, data: any) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>, data: { value: string | number}) => void;
 }
 
 export const LicenseDropdown = ({ value = 'all', onChange = (e, data) => null }: FilterDropdownProps) => {

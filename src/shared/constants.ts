@@ -142,3 +142,5 @@ export const categoriesNames = {
     },
   },
 };
+
+export const activeCategories = ['js', 'css', 'seo', 'build', 'monitor', 'ux'];
