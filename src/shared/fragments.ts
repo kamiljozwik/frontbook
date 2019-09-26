@@ -33,3 +33,16 @@ export const toolDataFragment = graphql`
     }
   }
 `;
+
+export const categoryTopsFragment = graphql`
+  fragment CategoryTopsFragment on ContentfulToolEntry {
+    name
+		website
+		npm
+    fields {
+      npmData {
+        downloads
+      }
+    }
+  }
+`;
