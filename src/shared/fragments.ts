@@ -7,6 +7,7 @@ export const toolDataFragment = graphql`
       slogan
     }
     github
+    npm
     website
     fields {
       npmData {

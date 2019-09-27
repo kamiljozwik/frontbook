@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactTable, { RowInfo, Column, FinalState, Instance, ComponentDecoratorProps } from 'react-table';
+import ReactTable, { RowInfo, Column, FinalState, Instance } from 'react-table';
 
 import 'react-table/react-table.css';
 import { colors, SubcategoryNode } from '../../shared';
@@ -10,6 +10,7 @@ interface ToolsTableProps {
 }
 
 export const ToolsTable = ({ items }: ToolsTableProps) => {
+  // console.log(items)
   return (
     <ReactTable
       data={items}
@@ -90,12 +91,10 @@ const TableBodyRow = () => {
   };
 };
 
-const TableBodyCell = (finalState: FinalState, rowInfo?: RowInfo, column?: Column, instance?: Instance) => {
+const TableBodyCell = () => {
   return {
     style: {
       border: 'none',
-      fontSize: column!.id  === 'name' ? '15px' : 'auto',
-      fontWeight: column!.id  === 'name' ? '600' : 'auto',
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'center',

@@ -4,7 +4,7 @@ import numeral from 'numeral';
 
 import { TableHeader } from './components/header';
 import { LicenseDropdown, FilterInput } from './components/filters';
-import { LastActive, WebsiteLink, ToolIcon } from './components/cells';
+import { LastActive, WebsiteLink, License, ToolIcon, ToolName } from './components/cells';
 
 /**
  * Custom Sorting Methods
@@ -34,13 +34,18 @@ const filterSize: DefaultFilterFunction = (filter, row) => numeral(row['github-d
 const filterStars: DefaultFilterFunction = (filter, row) => numeral(row['github-stars']).value() >= parseInt(filter.value, 10);
 const filterDownloads: DefaultFilterFunction = (filter, row) => numeral(row['npm-weekly-downloads']).value() >= parseInt(filter.value, 10);
 const filterIssues: DefaultFilterFunction = (filter, row) => numeral(row['github-issues']).value() <= parseInt(filter.value, 10);
-const filterLicence: DefaultFilterFunction = (filter, row) => filter.value === 'all'
-  ? true
-  : (
+const filterLicence: DefaultFilterFunction = (filter, row) => {
+  const githubData = row['github-license'].props.githubData;
+  const licenseInfo = githubData && githubData.repository.licenseInfo;
+  const isLicenseKnown = licenseInfo !== null;
+  return filter.value === 'all'
+    ? true
+    : (
       filter.value === 'mit'
-        ? row['github-license'].props.children === 'MIT'
-        : row['github-license'].props.children === 'MIT' || row['github-license'].props.children === 'unknown'
-  );
+        ? isLicenseKnown && licenseInfo.spdxId === 'MIT'
+        : (isLicenseKnown && licenseInfo.spdxId === 'MIT') || !isLicenseKnown
+    );
+};
 
 /**
  * Table Columns
@@ -55,8 +60,9 @@ export const columns: Column[] = [
     sortable: false,
   },
   {
+    id: 'tool-name',
     Header: () => <TableHeader content="Name" icon="star" />,
-    accessor: 'name',
+    accessor: d => <ToolName name={d.name} githubURL={d.github} npmURL={d.npm} websiteURL={d.website} />,
     filterMethod: filterName,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="includes:" onChange={event => onChange(event.target.value)} />,
     minWidth: 150,
@@ -104,10 +110,7 @@ export const columns: Column[] = [
   {
     id: 'github-license',
     Header: () => <TableHeader content="License" icon="copyright outline" />,
-    // TODO: Move to separate file
-    accessor: d => d.fields.githubData && d.fields.githubData.repository.licenseInfo
-      ? <Label color={d.fields.githubData.repository.licenseInfo.spdxId === 'MIT' ? 'green' : 'orange'}>{d.fields.githubData.repository.licenseInfo.spdxId}</Label>
-      : <Label color={undefined}>unknown</Label>,
+    accessor: d => <License githubData={d.fields.githubData} />,
     filterMethod: filterLicence,
     Filter: ({ filter = {}, onChange }) => <LicenseDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} />,
     sortable: false,

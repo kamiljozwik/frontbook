@@ -6,6 +6,7 @@ import Header from './header';
 import { colors } from '../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
+import './custom_styles.css';
 
 const Wrapper = styled('div')`
   margin: 0 auto;
