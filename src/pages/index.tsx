@@ -33,8 +33,9 @@ const CategorySegment = ({ code, count, tops }: CategorySegmentProps) => (
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
-    <Layout category="Frontbook">
+    <Layout category="frontBook">
       <SEO title="Home" />
+      {/* {data.stars_query.edges.map(node => `${node.node.name}: ${node.node.fields.githubData!.stars}`)}; */}
       <Segment basic>
         {
           activeCategories.map(category => (
@@ -53,6 +54,18 @@ const IndexPage = ({ data }: IndexPageProps) => {
 
 export const query = graphql`
 query indexQuery {
+  stars_query: allContentfulToolEntry(sort: {fields: fields___githubData___stars, order: DESC}, limit: 5, filter: {fields: {githubData: {stars: {gt: 0}}}}) {
+    edges {
+      node {
+        name
+        fields {
+          githubData {
+            stars
+          }
+        }
+      }
+    }
+  }
   js_tops: allContentfulToolEntry(filter: {category: {eq: "js"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
     edges {
       node {

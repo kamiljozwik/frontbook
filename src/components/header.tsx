@@ -1,33 +1,28 @@
-import { Link } from 'gatsby';
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { Global, css } from '@emotion/core';
+import styled from '@emotion/styled';
 
-const Header = ({ siteTitle }: {siteTitle: string}) => (
-  <header
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-);
+import { LandingWave } from './SVG';
 
-export default Header;
+interface LayoutProps {
+  category: string;
+}
+
+export const Header = ({ category = 'frontBook' }: LayoutProps) => {
+  return (
+    <>
+      <div>
+        All frontEnd tools and resources in one place.
+      </div>
+      <div>
+        Compare real numbers and choose the right tools for your next project.
+      </div>
+      <LandingWave />
+    </>
+  );
+};
+
+const HeaderTite = styled.div`
+  width: 50vw;
+
+`;

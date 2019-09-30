@@ -39,6 +39,7 @@ export interface ListItem {
   website?: string;
   fields: {
     githubData?: {
+      stars?: string;
       repository: {
         name: string;
         description?: string;

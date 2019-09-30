@@ -2,27 +2,23 @@ import React, { ReactNode } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import Header from './header';
+import { Header } from '.';
+import TopBar from './TopBar';
 import { colors } from '../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
-
-const Wrapper = styled('div')`
-  margin: 0 auto;
-  width: 80vw;
-  min-width: 1400px;
-`;
 
 interface LayoutProps {
   children: ReactNode;
   category: string;
 }
 
-export const Layout = ({ children, category = 'Frontstate' }: LayoutProps) => {
+export const Layout = ({ children, category = 'frontBook' }: LayoutProps) => {
   return (
     <>
-      <Header siteTitle={category} />
+      <TopBar />
+      <Header category={category} />
       <Wrapper>
         <Global
           styles={css`
@@ -37,3 +33,9 @@ export const Layout = ({ children, category = 'Frontstate' }: LayoutProps) => {
     </>
   );
 };
+
+const Wrapper = styled('div')`
+  margin: 0 auto;
+  width: 80vw;
+  min-width: 1400px;
+`;

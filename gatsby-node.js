@@ -57,10 +57,17 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
       const repoMeta = node.github ? parseGHUrl(node.github) : null;
       const repoData = await ( repoMeta ? getGithubData(repoMeta.owner, repoMeta.name) : null);
 
+      const repoDataWithStars = repoData 
+      ? {
+        ...repoData,
+        stars: repoData.repository.stargazers.totalCount,
+      }
+      : null;
+
       createNodeField({
         node,
         name: 'githubData',
-        value: repoData,
+        value: repoDataWithStars,
       })
 
       /**

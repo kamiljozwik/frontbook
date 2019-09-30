@@ -10,7 +10,7 @@ interface ToolsTableProps {
 }
 
 export const ToolsTable = ({ items }: ToolsTableProps) => {
-  // console.log(items)
+  console.log(items)
   return (
     <ReactTable
       data={items}

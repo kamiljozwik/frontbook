@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Frontstate`,
+    title: `frontBook`,
     description: `A State of Front`,
     author: `@kamiljozwik`,
   },
