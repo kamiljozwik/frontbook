@@ -1,2 +1,2 @@
-export * from './LicenseDropdown';
+export * from './FilterDropdown';
 export * from './FilterInput';

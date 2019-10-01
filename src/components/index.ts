@@ -3,5 +3,5 @@ export * from './SubcategoriesList';
 export * from './Layout';
 export * from './seo';
 export * from './TopBar';
-export * from './Header';
+export * from './AppHeader';
 export * from './image';

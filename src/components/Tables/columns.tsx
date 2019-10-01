@@ -3,7 +3,7 @@ import { Column, DefaultFilterFunction } from 'react-table';
 import numeral from 'numeral';
 
 import { TableHeader } from './components/header';
-import { LicenseDropdown, FilterInput } from './components/filters';
+import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/filters';
 import { LastActive, WebsiteLink, License, ToolIcon, ToolName } from './components/cells';
 
 /**
@@ -46,6 +46,11 @@ const filterLicence: DefaultFilterFunction = (filter, row) => {
         : (isLicenseKnown && licenseInfo.spdxId === 'MIT') || !isLicenseKnown
     );
 };
+const filterFramework: DefaultFilterFunction = (filter, row) => {
+  return filter.value === 'all'
+    ? true
+    : row['tool-framework'] && row['tool-framework'].props.children === 'React';
+};
 
 /**
  * Table Columns
@@ -68,11 +73,19 @@ export const columns: Column[] = [
     minWidth: 150,
   },
   {
+    id: 'tool-framework',
+    Header: () => <TableHeader content="framework" icon="star" />,
+    accessor: d => d.name.includes('React') || d.slogan.slogan.includes('React') ? <Label size="mini" basic>React</Label> : '',
+    filterMethod: filterFramework,
+    Filter: ({ filter = {}, onChange }) => <FrameworkDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} />,
+    minWidth: 60,
+  },
+  {
     Header: () => <TableHeader content="Info" icon="star" />,
     accessor: 'slogan.slogan',
     filterMethod: filterSlogan,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="includes:" width="90%" onChange={event => onChange(event.target.value)} />,
-    minWidth: 250,
+    minWidth: 200,
     sortable: false,
   },
   {

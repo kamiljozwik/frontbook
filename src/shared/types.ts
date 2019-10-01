@@ -1,4 +1,4 @@
-export type CategoriesCodes = 'js' | 'css' | 'seo' | 'ide' | 'build' | 'task' | 'monitor' | 'ux';
+export type CategoriesCodes = 'js' | 'css' | 'seo' | 'ide' | 'build' | 'monitor' | 'ux' | 'utils';
 export type Subcategory =
   | 'js_animations'
   | 'js_authorization'
@@ -28,6 +28,7 @@ export type Subcategory =
   | 'ux_fonts'
   | 'ux_graphics'
   | 'ux_icons'
+  | 'ux_inspirations'
   | 'ux_logos';
 
 export interface ListItem {

@@ -27,12 +27,38 @@ export const LicenseDropdown = ({ value = 'all', onChange = (e, data) => null }:
   ];
   return (
     <StyledDropdown
-      placeholder="Select"
+      placeholder="All"
       fluid
       selection
       selectOnBlur={false}
       selectOnNavigation={false}
       options={licensesOptions}
+      onChange={onChange}
+    />
+  );
+};
+
+export const FrameworkDropdown = ({ value = 'all', onChange = (e, data) => null }: FilterDropdownProps) => {
+  const frameworksOptions = [
+    {
+      key: 'all',
+      text: 'All',
+      value: 'all',
+    },
+    {
+      key: 'react',
+      text: 'React',
+      value: 'react',
+    },
+  ];
+  return (
+    <StyledDropdown
+      placeholder="All"
+      fluid
+      selection
+      selectOnBlur={false}
+      selectOnNavigation={false}
+      options={frameworksOptions}
       onChange={onChange}
     />
   );

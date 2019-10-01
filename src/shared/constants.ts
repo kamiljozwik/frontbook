@@ -28,6 +28,7 @@ const ux_design = 'UX Design description will be here....';
 const ux_fonts = 'UX Fonts description will be here....';
 const ux_graphics = 'UX Graphics description will be here....';
 const ux_icons = 'UX Icons description will be here....';
+const ux_inspirations = 'UX Inspirations description will be here....';
 const ux_logos = 'UX Logos description will be here....';
 
 export const subcategoriesInfo = {
@@ -57,6 +58,7 @@ export const subcategoriesInfo = {
   ux_fonts,
   ux_graphics,
   ux_icons,
+  ux_inspirations,
   ux_logos,
 };
 
@@ -115,13 +117,6 @@ export const categoriesNames = {
       empty: 'empty',
     },
   },
-  task: {
-    name: 'Task',
-    info: 'Task info will be here',
-    subcategories: {
-      empty: 'empty',
-    },
-  },
   monitor: {
     name: 'Monitor',
     info: 'Monitor info will be here',
@@ -138,9 +133,17 @@ export const categoriesNames = {
       fonts: 'Fonts',
       graphics: 'Graphics',
       icons: 'Icons',
+      inspirations: 'Inspirations',
       logos: 'Logos',
+    },
+  },
+  utils: {
+    name: 'Utilities',
+    info: 'Utilities info will be here',
+    subcategories: {
+      empty: 'empty',
     },
   },
 };
 
-export const activeCategories = ['js', 'css', 'seo', 'build', 'monitor', 'ux'];
+export const activeCategories = ['js', 'css', 'seo', 'build', 'monitor', 'ux', 'utils'];

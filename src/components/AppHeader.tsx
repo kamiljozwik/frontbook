@@ -8,7 +8,7 @@ interface LayoutProps {
   category: string;
 }
 
-export const Header = ({ category = 'frontBook' }: LayoutProps) => {
+export const AppHeader = ({ category = 'frontBook' }: LayoutProps) => {
   return (
     <>
       <div>

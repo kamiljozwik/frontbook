@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { Header } from '.';
+import { AppHeader } from '.';
 import TopBar from './TopBar';
 import { colors } from '../shared';
 import './layout.css';
@@ -18,7 +18,7 @@ export const Layout = ({ children, category = 'frontBook' }: LayoutProps) => {
   return (
     <>
       <TopBar />
-      <Header category={category} />
+      <AppHeader category={category} />
       <Wrapper>
         <Global
           styles={css`

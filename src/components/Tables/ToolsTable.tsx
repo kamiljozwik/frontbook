@@ -10,7 +10,7 @@ interface ToolsTableProps {
 }
 
 export const ToolsTable = ({ items }: ToolsTableProps) => {
-  console.log(items)
+  // console.log(items)
   return (
     <ReactTable
       data={items}
@@ -67,15 +67,16 @@ const TableHeadCell = () => {
 /**
  * Header Filters
  */
-const TableHeadFilterCell = () => {
+const TableHeadFilterCell = (finalState: any, rowInfo?: undefined, column?: Column, instance?: any) => {
   return {
     style: {
       height: '50px',
-      padding: '0',
+      padding: '0px',
       display: 'flex',
       justifyContent: 'flex-start',
       alignItems: 'center',
       overflow: 'visible',
+      // transform: column!.id === 'tool-name' || column!.id === 'tool-framework' ? 'translateX(-30px)' : 'auto',
     },
   };
 };

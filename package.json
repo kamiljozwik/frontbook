@@ -1,7 +1,7 @@
 {
-  "name": "frontstate",
+  "name": "frontbook",
   "private": true,
-  "description": "Frontstate page",
+  "description": "Frontbook page",
   "version": "0.1.0",
   "author": "Kamil Jozwik <kamiljozwikpl@gmail.com>",
   "dependencies": {

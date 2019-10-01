@@ -105,6 +105,9 @@ query indexQuery {
   ux: allContentfulToolEntry(filter: {category: {eq: "ux"}}) {
     totalCount
   }
+  utils: allContentfulToolEntry(filter: {category: {eq: "utils"}}) {
+    totalCount
+  }
 }
 `;
 

@@ -6,16 +6,16 @@ import SEO from '../components/seo';
 import { ToolsTable } from '../components/Tables';
 import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
-const TaskPage = ({ data }: CategoryPageNoSubcategories) => (
-  <Layout category={categoriesNames.task.name}>
-    <SEO title={categoriesNames.task.name} />
+const UtilsPage = ({ data }: CategoryPageNoSubcategories) => (
+  <Layout category={categoriesNames.utils.name}>
+    <SEO title={categoriesNames.utils.name} />
     <ToolsTable items={data.allContentfulToolEntry.edges} />
   </Layout>
 );
 
 export const query = graphql`
-  query taskSubcategoriesQuery {
-    allContentfulToolEntry(filter: {subcategory: {eq: "task_empty"}}) {
+  query utilsSubcategoriesQuery {
+    allContentfulToolEntry(filter: {subcategory: {eq: "utils_empty"}}) {
       edges {
         node {
           ...ToolsDataFragment
@@ -25,4 +25,4 @@ export const query = graphql`
   }
 `;
 
-export default TaskPage;
+export default UtilsPage;
