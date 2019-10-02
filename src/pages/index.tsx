@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby';
 import { Button, Segment, Header } from 'semantic-ui-react';
 
 import { Layout } from '../components';
-import SEO from '../components/seo';
+import { SEO } from '../components/helpers';
 import { categoriesNames, CategoriesCodes, activeCategories, SubcategoryNode } from '../shared';
 
 interface CategorySegmentProps {

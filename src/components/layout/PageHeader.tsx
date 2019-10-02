@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { LandingWave } from './SVG';
+import { LandingWave } from '../SVG';
 
 interface LayoutProps {
   category: string;
 }
 
-export const AppHeader = ({ category = 'frontBook' }: LayoutProps) => {
+export const PageHeader = ({ category = 'frontBook' }: LayoutProps) => {
   return (
     <>
       <div>
@@ -24,5 +24,4 @@ export const AppHeader = ({ category = 'frontBook' }: LayoutProps) => {
 
 const HeaderTite = styled.div`
   width: 50vw;
-
 `;

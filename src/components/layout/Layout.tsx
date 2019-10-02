@@ -2,9 +2,9 @@ import React, { ReactNode } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { AppHeader } from '.';
+import { PageHeader } from './';
 import TopBar from './TopBar';
-import { colors } from '../shared';
+import { colors } from '../../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
@@ -18,7 +18,7 @@ export const Layout = ({ children, category = 'frontBook' }: LayoutProps) => {
   return (
     <>
       <TopBar />
-      <AppHeader category={category} />
+      <PageHeader category={category} />
       <Wrapper>
         <Global
           styles={css`

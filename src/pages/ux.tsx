@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Grid, Segment } from 'semantic-ui-react';
 
 import { Layout, SubcategoriesList } from '../components';
-import SEO from '../components/seo';
+import { SEO } from '../components/helpers';
 import { categoriesNames, CategoryPage } from '../shared';
 
 const UXPage = ({ data }: CategoryPage) => (
