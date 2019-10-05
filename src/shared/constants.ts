@@ -65,7 +65,7 @@ export const subcategoriesInfo = {
 export const categoriesNames = {
   js: {
     name: 'JavaScript',
-    info: 'JavaScript info will be here',
+    info: 'JavaScript info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       animation: 'Animation',
       authorization: 'Authorization',
@@ -86,7 +86,7 @@ export const categoriesNames = {
   },
   css: {
     name: 'CSS',
-    info: 'CSS info will be here',
+    info: 'CSS info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       animations: 'Animations',
       cheatsheets: 'Cheatsheets',
@@ -98,35 +98,35 @@ export const categoriesNames = {
   },
   seo: {
     name: 'SEO',
-    info: 'SEO info will be here',
+    info: 'SEO info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       empty: 'empty',
     },
   },
   ide: {
     name: 'IDE',
-    info: 'IDE info will be here',
+    info: 'IDE info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       empty: 'empty',
     },
   },
   build: {
     name: 'Build',
-    info: 'Build info will be here',
+    info: 'Build info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       empty: 'empty',
     },
   },
   monitor: {
     name: 'Monitor',
-    info: 'Monitor info will be here',
+    info: 'Monitor info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       empty: 'empty',
     },
   },
   ux: {
     name: 'UX',
-    info: 'UX info will be here',
+    info: 'UX info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       colors: 'Colors',
       design: 'Design',
@@ -139,7 +139,7 @@ export const categoriesNames = {
   },
   utils: {
     name: 'Utilities',
-    info: 'Utilities info will be here',
+    info: 'Utilities info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     subcategories: {
       empty: 'empty',
     },

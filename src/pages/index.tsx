@@ -1,16 +1,10 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { Button, Segment, Header } from 'semantic-ui-react';
+import { graphql } from 'gatsby';
+import { Segment, Grid } from 'semantic-ui-react';
 
-import { Layout } from '../components';
+import { Layout, CategoryCard } from '../components';
 import { SEO } from '../components/helpers';
-import { categoriesNames, CategoriesCodes, activeCategories, SubcategoryNode } from '../shared';
-
-interface CategorySegmentProps {
-  code: CategoriesCodes;
-  count: number;
-  tops?: SubcategoryNode[];
-}
+import { CategoriesCodes, activeCategories, SubcategoryNode } from '../shared';
 
 interface IndexPageProps {
   data: {
@@ -21,25 +15,15 @@ interface IndexPageProps {
   };
 }
 
-const CategorySegment = ({ code, count, tops }: CategorySegmentProps) => (
-  <Segment>
-    <Header size="large">{categoriesNames[code].name}</Header>
-    <Segment basic>Count: {count}</Segment>
-    <Segment basic>{tops && tops.map(top => top.node.name)}</Segment>
-    <Segment basic>{categoriesNames[code].info}</Segment>
-    <Button primary as={Link} to={`/${code}/`}>More</Button>
-  </Segment>
-);
-
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
-    <Layout category="frontBook">
+    <Layout category="index" count={data.allTools.totalCount}>
       <SEO title="Home" />
       {/* {data.stars_query.edges.map(node => `${node.node.name}: ${node.node.fields.githubData!.stars}`)}; */}
-      <Segment basic>
+      <Grid divided="vertically" centered>
         {
           activeCategories.map(category => (
-            <CategorySegment
+            <CategoryCard
               key={category}
               code={category as CategoriesCodes}
               count={data[category] ? data[category].totalCount : 0}
@@ -47,13 +31,16 @@ const IndexPage = ({ data }: IndexPageProps) => {
             />
           ))
         }
-      </Segment>
+      </Grid>
     </Layout>
   );
 };
 
 export const query = graphql`
 query indexQuery {
+  allTools: allContentfulToolEntry {
+    totalCount
+  }
   stars_query: allContentfulToolEntry(sort: {fields: fields___githubData___stars, order: DESC}, limit: 5, filter: {fields: {githubData: {stars: {gt: 0}}}}) {
     edges {
       node {

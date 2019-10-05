@@ -1,3 +1,7 @@
 body {
   overflow-x: auto;
 }
+
+#gatsby-focus-wrapper {
+  position: relative;
+}

@@ -11,30 +11,31 @@ import './custom_styles.css';
 
 interface LayoutProps {
   children: ReactNode;
-  category: string;
+  category?: string;
+  count?: number;
 }
 
-export const Layout = ({ children, category = 'frontBook' }: LayoutProps) => {
+export const Layout = ({ children, category = 'no-category', count = -1 }: LayoutProps) => {
   return (
     <>
       <TopBar />
-      <PageHeader category={category} />
-      <Wrapper>
+      <PageHeader total={count} />
+      <PageContentWrapper>
         <Global
           styles={css`
             * {
-              font-family: inherit;
+              font-family: 'Roboto', sans-serif;
               color: ${colors.black};
             }
           `}
         />
         <main>{children}</main>
-      </Wrapper>
+      </PageContentWrapper>
     </>
   );
 };
 
-const Wrapper = styled('div')`
+const PageContentWrapper = styled('div')`
   margin: 0 auto;
   width: 80vw;
   min-width: 1400px;

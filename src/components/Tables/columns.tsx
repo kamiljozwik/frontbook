@@ -4,7 +4,8 @@ import numeral from 'numeral';
 
 import { TableHeader } from './components/header';
 import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/filters';
-import { LastActive, WebsiteLink, License, ToolIcon, ToolName } from './components/cells';
+import { LastActive, WebsiteLink, License, ToolName } from './components/cells';
+import { ToolIcon } from '../../shared';
 
 /**
  * Custom Sorting Methods
