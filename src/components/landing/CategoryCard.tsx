@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Header, Grid, Label, List, Icon } from 'semantic-ui-react';
+import { Header, Segment, Grid, Label, List, Icon } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import numeral from 'numeral';
 
@@ -10,18 +10,21 @@ import { NpmLogo } from '../SVG';
 interface CategorySegmentProps {
   code: CategoriesCodes;
   count: number;
-  tops?: SubcategoryNode[];
+  npmTops?: SubcategoryNode[];
+  githubTops?: SubcategoryNode[];
 }
 
 interface TopsToolProps {
   tool: ListItem;
+  type: 'npm' | 'github';
 }
 
 interface TopsToolsProps {
   tops: SubcategoryNode[];
+  type: 'npm' | 'github';
 }
 
-const TopsTool = ({ tool }: TopsToolProps) => {
+const TopsTool = ({ tool, type }: TopsToolProps) => {
   return (
     <List.Item style={{margin: '5px 0'}}>
       <List.Content>
@@ -30,7 +33,9 @@ const TopsTool = ({ tool }: TopsToolProps) => {
           {tool.name}
           <TopsToolDescription>
             <Icon size="small" name="arrow down" style={{color: colors.darkGrey}} />
-            {numeral(tool.fields.npmData!.downloads).format('0,0')}
+            {type === 'npm'
+              ? numeral(tool.fields.npmData!.downloads).format('0,0')
+              : numeral(tool.fields.githubData!.stars).format('0,0')}
           </TopsToolDescription>
         </TopsToolName>
       </List.Content>
@@ -38,18 +43,22 @@ const TopsTool = ({ tool }: TopsToolProps) => {
   );
 };
 
-const TopsToolsList = ({ tops }: TopsToolsProps) => {
+const TopsToolsList = ({ tops, type }: TopsToolsProps) => {
   return (
     <>
-      <Header>Top <NpmLogo/> weekly downloads:</Header>
+      {
+        type === 'npm'
+          ? <Header>Top <NpmLogo/> weekly downloads:</Header>
+          : <Header>Most starred:</Header>
+      }
       <List>
-        {tops.map(top => <TopsTool key={top.node.name} tool={top.node}/>)}
+        {tops.map(top => <TopsTool key={top.node.name} tool={top.node} type={type} />)}
       </List>
     </>
   );
 };
 
-export const CategoryCard = ({ code, count, tops }: CategorySegmentProps) => (
+export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegmentProps) => (
   <CardWrapper columns={2}>
     <Grid.Column>
       <ToolName as={Link} to={`/${code}/`} size="huge">
@@ -60,7 +69,8 @@ export const CategoryCard = ({ code, count, tops }: CategorySegmentProps) => (
         </CountLabel>
       </ToolName>
       <Description>{categoriesNames[code].info}</Description>
-      {tops ? <TopsToolsList tops={tops}/> : null}
+      <Segment.Inline>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</Segment.Inline>
+      <Segment.Inline> {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}</Segment.Inline>
     </Grid.Column>
     <Grid.Column>
       image here

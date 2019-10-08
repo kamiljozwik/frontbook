@@ -27,7 +27,8 @@ const IndexPage = ({ data }: IndexPageProps) => {
               key={category}
               code={category as CategoriesCodes}
               count={data[category] ? data[category].totalCount : 0}
-              tops={data[`${category}_tops`] ? data[`${category}_tops`].edges : undefined}
+              npmTops={data[`${category}_npm_tops`] ? data[`${category}_npm_tops`].edges : undefined}
+              githubTops={data[`${category}_github_tops`] ? data[`${category}_github_tops`].edges : undefined}
             />
           ))
         }
@@ -53,21 +54,42 @@ query indexQuery {
       }
     }
   }
-  js_tops: allContentfulToolEntry(filter: {category: {eq: "js"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
+  js_npm_tops: allContentfulToolEntry(filter: {category: {eq: "js"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
     edges {
       node {
         ...CategoryTopsFragment
       }
     }
   }
-  css_tops: allContentfulToolEntry(filter: {category: {eq: "css"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
+  js_github_tops: allContentfulToolEntry(filter: {category: {eq: "js"}, fields: {githubData: {stars: {gt: 0}}}}, sort: {fields: fields___githubData___stars, order: DESC}, limit: 5) {
     edges {
       node {
         ...CategoryTopsFragment
       }
     }
   }
-  build_tops: allContentfulToolEntry(filter: {category: {eq: "build"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
+  css_npm_tops: allContentfulToolEntry(filter: {category: {eq: "css"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
+    edges {
+      node {
+        ...CategoryTopsFragment
+      }
+    }
+  }
+  css_github_tops: allContentfulToolEntry(filter: {category: {eq: "css"}, fields: {githubData: {stars: {gt: 0}}}}, sort: {fields: fields___githubData___stars, order: DESC}, limit: 5) {
+    edges {
+      node {
+        ...CategoryTopsFragment
+      }
+    }
+  }
+  build_npm_tops: allContentfulToolEntry(filter: {category: {eq: "build"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
+    edges {
+      node {
+        ...CategoryTopsFragment
+      }
+    }
+  }
+  build_github_tops: allContentfulToolEntry(filter: {category: {eq: "build"}, fields: {githubData: {stars: {gt: 0}}}}, sort: {fields: fields___githubData___stars, order: DESC}, limit: 5) {
     edges {
       node {
         ...CategoryTopsFragment

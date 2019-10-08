@@ -44,6 +44,9 @@ export const categoryTopsFragment = graphql`
       npmData {
         downloads
       }
+      githubData {
+        stars
+      }
     }
   }
 `;
