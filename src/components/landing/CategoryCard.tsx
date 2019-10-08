@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import numeral from 'numeral';
 
 import { categoriesNames, CategoriesCodes, SubcategoryNode, colors, ListItem, ToolIcon } from '../../shared';
-import { NpmLogo } from '../SVG';
+import { NpmLogo, Githublogo, Placeholder } from '../SVG';
 
 interface CategorySegmentProps {
   code: CategoriesCodes;
@@ -28,16 +28,16 @@ const TopsTool = ({ tool, type }: TopsToolProps) => {
   return (
     <List.Item style={{margin: '5px 0'}}>
       <List.Content>
-        <TopsToolName>
+        <TopsToolData>
           <ToolIcon url={tool.website} style={{marginRight: '8px'}}/>
-          {tool.name}
+          <TopsToolName>{tool.name}</TopsToolName>
           <TopsToolDescription>
-            <Icon size="small" name="arrow down" style={{color: colors.darkGrey}} />
+            <Icon size="small" name={type === 'npm' ? 'arrow down' : 'star'} style={{color: colors.darkGrey}} />
             {type === 'npm'
               ? numeral(tool.fields.npmData!.downloads).format('0,0')
               : numeral(tool.fields.githubData!.stars).format('0,0')}
           </TopsToolDescription>
-        </TopsToolName>
+        </TopsToolData>
       </List.Content>
     </List.Item>
   );
@@ -49,7 +49,7 @@ const TopsToolsList = ({ tops, type }: TopsToolsProps) => {
       {
         type === 'npm'
           ? <Header>Top <NpmLogo/> weekly downloads:</Header>
-          : <Header>Most starred:</Header>
+          : <Header>Most <Githublogo /> starred:</Header>
       }
       <List>
         {tops.map(top => <TopsTool key={top.node.name} tool={top.node} type={type} />)}
@@ -69,12 +69,16 @@ export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegme
         </CountLabel>
       </ToolName>
       <Description>{categoriesNames[code].info}</Description>
-      <Segment.Inline>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</Segment.Inline>
-      <Segment.Inline> {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}</Segment.Inline>
-    </Grid.Column>
-    <Grid.Column>
-      image here
-    </Grid.Column>
+      {githubTops && (
+        <TopsToolsWrapper horizontal>
+          <Segment basic style={{width: '50%'}}>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</Segment>
+          <Segment basic style={{width: '50%'}}> {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}</Segment>
+        </TopsToolsWrapper>
+      )}
+      </Grid.Column>
+    <ImageColumn>
+      <Placeholder />
+    </ImageColumn>
   </CardWrapper>
 );
 
@@ -102,11 +106,30 @@ const Description = styled.p`
   color: ${colors.darkGrey};
 `;
 
-const TopsToolName = styled(List.Header)`
+const TopsToolsWrapper = styled(Segment.Group)`
+  &&&& {
+    border: none;
+    box-shadow: none;
+    .segment {
+      border: none;
+    }
+  }
+`;
+
+const TopsToolData = styled(List.Header)`
   &&&& {
     display: flex;
     align-items: center;
   }
+`;
+
+const TopsToolName = styled.span`
+    font-weight: 500;
+    display: inline-block;
+    max-width: 55%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 `;
 
 const TopsToolDescription = styled.span`
@@ -115,4 +138,12 @@ const TopsToolDescription = styled.span`
     font-size: 12px;
     margin-left: 10px;
     position: relative;
+`;
+
+const ImageColumn = styled(Grid.Column)`
+  &&&& {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
