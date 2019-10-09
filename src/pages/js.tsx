@@ -7,7 +7,7 @@ import { SEO } from '../components/helpers';
 import { categoriesNames, CategoryPage } from '../shared';
 
 const JavaScriptPage = ({ data }: CategoryPage) => (
-  <Layout category={categoriesNames.js.name}>
+  <Layout category={categoriesNames.js.name} color={categoriesNames.js.color}>
     <SEO title={categoriesNames.js.name} />
     <Grid columns={2} centered relaxed >
       <SubcategoriesList

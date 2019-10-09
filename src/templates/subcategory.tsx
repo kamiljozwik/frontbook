@@ -10,7 +10,7 @@ export default ({ data, pageContext }: SubcategoryProps) => {
   const category = pageContext.subcategory.split('_')[0] as CategoriesCodes;
   const subcategory = pageContext.subcategory.split('_')[1];
   return (
-    <Layout category={`${categoriesNames[category].name} | ${subcategory}`}>
+    <Layout category={category} subcategory={subcategory} color={categoriesNames[category].color}>
       <ToolsTable items={data.allContentfulToolEntry.edges} />
     </Layout>
   );

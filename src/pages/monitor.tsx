@@ -7,7 +7,7 @@ import { ToolsTable } from '../components/Tables';
 import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
 const MonitorPage = ({ data }: CategoryPageNoSubcategories) => (
-  <Layout category={categoriesNames.monitor.name}>
+  <Layout category={categoriesNames.monitor.name} color={categoriesNames.monitor.color}>
     <SEO title={categoriesNames.monitor.name} />
     <ToolsTable items={data.allContentfulToolEntry.edges} />
   </Layout>

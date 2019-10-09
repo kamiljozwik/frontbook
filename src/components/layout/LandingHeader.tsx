@@ -8,7 +8,7 @@ interface LayoutProps {
   total: number;
 }
 
-export const PageHeader = ({ total }: LayoutProps) => {
+export const LandingHeader = ({ total }: LayoutProps) => {
   return (
     <>
       <HeaderWrapper>

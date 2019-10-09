@@ -14,6 +14,7 @@ export const ToolsTable = ({ items }: ToolsTableProps) => {
   return (
     <ReactTable
       data={items}
+      style={{marginBottom: '100px'}}
       resizable={false}
       showPagination={false}
       defaultPageSize={items.length}

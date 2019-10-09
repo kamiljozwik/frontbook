@@ -7,7 +7,7 @@ import { ToolsTable } from '../components/Tables';
 import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
 const UtilsPage = ({ data }: CategoryPageNoSubcategories) => (
-  <Layout category={categoriesNames.utils.name}>
+  <Layout category={categoriesNames.utils.name} color={categoriesNames.utils.color}>
     <SEO title={categoriesNames.utils.name} />
     <ToolsTable items={data.allContentfulToolEntry.edges} />
   </Layout>

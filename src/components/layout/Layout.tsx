@@ -1,8 +1,8 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { PageHeader } from './';
+import { LandingHeader, CategoryHeader } from './';
 import TopBar from './TopBar';
 import { colors } from '../../shared';
 import './layout.css';
@@ -12,19 +12,24 @@ import './custom_styles.css';
 interface LayoutProps {
   children: ReactNode;
   category?: string;
+  subcategory?: string;
+  color?: string;
   count?: number;
 }
 
-export const Layout = ({ children, category = 'no-category', count = -1 }: LayoutProps) => {
+export const Layout = ({ children, category = '', subcategory = '', color = '#D1BF20', count = -1 }: LayoutProps) => {
+  useEffect(() => {
+    // TODO: make it better. Now it jumps...
+    document.body.scrollTop = 0;
+  }, [category]);
   return (
     <>
       <TopBar />
-      <PageHeader total={count} />
+      {category === 'index' ? <LandingHeader total={count} /> : <CategoryHeader category={category} subcategory={subcategory} color={color}/>}
       <PageContentWrapper>
         <Global
           styles={css`
             * {
-              font-family: 'Roboto', sans-serif;
               color: ${colors.black};
             }
           `}

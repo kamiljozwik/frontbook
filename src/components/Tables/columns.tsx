@@ -29,7 +29,7 @@ const sortNumbers = (a: string | number, b: string | number) => {
 /**
  * Custom Filter Methods
  */
-const filterName: DefaultFilterFunction = (filter, row) => row.name.toLowerCase().includes(filter.value.toLowerCase());
+const filterName: DefaultFilterFunction = (filter, row) => row['tool-name'].props.name.toLowerCase().includes(filter.value.toLowerCase());
 const filterSlogan: DefaultFilterFunction = (filter, row) => row['slogan.slogan'].toLowerCase().includes(filter.value.toLowerCase());
 const filterSize: DefaultFilterFunction = (filter, row) => numeral(row['github-diskUsage']).value() <= parseInt(filter.value, 10);
 const filterStars: DefaultFilterFunction = (filter, row) => numeral(row['github-stars']).value() >= parseInt(filter.value, 10);
