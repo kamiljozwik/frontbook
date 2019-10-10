@@ -1,10 +1,11 @@
-import { ChangeEvent } from 'react';
+import { ChangeEvent, CSSProperties } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
 interface FilterDropdownProps {
   value: string;
   onChange?: (e: ChangeEvent<HTMLInputElement>, data: { value: string | number}) => void;
+  style?: CSSProperties;
 }
 
 export const LicenseDropdown = ({ value = 'all', onChange = (e, data) => null }: FilterDropdownProps) => {
@@ -38,7 +39,7 @@ export const LicenseDropdown = ({ value = 'all', onChange = (e, data) => null }:
   );
 };
 
-export const FrameworkDropdown = ({ value = 'all', onChange = (e, data) => null }: FilterDropdownProps) => {
+export const FrameworkDropdown = ({ value = 'all', onChange = (e, data) => null, style }: FilterDropdownProps) => {
   const frameworksOptions = [
     {
       key: 'all',
@@ -60,6 +61,7 @@ export const FrameworkDropdown = ({ value = 'all', onChange = (e, data) => null 
       selectOnNavigation={false}
       options={frameworksOptions}
       onChange={onChange}
+      style={style}
     />
   );
 };

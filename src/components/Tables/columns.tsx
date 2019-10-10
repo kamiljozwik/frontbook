@@ -70,7 +70,7 @@ export const columns: Column[] = [
     Header: () => <TableHeader content="Name / framework" />,
     accessor: d => <ToolName name={d.name} githubURL={d.github} npmURL={d.npm} websiteURL={d.website} />,
     filterMethod: filterName,
-    Filter: ({ filter = {}, onChange }) => <FilterInput label="includes:" onChange={event => onChange(event.target.value)} />,
+    Filter: ({ filter = {}, onChange }) => <FilterInput width="60%" label="includes:" onChange={event => onChange(event.target.value)} />,
     minWidth: 150,
   },
   {
@@ -78,7 +78,7 @@ export const columns: Column[] = [
     Header: () => <TableHeader />,
     accessor: d => (d.name && d.name.includes('React')) || (d.slogan && d.slogan.slogan.includes('React')) ? <Label size="mini" basic>React</Label> : '',
     filterMethod: filterFramework,
-    Filter: ({ filter = {}, onChange }) => <FrameworkDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} />,
+    Filter: ({ filter = {}, onChange }) => <FrameworkDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} style={{left: '-25px'}} />,
     minWidth: 60,
   },
   {

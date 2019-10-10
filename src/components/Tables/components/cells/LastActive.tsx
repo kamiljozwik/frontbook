@@ -5,11 +5,12 @@ import { ListItem } from '../../../../shared';
 
 export const LastActive = (item: ListItem) => {
   const updateTime = item.fields.githubData ? moment(item.fields.githubData.repository.pushedAt) : moment();
-  const diff = moment().diff(updateTime, 'months');
+  const diff = moment().diff(updateTime, 'days');
+
   return item.fields.githubData
     ? (
         <Label basic>
-          <Icon color={diff === 0 ? 'green' : (diff > 11 ? 'red' : 'yellow')} name="clock" />
+          <Icon color={diff < 14 ? 'green' : (diff > 360 ? 'red' : 'yellow')} name="clock" />
           {moment(item.fields.githubData.repository.pushedAt, 'YYYYMMDD').fromNow()}
         </Label>
     )
