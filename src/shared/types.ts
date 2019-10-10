@@ -2,8 +2,6 @@ export type CategoriesCodes = 'js' | 'css' | 'seo' | 'ide' | 'build' | 'monitor'
 export type Subcategory =
   | 'js_animations'
   | 'js_authorization'
-  | 'js_animations'
-  | 'js_authorization'
   | 'js_cheatsheets'
   | 'js_data-visualization'
   | 'js_data-layer'

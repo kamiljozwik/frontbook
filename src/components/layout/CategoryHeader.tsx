@@ -38,7 +38,7 @@ const HeaderTite = styled.div`
   font-weight: 700;
   color: white;
   font-size: 3.2vw;
-  width: 50%;
+  width: 80%;
   line-height: 100%;
   margin-bottom: 50px;
 `;

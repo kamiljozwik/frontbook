@@ -17,7 +17,7 @@ interface LayoutProps {
   count?: number;
 }
 
-export const Layout = ({ children, category, subcategory = '', color = '#D1BF20', count = -1 }: LayoutProps) => {
+export const Layout = ({ children, category, subcategory, color = '#D1BF20', count = -1 }: LayoutProps) => {
   useEffect(() => {
     // TODO: make it better. Now it jumps...
     document.body.scrollTop = 0;

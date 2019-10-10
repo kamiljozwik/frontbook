@@ -2,6 +2,7 @@ const path = require('path');
 const { GraphQLClient } = require(`graphql-request`);
 const parseGHUrl = require(`parse-github-url`);
 const axios = require('axios');
+// const ogs = require('open-graph-scraper');
 
 /**
  * Used to gather repo details data
@@ -95,6 +96,30 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
         name: 'npmData',
         value: npmData,
       })
+
+      /**
+       * Add field with Open Graph info for some tools
+       */
+
+      // async function getOgData(url) {
+      //   console.log('fetching for:', url)
+      //   try {
+      //     const response = await ogs({'url': url});
+      //     return response.data;
+      //   } catch(error) {
+      //     console.log('Cannot get og-data for url: ', url);
+      //     console.log('error: ', error);
+      //     return null;
+      //   }
+      // }
+
+      // const ogData = await (node.website && node.category === 'monitor' ? getOgData(node.website) : null);
+      
+      // createNodeField({
+      //   node,
+      //   name: 'ogData',
+      //   value: ogData,
+      // })
     }
   }
 }

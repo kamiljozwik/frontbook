@@ -47,6 +47,11 @@ export const FrameworkDropdown = ({ value = 'all', onChange = (e, data) => null,
       value: 'all',
     },
     {
+      key: 'vanilla',
+      text: 'vanilla',
+      value: 'vanilla',
+    },
+    {
       key: 'react',
       text: 'React',
       value: 'react',

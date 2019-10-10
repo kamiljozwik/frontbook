@@ -30,6 +30,15 @@ const sortNumbers = (a: string | number, b: string | number) => {
  * Custom Filter Methods
  */
 const filterName: DefaultFilterFunction = (filter, row) => row['tool-name'].props.name.toLowerCase().includes(filter.value.toLowerCase());
+const filterFramework: DefaultFilterFunction = (filter, row) => {
+  return filter.value === 'all'
+    ? true
+    : (
+      filter.value === 'react'
+        ? row['tool-framework'] && row['tool-framework'].props.children === 'React'
+        : !row['tool-framework'].props
+    );
+};
 const filterSlogan: DefaultFilterFunction = (filter, row) => row['slogan.slogan'].toLowerCase().includes(filter.value.toLowerCase());
 const filterSize: DefaultFilterFunction = (filter, row) => numeral(row['github-diskUsage']).value() <= parseInt(filter.value, 10);
 const filterStars: DefaultFilterFunction = (filter, row) => numeral(row['github-stars']).value() >= parseInt(filter.value, 10);
@@ -46,11 +55,6 @@ const filterLicence: DefaultFilterFunction = (filter, row) => {
         ? isLicenseKnown && licenseInfo.spdxId === 'MIT'
         : (isLicenseKnown && licenseInfo.spdxId === 'MIT') || !isLicenseKnown
     );
-};
-const filterFramework: DefaultFilterFunction = (filter, row) => {
-  return filter.value === 'all'
-    ? true
-    : row['tool-framework'] && row['tool-framework'].props.children === 'React';
 };
 
 /**
@@ -72,6 +76,7 @@ export const columns: Column[] = [
     filterMethod: filterName,
     Filter: ({ filter = {}, onChange }) => <FilterInput width="60%" label="includes:" onChange={event => onChange(event.target.value)} />,
     minWidth: 150,
+    sortable: false,
   },
   {
     id: 'tool-framework',
@@ -80,6 +85,7 @@ export const columns: Column[] = [
     filterMethod: filterFramework,
     Filter: ({ filter = {}, onChange }) => <FrameworkDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} style={{left: '-25px'}} />,
     minWidth: 60,
+    sortable: false,
   },
   {
     Header: () => <TableHeader content="Info" icon="star" />,
