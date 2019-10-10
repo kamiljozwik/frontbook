@@ -154,4 +154,4 @@ export const categoriesNames = {
   },
 };
 
-export const activeCategories = ['js', 'css', 'seo', 'build', 'monitor', 'ux', 'utils'];
+export const activeCategories = ['js', 'css', 'build', 'seo', 'monitor', 'ux', 'utils'];

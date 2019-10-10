@@ -17,7 +17,7 @@ interface IndexPageProps {
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
-    <Layout category="index" count={data.allTools.totalCount}>
+    <Layout count={data.allTools.totalCount}>
       <SEO title="Home" />
       {/* {data.stars_query.edges.map(node => `${node.node.name}: ${node.node.fields.githubData!.stars}`)}; */}
       <Grid divided="vertically" centered>

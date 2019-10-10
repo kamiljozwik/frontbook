@@ -3,9 +3,10 @@ import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
 import { CategoryWave } from '../SVG';
+import { categoriesNames, CategoriesCodes } from '../../shared';
 
 interface CategoryHeaderProps {
-  category: string;
+  category: CategoriesCodes;
   subcategory?: string;
   color: string;
 }
@@ -16,7 +17,8 @@ export const CategoryHeader = ({ category, subcategory, color }: CategoryHeaderP
       <HeaderWrapper>
         <CategoryWave color={color} />
         <HeaderTite>
-          <Link to={`/${category.toLowerCase()}`}>{category}</Link> / {subcategory}
+          <CategoryLink to={`/${category.toLowerCase()}`}>{categoriesNames[category].name}</CategoryLink>
+          {subcategory ? ` / ${subcategory}` : ''}
         </HeaderTite>
       </HeaderWrapper>
     </>
@@ -39,4 +41,11 @@ const HeaderTite = styled.div`
   width: 50%;
   line-height: 100%;
   margin-bottom: 50px;
+`;
+
+const CategoryLink = styled(Link)`
+  color: white;
+  &:hover {
+    color: white;
+  }
 `;

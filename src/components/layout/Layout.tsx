@@ -4,20 +4,20 @@ import styled from '@emotion/styled';
 
 import { LandingHeader, CategoryHeader } from './';
 import TopBar from './TopBar';
-import { colors } from '../../shared';
+import { colors, CategoriesCodes } from '../../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
 
 interface LayoutProps {
   children: ReactNode;
-  category?: string;
+  category?: CategoriesCodes;
   subcategory?: string;
   color?: string;
   count?: number;
 }
 
-export const Layout = ({ children, category = '', subcategory = '', color = '#D1BF20', count = -1 }: LayoutProps) => {
+export const Layout = ({ children, category, subcategory = '', color = '#D1BF20', count = -1 }: LayoutProps) => {
   useEffect(() => {
     // TODO: make it better. Now it jumps...
     document.body.scrollTop = 0;
@@ -25,7 +25,7 @@ export const Layout = ({ children, category = '', subcategory = '', color = '#D1
   return (
     <>
       <TopBar />
-      {category === 'index' ? <LandingHeader total={count} /> : <CategoryHeader category={category} subcategory={subcategory} color={color}/>}
+      {category ? <CategoryHeader category={category!} subcategory={subcategory} color={color}/> : <LandingHeader total={count} />}
       <PageContentWrapper>
         <Global
           styles={css`

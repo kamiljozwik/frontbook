@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import numeral from 'numeral';
 
 import { categoriesNames, CategoriesCodes, SubcategoryNode, colors, ListItem, ToolIcon } from '../../shared';
-import { NpmLogo, Githublogo, Placeholder } from '../SVG';
+import { Placeholder } from '../SVG';
 
 interface CategorySegmentProps {
   code: CategoriesCodes;
@@ -48,8 +48,8 @@ const TopsToolsList = ({ tops, type }: TopsToolsProps) => {
     <>
       {
         type === 'npm'
-          ? <Header>Top <NpmLogo/> weekly downloads:</Header>
-          : <Header>Most <Githublogo /> starred:</Header>
+          ? <Header>Top weekly downloads:</Header>
+          : <Header>Top starred:</Header>
       }
       <List>
         {tops.map(top => <TopsTool key={top.node.name} tool={top.node} type={type} />)}
@@ -85,7 +85,7 @@ export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegme
 const CardWrapper = styled(Grid.Row)`
   &&& {
     position: relative;
-    width: 60vw !important;
+    width: 65vw !important;
     min-height: 250px;
   }
 `;

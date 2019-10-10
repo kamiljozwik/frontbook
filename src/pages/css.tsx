@@ -7,7 +7,7 @@ import { SEO } from '../components/helpers';
 import { categoriesNames, CategoryPage } from '../shared';
 
 const CSSPage = ({ data }: CategoryPage) => (
-  <Layout category={categoriesNames.css.name} color={categoriesNames.css.color}>
+  <Layout category="css" color={categoriesNames.css.color}>
     <SEO title={categoriesNames.css.name} />
     <Grid columns={2} centered relaxed >
       <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
