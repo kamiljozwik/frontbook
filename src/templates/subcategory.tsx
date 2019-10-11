@@ -3,7 +3,8 @@ import { graphql } from 'gatsby';
 
 import { Layout } from '../components';
 import { ToolsTable } from '../components/Tables';
-import { categoriesNames } from '../shared';
+import { CardGroup } from '../components/NonTables';
+import { categoriesNames, nonTableSubcategories } from '../shared';
 import { SubcategoryProps, CategoriesCodes } from '../shared/types';
 
 export default ({ data, pageContext }: SubcategoryProps) => {
@@ -11,7 +12,9 @@ export default ({ data, pageContext }: SubcategoryProps) => {
   const subcategory = pageContext.subcategory.split('_')[1];
   return (
     <Layout category={category} subcategory={subcategory} color={categoriesNames[category].color}>
-      <ToolsTable items={data.allContentfulToolEntry.edges} />
+      {nonTableSubcategories.includes(pageContext.subcategory)
+        ? <CardGroup items={data.allContentfulToolEntry.edges} />
+        : <ToolsTable items={data.allContentfulToolEntry.edges} />}
     </Layout>
   );
 };

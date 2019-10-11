@@ -14,6 +14,7 @@ export const toolDataFragment = graphql`
         downloads
       }
       githubData {
+        stars
         repository {
           name
           description

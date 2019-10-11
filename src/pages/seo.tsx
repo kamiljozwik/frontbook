@@ -3,13 +3,13 @@ import { graphql } from 'gatsby';
 
 import { Layout } from '../components';
 import { SEO } from '../components/helpers';
-import { ToolsTable } from '../components/Tables';
+import { CardGroup } from '../components/NonTables';
 import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
 const SEOPage = ({ data }: CategoryPageNoSubcategories) => (
   <Layout category="seo" color={categoriesNames.seo.color}>
     <SEO title={categoriesNames.seo.name} />
-    <ToolsTable items={data.allContentfulToolEntry.edges} />
+    <CardGroup items={data.allContentfulToolEntry.edges} />
   </Layout>
 );
 

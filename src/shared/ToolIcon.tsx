@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { Icon } from 'semantic-ui-react';
+import { Icon, Image } from 'semantic-ui-react';
 
 interface ToolIconProps {
   url?: string;
@@ -9,5 +9,5 @@ interface ToolIconProps {
 const iconStyle = {fontSize: '1.2em', opacity: '0.4'};
 
 export const ToolIcon = ({ url, style }: ToolIconProps) => url
-  ? <img alt="tool icon" src={`https://www.google.com/s2/favicons?domain=${url}`} style={style} />
+  ? <Image alt="tool icon" src={`https://www.google.com/s2/favicons?domain=${url}`} style={style} />
   : <Icon name="ban" color="grey" style={{...style, iconStyle}} />;

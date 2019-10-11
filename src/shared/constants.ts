@@ -155,3 +155,4 @@ export const categoriesNames = {
 };
 
 export const activeCategories = ['js', 'css', 'build', 'seo', 'monitor', 'ux', 'utils'];
+export const nonTableSubcategories = ['js_cheatsheets', 'css_cheatsheets', 'ux_colors', 'ux_design', 'ux_fonts', 'ux_graphics', 'ux_icons', 'ux_inspirations', 'ux_logos'];

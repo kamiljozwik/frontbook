@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Icon } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
 import { CategoryWave } from '../SVG';
@@ -17,7 +18,10 @@ export const CategoryHeader = ({ category, subcategory, color }: CategoryHeaderP
       <HeaderWrapper>
         <CategoryWave color={color} />
         <HeaderTite>
-          <CategoryLink to={`/${category.toLowerCase()}`}>{categoriesNames[category].name}</CategoryLink>
+          <CategoryLink to="/">
+            <Icon size="small" inverted name="home" />
+          </CategoryLink>
+          <CategoryLink to={`/${category.toLowerCase()}`}> / {categoriesNames[category].name}</CategoryLink>
           {subcategory ? ` / ${subcategory}` : ''}
         </HeaderTite>
       </HeaderWrapper>
