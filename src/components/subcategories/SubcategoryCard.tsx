@@ -3,9 +3,10 @@ import { Link } from 'gatsby';
 import { Button, Segment, Header } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
-import { subcategoriesInfo, colors } from '../shared';
-import { Subcategory } from '../shared/types';
-import { Placeholder } from './SVG';
+import { subcategoriesInfo, colors } from '../../shared';
+import { Subcategory } from '../../shared/types';
+import { Placeholder } from '../SVG';
+import { mq } from '../layout';
 
 interface SubcategoryProps {
   name: Subcategory;
@@ -19,19 +20,21 @@ export const SubcategoryCard = ({ name }: SubcategoryProps) => (
     <SubcategoryDescription basic>
       {subcategoriesInfo[name] ? subcategoriesInfo[name] : ''}
     </SubcategoryDescription>
-    <Placeholder width="20%" />
+    <Placeholder width="20%"/>
   </SubcategorySegment>
 );
 
 const SubcategorySegment = styled(Segment)`
   &&& {
-    width: 40%;
     height: 300px;
     margin: 1em 1em;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    ${mq({
+      width: ['80%', '100%', '80%', '40%', '40%'],
+    })}
   }
 `;
 

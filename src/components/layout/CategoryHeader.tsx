@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 
 import { CategoryWave } from '../SVG';
 import { categoriesNames, CategoriesCodes } from '../../shared';
+import { mq } from '../layout';
 
 interface CategoryHeaderProps {
   category: CategoriesCodes;
@@ -42,9 +43,12 @@ const HeaderTite = styled.div`
   font-weight: 700;
   color: white;
   font-size: 3.2vw;
-  width: 80%;
+  width: 100%;
   line-height: 100%;
   margin-bottom: 50px;
+  ${mq({
+    fontSize: ['5vw', '5vw', '5vw', '5vw', '3.2vw'],
+  })}
 `;
 
 const CategoryLink = styled(Link)`

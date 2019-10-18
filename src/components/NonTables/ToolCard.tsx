@@ -1,9 +1,10 @@
 import React from 'react';
 import { Card, Label, Icon } from 'semantic-ui-react';
 import numeral from 'numeral';
+import styled from '@emotion/styled';
 
 import { ToolIcon, SubcategoryNode, colors } from '../../shared';
-import styled from '@emotion/styled';
+import { mq } from '../layout';
 
 interface ToolsTableProps {
   items: SubcategoryNode[];
@@ -33,7 +34,7 @@ const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
 
 const ToolCard = ({ toolData }: ToolCardProps) => {
   return (
-    <Card>
+    <StyledCard>
       <Card.Content>
         <Card.Header>
           <CardHeader href={toolData.node.website} target="_blank" rel="noopener noreferrer">
@@ -54,13 +55,14 @@ const ToolCard = ({ toolData }: ToolCardProps) => {
           npmDownloads={toolData.node.fields.npmData && toolData.node.fields.npmData.downloads}
         />
       </Card.Content>
-    </Card>
+    </StyledCard>
   );
 };
 
 export const CardGroup = ({ items }: ToolsTableProps) => {
   return (
-    <Card.Group itemsPerRow={4} stackable style={{marginBottom: '100px'}}>
+    <Card.Group centered style={{marginBottom: '100px'}}>
+      {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
       {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
     </Card.Group>
   );
@@ -71,4 +73,12 @@ const CardHeader = styled.a`
     display: flex;
     justify-content: space-between;
     align-items: center;
+`;
+
+const StyledCard = styled(Card)`
+    &&& {
+      ${mq({
+        width: ['80%', '100%', '100%', '45%', '22%'],
+      })}
+    }
 `;

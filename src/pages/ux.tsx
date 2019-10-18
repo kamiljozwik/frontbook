@@ -1,6 +1,5 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Grid, Segment } from 'semantic-ui-react';
 
 import { Layout, SubcategoriesList } from '../components';
 import { SEO } from '../components/helpers';
@@ -9,9 +8,7 @@ import { categoriesNames, CategoryPage } from '../shared';
 const UXPage = ({ data }: CategoryPage) => (
   <Layout category="ux" color={categoriesNames.ux.color}>
     <SEO title={categoriesNames.ux.name} />
-    <Grid columns={2} centered relaxed >
-      <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
-    </Grid>
+    <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
   </Layout>
 );
 

@@ -1,20 +1,29 @@
 import React from 'react';
 import ReactTable, { RowInfo, Column, FinalState, Instance } from 'react-table';
+import { css } from '@emotion/core';
 
 import 'react-table/react-table.css';
 import { colors, SubcategoryNode } from '../../shared';
 import { columns } from './';
+import { mq } from '../layout';
+import styled from '@emotion/styled';
 
 interface ToolsTableProps {
   items: SubcategoryNode[];
 }
 
+const style = mq({
+    marginBottom: '100px',
+    overflowX: 'scroll',
+    marginLeft: ['-8%', '-8%', '-8%', '-8%', '0'],
+    marginRight: ['-8%', '-8%', '-8%', '-8%', '0'],
+  });
+
 export const ToolsTable = ({ items }: ToolsTableProps) => {
   // console.log(items)
   return (
-    <ReactTable
+    <StyledTable
       data={items}
-      style={{marginBottom: '100px'}}
       resizable={false}
       showPagination={false}
       defaultPageSize={items.length}
@@ -23,6 +32,7 @@ export const ToolsTable = ({ items }: ToolsTableProps) => {
       // tslint:disable-next-line: jsx-no-lambda
       resolveData={data => data.map((node: any) => node.node)}
       columns={columns}
+      getTableProps={Table}
       getTheadProps={TableHead}
       getTheadTrProps={TableHeadRow}
       getTheadThProps={TableHeadCell}
@@ -31,6 +41,25 @@ export const ToolsTable = ({ items }: ToolsTableProps) => {
       getTdProps={TableBodyCell}
     />
   );
+};
+
+const StyledTable = styled(ReactTable)`
+  &&& {
+    margin-bottom: 100px;
+    overflow-x: scroll;
+    ${mq({
+      marginLeft: ['5%', '0', '-8%', '-8%', '-8%'],
+      marginRight: ['5%', '0', '-8%', '-8%', '-8%'],
+    })}
+  }
+`;
+
+const Table = () => {
+  return {
+    style: {
+      minWidth: '1400px',
+    },
+  };
 };
 
 /**

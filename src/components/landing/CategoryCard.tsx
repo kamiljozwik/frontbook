@@ -6,6 +6,7 @@ import numeral from 'numeral';
 
 import { categoriesNames, CategoriesCodes, SubcategoryNode, colors, ListItem, ToolIcon } from '../../shared';
 import { Placeholder } from '../SVG';
+import { mq } from '../layout';
 
 interface CategorySegmentProps {
   code: CategoriesCodes;
@@ -49,7 +50,7 @@ const TopsToolsList = ({ tops, type }: TopsToolsProps) => {
       {
         type === 'npm'
           ? <Header>Top weekly downloads:</Header>
-          : <Header>Top starred:</Header>
+          : <Header>Top starred repositories:</Header>
       }
       <List>
         {tops.map(top => <TopsTool key={top.node.name} tool={top.node} type={type} />)}
@@ -61,18 +62,20 @@ const TopsToolsList = ({ tops, type }: TopsToolsProps) => {
 export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegmentProps) => (
   <CardWrapper columns={2}>
     <Grid.Column>
-      <ToolName as={Link} to={`/${code}/`} size="huge">
-        {categoriesNames[code].name}
-        <CountLabel basic as={Link} to={`/${code}/`}>
-          Tools:
-          <Label.Detail>{count}</Label.Detail>
-        </CountLabel>
-      </ToolName>
+      <CardHeader to={`/${code}/`}>
+        <ToolName size="huge">
+          {categoriesNames[code].name}
+          <CountLabel basic>
+            Tools:
+            <Label.Detail>{count}</Label.Detail>
+          </CountLabel>
+        </ToolName>
+      </CardHeader>
       <Description>{categoriesNames[code].info}</Description>
       {githubTops && (
         <TopsToolsWrapper horizontal>
-          <Segment basic style={{width: '50%'}}>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</Segment>
-          <Segment basic style={{width: '50%'}}> {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}</Segment>
+          <TopsToolSegment basic>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</TopsToolSegment>
+          <TopsToolSegment basic> {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}</TopsToolSegment>
         </TopsToolsWrapper>
       )}
       </Grid.Column>
@@ -85,9 +88,21 @@ export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegme
 const CardWrapper = styled(Grid.Row)`
   &&& {
     position: relative;
-    width: 65vw !important;
     min-height: 250px;
+    width: 90% !important;
+    ${mq({
+      'flexDirection': ['column', 'column', 'column', 'row', 'row'],
+      '&&& .column': {
+        width: ['100% !important', '100% !important', '100% !important', '50% !important', '50% !important'],
+      }
+      })}
   }
+`;
+
+const CardHeader = styled(Link)`
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
 
 const ToolName = styled(Header)`
@@ -110,9 +125,16 @@ const TopsToolsWrapper = styled(Segment.Group)`
   &&&& {
     border: none;
     box-shadow: none;
-    .segment {
-      border: none;
-    }
+  }
+`;
+
+const TopsToolSegment = styled(Segment)`
+  &&&& {
+    width: 50%;
+    border: none;
+    ${mq({
+      padding: ['0', '1em 1em', '1em 1em', '1em 1em', '1em 1em'],
+    })}
   }
 `;
 
@@ -138,6 +160,12 @@ const TopsToolDescription = styled.span`
     font-size: 12px;
     margin-left: 10px;
     position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    ${mq({
+      display: ['none', 'initial', 'initial', 'initial', 'initial'],
+    })}
 `;
 
 const ImageColumn = styled(Grid.Column)`

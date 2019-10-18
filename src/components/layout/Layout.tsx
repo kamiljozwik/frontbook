@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { LandingHeader, CategoryHeader } from './';
 import TopBar from './TopBar';
 import { colors, CategoriesCodes } from '../../shared';
+import { mq } from '../layout';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
@@ -42,6 +43,7 @@ export const Layout = ({ children, category, subcategory, color = '#D1BF20', cou
 
 const PageContentWrapper = styled('div')`
   margin: 0 auto;
-  width: 80vw;
-  min-width: 1400px;
+  ${mq({
+    width: ['100%', '90%', '80%', '80%', '80%'],
+  })}
 `;

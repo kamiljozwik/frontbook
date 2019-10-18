@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { Header } from 'semantic-ui-react';
 
 import { LandingWave } from '../SVG';
+import { mq } from '../layout';
 
 interface LayoutProps {
   total: number;
@@ -40,17 +41,21 @@ const HeaderWrapper = styled.div`
 const HeaderTite = styled.div`
   font-weight: 700;
   color: white;
-  font-size: 3.2vw;
-  width: 50%;
   line-height: 100%;
   margin-bottom: 20px;
+  ${mq({
+    fontSize: ['5vw', '5vw', '5vw', '5vw', '3.2vw'],
+    width: ['100%', '100%', '100%', '100%', '50%'],
+  })}
 `;
 const HeaderSubTite = styled.div`
   font-weight: 300;
   color: white;
-  font-size: 1.4vw;
-  width: 50%;
   line-height: 120%;
+  ${mq({
+    fontSize: ['3vw', '3vw', '3vw', '3vw', '1.4vw'],
+    width: ['100%', '100%', '100%', '100%', '50%'],
+  })}
 `;
 
 const PositionHelper = styled.div`

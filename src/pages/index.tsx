@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Segment, Grid } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
+import styled from '@emotion/styled';
 
 import { Layout, CategoryCard } from '../components';
 import { SEO } from '../components/helpers';
@@ -20,7 +21,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
     <Layout count={data.allTools.totalCount}>
       <SEO title="Home" />
       {/* {data.stars_query.edges.map(node => `${node.node.name}: ${node.node.fields.githubData!.stars}`)}; */}
-      <Grid divided="vertically" centered>
+      <StyledGrid divided="vertically" centered>
         {
           activeCategories.map(category => (
             <CategoryCard
@@ -32,10 +33,17 @@ const IndexPage = ({ data }: IndexPageProps) => {
             />
           ))
         }
-      </Grid>
+      </StyledGrid>
     </Layout>
   );
 };
+
+const StyledGrid = styled(Grid)`
+  &&& {
+    flex-direction: column;
+    align-items: center;
+  }
+`;
 
 export const query = graphql`
 query indexQuery {
