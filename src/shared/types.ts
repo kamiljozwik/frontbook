@@ -31,6 +31,7 @@ export type Subcategory =
 
 export interface ListItem {
   name: string;
+  subcategory: string;
   slogan: {
     slogan: string
   };

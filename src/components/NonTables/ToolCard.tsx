@@ -32,7 +32,7 @@ const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
   );
 };
 
-const ToolCard = ({ toolData }: ToolCardProps) => {
+export const ToolCard = ({ toolData }: ToolCardProps) => {
   return (
     <StyledCard>
       <Card.Content>

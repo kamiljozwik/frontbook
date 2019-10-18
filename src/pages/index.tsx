@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Grid } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
-import { Layout, CategoryCard } from '../components';
+import { Layout, CategoryCard, Searcher } from '../components';
 import { SEO } from '../components/helpers';
 import { CategoriesCodes, activeCategories, SubcategoryNode } from '../shared';
 
@@ -21,6 +21,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
     <Layout count={data.allTools.totalCount}>
       <SEO title="Home" />
       {/* {data.stars_query.edges.map(node => `${node.node.name}: ${node.node.fields.githubData!.stars}`)}; */}
+      <Searcher allTools={data.allTools.edges} />
       <StyledGrid divided="vertically" centered>
         {
           activeCategories.map(category => (
@@ -38,6 +39,8 @@ const IndexPage = ({ data }: IndexPageProps) => {
   );
 };
 
+export default IndexPage;
+
 const StyledGrid = styled(Grid)`
   &&& {
     flex-direction: column;
@@ -49,6 +52,24 @@ export const query = graphql`
 query indexQuery {
   allTools: allContentfulToolEntry {
     totalCount
+    edges {
+      node {
+        name
+        slogan {
+          slogan
+        }
+        subcategory
+        website
+        fields {
+          githubData {
+            stars
+          }
+          npmData {
+            downloads
+          }
+        }
+      }
+    }
   }
   stars_query: allContentfulToolEntry(sort: {fields: fields___githubData___stars, order: DESC}, limit: 5, filter: {fields: {githubData: {stars: {gt: 0}}}}) {
     edges {
@@ -127,5 +148,3 @@ query indexQuery {
   }
 }
 `;
-
-export default IndexPage;
