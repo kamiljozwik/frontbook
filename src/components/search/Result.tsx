@@ -3,9 +3,21 @@ import _ from 'lodash';
 import styled from '@emotion/styled';
 import numeral from 'numeral';
 import { Link } from 'gatsby';
-import { Header, Card, Label, Icon } from 'semantic-ui-react';
+import { Card, Label, Icon, SearchResultProps } from 'semantic-ui-react';
 
 import { colors, ToolIcon } from '../../shared';
+
+export interface ResultsProps extends SearchResultProps {
+  title: string;
+  description: string;
+  subcategory: string;
+  stars?: number;
+  downloads?: number;
+}
+interface ExtraDataProps {
+  githubStars?: number;
+  npmDownloads?: number;
+}
 
 const parseSubcategory = (subcat: string) => {
   const category = subcat.split('_')[0];
@@ -14,45 +26,53 @@ const parseSubcategory = (subcat: string) => {
   return subcategory === 'empty' ? `/${category}/` : `/${category}/${subcategory}`;
 };
 
-interface ExtraDataProps {
-  githubStars?: number;
-  npmDownloads?: number;
-}
+const NoData = () => <span style={{color: 'grey'}}>no data</span>;
 
 const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
   return (
     <Label.Group size="tiny">
-      {githubStars && <Label basic>
-        <Icon name="star" /> {numeral(githubStars).format('0,0')}
-      </Label>}
-      {npmDownloads && <Label basic>
-        <Icon name="download" /> {numeral(npmDownloads).format('0,0')}
-      </Label>}
+      <Label basic>
+        <Icon name="star" color={githubStars ? undefined : 'grey'}/>
+        {githubStars ? ` ${numeral(githubStars).format('0,0')}` : <NoData/>}
+      </Label>
+      <Label basic>
+        <Icon name="download" color={npmDownloads ? undefined : 'grey'} />
+        {npmDownloads ? ` ${numeral(npmDownloads).format('0,0')}` : <NoData/>}
+      </Label>
     </Label.Group>
   );
 };
 
-export const Result = ({ node }: any) => (
-  <Card>
+export const Result = (props: any) => (
+  <StyledCard fluid>
     <Card.Content>
       <Card.Header>
-        <CardHeader to={parseSubcategory(node.subcategory)}>
-          {node.name}
+        <CardHeader to={parseSubcategory(props.subcategory)}>
+          {props.title}
           {/* <ToolIcon url={node.website} style={{height: '16px'}} /> */}
         </CardHeader>
+        <Card.Meta>
+        <ExtraData
+          githubStars={props.stars}
+          npmDownloads={props.downloads}
+        />
+      </Card.Meta>
       </Card.Header>
-      <Card.Description>
-        {node.slogan.slogan}
+      <Card.Description style={{fontSize: '16px'}}>
+        {props.description}
       </Card.Description>
     </Card.Content>
-    <Card.Content extra>
-      <ExtraData
-        githubStars={node.fields.githubData && node.fields.githubData.stars}
-        npmDownloads={node.fields.npmData && node.fields.npmData.downloads}
-      />
-    </Card.Content>
-  </Card>
+  </StyledCard>
 );
+
+const StyledCard = styled(Card)`
+  &&& {
+    border-radius: 0;
+    &:hover {
+      background: ${colors.grey};
+    }
+  }
+`;
 
 const CardHeader = styled(Link)`
     color: ${colors.black};
