@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
-import { Search, Grid, Segment, Header } from 'semantic-ui-react';
+import { Search, Segment, Header } from 'semantic-ui-react';
 
 import { SubcategoryNode } from '../../shared/types';
 import { Result, ResultsProps } from './';
@@ -22,6 +22,7 @@ export const Searcher = ({ allTools }: SearcherProps) => {
       return {
         title: res.node.name,
         description: res.node.slogan.slogan,
+        website: res.node.website,
         subcategory: res.node.subcategory,
         stars: res.node.fields.githubData ? res.node.fields.githubData.stars : undefined,
         downloads: res.node.fields.npmData ? res.node.fields.npmData.downloads : undefined,

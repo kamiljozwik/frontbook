@@ -10,6 +10,7 @@ import { colors, ToolIcon } from '../../shared';
 export interface ResultsProps extends SearchResultProps {
   title: string;
   description: string;
+  website?: string;
   subcategory: string;
   stars?: number;
   downloads?: number;
@@ -49,7 +50,7 @@ export const Result = (props: any) => (
       <Card.Header>
         <CardHeader to={parseSubcategory(props.subcategory)}>
           {props.title}
-          {/* <ToolIcon url={node.website} style={{height: '16px'}} /> */}
+          <ToolIcon url={props.website} style={{width: '16px', height: 'auto'}} />
         </CardHeader>
         <Card.Meta>
         <ExtraData

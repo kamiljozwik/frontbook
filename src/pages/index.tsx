@@ -50,7 +50,7 @@ const StyledGrid = styled(Grid)`
 
 export const query = graphql`
 query indexQuery {
-  allTools: allContentfulToolEntry {
+  allTools: allContentfulToolEntry(sort: {fields: fields___githubData___stars, order: DESC}) {
     totalCount
     edges {
       node {
