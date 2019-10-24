@@ -26,7 +26,7 @@ const OtherSubcategories = ({ subcategories, activeSubcategory }: OtherSubcatego
         <SubcategoryLabel
           key={el}
           basic
-          isActive={el.split('_')[1] === activeSubcategory}
+          isactive={el.split('_')[1] === activeSubcategory}
           as={Link}
           to={`/${el.replace('_', '/')}`}
         >
@@ -86,7 +86,7 @@ const CategoryLink = styled(Link)`
 const SubcategoryLabel = styled(Label)`
   &&& {
     transition: 0.1s;
-    opacity: ${props => props.isActive ? 0.8 : 0.5};
+    opacity: ${props => props.isactive ? 0.8 : 0.5};
     &&:hover {
       transition: 0.1s;
       opacity: 0.8;

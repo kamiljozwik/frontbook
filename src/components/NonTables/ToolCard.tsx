@@ -63,7 +63,6 @@ export const CardGroup = ({ items }: ToolsTableProps) => {
   return (
     <Card.Group centered style={{marginBottom: '100px'}}>
       {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
-      {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
     </Card.Group>
   );
 };

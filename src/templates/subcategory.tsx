@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout } from '../components';
+import { Layout, Links } from '../components';
 import { ToolsTable } from '../components/Tables';
 import { CardGroup } from '../components/NonTables';
 import { categoriesNames, nonTableSubcategories } from '../shared';
@@ -16,6 +16,7 @@ export default ({ data, pageContext }: SubcategoryProps) => {
       {nonTableSubcategories.includes(pageContext.subcategory)
         ? <CardGroup items={data.subcategory.edges} />
         : <ToolsTable items={data.subcategory.edges} />}
+        {data.links.edges.length > 0 && <Links links={data.links.edges} />}
     </Layout>
   );
 };
@@ -31,6 +32,14 @@ export const query = graphql`
     }
     subcategories: allContentfulToolEntry {
       distinct(field: subcategory)
+    }
+    links: allContentfulLinksEntry(filter: {subcategory: {eq: $subcategory}}) {
+      edges {
+        node {
+          title
+          url
+        }
+      }
     }
   }
 `;

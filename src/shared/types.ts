@@ -67,6 +67,13 @@ export interface SubcategoryNode {
   node: ListItem;
 }
 
+export interface LinkEntry {
+  node: {
+    title: string;
+    url: string;
+  };
+}
+
 export interface SubcategoryProps {
   data: {
     subcategory: {
@@ -74,6 +81,9 @@ export interface SubcategoryProps {
     };
     subcategories: {
       distinct: string[];
+    };
+    links: {
+      edges: LinkEntry[];
     }
   };
   pageContext: {
