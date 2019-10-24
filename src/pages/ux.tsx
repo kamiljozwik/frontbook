@@ -6,7 +6,7 @@ import { SEO } from '../components/helpers';
 import { categoriesNames, CategoryPage } from '../shared';
 
 const UXPage = ({ data }: CategoryPage) => (
-  <Layout category="ux" color={categoriesNames.ux.color}>
+  <Layout category="ux" subcategories={data.allContentfulToolEntry.distinct} color={categoriesNames.ux.color}>
     <SEO title={categoriesNames.ux.name} />
     <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
   </Layout>

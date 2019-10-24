@@ -13,12 +13,13 @@ import './custom_styles.css';
 interface LayoutProps {
   children: ReactNode;
   category?: CategoriesCodes;
+  subcategories?: string[];
   subcategory?: string;
   color?: string;
   count?: number;
 }
 
-export const Layout = ({ children, category, subcategory, color = '#D1BF20', count = -1 }: LayoutProps) => {
+export const Layout = ({ children, category, subcategories, subcategory, color = '#D1BF20', count = -1 }: LayoutProps) => {
   useEffect(() => {
     // TODO: make it better. Now it jumps...
     document.body.scrollTop = 0;
@@ -26,7 +27,7 @@ export const Layout = ({ children, category, subcategory, color = '#D1BF20', cou
   return (
     <>
       <TopBar />
-      {category ? <CategoryHeader category={category!} subcategory={subcategory} color={color}/> : <LandingHeader total={count} />}
+      {category ? <CategoryHeader category={category!} subcategory={subcategory} subcategories={subcategories} color={color}/> : <LandingHeader total={count} />}
       <PageContentWrapper>
         <Global
           styles={css`

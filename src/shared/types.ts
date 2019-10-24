@@ -69,8 +69,11 @@ export interface SubcategoryNode {
 
 export interface SubcategoryProps {
   data: {
-    allContentfulToolEntry: {
+    subcategory: {
       edges: SubcategoryNode[]
+    };
+    subcategories: {
+      distinct: string[];
     }
   };
   pageContext: {
