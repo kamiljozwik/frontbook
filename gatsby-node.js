@@ -19,7 +19,7 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
   const { createNode, createNodeField } = actions;
 
   /**
-   * Fetch additional data from Github and NPM for tools
+   * Fetch additional data from Github, NPM and Bundlephobia for tools.
    */
   switch (node.internal.type) {
     case 'ContentfulToolEntry': {
@@ -95,6 +95,35 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
         node,
         name: 'npmData',
         value: npmData,
+      })
+
+      /**
+       * Add field with Bundlephobia Data to tool's Node
+       */
+      
+      async function getBundlephobiaData(package) {
+        const packageName = package.toLowerCase();
+        try {
+          const response = await axios.get(`https://bundlephobia.com/api/size?package=${packageName}`);
+          return response && response.data;
+        } catch(error) {
+          console.log('Cannot get data from budlephobia for: ', packageName);
+          return null;
+        }
+      }
+
+      const bundlephobiaData = await ( repoMeta ? getBundlephobiaData(repoMeta.name) : null);
+
+      const selectedBundlephobiaData = bundlephobiaData && {
+        size: bundlephobiaData.size,
+        gzip: bundlephobiaData.gzip,
+        dependencyCount: bundlephobiaData.dependencyCount,
+      };
+
+      createNodeField({
+        node,
+        name: 'bundlephobiaData',
+        value: selectedBundlephobiaData,
       })
 
       /**

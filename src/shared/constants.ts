@@ -3,6 +3,7 @@
 const js_animations = 'JS Animation Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_authorization = 'JS Authorization Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_cheatsheets = 'JS Cheatsheets Holisticly procrastinate resource-leveling systems and accurate inocess-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
+const js_css_in_js = 'JS CSS IN JS Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_data_layer = 'JS Data Layer Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_data_visualization = 'JS Data Visualization Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_extensions = 'JS Extensions Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
@@ -18,7 +19,6 @@ const js_utils = 'JS Utils Holisticly procrastinate resource-leveling systems an
 
 const css_animations = 'CSS Animation Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const css_cheatsheets = 'CSS Cheatsheets Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
-const css_css_in_js = 'CSS CSS IN JS Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const css_frameworks = 'CSS Frameworks Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const css_processors = 'CSS Procesors Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const css_utils = 'CSS Utils Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
@@ -35,6 +35,7 @@ export const subcategoriesInfo = {
   js_animations,
   js_authorization,
   js_cheatsheets,
+  'js_css-in-js': js_css_in_js,
   'js_data-visualization': js_data_visualization,
   'js_data-layer': js_data_layer,
   js_extensions,
@@ -49,7 +50,6 @@ export const subcategoriesInfo = {
   js_utils,
   css_animations,
   css_cheatsheets,
-  'css_css-in-js': css_css_in_js,
   css_frameworks,
   css_processors,
   css_utils,
@@ -71,6 +71,7 @@ export const categoriesNames = {
       animation: 'Animation',
       authorization: 'Authorization',
       cheatsheets: 'Cheatsheets',
+      css_in_js: 'CSS in JS',
       data_layer: 'Data layer',
       data_visualization: 'Data visualization',
       extensions: 'Extensions',
@@ -92,7 +93,6 @@ export const categoriesNames = {
     subcategories: {
       animations: 'Animations',
       cheatsheets: 'Cheatsheets',
-      css_in_js: 'CSS in JS',
       frameworks: 'Frameworks',
       processors: 'Procesors',
       utils: 'Utilities',
