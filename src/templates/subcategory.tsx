@@ -11,12 +11,12 @@ export default ({ data, pageContext }: SubcategoryProps) => {
   const category = pageContext.subcategory.split('_')[0] as CategoriesCodes;
   const subcategory = pageContext.subcategory.split('_')[1];
   const subcategories = data.subcategories.distinct.filter(el => el.split('_')[0] === category);
+  const links = data.links.edges;
   return (
     <Layout category={category} subcategory={subcategory} subcategories={subcategories} color={categoriesNames[category].color}>
       {nonTableSubcategories.includes(pageContext.subcategory)
-        ? <CardGroup items={data.subcategory.edges} />
-        : <ToolsTable items={data.subcategory.edges} />}
-        {data.links.edges.length > 0 && <Links links={data.links.edges} />}
+        ? <CardGroup items={data.subcategory.edges} links={links} />
+        : <ToolsTable items={data.subcategory.edges} links={links} />}
     </Layout>
   );
 };

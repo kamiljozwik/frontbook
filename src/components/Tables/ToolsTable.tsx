@@ -3,25 +3,21 @@ import ReactTable, { RowInfo, Column, FinalState, Instance } from 'react-table';
 import { css } from '@emotion/core';
 
 import 'react-table/react-table.css';
-import { colors, SubcategoryNode } from '../../shared';
+import { colors, SubcategoryNode, LinkEntry } from '../../shared';
 import { columns } from './';
 import { mq } from '../layout';
 import styled from '@emotion/styled';
+import { Links } from '../';
 
 interface ToolsTableProps {
   items: SubcategoryNode[];
+  links: LinkEntry[];
 }
 
-const style = mq({
-    marginBottom: '100px',
-    overflowX: 'scroll',
-    marginLeft: ['-8%', '-8%', '-8%', '-8%', '0'],
-    marginRight: ['-8%', '-8%', '-8%', '-8%', '0'],
-  });
-
-export const ToolsTable = ({ items }: ToolsTableProps) => {
+export const ToolsTable = ({ items, links }: ToolsTableProps) => {
   // console.log(items)
   return (
+    <>
     <StyledTable
       data={items}
       resizable={false}
@@ -40,6 +36,8 @@ export const ToolsTable = ({ items }: ToolsTableProps) => {
       getTrProps={TableBodyRow}
       getTdProps={TableBodyCell}
     />
+    {links.length > 0 && <Links links={links} />}
+    </>
   );
 };
 

@@ -93,8 +93,11 @@ export interface SubcategoryProps {
 
 export interface CategoryPageNoSubcategories {
   data: {
-    allContentfulToolEntry: {
+    items: {
       edges: SubcategoryNode[]
+    };
+    links: {
+      edges: LinkEntry[];
     }
   };
 }

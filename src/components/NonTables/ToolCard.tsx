@@ -3,11 +3,13 @@ import { Card, Label, Icon } from 'semantic-ui-react';
 import numeral from 'numeral';
 import styled from '@emotion/styled';
 
-import { ToolIcon, SubcategoryNode, colors } from '../../shared';
+import { ToolIcon, SubcategoryNode, colors, LinkEntry } from '../../shared';
 import { mq } from '../layout';
+import { Links } from '..';
 
 interface ToolsTableProps {
   items: SubcategoryNode[];
+  links: LinkEntry[];
 }
 
 interface ToolCardProps {
@@ -32,7 +34,7 @@ const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
   );
 };
 
-export const ToolCard = ({ toolData }: ToolCardProps) => {
+const ToolCard = ({ toolData }: ToolCardProps) => {
   return (
     <StyledCard>
       <Card.Content>
@@ -59,11 +61,14 @@ export const ToolCard = ({ toolData }: ToolCardProps) => {
   );
 };
 
-export const CardGroup = ({ items }: ToolsTableProps) => {
+export const CardGroup = ({ items, links }: ToolsTableProps) => {
   return (
-    <Card.Group centered style={{marginBottom: '100px'}}>
-      {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
-    </Card.Group>
+    <>
+      <Card.Group centered style={{marginBottom: '100px'}}>
+        {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
+      </Card.Group>
+      {links.length > 0 && <Links links={links} />}
+    </>
   );
 };
 
