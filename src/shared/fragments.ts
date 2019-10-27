@@ -13,6 +13,11 @@ export const toolDataFragment = graphql`
       npmData {
         downloads
       }
+      bundlephobiaData {
+        size
+        gzip
+        dependencyCount
+      }
       githubData {
         stars
         repository {

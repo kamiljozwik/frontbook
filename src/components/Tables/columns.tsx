@@ -4,7 +4,7 @@ import numeral from 'numeral';
 
 import { TableHeader } from './components/header';
 import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/filters';
-import { LastActive, WebsiteLink, License, ToolName } from './components/cells';
+import { LastActive, WebsiteLink, License, ToolName, Size } from './components/cells';
 import { ToolIcon } from '../../shared';
 
 /**
@@ -17,6 +17,18 @@ const sortNumbers = (a: string | number, b: string | number) => {
   a = a === null || a === undefined ? -Infinity : a;
   b = b === null || b === undefined ? -Infinity : b;
   // Return either 1 or -1 to indicate a sort priority
+  if (a > b) {
+    return 1;
+  }
+  if (a < b) {
+    return -1;
+  }
+  return 0;
+};
+
+const sortSize = (a: any, b: any) => {
+  a = a.props.bundlephobiaData ? a.props.bundlephobiaData.size : -Infinity;
+  b = b.props.bundlephobiaData ? b.props.bundlephobiaData.size : -Infinity;
   if (a > b) {
     return 1;
   }
@@ -40,7 +52,8 @@ const filterFramework: DefaultFilterFunction = (filter, row) => {
     );
 };
 const filterSlogan: DefaultFilterFunction = (filter, row) => row['slogan.slogan'].toLowerCase().includes(filter.value.toLowerCase());
-const filterSize: DefaultFilterFunction = (filter, row) => numeral(row['github-diskUsage']).value() <= parseInt(filter.value, 10);
+const filterSize: DefaultFilterFunction =
+  (filter, row) => row['bundlephobia-size'].props.bundlephobiaData ? row['bundlephobia-size'].props.bundlephobiaData.size <= parseInt(filter.value, 10) * 1024 : true;
 const filterStars: DefaultFilterFunction = (filter, row) => numeral(row['github-stars']).value() >= parseInt(filter.value, 10);
 const filterDownloads: DefaultFilterFunction = (filter, row) => numeral(row['npm-weekly-downloads']).value() >= parseInt(filter.value, 10);
 const filterIssues: DefaultFilterFunction = (filter, row) => numeral(row['github-issues']).value() <= parseInt(filter.value, 10);
@@ -71,7 +84,7 @@ export const columns: Column[] = [
   },
   {
     id: 'tool-name',
-    Header: () => <TableHeader content="Name / framework" />,
+    Header: () => <TableHeader content="Name / framework" title="Tool's name and compatible framework" />,
     accessor: d => <ToolName name={d.name} githubURL={d.github} npmURL={d.npm} websiteURL={d.website} />,
     filterMethod: filterName,
     Filter: ({ filter = {}, onChange }) => <FilterInput width="60%" label="includes:" onChange={event => onChange(event.target.value)} />,
@@ -88,7 +101,7 @@ export const columns: Column[] = [
     sortable: false,
   },
   {
-    Header: () => <TableHeader content="Info" icon="star" />,
+    Header: () => <TableHeader content="Info" icon="star" title="Tool's short description" />,
     accessor: 'slogan.slogan',
     filterMethod: filterSlogan,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="includes:" width="90%" onChange={event => onChange(event.target.value)} />,
@@ -96,16 +109,16 @@ export const columns: Column[] = [
     sortable: false,
   },
   {
-    id: 'github-diskUsage',
-    Header: () => <TableHeader content="Size [kB]" icon="hdd outline" />,
-    accessor: d => d.fields.githubData ? numeral(d.fields.githubData.repository.diskUsage).format('0,0') : <Label color={undefined}>unknown</Label>,
+    id: 'bundlephobia-size',
+    Header: () => <TableHeader content="Minified / gzip" icon="hdd outline" title="Package size according to bundlephobia.com" />,
+    accessor: d => <Size bundlephobiaData={d.fields.bundlephobiaData} />,
     filterMethod: filterSize,
-    Filter: ({ filter = {}, onChange }) => <FilterInput label="max:" onChange={event => onChange(event.target.value)} />,
-    sortMethod: sortNumbers,
+    Filter: ({ filter = {}, onChange }) => <FilterInput label="max:" tail="kB" onChange={event => onChange(event.target.value)} />,
+    sortMethod: sortSize,
   },
   {
     id: 'github-stars',
-    Header: () => <TableHeader content="Stars" icon="star" />,
+    Header: () => <TableHeader content="Stars" icon="star" title="Github stars" />,
     accessor: d => d.fields.githubData ?  numeral(d.fields.githubData.repository.stargazers.totalCount).format('0,0') : <Label color={undefined}>unknown</Label>,
     filterMethod: filterStars,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
@@ -113,7 +126,7 @@ export const columns: Column[] = [
   },
   {
     id: 'npm-weekly-downloads',
-    Header: () => <TableHeader content="Downloads" icon="npm" />,
+    Header: () => <TableHeader content="Downloads" icon="npm" title="NPM weekly downloads" />,
     accessor: d => d.fields.npmData ? numeral(d.fields.npmData.downloads).format('0,0') : <Label color={undefined}>unknown</Label>,
     filterMethod: filterDownloads,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
@@ -121,7 +134,7 @@ export const columns: Column[] = [
   },
   {
     id: 'github-issues',
-    Header: () => <TableHeader content="Issues" icon="exclamation circle" />,
+    Header: () => <TableHeader content="Issues" icon="exclamation circle" title="Github issues" />,
     accessor: d => d.fields.githubData ? numeral(d.fields.githubData.repository.issues.totalCount).format('0,0') : <Label color={undefined}>unknown</Label>,
     filterMethod: filterIssues,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="max:" onChange={event => onChange(event.target.value)} />,
@@ -129,7 +142,7 @@ export const columns: Column[] = [
   },
   {
     id: 'github-license',
-    Header: () => <TableHeader content="License" icon="copyright outline" />,
+    Header: () => <TableHeader content="License" icon="copyright outline" title="Package license" />,
     accessor: d => <License githubData={d.fields.githubData} />,
     filterMethod: filterLicence,
     Filter: ({ filter = {}, onChange }) => <LicenseDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} />,
@@ -137,14 +150,14 @@ export const columns: Column[] = [
   },
   {
     id: 'github-lastActive',
-    Header: () => <TableHeader content="Last active" icon="clock outline" />,
+    Header: () => <TableHeader content="Last active" icon="clock outline" title="Last activity on repository" />,
     accessor: LastActive,
     filterable: false,
     sortable: false,
   },
   {
     id: 'website',
-    Header: () => <TableHeader content="URL" icon="globe" />,
+    Header: () => <TableHeader content="URL" icon="globe" title="Tool's website" />,
     accessor: d => <WebsiteLink url={d.website} />,
     filterable: false,
     width: 80,

@@ -60,6 +60,11 @@ export interface ListItem {
     npmData?: {
       downloads: number;
     };
+    bundlephobiaData?: {
+      size: number,
+      gzip: number,
+      dependencyCount: number,
+    }
   };
 }
 
