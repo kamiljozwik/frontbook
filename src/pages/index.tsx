@@ -97,6 +97,20 @@ query indexQuery {
       }
     }
   }
+  jam_npm_tops: allContentfulToolEntry(filter: {category: {eq: "jam"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
+    edges {
+      node {
+        ...CategoryTopsFragment
+      }
+    }
+  }
+  jam_github_tops: allContentfulToolEntry(filter: {category: {eq: "jam"}, fields: {githubData: {stars: {gt: 0}}}}, sort: {fields: fields___githubData___stars, order: DESC}, limit: 5) {
+    edges {
+      node {
+        ...CategoryTopsFragment
+      }
+    }
+  }
   css_npm_tops: allContentfulToolEntry(filter: {category: {eq: "css"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
     edges {
       node {
@@ -126,6 +140,9 @@ query indexQuery {
     }
   }
   js: allContentfulToolEntry(filter: {category: {eq: "js"}}) {
+    totalCount
+  }
+  jam: allContentfulToolEntry(filter: {category: {eq: "jam"}}) {
     totalCount
   }
   css: allContentfulToolEntry(filter: {category: {eq: "css"}}) {

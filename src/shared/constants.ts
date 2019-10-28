@@ -17,6 +17,11 @@ const js_tests = 'JS Tests Holisticly procrastinate resource-leveling systems an
 const js_translations = 'JS Translations Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_utils = 'JS Utils Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 
+const jam_cms = 'JAM CMS Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
+const jam_hosting = 'JAM hosting Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
+const jam_media = 'JAM media Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
+const jam_ssg = 'JAM ssg Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
+
 const css_animations = 'CSS Animation Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const css_cheatsheets = 'CSS Cheatsheets Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const css_frameworks = 'CSS Frameworks Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
@@ -48,6 +53,10 @@ export const subcategoriesInfo = {
   js_tests,
   js_translations,
   js_utils,
+  jam_cms,
+  jam_hosting,
+  jam_media,
+  jam_ssg,
   css_animations,
   css_cheatsheets,
   css_frameworks,
@@ -84,6 +93,17 @@ export const categoriesNames = {
       tests: 'Tests',
       translations: 'Translations',
       utils: 'Utilities',
+    },
+  },
+  jam: {
+    name: 'JAM',
+    info: 'JAM Stack info enthus integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base bricks-and-clicks. ',
+    color: '#00C7B7',
+    subcategories: {
+      jam_cms: 'CMS',
+      jam_hosting: 'Hosting',
+      jam_media: 'Media',
+      jam_ssg: 'Static Site Generators',
     },
   },
   css: {
@@ -154,5 +174,5 @@ export const categoriesNames = {
   },
 };
 
-export const activeCategories = ['js', 'css', 'build', 'seo', 'monitor', 'ux', 'utils'];
-export const nonTableSubcategories = ['js_cheatsheets', 'css_cheatsheets', 'ux_colors', 'ux_design', 'ux_fonts', 'ux_graphics', 'ux_icons', 'ux_inspirations', 'ux_logos'];
+export const activeCategories = ['js', 'css', 'jam', 'build', 'seo', 'monitor', 'ux', 'utils'];
+export const nonTableSubcategories = ['js_cheatsheets', 'jam_cms', 'jam_hosting', 'jam_media', 'css_cheatsheets', 'ux_colors', 'ux_design', 'ux_fonts', 'ux_graphics', 'ux_icons', 'ux_inspirations', 'ux_logos'];
