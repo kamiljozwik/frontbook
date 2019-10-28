@@ -43,13 +43,19 @@ const sortSize = (a: any, b: any) => {
  */
 const filterName: DefaultFilterFunction = (filter, row) => row['tool-name'].props.name.toLowerCase().includes(filter.value.toLowerCase());
 const filterFramework: DefaultFilterFunction = (filter, row) => {
-  return filter.value === 'all'
-    ? true
-    : (
-      filter.value === 'react'
-        ? row['tool-framework'] && row['tool-framework'].props.children === 'React'
-        : !row['tool-framework'].props
+  const { name, slogan } = row['tool-framework'].props;
+  if (filter.value === 'all') {
+    return true;
+  }
+  if (filter.value === 'vanilla') {
+    return !(
+      name.includes('react')
+      || slogan.includes('react')
+      || name.includes('vue')
+      || slogan.includes('vue')
     );
+  }
+  return name.includes(filter.value) || slogan.includes(filter.value);
 };
 const filterSlogan: DefaultFilterFunction = (filter, row) => row['slogan.slogan'].toLowerCase().includes(filter.value.toLowerCase());
 const filterSize: DefaultFilterFunction =
@@ -94,8 +100,7 @@ export const columns: Column[] = [
   {
     id: 'tool-framework',
     Header: () => <TableHeader />,
-    // accessor: d => (d.name && d.name.includes('React')) || (d.slogan && d.slogan.slogan.includes('React')) ? <Label size="mini" basic>React</Label> : '',
-    accessor: d => <FrameworkLabel name={d.name} slogan={d.slogan} />,
+    accessor: d => <FrameworkLabel name={d.name.toLowerCase()} slogan={d.slogan.slogan.toLowerCase()} />,
     filterMethod: filterFramework,
     Filter: ({ filter = {}, onChange }) => <FrameworkDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} style={{left: '-25px'}} />,
     minWidth: 60,

@@ -1,19 +1,16 @@
 import React from 'react';
-import { Label, Icon } from 'semantic-ui-react';
-import numeral from 'numeral';
-import styled from '@emotion/styled';
+import { Label } from 'semantic-ui-react';
 
 interface FrameworkLabelProps {
   name: string;
-  slogan: {
-    slogan: string
-  };
+  slogan: string;
 }
 
 export const FrameworkLabel = ({ name, slogan }: FrameworkLabelProps) => {
   return (
   <>
-    {(name && name.includes('React')) || (slogan && slogan.slogan.includes('React')) ? <Label size="mini" basic>React</Label> : ''}
+    {(name.includes('react')) || (slogan && slogan.includes('react')) ? <Label size="mini" basic>React</Label> : ''}
+    {(name && name.includes('vue')) || (slogan && slogan.includes('vue')) ? <Label size="mini" basic>Vue</Label> : ''}
   </>
   );
 };

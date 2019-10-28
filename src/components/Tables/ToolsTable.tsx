@@ -49,9 +49,15 @@ const StyledTable = styled(ReactTable)`
       marginLeft: ['5%', '0', '-8%', '-8%', '-8%'],
       marginRight: ['5%', '0', '-8%', '-8%', '-8%'],
     })}
+    & .rt-tr-group:hover {
+      background: whitesmoke;
+    }
   }
 `;
 
+/**
+ * Table
+ */
 const Table = () => {
   return {
     style: {

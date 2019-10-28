@@ -56,6 +56,11 @@ export const FrameworkDropdown = ({ value = 'all', onChange = (e, data) => null,
       text: 'React',
       value: 'react',
     },
+    {
+      key: 'vue',
+      text: 'Vue',
+      value: 'vue',
+    },
   ];
   return (
     <StyledDropdown
