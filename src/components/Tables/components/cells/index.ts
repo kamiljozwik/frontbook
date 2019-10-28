@@ -4,3 +4,4 @@ export * from './ToolIcon';
 export * from './ToolName';
 export * from './License';
 export * from './Size';
+export * from './FrameworkLabel';

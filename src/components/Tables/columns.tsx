@@ -4,7 +4,7 @@ import numeral from 'numeral';
 
 import { TableHeader } from './components/header';
 import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/filters';
-import { LastActive, WebsiteLink, License, ToolName, Size } from './components/cells';
+import { LastActive, WebsiteLink, License, ToolName, Size, FrameworkLabel } from './components/cells';
 import { ToolIcon } from '../../shared';
 
 /**
@@ -94,7 +94,8 @@ export const columns: Column[] = [
   {
     id: 'tool-framework',
     Header: () => <TableHeader />,
-    accessor: d => (d.name && d.name.includes('React')) || (d.slogan && d.slogan.slogan.includes('React')) ? <Label size="mini" basic>React</Label> : '',
+    // accessor: d => (d.name && d.name.includes('React')) || (d.slogan && d.slogan.slogan.includes('React')) ? <Label size="mini" basic>React</Label> : '',
+    accessor: d => <FrameworkLabel name={d.name} slogan={d.slogan} />,
     filterMethod: filterFramework,
     Filter: ({ filter = {}, onChange }) => <FrameworkDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} style={{left: '-25px'}} />,
     minWidth: 60,
