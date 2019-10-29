@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import numeral from 'numeral';
 
 import { categoriesNames, CategoriesCodes, SubcategoryNode, colors, ListItem, ToolIcon } from '../../shared';
-import { Placeholder } from '../SVG';
+import { CategoryImage } from '../SVG';
 import { mq } from '../layout';
 
 interface CategorySegmentProps {
@@ -80,7 +80,7 @@ export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegme
       )}
       </Grid.Column>
     <ImageColumn>
-      <Placeholder />
+      <CategoryImage code={code} />
     </ImageColumn>
   </CardWrapper>
 );
@@ -88,13 +88,13 @@ export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegme
 const CardWrapper = styled(Grid.Row)`
   &&& {
     position: relative;
-    min-height: 250px;
-    width: 90% !important;
+    min-height: 330px;
     ${mq({
+      'width': ['90% !important', '90% !important', '90% !important', '90% !important', '75% !important'],
       'flexDirection': ['column', 'column', 'column', 'row', 'row'],
       '&&& .column': {
         width: ['100% !important', '100% !important', '100% !important', '50% !important', '50% !important'],
-      }
+      },
       })}
   }
 `;
@@ -108,7 +108,7 @@ const CardHeader = styled(Link)`
 const ToolName = styled(Header)`
   &&& {
     display: block;
-    font-size: 36px;
+    font-size: 42px;
   }
 `;
 const CountLabel = styled(Label)`
@@ -119,6 +119,7 @@ const CountLabel = styled(Label)`
 
 const Description = styled.p`
   color: ${colors.darkGrey};
+  font-size: 18px;
 `;
 
 const TopsToolsWrapper = styled(Segment.Group)`

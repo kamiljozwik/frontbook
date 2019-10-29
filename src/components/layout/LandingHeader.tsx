@@ -5,11 +5,7 @@ import { Header } from 'semantic-ui-react';
 import { LandingWave } from '../SVG';
 import { mq } from '../layout';
 
-interface LayoutProps {
-  total: number;
-}
-
-export const LandingHeader = ({ total }: LayoutProps) => {
+export const LandingHeader = () => {
   return (
     <>
       <HeaderWrapper>
@@ -22,9 +18,6 @@ export const LandingHeader = ({ total }: LayoutProps) => {
         </HeaderSubTite>
         <PositionHelper />
       </HeaderWrapper>
-      <Header textAlign="center" size="large" style={{marginBottom: '100px'}}>
-        {total} best front-end tools and resources to choose from!
-      </Header>
     </>
   );
 };

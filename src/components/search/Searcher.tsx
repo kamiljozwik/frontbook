@@ -7,10 +7,11 @@ import { Result, ResultsProps } from './';
 import styled from '@emotion/styled';
 
 interface SearcherProps {
+  total: number;
   allTools: SubcategoryNode[];
 }
 
-export const Searcher = ({ allTools }: SearcherProps) => {
+export const Searcher = ({ allTools, total }: SearcherProps) => {
   const [results, setResults] = useState<ResultsProps[]>();
   const [value, setValue] = useState('');
 
@@ -32,7 +33,10 @@ export const Searcher = ({ allTools }: SearcherProps) => {
   };
 
   return (
-    <Segment basic textAlign="center" style={{height: '180px'}}>
+    <Segment basic textAlign="center" style={{height: '250px'}}>
+      <Header textAlign="center" size="huge" style={{marginBottom: '50px'}}>
+        <ToolsCount>{total}</ToolsCount> best front-end tools and resources to choose from!
+      </Header>
       <Header>What are you looking for?</Header>
       <StyledSearch
         size="big"
@@ -65,4 +69,9 @@ const StyledSearch = styled(Search)`
 const WarnMessage = styled.div`
   height: 20px;
   color: grey;
+`;
+
+const ToolsCount = styled.span`
+  font-size: 32px;
+  font-weight: 600;
 `;

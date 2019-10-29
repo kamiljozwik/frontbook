@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { Icon, Label } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
-import { CategoryWave } from '../SVG';
+import { CategoryWave, CategoryImage } from '../SVG';
 import { categoriesNames, CategoriesCodes } from '../../shared';
 import { mq } from '../layout';
 
@@ -18,6 +18,16 @@ interface OtherSubcategoriesProps {
   subcategories?: string[];
   activeSubcategory?: string;
 }
+
+const CategoryImageStyle = {
+  position: 'absolute',
+  right: '30px',
+  top: '30px',
+  width: '10vw',
+  padding: '6px',
+  border: '4px solid white',
+  borderRadius: '50%',
+};
 
 const OtherSubcategories = ({ subcategories, activeSubcategory }: OtherSubcategoriesProps) => {
   return (
@@ -50,6 +60,7 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
           {subcategory ? ` / ${subcategory}` : ''}
         </HeaderTitle>
         <OtherSubcategories subcategories={subcategories} activeSubcategory={subcategory} />
+        <CategoryImage code={category} style={CategoryImageStyle}/>
       </HeaderWrapper>
     </>
   );

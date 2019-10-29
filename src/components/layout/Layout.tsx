@@ -16,10 +16,9 @@ interface LayoutProps {
   subcategories?: string[];
   subcategory?: string;
   color?: string;
-  count?: number;
 }
 
-export const Layout = ({ children, category, subcategories, subcategory, color = '#D1BF20', count = -1 }: LayoutProps) => {
+export const Layout = ({ children, category, subcategories, subcategory, color = '#D1BF20' }: LayoutProps) => {
   useEffect(() => {
     // TODO: make it better. Now it jumps...
     document.body.scrollTop = 0;
@@ -27,7 +26,7 @@ export const Layout = ({ children, category, subcategories, subcategory, color =
   return (
     <>
       <TopBar />
-      {category ? <CategoryHeader category={category!} subcategory={subcategory} subcategories={subcategories} color={color}/> : <LandingHeader total={count} />}
+      {category ? <CategoryHeader category={category!} subcategory={subcategory} subcategories={subcategories} color={color}/> : <LandingHeader />}
       <PageContentWrapper>
         <Global
           styles={css`

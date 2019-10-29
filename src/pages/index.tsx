@@ -18,10 +18,10 @@ interface IndexPageProps {
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
-    <Layout count={data.allTools.totalCount}>
+    <Layout>
       <SEO title="Home" />
       {/* {data.stars_query.edges.map(node => `${node.node.name}: ${node.node.fields.githubData!.stars}`)}; */}
-      <Searcher allTools={data.allTools.edges} />
+      <Searcher allTools={data.allTools.edges} total={data.allTools.totalCount} />
       <StyledGrid divided="vertically" centered>
         {
           activeCategories.map(category => (
