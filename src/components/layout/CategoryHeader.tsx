@@ -4,8 +4,9 @@ import { Icon, Label } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
 import { CategoryWave, CategoryImage } from '../SVG';
-import { categoriesNames, CategoriesCodes } from '../../shared';
+import { categoriesNames, CategoriesCodes, Subcategory } from '../../shared';
 import { mq } from '../layout';
+import { SubcategoryImage } from '../SVG/subcategories';
 
 interface CategoryHeaderProps {
   category: CategoriesCodes;
@@ -26,6 +27,16 @@ const CategoryImageStyle = {
   width: '10vw',
   padding: '6px',
   border: '4px solid white',
+  borderRadius: '50%',
+};
+
+const SubcategoryImageStyle = {
+  position: 'absolute',
+  right: '40px',
+  top: '200px',
+  width: '5vw',
+  padding: '6px',
+  border: '2px solid white',
   borderRadius: '50%',
 };
 
@@ -61,6 +72,7 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
         </HeaderTitle>
         <OtherSubcategories subcategories={subcategories} activeSubcategory={subcategory} />
         <CategoryImage code={category} style={CategoryImageStyle}/>
+        {subcategory && <SubcategoryImage code={`${category}_${subcategory}` as Subcategory} style={SubcategoryImageStyle}/>}
       </HeaderWrapper>
     </>
   );

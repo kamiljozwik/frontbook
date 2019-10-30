@@ -1,4 +1,5 @@
 import { Label } from 'semantic-ui-react';
+import { Unknown } from './';
 
 interface LicenseProps {
   githubData?: {
@@ -21,7 +22,7 @@ export const License = ({ githubData }: LicenseProps) => {
               {licenseInfo.spdxId}
             </Label>
           )
-        : <Label color={undefined}>unknown</Label>
+        : <Unknown />
     )
-    : <Label color={undefined}>unknown</Label>;
+    : <Unknown />;
 };

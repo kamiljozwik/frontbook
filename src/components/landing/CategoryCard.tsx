@@ -119,7 +119,7 @@ const CountLabel = styled(Label)`
 
 const Description = styled.p`
   color: ${colors.darkGrey};
-  font-size: 18px;
+  font-size: 16px;
 `;
 
 const TopsToolsWrapper = styled(Segment.Group)`

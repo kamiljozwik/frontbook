@@ -4,7 +4,7 @@ import numeral from 'numeral';
 
 import { TableHeader } from './components/header';
 import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/filters';
-import { LastActive, WebsiteLink, License, ToolName, Size, FrameworkLabel } from './components/cells';
+import { LastActive, WebsiteLink, License, ToolName, Size, FrameworkLabel, Unknown  } from './components/cells';
 import { ToolIcon } from '../../shared';
 
 /**
@@ -125,7 +125,7 @@ export const columns: Column[] = [
   {
     id: 'github-stars',
     Header: () => <TableHeader content="Stars" icon="star" title="Github stars" />,
-    accessor: d => d.fields.githubData ?  numeral(d.fields.githubData.repository.stargazers.totalCount).format('0,0') : <Label color={undefined}>unknown</Label>,
+    accessor: d => d.fields.githubData ?  numeral(d.fields.githubData.repository.stargazers.totalCount).format('0,0') : <Unknown />,
     filterMethod: filterStars,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
     sortMethod: sortNumbers,
@@ -133,7 +133,7 @@ export const columns: Column[] = [
   {
     id: 'npm-weekly-downloads',
     Header: () => <TableHeader content="Downloads" icon="npm" title="NPM weekly downloads" />,
-    accessor: d => d.fields.npmData ? numeral(d.fields.npmData.downloads).format('0,0') : <Label color={undefined}>unknown</Label>,
+    accessor: d => d.fields.npmData ? numeral(d.fields.npmData.downloads).format('0,0') : <Unknown />,
     filterMethod: filterDownloads,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
     sortMethod: sortNumbers,
@@ -141,7 +141,7 @@ export const columns: Column[] = [
   {
     id: 'github-issues',
     Header: () => <TableHeader content="Issues" icon="exclamation circle" title="Github issues" />,
-    accessor: d => d.fields.githubData ? numeral(d.fields.githubData.repository.issues.totalCount).format('0,0') : <Label color={undefined}>unknown</Label>,
+    accessor: d => d.fields.githubData ? numeral(d.fields.githubData.repository.issues.totalCount).format('0,0') : <Unknown />,
     filterMethod: filterIssues,
     Filter: ({ filter = {}, onChange }) => <FilterInput label="max:" onChange={event => onChange(event.target.value)} />,
     sortMethod: sortNumbers,

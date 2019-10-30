@@ -10,8 +10,6 @@ const js_extensions = 'JS Extensions Holisticly procrastinate resource-leveling 
 const js_frameworks = 'JS Frameworks Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_graphic = 'JS Graphic Holisticly procrastinate resource-leered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_interactions = 'JS interactions Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
-const js_linters = 'JS Linters Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
-const js_package_managers = 'JS Package Managers Holisticly procras intermandated sources whereas out-of-the-box initiatives. ';
 const js_search = 'JS Search Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_tests = 'JS Tests Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_translations = 'JS Translations Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
@@ -47,8 +45,6 @@ export const subcategoriesInfo = {
   js_frameworks,
   js_graphic,
   js_interactions,
-  js_linters,
-  'js_package-managers': js_package_managers,
   js_search,
   js_tests,
   js_translations,
@@ -87,8 +83,6 @@ export const categoriesNames = {
       frameworks: 'Frameworks',
       graphic: 'Graphic',
       interactions: 'Interactions',
-      linters: 'Linters',
-      package_managers: 'Package managers',
       search: 'Searching',
       tests: 'Tests',
       translations: 'Translations',
@@ -134,9 +128,9 @@ export const categoriesNames = {
       empty: 'empty',
     },
   },
-  build: {
-    name: 'Build',
-    info: 'Build info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
+  frontops: {
+    name: 'FrontOps',
+    info: 'FrontOps info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
     color: '#10893E',
     subcategories: {
       empty: 'empty',
@@ -174,5 +168,5 @@ export const categoriesNames = {
   },
 };
 
-export const activeCategories = ['js', 'css', 'jam', 'build', 'seo', 'monitor', 'ux', 'utils'];
+export const activeCategories = ['js', 'css', 'jam', 'frontops', 'seo', 'monitor', 'ux', 'utils'];
 export const nonTableSubcategories = ['js_cheatsheets', 'jam_cms', 'jam_hosting', 'jam_media', 'css_cheatsheets', 'ux_colors', 'ux_design', 'ux_fonts', 'ux_graphics', 'ux_icons', 'ux_inspirations', 'ux_logos'];

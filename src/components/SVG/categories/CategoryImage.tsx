@@ -1,4 +1,4 @@
-import { Placeholder, Js, Css, Jam, Build, Seo, Monitor, Ux, Utils } from '../';
+import { Placeholder, Js, Css, Jam, Frontops, Seo, Monitor, Ux, Utils } from '../';
 import { CategoriesCodes } from '../../../shared';
 
 interface CategoryImageProps {
@@ -14,8 +14,8 @@ export const CategoryImage = ({ code, style }: CategoryImageProps) => {
       return <Css style={style} />;
     case 'jam':
       return <Jam style={style} />;
-    case 'build':
-      return <Build style={style} />;
+    case 'frontops':
+      return <Frontops style={style} />;
     case 'seo':
       return <Seo style={style} />;
     case 'monitor':

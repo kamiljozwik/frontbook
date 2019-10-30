@@ -6,23 +6,23 @@ import { SEO } from '../components/helpers';
 import { ToolsTable } from '../components/Tables';
 import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
-const BuildPage = ({ data }: CategoryPageNoSubcategories) => (
-  <Layout category="build" color={categoriesNames.build.color}>
-    <SEO title={categoriesNames.build.name} />
+const FrontopsPage = ({ data }: CategoryPageNoSubcategories) => (
+  <Layout category="frontops" color={categoriesNames.frontops.color}>
+    <SEO title={categoriesNames.frontops.name} />
     <ToolsTable items={data.items.edges} links={data.links.edges}/>
   </Layout>
 );
 
 export const query = graphql`
-  query buildSubcategoriesQuery {
-    items: allContentfulToolEntry(filter: {subcategory: {eq: "build_empty"}}) {
+  query frontopsSubcategoriesQuery {
+    items: allContentfulToolEntry(filter: {subcategory: {eq: "frontops_empty"}}) {
       edges {
         node {
           ...ToolsDataFragment
         }
       }
     }
-    links: allContentfulLinksEntry(filter: {subcategory: {eq: "build_empty"}}) {
+    links: allContentfulLinksEntry(filter: {subcategory: {eq: "frontops_empty"}}) {
       edges {
         node {
           title
@@ -33,4 +33,4 @@ export const query = graphql`
   }
 `;
 
-export default BuildPage;
+export default FrontopsPage;

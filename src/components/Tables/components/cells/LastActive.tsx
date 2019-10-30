@@ -2,6 +2,7 @@ import moment from 'moment';
 import { Icon, Label } from 'semantic-ui-react';
 
 import { ListItem } from '../../../../shared';
+import { Unknown } from './';
 
 export const LastActive = (item: ListItem) => {
   const updateTime = item.fields.githubData ? moment(item.fields.githubData.repository.pushedAt) : moment();
@@ -14,5 +15,5 @@ export const LastActive = (item: ListItem) => {
           {moment(item.fields.githubData.repository.pushedAt, 'YYYYMMDD').fromNow()}
         </Label>
     )
-    : <Label color={undefined}>unknown</Label>;
+    : <Unknown />;
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { Label, Icon } from 'semantic-ui-react';
 import numeral from 'numeral';
 import styled from '@emotion/styled';
+import { Unknown } from './';
 
 interface SizeProps {
   bundlephobiaData?: {
@@ -26,8 +27,8 @@ export const Size = ({ bundlephobiaData }: SizeProps) => {
               <span style={{ color: 'lightgrey', fontWeight: 800 }}>kB</span>
             </Sizes>
           </SizeWrapper>
-        ) : <Label color={undefined}>unknown</Label>
-    : <Label color={undefined}>unknown</Label>;
+        ) : <Unknown />
+    : <Unknown />;
 };
 
 const SizeWrapper = styled.div`

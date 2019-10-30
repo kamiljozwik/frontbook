@@ -7,6 +7,7 @@ import { subcategoriesInfo, colors } from '../../shared';
 import { Subcategory } from '../../shared/types';
 import { Placeholder } from '../SVG';
 import { mq } from '../layout';
+import { SubcategoryImage } from '../SVG/subcategories';
 
 interface SubcategoryProps {
   name: Subcategory;
@@ -20,7 +21,7 @@ export const SubcategoryCard = ({ name }: SubcategoryProps) => (
     <SubcategoryDescription basic>
       {subcategoriesInfo[name] ? subcategoriesInfo[name] : ''}
     </SubcategoryDescription>
-    <Placeholder width="20%"/>
+    <SubcategoryImage code={name} />
   </SubcategorySegment>
 );
 

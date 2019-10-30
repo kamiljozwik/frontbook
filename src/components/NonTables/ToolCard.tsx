@@ -64,7 +64,7 @@ const ToolCard = ({ toolData }: ToolCardProps) => {
 export const CardGroup = ({ items, links }: ToolsTableProps) => {
   return (
     <>
-      <Card.Group centered style={{marginBottom: '100px'}}>
+      <Card.Group style={{marginBottom: '100px'}}>
         {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
       </Card.Group>
       {links.length > 0 && <Links links={links} />}

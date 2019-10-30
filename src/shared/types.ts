@@ -1,4 +1,4 @@
-export type CategoriesCodes = 'js' | 'jam' | 'css' | 'seo' | 'ide' | 'build' | 'monitor' | 'ux' | 'utils';
+export type CategoriesCodes = 'js' | 'jam' | 'css' | 'seo' | 'ide' | 'frontops' | 'monitor' | 'ux' | 'utils';
 export type Subcategory =
   | 'js_animations'
   | 'js_authorization'
@@ -10,8 +10,6 @@ export type Subcategory =
   | 'js_frameworks'
   | 'js_graphic'
   | 'js_interactions'
-  | 'js_linters'
-  | 'js_package-managers'
   | 'js_search'
   | 'js_tests'
   | 'js_translations'
