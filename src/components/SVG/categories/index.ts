@@ -6,4 +6,4 @@ export * from './Monitor';
 export * from './Seo';
 export * from './Ux';
 export * from './Utils';
-export * from './CategoryImage';
+export * from '../CategoryImage';

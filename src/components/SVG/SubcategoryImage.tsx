@@ -1,10 +1,11 @@
 import {
   Animations, Auth, Cheatsheets, Cssinjs, Extensions, Cms, DataLayer,
   Processing, DataVisualization, Graphic, Interactions, Search,
-  Tests, Translations, Utils, Framework, Hosting, Media, Ssg
-} from './';
-import { Placeholder } from '../';
-import { Subcategory } from '../../../shared';
+  Tests, Translations, Utils, Framework, Hosting, Media, Ssg,
+  Colors, Design, Fonts, Icons, Inspirations, Logos
+} from './subcategories';
+import { Placeholder } from '.';
+import { Subcategory } from '../../shared';
 
 interface CategoryImageProps {
   code: Subcategory;
@@ -28,6 +29,7 @@ export const SubcategoryImage = ({ code, style }: CategoryImageProps) => {
     case 'js_data-visualization':
       return <DataVisualization width="20%" style={style} />;
     case 'js_graphic':
+    case 'ux_graphics':
       return <Graphic width="20%" style={style} />;
     case 'js_interactions':
       return <Interactions width="20%" style={style} />;
@@ -55,6 +57,18 @@ export const SubcategoryImage = ({ code, style }: CategoryImageProps) => {
       return <Media width="20%" style={style} />;
     case 'jam_ssg':
       return <Ssg width="20%" style={style} />;
+    case 'ux_colors':
+      return <Colors width="20%" style={style} />;
+    case 'ux_design':
+      return <Design width="20%" style={style} />;
+    case 'ux_fonts':
+      return <Fonts width="20%" style={style} />;
+    case 'ux_icons':
+      return <Icons width="20%" style={style} />;
+    case 'ux_inspirations':
+      return <Inspirations width="20%" style={style} />;
+    case 'ux_logos':
+      return <Logos width="20%" style={style} />;
     default:
       return <Placeholder width="20%" style={style} />;
   }

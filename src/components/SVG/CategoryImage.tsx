@@ -1,5 +1,5 @@
-import { Placeholder, Js, Css, Jam, Frontops, Seo, Monitor, Ux, Utils } from '../';
-import { CategoriesCodes } from '../../../shared';
+import { Placeholder, Js, Css, Jam, Frontops, Seo, Monitor, Ux, Utils } from '.';
+import { CategoriesCodes } from '../../shared';
 
 interface CategoryImageProps {
   code: CategoriesCodes;
