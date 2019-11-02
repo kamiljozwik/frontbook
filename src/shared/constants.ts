@@ -14,6 +14,7 @@ const js_search = 'JS Search Holisticly procrastinate resource-leveling systems 
 const js_tests = 'JS Tests Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_translations = 'JS Translations Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const js_utils = 'JS Utils Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
+const js_ui = 'JS UI Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 
 const jam_cms = 'JAM CMS Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
 const jam_hosting = 'JAM hosting Holisticly procrastinate resource-leveling systems and accurate initiatives. Dramatically innovate clicks-and-mortar users vis-a-vis process-centric leadership skills. Rapidiously unleash principle-centered benefits whereas proactive e-commerce. Progressively orchestrate intermandated sources whereas out-of-the-box initiatives. ';
@@ -49,6 +50,7 @@ export const subcategoriesInfo = {
   js_tests,
   js_translations,
   js_utils,
+  js_ui,
   jam_cms,
   jam_hosting,
   jam_media,
@@ -87,6 +89,7 @@ export const categoriesNames = {
       tests: 'Tests',
       translations: 'Translations',
       utils: 'Utilities',
+      ui: 'UI',
     },
   },
   jam: {

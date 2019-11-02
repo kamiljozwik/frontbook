@@ -24,3 +24,4 @@ export * from './Fonts';
 export * from './Icons';
 export * from './Inspirations';
 export * from './Logos';
+export * from './UI';

@@ -2,7 +2,7 @@ import {
   Animations, Auth, Cheatsheets, Cssinjs, Extensions, Cms, DataLayer,
   Processing, DataVisualization, Graphic, Interactions, Search,
   Tests, Translations, Utils, Framework, Hosting, Media, Ssg,
-  Colors, Design, Fonts, Icons, Inspirations, Logos
+  Colors, Design, Fonts, Icons, Inspirations, Logos, UI
 } from './subcategories';
 import { Placeholder } from '.';
 import { Subcategory } from '../../shared';
@@ -44,6 +44,8 @@ export const SubcategoryImage = ({ code, style }: CategoryImageProps) => {
       return <Extensions width="20%" style={style} />;
     case 'js_translations':
       return <Translations width="20%" style={style} />;
+    case 'js_ui':
+      return <UI width="20%" style={style} />;
     case 'js_utils':
     case 'css_utils':
       return <Utils width="20%" style={style} />;

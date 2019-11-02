@@ -13,6 +13,7 @@ export type Subcategory =
   | 'js_search'
   | 'js_tests'
   | 'js_translations'
+  | 'js_ui'
   | 'js_utils'
   | 'jam_cms'
   | 'jam_hosting'
