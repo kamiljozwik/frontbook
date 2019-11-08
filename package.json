@@ -1,7 +1,7 @@
 {
   "name": "frontbook",
   "private": true,
-  "description": "Frontbook page",
+  "description": "Best front-end tools and resources in one place",
   "version": "0.1.0",
   "author": "Kamil Jozwik <kamiljozwikpl@gmail.com>",
   "dependencies": {
@@ -64,9 +64,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kamiljozwik/frontstate"
+    "url": "https://github.com/kamiljozwik/frontbook"
   },
   "bugs": {
-    "url": "https://github.com/kamiljozwik/frontstate/issues"
+    "url": "https://github.com/kamiljozwik/frontbook/issues"
   }
 }

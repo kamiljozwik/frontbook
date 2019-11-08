@@ -50,7 +50,7 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
           `);
           return response;
         } catch(error) {
-          console.log('Cannot get data for Github repo: ', name);
+          console.log('Cannot get data for Github repo: ', `${owner}/${name}`);
           return null;
         }
       }
