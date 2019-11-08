@@ -1,6 +1,8 @@
 import React from 'react';
-import { Item, Icon } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 import styled from '@emotion/styled';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
+
 import { colors } from '../../../../shared';
 
 interface ToolNameProps {
@@ -24,7 +26,7 @@ export const ToolName = ({name, githubURL, npmURL, websiteURL}: ToolNameProps) =
   </Item>
 );
 
-const ToolNameText = styled.a`
+const ToolNameText = styled(OutboundLink)`
   font-weight: 600;
   color: ${colors.black}
 `;

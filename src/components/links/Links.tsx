@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Header, List } from 'semantic-ui-react';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { LinkEntry } from '../../shared/types';
 
@@ -17,7 +18,7 @@ const LinkItem = ({title, url}: LinkItemProps) => (
   <List.Item>
     <List.Content>
       <List.Header
-        as="a"
+        as={OutboundLink}
         href={url}
         target="_blank"
         rel="noopener noreferrer"
@@ -25,7 +26,7 @@ const LinkItem = ({title, url}: LinkItemProps) => (
         {title}
       </List.Header>
       <List.Description
-        as="a"
+        as={OutboundLink}
         href={url}
         target="_blank"
         rel="noopener noreferrer"

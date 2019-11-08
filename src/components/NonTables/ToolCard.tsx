@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, Label, Icon } from 'semantic-ui-react';
 import numeral from 'numeral';
 import styled from '@emotion/styled';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { ToolIcon, SubcategoryNode, colors, LinkEntry } from '../../shared';
 import { mq } from '../layout';
@@ -72,7 +73,7 @@ export const CardGroup = ({ items, links }: ToolsTableProps) => {
   );
 };
 
-const CardHeader = styled.a`
+const CardHeader = styled(OutboundLink)`
     color: ${colors.black};
     display: flex;
     justify-content: space-between;

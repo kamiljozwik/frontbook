@@ -761,6 +761,13 @@
   dependencies:
     regenerator-runtime "^0.13.2"
 
+"@babel/runtime@^7.6.3":
+  version "7.7.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
+  integrity sha512-JONRbXbTXc9WQE2mAZd1p0Z3DZ/6vaQIkgYMSTP3KjRCyd7rCZCcfhCyX+YjwcKxcZ82UrxbRD358bpExNgrjw==
+  dependencies:
+    regenerator-runtime "^0.13.2"
+
 "@babel/template@^7.1.0", "@babel/template@^7.4.4":
   version "7.4.4"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.4.tgz#f4b88d1225689a08f5bc3a17483545be9e4ed237"
@@ -5620,6 +5627,13 @@ gatsby-plugin-emotion@^4.1.2:
   dependencies:
     "@babel/runtime" "^7.0.0"
     "@emotion/babel-preset-css-prop" "^10.0.5"
+
+gatsby-plugin-google-analytics@^2.1.24:
+  version "2.1.24"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.1.24.tgz#ab1aa59503d236d61873a1b14205976d89ddabb3"
+  integrity sha512-2kvz7KJr/Kp3ViC6BWpPT8lZAgT/5F6sfZ9UkoOKoGv3YBwEWbZxxBX1WAiLcpjFGbmaWrX8QhD7HXdaTMHCOg==
+  dependencies:
+    "@babel/runtime" "^7.6.3"
 
 gatsby-plugin-manifest@^2.2.5:
   version "2.2.5"
