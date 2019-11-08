@@ -21,16 +21,16 @@ interface OtherSubcategoriesProps {
 }
 
 const CategoryImageStyle = {
-  width: '10vw',
-  height: '10vw',
+  width: '8vw',
+  height: '8vw',
   margin: '10px',
   border: '4px solid white',
   borderRadius: '50%',
 };
 
 const SubcategoryImageStyle = {
-  width: '6vw',
-  height: '6vw',
+  width: '5vw',
+  height: '5vw',
   border: '2px solid white',
   borderRadius: '33%',
 };
@@ -78,7 +78,7 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
 };
 
 const HeaderWrapper = styled.div`
-  height: calc(40vh - 60px);
+  height: calc(40vh - 100px);
   width: 80vw;
   margin: 0 auto;
   margin-bottom: 50px;

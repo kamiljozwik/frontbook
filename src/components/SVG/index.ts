@@ -5,3 +5,4 @@ export * from './GithubLogo';
 export * from './Placeholder';
 export * from './Placeholder';
 export * from './categories';
+export * from './Logo';

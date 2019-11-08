@@ -23,7 +23,7 @@ export const LandingHeader = () => {
 };
 
 const HeaderWrapper = styled.div`
-  height: 75vh;
+height: calc(75vh - 100px);;
   width: 80vw;
   margin: 0 auto;
   display: flex;

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Segment, Header, Icon } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 import styled from '@emotion/styled';
+import { Logo } from '../SVG';
 
 const TopBar = () => (
   <TopBarWrapper>
-    <Header size="medium" as={LogoLink} to="/">
-      <Icon name="book" />
-      <Header.Content>Frontbook</Header.Content>
-    </Header>
+    <Link to="/">
+      <Logo height="60px" textcolor="white" style={{ margin: '20px 0' }}/>
+    </Link>
   </TopBarWrapper>
 );
 
@@ -19,17 +19,9 @@ const TopBarWrapper = styled(Segment.Inline)`
     position: relative;
     width: 80vw;
     margin: 0 auto;
-    height: 60px;
-  }
-`;
-
-const LogoLink = styled(Link)`
-  &&& {
-    color: white;
-    display: inline-block;
-    margin-top: 16px;
-    .content, .icon {
-      color: white;
-    }
+    height: 100px;
+    border-width: 3px;
+    border-style: solid;
+    border-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0) ) 0% 0% 100% 0%;
   }
 `;
