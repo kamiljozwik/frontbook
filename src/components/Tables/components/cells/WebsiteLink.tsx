@@ -1,4 +1,5 @@
 import { Icon, Label } from 'semantic-ui-react';
+import { Unknown } from './Unknown';
 
 export const WebsiteLink = ({ url }: {url?: string}) => url
   ? (
@@ -6,4 +7,4 @@ export const WebsiteLink = ({ url }: {url?: string}) => url
       visit  <Icon fitted color="blue" size="small" name="external" style={{position: 'relative', top: '-1px'}} />
     </Label>
   )
-  : <Label color={undefined}>no URL</Label>;
+  : <Unknown content="no URL"/>;

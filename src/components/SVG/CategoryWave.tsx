@@ -32,5 +32,5 @@ const StyledSVG = styled.svg`
   top: 0;
   left: 0;
   z-index: -1;
-  height: 40vh;
+  min-height: 40vh;
 `;

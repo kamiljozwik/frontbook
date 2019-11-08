@@ -21,23 +21,18 @@ interface OtherSubcategoriesProps {
 }
 
 const CategoryImageStyle = {
-  position: 'absolute',
-  right: '30px',
-  top: '30px',
   width: '10vw',
-  padding: '6px',
+  height: '10vw',
+  margin: '10px',
   border: '4px solid white',
   borderRadius: '50%',
 };
 
 const SubcategoryImageStyle = {
-  position: 'absolute',
-  right: '40px',
-  top: '200px',
-  width: '5vw',
-  padding: '6px',
+  width: '6vw',
+  height: '6vw',
   border: '2px solid white',
-  borderRadius: '50%',
+  borderRadius: '33%',
 };
 
 const OtherSubcategories = ({ subcategories, activeSubcategory }: OtherSubcategoriesProps) => {
@@ -63,29 +58,54 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
     <>
       <HeaderWrapper>
         <CategoryWave color={color} />
-        <HeaderTitle>
-          <CategoryLink to="/">
-            <Icon size="small" inverted name="home" />
-          </CategoryLink>
-          <CategoryLink to={`/${category.toLowerCase()}`}> / {categoriesNames[category].name}</CategoryLink>
-          {subcategory ? ` / ${subcategory}` : ''}
-        </HeaderTitle>
-        <OtherSubcategories subcategories={subcategories} activeSubcategory={subcategory} />
-        <CategoryImage code={category} style={CategoryImageStyle}/>
-        {subcategory && <SubcategoryImage code={`${category}_${subcategory}` as Subcategory} style={SubcategoryImageStyle}/>}
+        <HeaderData>
+          <HeaderTitle>
+            <CategoryLink to="/">
+              <Icon size="small" inverted name="home" />
+            </CategoryLink>
+            <CategoryLink to={`/${category.toLowerCase()}`}> / {categoriesNames[category].name}</CategoryLink>
+            {subcategory ? ` / ${subcategory}` : ''}
+          </HeaderTitle>
+          <OtherSubcategories subcategories={subcategories} activeSubcategory={subcategory} />
+        </HeaderData>
+        <HeaderGraphics>
+          <CategoryImage code={category} style={CategoryImageStyle}/>
+            {subcategory && <SubcategoryImage code={`${category}_${subcategory}` as Subcategory} style={SubcategoryImageStyle}/>}
+        </HeaderGraphics>
       </HeaderWrapper>
     </>
   );
 };
 
 const HeaderWrapper = styled.div`
-  height: 40vh;
+  height: calc(40vh - 60px);
   width: 80vw;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+`;
+
+const HeaderData = styled.div`
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-`;
+  ${mq({
+    width: ['100%', '100%', '80%', '80%', '80%'],
+  })}`;
+
+const HeaderGraphics = styled.div`
+  opacity: 0.8;
+  height: 80%;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: center;
+  ${mq({
+    display: ['none', 'none', 'flex', 'flex', 'flex'],
+    flexDirection: ['column', 'column', 'column', 'row', 'row'],
+  })}`;
 
 const HeaderTitle = styled.div`
   font-weight: 700;

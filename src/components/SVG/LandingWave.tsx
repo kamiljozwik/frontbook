@@ -29,8 +29,8 @@ export const LandingWave = (props: any) => (
 
 const StyledSVG = styled.svg`
   position: absolute;
-  top: 0;
+  top: -5px;
   left: 0;
   z-index: -1;
-  min-height: 81vh;
+  min-height: 80vh;
 `;
