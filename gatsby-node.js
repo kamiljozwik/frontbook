@@ -2,6 +2,7 @@ const path = require('path');
 const { GraphQLClient } = require(`graphql-request`);
 const parseGHUrl = require(`parse-github-url`);
 const axios = require('axios');
+// const ogs = require('open-graph-scraper');
 
 /**
  * Used to gather repo details data
@@ -18,7 +19,7 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
   const { createNode, createNodeField } = actions;
 
   /**
-   * Fetch additional data from Github and NPM for tools
+   * Fetch additional data from Github, NPM and Bundlephobia for tools.
    */
   switch (node.internal.type) {
     case 'ContentfulToolEntry': {
@@ -31,16 +32,25 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
             query {
               repository(owner:"${owner}", name:"${name}") {
                 name
+                description
+                diskUsage
+                issues {
+                  totalCount
+                }
                 stargazers {
                   totalCount
                 }
-                createdAt
+                licenseInfo {
+                  spdxId
+                  url
+                }
+                pushedAt
               }
             }
           `);
           return response;
         } catch(error) {
-          console.log('Cannot get data for Github repo: ', name);
+          console.log('Cannot get data for Github repo: ', `${owner}/${name}`);
           return null;
         }
       }
@@ -48,10 +58,17 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
       const repoMeta = node.github ? parseGHUrl(node.github) : null;
       const repoData = await ( repoMeta ? getGithubData(repoMeta.owner, repoMeta.name) : null);
 
+      const repoDataWithStars = repoData 
+      ? {
+        ...repoData,
+        stars: repoData.repository.stargazers.totalCount,
+      }
+      : null;
+
       createNodeField({
         node,
         name: 'githubData',
-        value: repoData,
+        value: repoDataWithStars,
       })
 
       /**
@@ -79,6 +96,59 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
         name: 'npmData',
         value: npmData,
       })
+
+      /**
+       * Add field with Bundlephobia Data to tool's Node
+       */
+      
+      async function getBundlephobiaData(package) {
+        const packageName = package.toLowerCase();
+        try {
+          const response = await axios.get(`https://bundlephobia.com/api/size?package=${packageName}`);
+          return response && response.data;
+        } catch(error) {
+          console.log('Cannot get data from budlephobia for: ', packageName);
+          return null;
+        }
+      }
+
+      const bundlephobiaData = await ( repoMeta ? getBundlephobiaData(repoMeta.name) : null);
+
+      const selectedBundlephobiaData = bundlephobiaData && {
+        size: bundlephobiaData.size,
+        gzip: bundlephobiaData.gzip,
+        dependencyCount: bundlephobiaData.dependencyCount,
+      };
+
+      createNodeField({
+        node,
+        name: 'bundlephobiaData',
+        value: selectedBundlephobiaData,
+      })
+
+      /**
+       * Add field with Open Graph info for some tools
+       */
+
+      // async function getOgData(url) {
+      //   console.log('fetching for:', url)
+      //   try {
+      //     const response = await ogs({'url': url});
+      //     return response.data;
+      //   } catch(error) {
+      //     console.log('Cannot get og-data for url: ', url);
+      //     console.log('error: ', error);
+      //     return null;
+      //   }
+      // }
+
+      // const ogData = await (node.website && node.category === 'monitor' ? getOgData(node.website) : null);
+      
+      // createNodeField({
+      //   node,
+      //   name: 'ogData',
+      //   value: ogData,
+      // })
     }
   }
 }

@@ -4,29 +4,14 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Frontstate`,
-    description: `A State of Front`,
-    author: `@kamiljozwik`,
+    title: `frontbook`,
+    description: `Best front-end tools and resources in one place`,
+    author: `kamiljozwik`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     'gatsby-plugin-typescript',
     `gatsby-plugin-emotion`,
-    // {
-    //   resolve: "gatsby-source-graphql",
-    //   options: {
-    //     typeName: "GitHub",
-    //     fieldName: "github",
-    //     // Url to query from
-    //     url: "https://api.github.com/graphql",
-    //     // HTTP headers
-    //     headers: {
-    //       Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-    //     },
-    //     // Additional options to pass to node-fetch
-    //     fetchOptions: {},
-    //   },
-    // },
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -39,6 +24,17 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-151886393-1",
+        head: true,
+        respectDNT: false,
+        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        pageTransitionDelay: 0,
+        siteSpeedSampleRate: 10,
       },
     },
     `gatsby-transformer-sharp`,
