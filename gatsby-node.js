@@ -25,7 +25,7 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
       /**
        * Add field with Github Data to tool's Node
        */
-      async function getGithubData(owner, name) {
+      async function getGithubData(owner, name, contentfulName) {
         try {
           const response = await githubApiClient.request(`
             query {
@@ -49,13 +49,13 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
           `);
           return response;
         } catch(error) {
-          console.log('Cannot get data for Github repo: ', `${owner}/${name}`);
+          console.log('Cannot get data for Github repo: ', `${contentfulName} - ${owner}/${name}`);
           return null;
         }
       }
 
       const repoMeta = node.github ? parseGHUrl(node.github) : null;
-      const repoData = await ( repoMeta ? getGithubData(repoMeta.owner, repoMeta.name) : null);
+      const repoData = await ( repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);
 
       const repoDataWithStars = repoData 
       ? {
