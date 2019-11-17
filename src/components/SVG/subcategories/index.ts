@@ -1,5 +1,5 @@
 export * from './Animations';
-export * from './Auth';
+export * from './Security';
 export * from './Cheatsheets';
 export * from './DataLayer';
 export * from './DataVisualization';

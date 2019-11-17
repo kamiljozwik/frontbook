@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Header, Segment, Grid, Label } from 'semantic-ui-react';
+import { Header, Grid, Label } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
 import { categoriesNames, CategoriesCodes, SubcategoryNode, colors } from '../../shared';

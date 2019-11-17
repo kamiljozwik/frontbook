@@ -1,7 +1,7 @@
 import React from 'react';
 
 // tslint:disable: max-line-length
-export const Auth = (props: any) => (
+export const Security = (props: any) => (
   <svg viewBox="0 0 125 124" fill="none" {...props}>
     <g clipPath="url(#clip0)">
       <path
