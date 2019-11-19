@@ -65,13 +65,6 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
       }
       : null;
 
-      const repoDataWithStars = repoData 
-      ? {
-        ...repoData,
-        stars: repoData.repository.stargazers.totalCount,
-      }
-      : null;
-
       createNodeField({
         node,
         name: 'githubData',
