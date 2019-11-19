@@ -46,6 +46,7 @@ export const Searcher = ({ allTools, total }: SearcherProps) => {
         value={value}
         resultRenderer={Result}
         placeholder="search..."
+        aria-label="search tools"
       />
       <WarnMessage>{value.length > 0 && value.length < 3 && 'min. three characters'}</WarnMessage>
     </Segment>

@@ -10,7 +10,7 @@ import { mq } from '../';
 const TopBar = () => (
   <TopBarWrapper>
     <TopBarContent>
-      <Link to="/">
+      <Link to="/" aria-label="Frontbook main page">
         <Logo height="60px" textcolor="white" style={{ margin: '20px 0' }}/>
       </Link>
       <TopBarLinks>
