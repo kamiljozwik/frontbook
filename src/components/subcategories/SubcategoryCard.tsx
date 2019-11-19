@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 
 import { subcategoriesInfo, colors } from '../../shared';
 import { Subcategory } from '../../shared/types';
-import { Placeholder } from '../SVG';
 import { mq } from '../layout';
 import { SubcategoryImage } from '../SVG/subcategories';
 
@@ -16,7 +15,7 @@ interface SubcategoryProps {
 export const SubcategoryCard = ({ name }: SubcategoryProps) => (
   <SubcategorySegment>
     <SubcategoryTitle size="large" as={Link} to={`/${name.replace('_', '/')}`}>
-      {name.split('_')[1].replace('-', ' ')}
+      {name.split('_')[1].replace(/-/g, ' ').toUpperCase()}
     </SubcategoryTitle>
     <SubcategoryDescription basic>
       {subcategoriesInfo[name] ? subcategoriesInfo[name] : ''}

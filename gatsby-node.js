@@ -26,7 +26,7 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
       /**
        * Add field with Github Data to tool's Node
        */
-      async function getGithubData(owner, name) {
+      async function getGithubData(owner, name, contentfulName) {
         try {
           const response = await githubApiClient.request(`
             query {
@@ -50,13 +50,13 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
           `);
           return response;
         } catch(error) {
-          console.log('Cannot get data for Github repo: ', `${owner}/${name}`);
+          console.log('Cannot get data for Github repo: ', `${contentfulName} - ${owner}/${name}`);
           return null;
         }
       }
 
       const repoMeta = node.github ? parseGHUrl(node.github) : null;
-      const repoData = await ( repoMeta ? getGithubData(repoMeta.owner, repoMeta.name) : null);
+      const repoData = await ( repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);
 
       const repoDataWithStars = repoData 
       ? {
@@ -125,30 +125,6 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
         name: 'bundlephobiaData',
         value: selectedBundlephobiaData,
       })
-
-      /**
-       * Add field with Open Graph info for some tools
-       */
-
-      // async function getOgData(url) {
-      //   console.log('fetching for:', url)
-      //   try {
-      //     const response = await ogs({'url': url});
-      //     return response.data;
-      //   } catch(error) {
-      //     console.log('Cannot get og-data for url: ', url);
-      //     console.log('error: ', error);
-      //     return null;
-      //   }
-      // }
-
-      // const ogData = await (node.website && node.category === 'monitor' ? getOgData(node.website) : null);
-      
-      // createNodeField({
-      //   node,
-      //   name: 'ogData',
-      //   value: ogData,
-      // })
     }
   }
 }
@@ -188,3 +164,16 @@ exports.createPages = async ({ graphql, actions }) => {
     }));
   });
 };
+
+// https://github.com/gatsbyjs/gatsby/issues/11934
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage.startsWith("develop")) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom",
+        },
+      },
+    })
+  }
+}

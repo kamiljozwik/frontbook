@@ -1,7 +1,7 @@
 export type CategoriesCodes = 'js' | 'jam' | 'css' | 'seo' | 'ide' | 'frontops' | 'monitor' | 'ux' | 'utils';
 export type Subcategory =
   | 'js_animations'
-  | 'js_authorization'
+  | 'js_security'
   | 'js_cheatsheets'
   | 'js_css-in-js'
   | 'js_data-visualization'

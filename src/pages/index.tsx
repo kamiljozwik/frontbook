@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Grid } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
-import { Layout, CategoryCard, Searcher } from '../components';
+import { Layout, CategoryCard, Searcher, TopsToolsList, Leaderboard } from '../components';
 import { SEO } from '../components/helpers';
 import { CategoriesCodes, activeCategories, SubcategoryNode } from '../shared';
 
@@ -20,9 +20,9 @@ const IndexPage = ({ data }: IndexPageProps) => {
   return (
     <Layout>
       <SEO title="Home" />
-      {/* {data.stars_query.edges.map(node => `${node.node.name}: ${node.node.fields.githubData!.stars}`)}; */}
       <Searcher allTools={data.allTools.edges} total={data.allTools.totalCount} />
-      <StyledGrid divided="vertically" centered>
+      <Leaderboard githubTops={data.stars_query.edges} npmTops={data.downloads_query.edges} />
+      <Categories divided="vertically" centered>
         {
           activeCategories.map(category => (
             <CategoryCard
@@ -34,14 +34,14 @@ const IndexPage = ({ data }: IndexPageProps) => {
             />
           ))
         }
-      </StyledGrid>
+      </Categories>
     </Layout>
   );
 };
 
 export default IndexPage;
 
-const StyledGrid = styled(Grid)`
+const Categories = styled(Grid)`
   &&& {
     flex-direction: column;
     align-items: center;
@@ -71,15 +71,17 @@ query indexQuery {
       }
     }
   }
-  stars_query: allContentfulToolEntry(sort: {fields: fields___githubData___stars, order: DESC}, limit: 5, filter: {fields: {githubData: {stars: {gt: 0}}}}) {
+  stars_query: allContentfulToolEntry(sort: {fields: fields___githubData___stars, order: DESC}, limit: 10, filter: {fields: {githubData: {stars: {gt: 0}}}}) {
     edges {
       node {
-        name
-        fields {
-          githubData {
-            stars
-          }
-        }
+        ...CategoryTopsFragment
+      }
+    }
+  }
+  downloads_query: allContentfulToolEntry(sort: {fields: fields___npmData___downloads, order: DESC}, limit: 10, filter: {fields: {npmData: {downloads: {gt: 0}}}}) {
+    edges {
+      node {
+        ...CategoryTopsFragment
       }
     }
   }
@@ -125,14 +127,14 @@ query indexQuery {
       }
     }
   }
-  build_npm_tops: allContentfulToolEntry(filter: {category: {eq: "build"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
+  frontops_npm_tops: allContentfulToolEntry(filter: {category: {eq: "frontops"}, fields: {npmData: {downloads: {gt: 0}}}}, sort: {fields: fields___npmData___downloads, order: DESC}, limit: 5) {
     edges {
       node {
         ...CategoryTopsFragment
       }
     }
   }
-  build_github_tops: allContentfulToolEntry(filter: {category: {eq: "build"}, fields: {githubData: {stars: {gt: 0}}}}, sort: {fields: fields___githubData___stars, order: DESC}, limit: 5) {
+  frontops_github_tops: allContentfulToolEntry(filter: {category: {eq: "frontops"}, fields: {githubData: {stars: {gt: 0}}}}, sort: {fields: fields___githubData___stars, order: DESC}, limit: 5) {
     edges {
       node {
         ...CategoryTopsFragment
@@ -148,7 +150,7 @@ query indexQuery {
   css: allContentfulToolEntry(filter: {category: {eq: "css"}}) {
     totalCount
   }
-  build: allContentfulToolEntry(filter: {category: {eq: "build"}}) {
+  frontops: allContentfulToolEntry(filter: {category: {eq: "frontops"}}) {
     totalCount
   }
   seo: allContentfulToolEntry(filter: {category: {eq: "seo"}}) {
