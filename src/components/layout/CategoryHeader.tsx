@@ -60,7 +60,7 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
         <CategoryWave color={color} />
         <HeaderData>
           <HeaderTitle>
-            <CategoryLink to="/">
+            <CategoryLink to="/" aria-label="Frontbook home page">
               <Icon size="small" inverted name="home" />
             </CategoryLink>
             <CategoryLink to={`/${category.toLowerCase()}`}> / {categoriesNames[category].name}</CategoryLink>

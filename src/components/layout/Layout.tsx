@@ -20,7 +20,7 @@ interface LayoutProps {
 
 export const Layout = ({ children, category, subcategories, subcategory, color = '#D1BF20' }: LayoutProps) => {
   useEffect(() => {
-    // TODO: make it better. Now it jumps...
+    // TODO: make it better. Now it jumps a little...
     document.body.scrollTop = 0;
   }, [category]);
   return (

@@ -1,5 +1,5 @@
 import {
-  Animations, Auth, Cheatsheets, Cssinjs, Extensions, Cms, DataLayer,
+  Animations, Security, Cheatsheets, Cssinjs, Extensions, Cms, DataLayer,
   Processing, DataVisualization, Graphic, Interactions, Search,
   Tests, Translations, Utils, Framework, Hosting, Media, Ssg,
   Colors, Design, Fonts, Icons, Inspirations, Logos, UI
@@ -17,8 +17,8 @@ export const SubcategoryImage = ({ code, style }: CategoryImageProps) => {
     case 'js_animations':
     case 'css_animations':
       return <Animations width="20%" style={style} />;
-    case 'js_authorization':
-      return <Auth width="20%" style={style} />;
+    case 'js_security':
+      return <Security width="20%" style={style} />;
     case 'js_css-in-js':
       return <Cssinjs width="20%" style={style} />;
     case 'js_cheatsheets':
