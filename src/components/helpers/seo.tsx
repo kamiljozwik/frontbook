@@ -1,10 +1,3 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from 'react';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
@@ -12,11 +5,16 @@ import { useStaticQuery, graphql } from 'gatsby';
 interface SEOProps {
   title: string;
   description?: string;
+  image?: string;
+  url?: string;
   lang?: string;
   meta?: any[];
 }
 
-export function SEO({ description = '', lang = 'en', meta = [], title }: SEOProps) {
+const defaultImage = 'https://frontbook.s3-eu-west-1.amazonaws.com/images/ogImage.png';
+const defaultUrl = 'https://frontbook.dev/';
+
+export function SEO({ description = '', lang = 'en', meta = [], title, image = defaultImage, url = defaultUrl }: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -58,12 +56,24 @@ export function SEO({ description = '', lang = 'en', meta = [], title }: SEOProp
           content: 'website',
         },
         {
+          property: 'og:image',
+          content: image,
+        },
+        {
+          property: 'og:url',
+          content: url,
+        },
+        {
           name: 'twitter:card',
           content: 'summary',
         },
         {
+          name: 'twitter:image',
+          content: image,
+        },
+        {
           name: 'twitter:creator',
-          content: site.siteMetadata.author,
+          content: '@jozwikk',
         },
         {
           name: 'twitter:title',

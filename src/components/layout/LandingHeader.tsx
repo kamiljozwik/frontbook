@@ -11,7 +11,7 @@ export const LandingHeader = () => {
       <HeaderWrapper>
         <LandingWave />
         <HeaderTite>
-          All front-end tools and resources in one place.
+          Best front-end tools and resources in one place.
         </HeaderTite>
         <HeaderSubTite>
           Compare real numbers and choose the right tools for your next project.

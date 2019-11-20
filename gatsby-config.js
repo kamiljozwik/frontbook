@@ -6,7 +6,7 @@ module.exports = {
   siteMetadata: {
     title: `Frontbook`,
     description: `Best front-end tools and resources in one place`,
-    author: `kamiljozwik`,
+    author: `Kamil Jozwik`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
