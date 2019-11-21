@@ -7,6 +7,7 @@ import { Layout, CategoryCard, Searcher, TopsToolsList, Leaderboard } from '../c
 import { SEO } from '../components/helpers';
 import { CategoriesCodes, activeCategories, SubcategoryNode } from '../shared';
 
+// https://medium.com/@stojanpeshov/how-to-setup-gatsbyjs-starter-with-typescript-eslint-prettier-269b1a0a812f
 interface IndexPageProps {
   data: {
     [index: string]: {
