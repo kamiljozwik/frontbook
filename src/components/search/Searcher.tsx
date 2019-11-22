@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, SyntheticEvent } from 'react';
 import _ from 'lodash';
 import { Search, Segment, Header } from 'semantic-ui-react';
 
@@ -15,7 +15,7 @@ export const Searcher = ({ allTools, total }: SearcherProps) => {
   const [results, setResults] = useState<ResultsProps[]>();
   const [value, setValue] = useState('');
 
-  const handleSearchChange = (e: any, { value }: any) => {
+  const handleSearchChange = (e: SyntheticEvent, { value }: { value: string }) => {
     setValue(value);
     const re = new RegExp(_.escapeRegExp(value), 'i');
     const isMatch = (result: SubcategoryNode) => re.test(result.node.name) || re.test(result.node.slogan.slogan);
@@ -33,8 +33,8 @@ export const Searcher = ({ allTools, total }: SearcherProps) => {
   };
 
   return (
-    <Segment basic textAlign="center" style={{height: '250px'}}>
-      <Header textAlign="center" size="huge" style={{marginBottom: '50px'}}>
+    <Segment basic textAlign="center" style={{ height: '250px' }}>
+      <Header textAlign="center" size="huge" style={{ marginBottom: '50px' }}>
         <ToolsCount>{total}</ToolsCount> best front-end tools and resources to choose from!
       </Header>
       <Header>What are you looking for?</Header>

@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 
+interface LogoProps extends SVGAttributes<Element> {
+  textcolor: string;
+}
 // tslint:disable: max-line-length
-export const Logo = (props: any) => (
+export const Logo = (props: LogoProps) => (
   <svg viewBox="0 0 848 357" fill="none" {...props}>
     <path fill="#42b3fe" d="M0 3H134V357H0z" />
     <path fill="#177cbe" d="M134 3H268V357H134z" />

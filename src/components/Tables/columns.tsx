@@ -1,10 +1,10 @@
-import { Label } from 'semantic-ui-react';
+import React from 'react';
 import { Column, DefaultFilterFunction } from 'react-table';
 import numeral from 'numeral';
 
 import { TableHeader } from './components/header';
 import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/filters';
-import { LastActive, WebsiteLink, License, ToolName, Size, FrameworkLabel, Unknown  } from './components/cells';
+import { LastActive, WebsiteLink, License, ToolName, Size, FrameworkLabel, Unknown } from './components/cells';
 import { ToolIcon } from '../../shared';
 
 /**
@@ -26,13 +26,21 @@ const sortNumbers = (a: string | number, b: string | number) => {
   return 0;
 };
 
-const sortSize = (a: any, b: any) => {
-  a = a.props.bundlephobiaData ? a.props.bundlephobiaData.size : -Infinity;
-  b = b.props.bundlephobiaData ? b.props.bundlephobiaData.size : -Infinity;
-  if (a > b) {
+interface SizeData {
+  props: {
+    bundlephobiaData?: {
+      size: number;
+    };
+  };
+}
+
+const sortSize = (a: SizeData, b: SizeData) => {
+  const sizeA = a.props.bundlephobiaData ? a.props.bundlephobiaData.size : -Infinity;
+  const sizeB = b.props.bundlephobiaData ? b.props.bundlephobiaData.size : -Infinity;
+  if (sizeA > sizeB) {
     return 1;
   }
-  if (a < b) {
+  if (sizeA < sizeB) {
     return -1;
   }
   return 0;
@@ -41,39 +49,39 @@ const sortSize = (a: any, b: any) => {
 /**
  * Custom Filter Methods
  */
-const filterName: DefaultFilterFunction = (filter, row) => row['tool-name'].props.name.toLowerCase().includes(filter.value.toLowerCase());
+const filterName: DefaultFilterFunction = (filter, row) =>
+  row['tool-name'].props.name.toLowerCase().includes(filter.value.toLowerCase());
 const filterFramework: DefaultFilterFunction = (filter, row) => {
   const { name, slogan } = row['tool-framework'].props;
   if (filter.value === 'all') {
     return true;
   }
   if (filter.value === 'vanilla') {
-    return !(
-      name.includes('react')
-      || slogan.includes('react')
-      || name.includes('vue')
-      || slogan.includes('vue')
-    );
+    return !(name.includes('react') || slogan.includes('react') || name.includes('vue') || slogan.includes('vue'));
   }
   return name.includes(filter.value) || slogan.includes(filter.value);
 };
-const filterSlogan: DefaultFilterFunction = (filter, row) => row['slogan.slogan'].toLowerCase().includes(filter.value.toLowerCase());
-const filterSize: DefaultFilterFunction =
-  (filter, row) => row['bundlephobia-size'].props.bundlephobiaData ? row['bundlephobia-size'].props.bundlephobiaData.size <= parseInt(filter.value, 10) * 1024 : true;
-const filterStars: DefaultFilterFunction = (filter, row) => numeral(row['github-stars']).value() >= parseInt(filter.value, 10);
-const filterDownloads: DefaultFilterFunction = (filter, row) => numeral(row['npm-weekly-downloads']).value() >= parseInt(filter.value, 10);
-const filterIssues: DefaultFilterFunction = (filter, row) => numeral(row['github-issues']).value() <= parseInt(filter.value, 10);
+const filterSlogan: DefaultFilterFunction = (filter, row) =>
+  row['slogan.slogan'].toLowerCase().includes(filter.value.toLowerCase());
+const filterSize: DefaultFilterFunction = (filter, row) =>
+  row['bundlephobia-size'].props.bundlephobiaData
+    ? row['bundlephobia-size'].props.bundlephobiaData.size <= parseInt(filter.value, 10) * 1024
+    : true;
+const filterStars: DefaultFilterFunction = (filter, row) =>
+  numeral(row['github-stars']).value() >= parseInt(filter.value, 10);
+const filterDownloads: DefaultFilterFunction = (filter, row) =>
+  numeral(row['npm-weekly-downloads']).value() >= parseInt(filter.value, 10);
+const filterIssues: DefaultFilterFunction = (filter, row) =>
+  numeral(row['github-issues']).value() <= parseInt(filter.value, 10);
 const filterLicence: DefaultFilterFunction = (filter, row) => {
   const githubData = row['github-license'].props.githubData;
   const licenseInfo = githubData && githubData.repository.licenseInfo;
   const isLicenseKnown = licenseInfo !== null;
   return filter.value === 'all'
     ? true
-    : (
-      filter.value === 'mit'
-        ? isLicenseKnown && licenseInfo.spdxId === 'MIT'
-        : (isLicenseKnown && licenseInfo.spdxId === 'MIT') || !isLicenseKnown
-    );
+    : filter.value === 'mit'
+    ? isLicenseKnown && licenseInfo.spdxId === 'MIT'
+    : (isLicenseKnown && licenseInfo.spdxId === 'MIT') || !isLicenseKnown;
 };
 
 /**
@@ -93,7 +101,9 @@ export const columns: Column[] = [
     Header: () => <TableHeader content="Name / framework" title="Tool's name and compatible framework" />,
     accessor: d => <ToolName name={d.name} githubURL={d.github} npmURL={d.npm} websiteURL={d.website} />,
     filterMethod: filterName,
-    Filter: ({ filter = {}, onChange }) => <FilterInput width="60%" label="includes:" onChange={event => onChange(event.target.value)} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <FilterInput width="60%" label="includes:" onChange={event => onChange(event.target.value)} />
+    ),
     minWidth: 150,
     sortable: false,
   },
@@ -102,7 +112,13 @@ export const columns: Column[] = [
     Header: () => <TableHeader />,
     accessor: d => <FrameworkLabel name={d.name.toLowerCase()} slogan={d.slogan.slogan.toLowerCase()} />,
     filterMethod: filterFramework,
-    Filter: ({ filter = {}, onChange }) => <FrameworkDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} style={{left: '-25px'}} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <FrameworkDropdown
+        value={filter.value ? filter.value : 'all'}
+        onChange={(event, data) => onChange(data.value)}
+        style={{ left: '-25px' }}
+      />
+    ),
     minWidth: 60,
     sortable: false,
   },
@@ -110,40 +126,54 @@ export const columns: Column[] = [
     Header: () => <TableHeader content="Info" icon="star" title="Tool's short description" />,
     accessor: 'slogan.slogan',
     filterMethod: filterSlogan,
-    Filter: ({ filter = {}, onChange }) => <FilterInput label="includes:" width="90%" onChange={event => onChange(event.target.value)} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <FilterInput label="includes:" width="90%" onChange={event => onChange(event.target.value)} />
+    ),
     minWidth: 200,
     sortable: false,
   },
   {
     id: 'bundlephobia-size',
-    Header: () => <TableHeader content="Minified / gzip" icon="hdd outline" title="Package size according to bundlephobia.com" />,
+    Header: () => (
+      <TableHeader content="Minified / gzip" icon="hdd outline" title="Package size according to bundlephobia.com" />
+    ),
     accessor: d => <Size bundlephobiaData={d.fields.bundlephobiaData} />,
     filterMethod: filterSize,
-    Filter: ({ filter = {}, onChange }) => <FilterInput label="max:" tail="kB" onChange={event => onChange(event.target.value)} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <FilterInput label="max:" tail="kB" onChange={event => onChange(event.target.value)} />
+    ),
     sortMethod: sortSize,
   },
   {
     id: 'github-stars',
     Header: () => <TableHeader content="Stars" icon="star" title="Github stars" />,
-    accessor: d => d.fields.githubData ?  numeral(d.fields.githubData.repository.stargazers.totalCount).format('0,0') : <Unknown />,
+    accessor: d =>
+      d.fields.githubData ? numeral(d.fields.githubData.repository.stargazers.totalCount).format('0,0') : <Unknown />,
     filterMethod: filterStars,
-    Filter: ({ filter = {}, onChange }) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <FilterInput label="min:" onChange={event => onChange(event.target.value)} />
+    ),
     sortMethod: sortNumbers,
   },
   {
     id: 'npm-weekly-downloads',
     Header: () => <TableHeader content="Downloads" icon="npm" title="NPM weekly downloads" />,
-    accessor: d => d.fields.npmData ? numeral(d.fields.npmData.downloads).format('0,0') : <Unknown />,
+    accessor: d => (d.fields.npmData ? numeral(d.fields.npmData.downloads).format('0,0') : <Unknown />),
     filterMethod: filterDownloads,
-    Filter: ({ filter = {}, onChange }) => <FilterInput label="min:" onChange={event => onChange(event.target.value)} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <FilterInput label="min:" onChange={event => onChange(event.target.value)} />
+    ),
     sortMethod: sortNumbers,
   },
   {
     id: 'github-issues',
     Header: () => <TableHeader content="Issues" icon="exclamation circle" title="Github issues" />,
-    accessor: d => d.fields.githubData ? numeral(d.fields.githubData.repository.issues.totalCount).format('0,0') : <Unknown />,
+    accessor: d =>
+      d.fields.githubData ? numeral(d.fields.githubData.repository.issues.totalCount).format('0,0') : <Unknown />,
     filterMethod: filterIssues,
-    Filter: ({ filter = {}, onChange }) => <FilterInput label="max:" onChange={event => onChange(event.target.value)} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <FilterInput label="max:" onChange={event => onChange(event.target.value)} />
+    ),
     sortMethod: sortNumbers,
   },
   {
@@ -151,7 +181,9 @@ export const columns: Column[] = [
     Header: () => <TableHeader content="License" icon="copyright outline" title="Package license" />,
     accessor: d => <License githubData={d.fields.githubData} />,
     filterMethod: filterLicence,
-    Filter: ({ filter = {}, onChange }) => <LicenseDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} />,
+    Filter: ({ filter = {}, onChange }) => (
+      <LicenseDropdown value={filter.value ? filter.value : 'all'} onChange={(event, data) => onChange(data.value)} />
+    ),
     sortable: false,
   },
   {

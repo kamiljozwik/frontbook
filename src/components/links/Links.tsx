@@ -14,23 +14,13 @@ interface LinkItemProps {
   url: string;
 }
 
-const LinkItem = ({title, url}: LinkItemProps) => (
+const LinkItem = ({ title, url }: LinkItemProps) => (
   <List.Item>
     <List.Content>
-      <List.Header
-        as={OutboundLink}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <List.Header as={OutboundLink} href={url} target="_blank" rel="noopener noreferrer">
         {title}
       </List.Header>
-      <List.Description
-        as={OutboundLink}
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <List.Description as={OutboundLink} href={url} target="_blank" rel="noopener noreferrer">
         {url}
       </List.Description>
     </List.Content>

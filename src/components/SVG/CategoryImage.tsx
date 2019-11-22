@@ -1,9 +1,10 @@
+import React, { CSSProperties } from 'react';
 import { Placeholder, Js, Css, Jam, Frontops, Seo, Monitor, Ux, Utils } from '.';
 import { CategoriesCodes } from '../../shared';
 
 interface CategoryImageProps {
   code: CategoriesCodes;
-  style?: any;
+  style?: CSSProperties;
 }
 
 export const CategoryImage = ({ code, style }: CategoryImageProps) => {

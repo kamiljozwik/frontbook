@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
-export const Extensions = (props: any) => (
+export const Extensions = (props: SVGAttributes<Element>) => (
   <svg viewBox="0 0 512 512" xmlSpace="preserve" {...props}>
     <path
       d="M405.977 106.026l-1.698 124.171L472.082 298c8.239 8.239 22.329 2.434 22.373-9.216l1.045-272.28-272.28 1.045c-11.652.045-17.456 14.134-9.216 22.373l67.803 67.803 124.17-1.699z"

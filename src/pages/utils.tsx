@@ -9,20 +9,20 @@ import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 const UtilsPage = ({ data }: CategoryPageNoSubcategories) => (
   <Layout category="utils" color={categoriesNames.utils.color}>
     <SEO title={categoriesNames.utils.name} />
-    <CardGroup items={data.items.edges} links={data.links.edges}/>
+    <CardGroup items={data.items.edges} links={data.links.edges} />
   </Layout>
 );
 
 export const query = graphql`
   query utilsSubcategoriesQuery {
-    items: allContentfulToolEntry(filter: {subcategory: {eq: "utils_empty"}}) {
+    items: allContentfulToolEntry(filter: { subcategory: { eq: "utils_empty" } }) {
       edges {
         node {
           ...ToolsDataFragment
         }
       }
     }
-    links: allContentfulLinksEntry(filter: {subcategory: {eq: "utils_empty"}}) {
+    links: allContentfulLinksEntry(filter: { subcategory: { eq: "utils_empty" } }) {
       edges {
         node {
           title

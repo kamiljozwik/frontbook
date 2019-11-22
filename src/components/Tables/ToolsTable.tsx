@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactTable, { RowInfo, Column, FinalState, Instance } from 'react-table';
-import { css } from '@emotion/core';
+import ReactTable from 'react-table';
 
 import 'react-table/react-table.css';
 import { colors, SubcategoryNode, LinkEntry } from '../../shared';
@@ -18,25 +17,25 @@ export const ToolsTable = ({ items, links }: ToolsTableProps) => {
   // console.log(items)
   return (
     <>
-    <StyledTable
-      data={items}
-      resizable={false}
-      showPagination={false}
-      defaultPageSize={items.length}
-      defaultSorted={[{id: 'github-stars', desc: true}]}
-      filterable
-      // tslint:disable-next-line: jsx-no-lambda
-      resolveData={data => data.map((node: any) => node.node)}
-      columns={columns}
-      getTableProps={Table}
-      getTheadProps={TableHead}
-      getTheadTrProps={TableHeadRow}
-      getTheadThProps={TableHeadCell}
-      getTheadFilterThProps={TableHeadFilterCell}
-      getTrProps={TableBodyRow}
-      getTdProps={TableBodyCell}
-    />
-    {links.length > 0 && <Links links={links} />}
+      <StyledTable
+        data={items}
+        resizable={false}
+        showPagination={false}
+        defaultPageSize={items.length}
+        defaultSorted={[{ id: 'github-stars', desc: true }]}
+        filterable
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        resolveData={data => data.map((node: any) => node.node)}
+        columns={columns}
+        getTableProps={Table}
+        getTheadProps={TableHead}
+        getTheadTrProps={TableHeadRow}
+        getTheadThProps={TableHeadCell}
+        getTheadFilterThProps={TableHeadFilterCell}
+        getTrProps={TableBodyRow}
+        getTdProps={TableBodyCell}
+      />
+      {links.length > 0 && <Links links={links} />}
     </>
   );
 };
@@ -101,7 +100,7 @@ const TableHeadCell = () => {
 /**
  * Header Filters
  */
-const TableHeadFilterCell = (finalState: any, rowInfo?: undefined, column?: Column, instance?: any) => {
+const TableHeadFilterCell = () => {
   return {
     style: {
       height: '50px',

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
-export const Jam = (props: any) => (
+export const Jam = (props: SVGAttributes<Element>) => (
   <svg width="10vw" xmlSpace="preserve" viewBox="0 0 399 399" fill="none" {...props}>
     <path
       d="M327.098 393.074c23.175 0 41.961-18.743 41.961-41.86V139.126c0-52.271-42.476-94.645-94.872-94.645H124.814c-52.396 0-94.873 42.374-94.873 94.645v212.088c0 23.118 18.788 41.86 41.962 41.86h255.195z"

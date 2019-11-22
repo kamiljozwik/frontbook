@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
-export const Security = (props: any) => (
+export const Security = (props: SVGAttributes<Element>) => (
   <svg viewBox="0 0 125 124" fill="none" {...props}>
     <g clipPath="url(#clip0)">
       <path

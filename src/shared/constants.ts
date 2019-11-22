@@ -1,5 +1,5 @@
-// tslint:disable: max-line-length
-// tslint:disable: variable-name
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/camelcase */
 const js_animations = 'Animations are a great way to make our website "not boring". Properly used animations can emphasize most important parts of the page and make user more engaged. On the other side it can make our website heavy and slower. Do not experiment with unknown animation libraries - check this section and choose the one what is proper for you.';
 const js_security = 'In this section you will find great tools you can use to professionally authenticate and authorize users of your applications and also information how to protect your website from any kinds of cyber attacks.';
 const js_cheatsheets = 'Browsing long documentations to find a small code syntax or use case for simple solutions makes you think like "Why... why I have to do it again..." ? If so - stop doing it and use cheatsheets instead. Small, very often printable and easy to read documentation summary is usually a better way than Google.';

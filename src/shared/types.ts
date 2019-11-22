@@ -36,7 +36,7 @@ export interface ListItem {
   name: string;
   subcategory: string;
   slogan: {
-    slogan: string
+    slogan: string;
   };
   github?: string;
   website?: string;
@@ -49,25 +49,25 @@ export interface ListItem {
         diskUsage: number;
         issues: {
           totalCount: number;
-        }
+        };
         stargazers: {
           totalCount: number;
-        }
+        };
         licenseInfo: {
           spdxId?: string;
           url?: string;
-        }
+        };
         pushedAt: Date;
-      }
+      };
     };
     npmData?: {
       downloads: number;
     };
     bundlephobiaData?: {
-      size: number,
-      gzip: number,
-      dependencyCount: number,
-    }
+      size: number;
+      gzip: number;
+      dependencyCount: number;
+    };
   };
 }
 
@@ -85,14 +85,14 @@ export interface LinkEntry {
 export interface SubcategoryProps {
   data: {
     subcategory: {
-      edges: SubcategoryNode[]
+      edges: SubcategoryNode[];
     };
     subcategories: {
       distinct: string[];
     };
     links: {
       edges: LinkEntry[];
-    }
+    };
   };
   pageContext: {
     subcategory: string;
@@ -102,18 +102,18 @@ export interface SubcategoryProps {
 export interface CategoryPageNoSubcategories {
   data: {
     items: {
-      edges: SubcategoryNode[]
+      edges: SubcategoryNode[];
     };
     links: {
       edges: LinkEntry[];
-    }
+    };
   };
 }
 
 export interface CategoryPage {
   data: {
     allContentfulToolEntry: {
-      distinct: string[]
-    }
+      distinct: string[];
+    };
   };
 }

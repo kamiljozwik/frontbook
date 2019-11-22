@@ -18,16 +18,16 @@ interface TopsToolsProps {
 
 const TopsTool = ({ tool, type }: TopsToolProps) => {
   return (
-    <List.Item style={{margin: '5px 0'}}>
+    <List.Item style={{ margin: '5px 0' }}>
       <List.Content>
         <TopsToolData>
-          <ToolIcon url={tool.website} style={{marginRight: '8px'}}/>
+          <ToolIcon url={tool.website} style={{ marginRight: '8px' }} />
           <TopsToolName>{tool.name}</TopsToolName>
           <TopsToolDescription>
-            <Icon size="small" name={type === 'npm' ? 'arrow down' : 'star'} style={{color: colors.darkGrey}} />
+            <Icon size="small" name={type === 'npm' ? 'arrow down' : 'star'} style={{ color: colors.darkGrey }} />
             {type === 'npm'
-              ? numeral(tool.fields.npmData!.downloads).format('0,0')
-              : numeral(tool.fields.githubData!.stars).format('0,0')}
+              ? numeral(tool.fields.npmData ? tool.fields.npmData.downloads : 0).format('0,0')
+              : numeral(tool.fields.githubData ? tool.fields.githubData.stars : 0).format('0,0')}
           </TopsToolDescription>
         </TopsToolData>
       </List.Content>
@@ -38,13 +38,11 @@ const TopsTool = ({ tool, type }: TopsToolProps) => {
 export const TopsToolsList = ({ tops, type }: TopsToolsProps) => {
   return (
     <>
-      {
-        type === 'npm'
-          ? <Header>Top weekly downloads:</Header>
-          : <Header>Top starred repositories:</Header>
-      }
+      {type === 'npm' ? <Header>Top weekly downloads:</Header> : <Header>Top starred repositories:</Header>}
       <List>
-        {tops.map(top => <TopsTool key={top.node.name} tool={top.node} type={type} />)}
+        {tops.map(top => (
+          <TopsTool key={top.node.name} tool={top.node} type={type} />
+        ))}
       </List>
     </>
   );
@@ -58,26 +56,26 @@ const TopsToolData = styled(List.Header)`
 `;
 
 const TopsToolName = styled.span`
-    font-weight: 500;
-    display: inline-block;
-    max-width: 55%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-weight: 500;
+  display: inline-block;
+  max-width: 55%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const TopsToolDescription = styled.span`
-    color: ${colors.darkGrey};
-    font-weight: 500;
-    font-size: 12px;
-    margin-left: 10px;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    ${mq({
-      display: ['none', 'initial', 'initial', 'initial', 'initial'],
-    })}
+  color: ${colors.darkGrey};
+  font-weight: 500;
+  font-size: 12px;
+  margin-left: 10px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  ${mq({
+    display: ['none', 'initial', 'initial', 'initial', 'initial'],
+  })}
 `;
 
 const TopsToolsWrapper = styled(Segment.Group)`

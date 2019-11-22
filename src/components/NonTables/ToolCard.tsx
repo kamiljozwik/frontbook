@@ -25,12 +25,16 @@ interface ExtraDataProps {
 const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
   return (
     <Label.Group size="tiny">
-      {githubStars && <Label basic>
-        <Icon name="star" /> {numeral(githubStars).format('0,0')}
-      </Label>}
-      {npmDownloads && <Label basic>
-        <Icon name="download" /> {numeral(npmDownloads).format('0,0')}
-      </Label>}
+      {githubStars && (
+        <Label basic>
+          <Icon name="star" /> {numeral(githubStars).format('0,0')}
+        </Label>
+      )}
+      {npmDownloads && (
+        <Label basic>
+          <Icon name="download" /> {numeral(npmDownloads).format('0,0')}
+        </Label>
+      )}
     </Label.Group>
   );
 };
@@ -42,15 +46,11 @@ const ToolCard = ({ toolData }: ToolCardProps) => {
         <Card.Header>
           <CardHeader href={toolData.node.website} target="_blank" rel="noopener noreferrer">
             {toolData.node.name}
-            <ToolIcon url={toolData.node.website} style={{height: '16px'}} />
+            <ToolIcon url={toolData.node.website} style={{ height: '16px' }} />
           </CardHeader>
         </Card.Header>
-        <Card.Meta>
-          {toolData.node.website}
-        </Card.Meta>
-        <Card.Description>
-          {toolData.node.slogan.slogan}
-        </Card.Description>
+        <Card.Meta>{toolData.node.website}</Card.Meta>
+        <Card.Description>{toolData.node.slogan.slogan}</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <ExtraData
@@ -65,8 +65,10 @@ const ToolCard = ({ toolData }: ToolCardProps) => {
 export const CardGroup = ({ items, links }: ToolsTableProps) => {
   return (
     <>
-      <Card.Group style={{marginBottom: '100px'}}>
-        {items.map(tool => <ToolCard key={tool.node.name} toolData={tool}  />)}
+      <Card.Group style={{ marginBottom: '100px' }}>
+        {items.map(tool => (
+          <ToolCard key={tool.node.name} toolData={tool} />
+        ))}
       </Card.Group>
       {links.length > 0 && <Links links={links} />}
     </>
@@ -74,16 +76,16 @@ export const CardGroup = ({ items, links }: ToolsTableProps) => {
 };
 
 const CardHeader = styled(OutboundLink)`
-    color: ${colors.black};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  color: ${colors.black};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const StyledCard = styled(Card)`
-    &&& {
-      ${mq({
-        width: ['80%', '100%', '100%', '45%', '22%'],
-      })}
-    }
+  &&& {
+    ${mq({
+      width: ['80%', '100%', '100%', '45%', '22%'],
+    })}
+  }
 `;

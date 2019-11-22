@@ -12,16 +12,20 @@ interface LeaderboardProps {
   githubTops: SubcategoryNode[];
 }
 
-export const Leaderboard = ({npmTops, githubTops}: LeaderboardProps) => {
+export const Leaderboard = ({ npmTops, githubTops }: LeaderboardProps) => {
   return (
     <FlexWrapper>
       <ResponsiveTrophy />
       <LeaderboardWrapper>
-        <Header size="huge" textAlign="center">Tools leaderboard</Header>
-          <TopsToolsList.Wrapper horizontal style={{ width: '100%' }}>
-            <TopsToolsList.Segment>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</TopsToolsList.Segment>
-            <TopsToolsList.Segment>{githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}</TopsToolsList.Segment>
-          </TopsToolsList.Wrapper>
+        <Header size="huge" textAlign="center">
+          Tools leaderboard
+        </Header>
+        <TopsToolsList.Wrapper horizontal style={{ width: '100%' }}>
+          <TopsToolsList.Segment>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</TopsToolsList.Segment>
+          <TopsToolsList.Segment>
+            {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}
+          </TopsToolsList.Segment>
+        </TopsToolsList.Wrapper>
       </LeaderboardWrapper>
       <ResponsiveTrophy />
     </FlexWrapper>
@@ -36,7 +40,7 @@ const FlexWrapper = styled.div`
   padding-top: 20px;
   border-width: 3px;
   border-style: solid;
-  border-image: linear-gradient( to right,rgba(0,0,0,0),rgba(23, 124, 190, 0.5),rgba(0,0,0,0) ) 100% 0% 100% 0%;
+  border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(23, 124, 190, 0.5), rgba(0, 0, 0, 0)) 100% 0% 100% 0%;
 `;
 
 const LeaderboardWrapper = styled.div`

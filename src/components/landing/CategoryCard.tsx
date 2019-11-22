@@ -30,11 +30,16 @@ export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegme
       <Description>{categoriesNames[code].info}</Description>
       {githubTops && (
         <TopsToolsList.Wrapper horizontal>
-          <TopsToolsList.Segment basic>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</TopsToolsList.Segment>
-          <TopsToolsList.Segment basic> {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}</TopsToolsList.Segment>
+          <TopsToolsList.Segment basic>
+            {npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}
+          </TopsToolsList.Segment>
+          <TopsToolsList.Segment basic>
+            {' '}
+            {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}
+          </TopsToolsList.Segment>
         </TopsToolsList.Wrapper>
       )}
-      </Grid.Column>
+    </Grid.Column>
     <ImageColumn>
       <CategoryImage code={code} />
     </ImageColumn>
@@ -46,12 +51,12 @@ const CardWrapper = styled(Grid.Row)`
     position: relative;
     min-height: 330px;
     ${mq({
-      'width': ['90% !important', '90% !important', '90% !important', '90% !important', '75% !important'],
-      'flexDirection': ['column', 'column', 'column', 'row', 'row'],
+      width: ['90% !important', '90% !important', '90% !important', '90% !important', '75% !important'],
+      flexDirection: ['column', 'column', 'column', 'row', 'row'],
       '&&& .column': {
         width: ['100% !important', '100% !important', '100% !important', '50% !important', '50% !important'],
       },
-      })}
+    })}
   }
 `;
 

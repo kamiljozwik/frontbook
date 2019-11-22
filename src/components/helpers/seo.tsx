@@ -8,13 +8,21 @@ interface SEOProps {
   image?: string;
   url?: string;
   lang?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   meta?: any[];
 }
 
 const defaultImage = 'https://frontbook.s3-eu-west-1.amazonaws.com/images/ogImage.png';
 const defaultUrl = 'https://frontbook.dev/';
 
-export function SEO({ description = '', lang = 'en', meta = [], title, image = defaultImage, url = defaultUrl }: SEOProps) {
+export function SEO({
+  description = '',
+  lang = 'en',
+  meta = [],
+  title,
+  image = defaultImage,
+  url = defaultUrl,
+}: SEOProps) {
   const { site } = useStaticQuery(
     graphql`
       query {

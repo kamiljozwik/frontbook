@@ -14,7 +14,7 @@ const CSSPage = ({ data }: CategoryPage) => (
 
 export const query = graphql`
   query cssSubcategoriesQuery {
-    allContentfulToolEntry(filter: {category: {eq: "css"}}) {
+    allContentfulToolEntry(filter: { category: { eq: "css" } }) {
       distinct(field: subcategory)
       totalCount
     }
