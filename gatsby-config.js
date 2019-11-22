@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
@@ -29,10 +30,10 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-151886393-1",
+        trackingId: 'UA-151886393-1',
         head: true,
         respectDNT: false,
-        exclude: ["/preview/**", "/do-not-track/me/too/"],
+        exclude: ['/preview/**', '/do-not-track/me/too/'],
         pageTransitionDelay: 0,
         siteSpeedSampleRate: 10,
       },
@@ -55,4 +56,4 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
