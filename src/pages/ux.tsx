@@ -14,7 +14,7 @@ const UXPage = ({ data }: CategoryPage) => (
 
 export const query = graphql`
   query uxSubcategoriesQuery {
-    allContentfulToolEntry(filter: {category: {eq: "ux"}}) {
+    allContentfulToolEntry(filter: { category: { eq: "ux" } }) {
       distinct(field: subcategory)
       totalCount
     }

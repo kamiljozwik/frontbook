@@ -1,10 +1,11 @@
+import React from 'react';
 import { ChangeEvent, CSSProperties } from 'react';
 import { Dropdown } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
 interface FilterDropdownProps {
   value: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>, data: { value: string | number}) => void;
+  onChange?: (e: ChangeEvent<HTMLInputElement>, data: { value: string | number }) => void;
   style?: CSSProperties;
 }
 

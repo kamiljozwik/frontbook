@@ -15,11 +15,12 @@ interface SubcategoryProps {
 export const SubcategoryCard = ({ name }: SubcategoryProps) => (
   <SubcategorySegment>
     <SubcategoryTitle size="large" as={Link} to={`/${name.replace('_', '/')}`}>
-      {name.split('_')[1].replace(/-/g, ' ').toUpperCase()}
+      {name
+        .split('_')[1]
+        .replace(/-/g, ' ')
+        .toUpperCase()}
     </SubcategoryTitle>
-    <SubcategoryDescription basic>
-      {subcategoriesInfo[name] ? subcategoriesInfo[name] : ''}
-    </SubcategoryDescription>
+    <SubcategoryDescription basic>{subcategoriesInfo[name] ? subcategoriesInfo[name] : ''}</SubcategoryDescription>
     <SubcategoryImage code={name} />
   </SubcategorySegment>
 );

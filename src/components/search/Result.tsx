@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import styled from '@emotion/styled';
 import numeral from 'numeral';
 import { Link } from 'gatsby';
@@ -27,41 +26,37 @@ const parseSubcategory = (subcat: string) => {
   return subcategory === 'empty' ? `/${category}/` : `/${category}/${subcategory}`;
 };
 
-const NoData = () => <span style={{color: 'grey'}}>no data</span>;
+const NoData = () => <span style={{ color: 'grey' }}>no data</span>;
 
 const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
   return (
     <Label.Group size="tiny">
       <Label basic>
-        <Icon name="star" color={githubStars ? undefined : 'grey'}/>
-        {githubStars ? ` ${numeral(githubStars).format('0,0')}` : <NoData/>}
+        <Icon name="star" color={githubStars ? undefined : 'grey'} />
+        {githubStars ? ` ${numeral(githubStars).format('0,0')}` : <NoData />}
       </Label>
       <Label basic>
         <Icon name="download" color={npmDownloads ? undefined : 'grey'} />
-        {npmDownloads ? ` ${numeral(npmDownloads).format('0,0')}` : <NoData/>}
+        {npmDownloads ? ` ${numeral(npmDownloads).format('0,0')}` : <NoData />}
       </Label>
     </Label.Group>
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Result = (props: any) => (
   <StyledCard fluid>
     <Card.Content>
       <Card.Header>
         <CardHeader to={parseSubcategory(props.subcategory)}>
           {props.title}
-          <ToolIcon url={props.website} style={{width: '16px', height: 'auto'}} />
+          <ToolIcon url={props.website} style={{ width: '16px', height: 'auto' }} />
         </CardHeader>
         <Card.Meta>
-        <ExtraData
-          githubStars={props.stars}
-          npmDownloads={props.downloads}
-        />
-      </Card.Meta>
+          <ExtraData githubStars={props.stars} npmDownloads={props.downloads} />
+        </Card.Meta>
       </Card.Header>
-      <Card.Description style={{fontSize: '16px'}}>
-        {props.description}
-      </Card.Description>
+      <Card.Description style={{ fontSize: '16px' }}>{props.description}</Card.Description>
     </Card.Content>
   </StyledCard>
 );
@@ -76,8 +71,8 @@ const StyledCard = styled(Card)`
 `;
 
 const CardHeader = styled(Link)`
-    color: ${colors.black};
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  color: ${colors.black};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;

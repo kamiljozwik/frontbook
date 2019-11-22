@@ -1,11 +1,8 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 
-export const Trophy = (props: any) => (
+export const Trophy = (props: SVGAttributes<Element>) => (
   <svg viewBox="0 0 320 322" fill="none" width="180px" {...props}>
-    <path
-      d="M65 162c13.807 0 25-11.193 25-25s-11.193-25-25-25-25 11.193-25 25 11.193 25 25 25z"
-      fill="#177CBE"
-    />
+    <path d="M65 162c13.807 0 25-11.193 25-25s-11.193-25-25-25-25 11.193-25 25 11.193 25 25 25z" fill="#177CBE" />
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -18,10 +15,7 @@ export const Trophy = (props: any) => (
     <path d="M160 262H90v60h70v-60z" fill="#177CBE" />
     <path d="M160 292h-40v30h40v-30z" fill="#42B3FE" />
     <path d="M160 2H50v30h110V2z" fill="#177CBE" />
-    <path
-      d="M255 162c-13.807 0-25-11.193-25-25s11.193-25 25-25 25 11.193 25 25-11.193 25-25 25z"
-      fill="#42B3FE"
-    />
+    <path d="M255 162c-13.807 0-25-11.193-25-25s11.193-25 25-25 25 11.193 25 25-11.193 25-25 25z" fill="#42B3FE" />
     <path
       fillRule="evenodd"
       clipRule="evenodd"

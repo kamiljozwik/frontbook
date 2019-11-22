@@ -26,7 +26,11 @@ export const Layout = ({ children, category, subcategories, subcategory, color =
   return (
     <>
       <TopBar />
-      {category ? <CategoryHeader category={category!} subcategory={subcategory} subcategories={subcategories} color={color}/> : <LandingHeader />}
+      {category ? (
+        <CategoryHeader category={category} subcategory={subcategory} subcategories={subcategories} color={color} />
+      ) : (
+        <LandingHeader />
+      )}
       <PageContentWrapper>
         <Global
           styles={css`

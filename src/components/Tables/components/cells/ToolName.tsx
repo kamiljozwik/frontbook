@@ -12,14 +12,10 @@ interface ToolNameProps {
   websiteURL: string;
 }
 
-export const ToolName = ({name, githubURL, npmURL, websiteURL}: ToolNameProps) => (
+export const ToolName = ({ name, githubURL, npmURL, websiteURL }: ToolNameProps) => (
   <Item>
     <Item.Content>
-      <ToolNameText
-        href={githubURL || npmURL || websiteURL}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <ToolNameText href={githubURL || npmURL || websiteURL} target="_blank" rel="noopener noreferrer">
         {name}
       </ToolNameText>
     </Item.Content>
@@ -28,5 +24,5 @@ export const ToolName = ({name, githubURL, npmURL, websiteURL}: ToolNameProps) =
 
 const ToolNameText = styled(OutboundLink)`
   font-weight: 600;
-  color: ${colors.black}
+  color: ${colors.black};
 `;

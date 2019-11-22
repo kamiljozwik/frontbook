@@ -1,13 +1,10 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
-export const Graphic = (props: any) => (
+export const Graphic = (props: SVGAttributes<Element>) => (
   <svg viewBox="0 0 167 168" fill="none" {...props}>
     <path d="M150.839 67.742h-10.775v5.42h10.775v-5.42z" fill="#EE5656" />
-    <path
-      d="M150.839 46.065h-10.775v5.419h10.775v-5.42zM150.839 89.42h-10.775v24.386h10.775V89.419z"
-      fill="#7AC943"
-    />
+    <path d="M150.839 46.065h-10.775v5.419h10.775v-5.42zM150.839 89.42h-10.775v24.386h10.775V89.419z" fill="#7AC943" />
     <path
       d="M88.887 70.452c10.505 0 18.855 8.4 18.855 18.967 0 10.568-8.35 18.968-18.855 18.968-6.464 0-12.12-3.251-15.353-8.129h18.585c1.078 0 1.886-.542 2.425-1.355.269-.542.269-.813.269-1.355 0-.541 0-.813-.27-1.354L80.807 72.348c2.425-1.083 5.118-1.896 8.081-1.896z"
       fill="#EE5656"

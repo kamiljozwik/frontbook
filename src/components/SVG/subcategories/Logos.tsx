@@ -1,12 +1,8 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
-export const Logos = (props: any) => (
-  <svg
-    viewBox="0 0 504.123 504.123"
-    xmlSpace="preserve"
-    {...props}
-  >
+export const Logos = (props: SVGAttributes<Element>) => (
+  <svg viewBox="0 0 504.123 504.123" xmlSpace="preserve" {...props}>
     <linearGradient
       id="a"
       gradientUnits="userSpaceOnUse"
@@ -39,10 +35,7 @@ export const Logos = (props: any) => (
       <stop offset={0.999} stopColor="#064093" />
       <stop offset={1} stopColor="#084698" />
     </linearGradient>
-    <path
-      fill="url(#b)"
-      d="M168.172 252.062L252.062 106.764 251.967 106.591 83.984 106.591 0 252.062"
-    />
+    <path fill="url(#b)" d="M168.172 252.062L252.062 106.764 251.967 106.591 83.984 106.591 0 252.062" />
     <linearGradient
       id="c"
       gradientUnits="userSpaceOnUse"

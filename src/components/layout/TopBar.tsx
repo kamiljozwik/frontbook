@@ -5,17 +5,20 @@ import styled from '@emotion/styled';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { Logo } from '../SVG';
-import { mq } from '../';
 
 const TopBar = () => (
   <TopBarWrapper>
     <TopBarContent>
       <Link to="/" aria-label="Frontbook main page">
-        <Logo height="60px" textcolor="white" style={{ margin: '20px 0' }}/>
+        <Logo height="60px" textcolor="white" style={{ margin: '20px 0' }} />
       </Link>
       <TopBarLinks>
-        <TopBarLink href="https://spectrum.chat/frontbook" target="_blank" rel="noopener noreferrer">Spectrum</TopBarLink>
-        <TopBarLink href="https://github.com/kamiljozwik/frontbook" target="_blank" rel="noopener noreferrer">Github</TopBarLink>
+        <TopBarLink href="https://spectrum.chat/frontbook" target="_blank" rel="noopener noreferrer">
+          Spectrum
+        </TopBarLink>
+        <TopBarLink href="https://github.com/kamiljozwik/frontbook" target="_blank" rel="noopener noreferrer">
+          Github
+        </TopBarLink>
       </TopBarLinks>
     </TopBarContent>
   </TopBarWrapper>
@@ -31,7 +34,7 @@ const TopBarWrapper = styled(Segment.Inline)`
     height: 100px;
     border-width: 3px;
     border-style: solid;
-    border-image: linear-gradient( to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0) ) 0% 0% 100% 0%;
+    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0)) 0% 0% 100% 0%;
   }
 `;
 
@@ -42,8 +45,8 @@ const TopBarContent = styled.div`
 `;
 
 const TopBarLinks = styled.div`
-    display: flex;
-    margin-right: 5%;
+  display: flex;
+  margin-right: 5%;
 `;
 
 const TopBarLink = styled(OutboundLink)`

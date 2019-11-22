@@ -1,12 +1,9 @@
-import React from 'react';
+import React, { SVGAttributes } from 'react';
 import styled from '@emotion/styled';
 
-export const CategoryWave = (props: any) => (
+export const CategoryWave = (props: SVGAttributes<Element>) => (
   <StyledSVG viewBox="0 0 1920 316" fill="none" {...props}>
-    <path
-      d="M0 282.5S253.56 316 398 316c356.584 0 720.5-56 989-56s533 42 533-49.5V0H0v282.5z"
-      fill={props.color}
-    />
+    <path d="M0 282.5S253.56 316 398 316c356.584 0 720.5-56 989-56s533 42 533-49.5V0H0v282.5z" fill={props.color} />
     <path
       d="M0 282.5S253.56 316 398 316c356.584 0 720.5-56 989-56s533 42 533-49.5V0H0v282.5z"
       fill="url(#paint0_linear)"

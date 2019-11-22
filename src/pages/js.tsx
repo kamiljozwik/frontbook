@@ -8,15 +8,13 @@ import { categoriesNames, CategoryPage } from '../shared';
 const JavaScriptPage = ({ data }: CategoryPage) => (
   <Layout category="js" subcategories={data.allContentfulToolEntry.distinct} color={categoriesNames.js.color}>
     <SEO title={categoriesNames.js.name} />
-    <SubcategoriesList
-      subcategories={data.allContentfulToolEntry.distinct}
-    />
+    <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
   </Layout>
 );
 
 export const query = graphql`
   query jsSubcategoriesQuery {
-    allContentfulToolEntry(filter: {category: {eq: "js"}}) {
+    allContentfulToolEntry(filter: { category: { eq: "js" } }) {
       distinct(field: subcategory)
     }
   }

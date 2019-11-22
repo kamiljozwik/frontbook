@@ -1,15 +1,38 @@
+import React, { CSSProperties } from 'react';
 import {
-  Animations, Security, Cheatsheets, Cssinjs, Extensions, Cms, DataLayer,
-  Processing, DataVisualization, Graphic, Interactions, Search,
-  Tests, Translations, Utils, Framework, Hosting, Media, Ssg,
-  Colors, Design, Fonts, Icons, Inspirations, Logos, UI
+  Animations,
+  Security,
+  Cheatsheets,
+  Cssinjs,
+  Extensions,
+  Cms,
+  DataLayer,
+  Processing,
+  DataVisualization,
+  Graphic,
+  Interactions,
+  Search,
+  Tests,
+  Translations,
+  Utils,
+  Framework,
+  Hosting,
+  Media,
+  Ssg,
+  Colors,
+  Design,
+  Fonts,
+  Icons,
+  Inspirations,
+  Logos,
+  UI,
 } from './subcategories';
 import { Placeholder } from '.';
 import { Subcategory } from '../../shared';
 
 interface CategoryImageProps {
   code: Subcategory;
-  style?: any;
+  style?: CSSProperties;
 }
 
 export const SubcategoryImage = ({ code, style }: CategoryImageProps) => {

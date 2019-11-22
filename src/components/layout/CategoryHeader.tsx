@@ -38,17 +38,18 @@ const SubcategoryImageStyle = {
 const OtherSubcategories = ({ subcategories, activeSubcategory }: OtherSubcategoriesProps) => {
   return (
     <Label.Group>
-      {subcategories && subcategories.map(el => (
-        <SubcategoryLabel
-          key={el}
-          basic
-          isactive={el.split('_')[1] === activeSubcategory ? 'true' : undefined}
-          as={Link}
-          to={`/${el.replace('_', '/')}`}
-        >
-          {el.split('_')[1]}
-        </SubcategoryLabel>
-      ) )}
+      {subcategories &&
+        subcategories.map(el => (
+          <SubcategoryLabel
+            key={el}
+            basic
+            isactive={el.split('_')[1] === activeSubcategory ? 'true' : undefined}
+            as={Link}
+            to={`/${el.replace('_', '/')}`}
+          >
+            {el.split('_')[1]}
+          </SubcategoryLabel>
+        ))}
     </Label.Group>
   );
 };
@@ -69,8 +70,10 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
           <OtherSubcategories subcategories={subcategories} activeSubcategory={subcategory} />
         </HeaderData>
         <HeaderGraphics>
-          <CategoryImage code={category} style={CategoryImageStyle}/>
-            {subcategory && <SubcategoryImage code={`${category}_${subcategory}` as Subcategory} style={SubcategoryImageStyle}/>}
+          <CategoryImage code={category} style={CategoryImageStyle} />
+          {subcategory && (
+            <SubcategoryImage code={`${category}_${subcategory}` as Subcategory} style={SubcategoryImageStyle} />
+          )}
         </HeaderGraphics>
       </HeaderWrapper>
     </>
@@ -94,7 +97,8 @@ const HeaderData = styled.div`
   justify-content: center;
   ${mq({
     width: ['100%', '100%', '80%', '80%', '80%'],
-  })}`;
+  })}
+`;
 
 const HeaderGraphics = styled.div`
   opacity: 0.8;
@@ -105,7 +109,8 @@ const HeaderGraphics = styled.div`
   ${mq({
     display: ['none', 'none', 'flex', 'flex', 'flex'],
     flexDirection: ['column', 'column', 'column', 'row', 'row'],
-  })}`;
+  })}
+`;
 
 const HeaderTitle = styled.div`
   font-weight: 700;
@@ -129,7 +134,7 @@ const CategoryLink = styled(Link)`
 const SubcategoryLabel = styled(Label)`
   &&& {
     transition: 0.1s;
-    opacity: ${props => props.isactive === 'true' ? 0.8 : 0.5};
+    opacity: ${props => (props.isactive === 'true' ? 0.8 : 0.5)};
     &&:hover {
       transition: 0.1s;
       opacity: 0.8;
