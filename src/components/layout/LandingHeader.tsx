@@ -32,7 +32,7 @@ const HeaderTite = styled.div`
   line-height: 100%;
   margin-bottom: 20px;
   ${mq({
-    fontSize: ['5vw', '5vw', '5vw', '5vw', '3.2vw'],
+    fontSize: ['8vw', '8vw', '7vw', '5vw', '3.2vw'],
     width: ['100%', '100%', '100%', '100%', '50%'],
   })}
 `;
@@ -41,7 +41,7 @@ const HeaderSubTite = styled.div`
   color: white;
   line-height: 120%;
   ${mq({
-    fontSize: ['3vw', '3vw', '3vw', '3vw', '1.4vw'],
+    fontSize: ['5vw', '5vw', '4vw', '3vw', '1.4vw'],
     width: ['100%', '100%', '100%', '100%', '50%'],
   })}
 `;

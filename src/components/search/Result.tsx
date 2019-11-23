@@ -45,7 +45,7 @@ const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Result = (props: any) => (
-  <StyledCard fluid>
+  <StyledResultCard fluid>
     <Card.Content>
       <Card.Header>
         <CardHeader to={parseSubcategory(props.subcategory)}>
@@ -58,10 +58,10 @@ export const Result = (props: any) => (
       </Card.Header>
       <Card.Description style={{ fontSize: '16px' }}>{props.description}</Card.Description>
     </Card.Content>
-  </StyledCard>
+  </StyledResultCard>
 );
 
-const StyledCard = styled(Card)`
+const StyledResultCard = styled(Card)`
   &&& {
     border-radius: 0;
     &:hover {

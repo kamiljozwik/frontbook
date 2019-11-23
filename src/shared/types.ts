@@ -39,6 +39,7 @@ export interface ListItem {
     slogan: string;
   };
   github?: string;
+  npm?: string;
   website?: string;
   fields: {
     githubData?: {

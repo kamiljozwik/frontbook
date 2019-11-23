@@ -1,28 +1,45 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import { Segment } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { Logo } from '../SVG';
+import moment from 'moment';
+import { mq } from './breakpoints';
 
-const TopBar = () => (
-  <TopBarWrapper>
-    <TopBarContent>
-      <Link to="/" aria-label="Frontbook main page">
-        <Logo height="60px" textcolor="white" style={{ margin: '20px 0' }} />
-      </Link>
-      <TopBarLinks>
-        <TopBarLink href="https://spectrum.chat/frontbook" target="_blank" rel="noopener noreferrer">
-          Spectrum
-        </TopBarLink>
-        <TopBarLink href="https://github.com/kamiljozwik/frontbook" target="_blank" rel="noopener noreferrer">
-          Github
-        </TopBarLink>
-      </TopBarLinks>
-    </TopBarContent>
-  </TopBarWrapper>
-);
+const TopBar = () => {
+  const buildTimeData = useStaticQuery(graphql`
+    query BuildTimeQuery {
+      allBuildTime {
+        nodes {
+          buildTime
+        }
+      }
+    }
+  `);
+  const buildTime = buildTimeData.allBuildTime.nodes[0].buildTime;
+  return (
+    <TopBarWrapper>
+      <TopBarContent>
+        <Link to="/" aria-label="Frontbook main page">
+          <Logo height="60px" textcolor="white" style={{ margin: '20px 0' }} />
+        </Link>
+        <TopBarLinks>
+          <TopBarLink href="https://spectrum.chat/frontbook" target="_blank" rel="noopener noreferrer">
+            Spectrum
+          </TopBarLink>
+          <TopBarLink href="https://github.com/kamiljozwik/frontbook" target="_blank" rel="noopener noreferrer">
+            Github
+          </TopBarLink>
+        </TopBarLinks>
+      </TopBarContent>
+      <LastUpdate>{`Last update: ${moment(buildTime).format('D MMM YYYY | HH:MM')} (${moment(
+        buildTime
+      ).fromNow()})`}</LastUpdate>
+    </TopBarWrapper>
+  );
+};
 
 export default TopBar;
 
@@ -46,11 +63,17 @@ const TopBarContent = styled.div`
 
 const TopBarLinks = styled.div`
   display: flex;
+  align-items: flex-end;
   margin-right: 5%;
+  ${mq({
+    flexDirection: ['column', 'column', 'row', 'row', 'row'],
+  })}
 `;
 
 const TopBarLink = styled(OutboundLink)`
-  font-size: 18px;
+  ${mq({
+    fontSize: ['16px', '16px', '18px', '18px', '18px'],
+  })}
   color: white;
   margin: 0 15px;
   font-weight: 600;
@@ -59,4 +82,8 @@ const TopBarLink = styled(OutboundLink)`
     color: white;
     opacity: 1;
   }
+`;
+
+const LastUpdate = styled.span`
+  color: rgba(255, 255, 255, 0.6);
 `;

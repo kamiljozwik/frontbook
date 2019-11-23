@@ -2,7 +2,6 @@ const path = require('path');
 const { GraphQLClient } = require(`graphql-request`);
 const parseGHUrl = require(`parse-github-url`);
 const axios = require('axios');
-// const ogs = require('open-graph-scraper');
 
 /**
  * Used to gather repo details data
@@ -15,8 +14,8 @@ const githubApiClient = process.env.GITHUB_TOKEN
     })
   : console.log('GITHUB TOKEN NOT FOUND!');
 
-exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
-  const { createNode, createNodeField } = actions;
+exports.onCreateNode = async ({ node, actions }) => {
+  const { createNodeField } = actions;
 
   /**
    * Fetch additional data from Github, NPM and Bundlephobia for tools.
@@ -49,40 +48,38 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
             }
           `);
           return response;
-        } catch(error) {
+        } catch (error) {
           console.log('Cannot get data for Github repo: ', `${contentfulName} - ${owner}/${name}`);
           return null;
         }
       }
 
       const repoMeta = node.github ? parseGHUrl(node.github) : null;
-      const repoData = await ( repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);
+      const repoData = await (repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);
 
-      const repoDataWithStars = repoData 
-      ? {
-        ...repoData,
-        stars: repoData.repository.stargazers.totalCount,
-      }
-      : null;
+      const repoDataWithStars = repoData
+        ? {
+            ...repoData,
+            stars: repoData.repository.stargazers.totalCount,
+          }
+        : null;
 
       createNodeField({
         node,
         name: 'githubData',
         value: repoDataWithStars,
-      })
+      });
 
       /**
        * Add field with NPM Data to tool's Node
        */
-      const parseNpmUrl = url => url.includes('@')
-        ? `@${url.split('@').slice(-1)[0]}`
-        : url.split('/').slice(-1)[0];
+      const parseNpmUrl = url => (url.includes('@') ? `@${url.split('@').slice(-1)[0]}` : url.split('/').slice(-1)[0]);
 
       async function getNPMdata(package) {
         try {
           const response = await axios.get(`https://api.npmjs.org/downloads/point/last-week/${package}`);
           return response.data;
-        } catch(error) {
+        } catch (error) {
           console.log('Cannot get data for npm package: ', package);
           return null;
         }
@@ -95,24 +92,24 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
         node,
         name: 'npmData',
         value: npmData,
-      })
+      });
 
       /**
        * Add field with Bundlephobia Data to tool's Node
        */
-      
+
       async function getBundlephobiaData(package) {
         const packageName = package.toLowerCase();
         try {
           const response = await axios.get(`https://bundlephobia.com/api/size?package=${packageName}`);
           return response && response.data;
-        } catch(error) {
+        } catch (error) {
           console.log('Cannot get data from budlephobia for: ', packageName);
           return null;
         }
       }
 
-      const bundlephobiaData = await ( repoMeta ? getBundlephobiaData(repoMeta.name) : null);
+      const bundlephobiaData = await (repoMeta ? getBundlephobiaData(repoMeta.name) : null);
 
       const selectedBundlephobiaData = bundlephobiaData && {
         size: bundlephobiaData.size,
@@ -124,10 +121,14 @@ exports.onCreateNode = async ({ node, actions, getNode, reporter }) => {
         node,
         name: 'bundlephobiaData',
         value: selectedBundlephobiaData,
-      })
+      });
+      break;
+    }
+    default: {
+      break;
     }
   }
-}
+};
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -139,41 +140,68 @@ exports.createPages = async ({ graphql, actions }) => {
        * Get all possible subcategories
        */
       graphql(`
-      {
-        allContentfulToolEntry {
-          distinct(field: subcategory)
+        {
+          allContentfulToolEntry {
+            distinct(field: subcategory)
+          }
         }
-      }      
-    `)
-    .then(subcategories => {
-      subcategories.errors && reject(subcategories.errors);
+      `).then(subcategories => {
+        subcategories.errors && reject(subcategories.errors);
 
-      /**
-       * Create page for each subcategory
-       */
-      subcategories.data.allContentfulToolEntry.distinct.forEach(subcategory => {
-        const path = subcategory.replace('_', '/');
-        !path.includes('empty') && createPage({
-          path: path,
-          component: subcategoryTemplate,
-          context: {
-            subcategory
-          },
+        /**
+         * Create page for each subcategory
+         */
+        subcategories.data.allContentfulToolEntry.distinct.forEach(subcategory => {
+          const path = subcategory.replace('_', '/');
+          !path.includes('empty') &&
+            createPage({
+              path: path,
+              component: subcategoryTemplate,
+              context: {
+                subcategory,
+              },
+            });
         });
-      });
-    }));
+      })
+    );
   });
 };
 
 // https://github.com/gatsbyjs/gatsby/issues/11934
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
-  if (stage.startsWith("develop")) {
+  if (stage.startsWith('develop')) {
     actions.setWebpackConfig({
       resolve: {
         alias: {
-          "react-dom": "@hot-loader/react-dom",
+          'react-dom': '@hot-loader/react-dom',
         },
       },
-    })
+    });
   }
-}
+};
+
+exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
+  const { createNode } = actions;
+  const buildTime = new Date();
+
+  const BuildData = {
+    buildTime,
+  };
+
+  const nodeContent = JSON.stringify(BuildData);
+
+  const nodeMeta = {
+    id: createNodeId(`buildTime`),
+    parent: null,
+    children: [],
+    internal: {
+      type: `BuildTime`,
+      mediaType: `text/html`,
+      content: nodeContent,
+      contentDigest: createContentDigest(BuildData),
+    },
+  };
+
+  const node = Object.assign({}, BuildData, nodeMeta);
+  createNode(node);
+};

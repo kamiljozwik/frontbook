@@ -82,6 +82,15 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
 
 const HeaderWrapper = styled.div`
   height: calc(40vh - 100px);
+  ${mq({
+    height: [
+      'calc(60vh - 100px)',
+      'calc(40vh - 100px)',
+      'calc(40vh - 100px)',
+      'calc(40vh - 100px)',
+      'calc(40vh - 100px)',
+    ],
+  })}
   width: 80vw;
   margin: 0 auto;
   margin-bottom: 50px;
