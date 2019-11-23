@@ -86,6 +86,9 @@ const Description = styled.p`
 const ImageColumn = styled(Grid.Column)`
   &&&& {
     display: flex;
+    ${mq({
+      display: ['none', 'none', 'none', 'flex', 'flex'],
+    })}
     justify-content: center;
     align-items: center;
   }

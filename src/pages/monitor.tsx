@@ -7,7 +7,7 @@ import { CardGroup } from '../components/NonTables';
 import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
 const MonitorPage = ({ data }: CategoryPageNoSubcategories) => (
-  <Layout category="monitor" color={categoriesNames.monitor.color}>
+  <Layout pageType="category" category="monitor" color={categoriesNames.monitor.color}>
     <SEO title={categoriesNames.monitor.name} />
     <CardGroup items={data.items.edges} links={data.links.edges} />
   </Layout>

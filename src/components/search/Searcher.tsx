@@ -5,6 +5,7 @@ import { Search, Segment, Header } from 'semantic-ui-react';
 import { SubcategoryNode } from '../../shared/types';
 import { Result, ResultsProps } from './';
 import styled from '@emotion/styled';
+import { mq } from '../';
 
 interface SearcherProps {
   total: number;
@@ -73,6 +74,8 @@ const WarnMessage = styled.div`
 `;
 
 const ToolsCount = styled.span`
-  font-size: 32px;
   font-weight: 600;
+  ${mq({
+    fontSize: ['1em', '32px', '32px', '32px', '32px'],
+  })}
 `;

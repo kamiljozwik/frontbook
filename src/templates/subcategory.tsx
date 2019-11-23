@@ -14,6 +14,7 @@ export default ({ data, pageContext }: SubcategoryProps) => {
   const links = data.links.edges;
   return (
     <Layout
+      pageType="category"
       category={category}
       subcategory={subcategory}
       subcategories={subcategories}

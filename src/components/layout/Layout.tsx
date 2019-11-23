@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { LandingHeader, CategoryHeader } from './';
+import { LandingHeader, CategoryHeader, LeaderboardHeader } from './';
 import TopBar from './TopBar';
 import { colors, CategoriesCodes } from '../../shared';
 import { mq } from '../layout';
@@ -10,15 +10,39 @@ import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
 
+type PageTypes = 'landing' | 'category' | 'leaderboard';
 interface LayoutProps {
   children: ReactNode;
   category?: CategoriesCodes;
   subcategories?: string[];
   subcategory?: string;
   color?: string;
+  pageType?: PageTypes;
 }
 
-export const Layout = ({ children, category, subcategories, subcategory, color = '#D1BF20' }: LayoutProps) => {
+const headerFactory = (pageType: any, category: any, subcategory: any, subcategories: any, color: any) => {
+  switch (pageType) {
+    case 'landing':
+      return <LandingHeader />;
+    case 'category':
+      return (
+        <CategoryHeader category={category} subcategory={subcategory} subcategories={subcategories} color={color} />
+      );
+    case 'leaderboard':
+      return <LeaderboardHeader color={color} />;
+    default:
+      return <LandingHeader />;
+  }
+};
+
+export const Layout = ({
+  children,
+  category,
+  subcategories,
+  subcategory,
+  color = '#D1BF20',
+  pageType,
+}: LayoutProps) => {
   useEffect(() => {
     // TODO: make it better. Now it jumps a little...
     document.body.scrollTop = 0;
@@ -26,11 +50,7 @@ export const Layout = ({ children, category, subcategories, subcategory, color =
   return (
     <>
       <TopBar />
-      {category ? (
-        <CategoryHeader category={category} subcategory={subcategory} subcategories={subcategories} color={color} />
-      ) : (
-        <LandingHeader />
-      )}
+      {headerFactory(pageType, category, subcategory, subcategories, color)}
       <PageContentWrapper>
         <Global
           styles={css`
