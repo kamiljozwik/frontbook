@@ -6,7 +6,12 @@ import { SEO } from '../components/helpers';
 import { categoriesNames, CategoryPage } from '../shared';
 
 const JavaScriptPage = ({ data }: CategoryPage) => (
-  <Layout pageType="category" category="js" subcategories={data.allContentfulToolEntry.distinct} color={categoriesNames.js.color}>
+  <Layout
+    pageType="category"
+    category="js"
+    subcategories={data.allContentfulToolEntry.distinct}
+    color={categoriesNames.js.color}
+  >
     <SEO title={categoriesNames.js.name} />
     <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
   </Layout>

@@ -17,7 +17,6 @@ interface TopsToolsProps {
 }
 
 const TopsTool = ({ tool, type }: TopsToolProps) => {
-  console.log(tool);
   return (
     <List.Item style={{ margin: '5px 0' }}>
       <List.Content>

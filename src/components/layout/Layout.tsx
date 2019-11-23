@@ -17,19 +17,31 @@ interface LayoutProps {
   subcategories?: string[];
   subcategory?: string;
   color?: string;
-  pageType?: PageTypes;
+  pageType: PageTypes;
 }
 
-const headerFactory = (pageType: any, category: any, subcategory: any, subcategories: any, color: any) => {
+const headerFactory = (
+  pageType: PageTypes,
+  category?: CategoriesCodes,
+  subcategory?: string,
+  subcategories?: string[],
+  color?: string
+) => {
   switch (pageType) {
     case 'landing':
       return <LandingHeader />;
     case 'category':
       return (
-        <CategoryHeader category={category} subcategory={subcategory} subcategories={subcategories} color={color} />
+        <CategoryHeader
+          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+          category={category!}
+          subcategory={subcategory}
+          subcategories={subcategories}
+          color={color || colors.default}
+        />
       );
     case 'leaderboard':
-      return <LeaderboardHeader color={color} />;
+      return <LeaderboardHeader color={color || colors.default} />;
     default:
       return <LandingHeader />;
   }
@@ -44,7 +56,6 @@ export const Layout = ({
   pageType,
 }: LayoutProps) => {
   useEffect(() => {
-    // TODO: make it better. Now it jumps a little...
     document.body.scrollTop = 0;
   }, [category]);
   return (
