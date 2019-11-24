@@ -13,10 +13,12 @@ interface SearcherProps {
 }
 
 export const Searcher = ({ allTools, total }: SearcherProps) => {
+  console.log('searcher started');
   const [results, setResults] = useState<ResultsProps[]>();
   const [value, setValue] = useState('');
 
   const handleSearchChange = (e: SyntheticEvent, { value }: { value: string }) => {
+    console.log('search value:', value);
     setValue(value);
     const re = new RegExp(_.escapeRegExp(value), 'i');
     const isMatch = (result: SubcategoryNode) => re.test(result.node.name) || re.test(result.node.slogan.slogan);
