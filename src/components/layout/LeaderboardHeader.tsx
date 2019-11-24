@@ -11,7 +11,7 @@ interface CategoryHeaderProps {
 export const LeaderboardHeader = ({ color }: CategoryHeaderProps) => {
   return (
     <>
-      <HeaderWrapper>
+      <LeaderboardHeaderWrapper>
         <CategoryWave color={color} style={{ minHeight: '40vh' }} />
         <HeaderData>
           <HeaderTitle>Front-end tools leaderboard</HeaderTitle>
@@ -19,12 +19,12 @@ export const LeaderboardHeader = ({ color }: CategoryHeaderProps) => {
         <HeaderGraphics>
           <Trophy />
         </HeaderGraphics>
-      </HeaderWrapper>
+      </LeaderboardHeaderWrapper>
     </>
   );
 };
 
-const HeaderWrapper = styled.div`
+const LeaderboardHeaderWrapper = styled.div`
   height: calc(40vh - 100px);
   width: 80vw;
   margin: 0 auto;

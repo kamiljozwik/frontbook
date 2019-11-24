@@ -7,17 +7,17 @@ import { mq } from '../layout';
 export const LandingHeader = () => {
   return (
     <>
-      <HeaderWrapper>
+      <LandingHeaderWrapper>
         <LandingWave />
         <HeaderTite>Best front-end tools and resources in one place.</HeaderTite>
         <HeaderSubTite>Compare real numbers and choose the right tools for your next project.</HeaderSubTite>
         <PositionHelper />
-      </HeaderWrapper>
+      </LandingHeaderWrapper>
     </>
   );
 };
 
-const HeaderWrapper = styled.div`
+const LandingHeaderWrapper = styled.div`
   height: calc(80vh - 100px);
   width: 80vw;
   margin: 0 auto;
