@@ -45,6 +45,7 @@ const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 25px;
   margin-bottom: 50px;
   padding: 20px 0;
   border-style: solid;
