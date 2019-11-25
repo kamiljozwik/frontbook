@@ -98,8 +98,7 @@ exports.onCreateNode = async ({ node, actions }) => {
        * Add field with Bundlephobia Data to tool's Node
        */
 
-      async function getBundlephobiaData(package) {
-        const packageName = package.toLowerCase();
+      async function getBundlephobiaData(packageName) {
         try {
           const response = await axios.get(`https://bundlephobia.com/api/size?package=${packageName}`);
           return response && response.data;
@@ -109,7 +108,7 @@ exports.onCreateNode = async ({ node, actions }) => {
         }
       }
 
-      const bundlephobiaData = await (repoMeta ? getBundlephobiaData(repoMeta.name) : null);
+      const bundlephobiaData = await (npmPackageName ? getBundlephobiaData(npmPackageName) : null);
 
       const selectedBundlephobiaData = bundlephobiaData && {
         size: bundlephobiaData.size,
