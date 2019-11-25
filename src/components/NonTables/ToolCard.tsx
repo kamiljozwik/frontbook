@@ -65,15 +65,25 @@ const ToolCard = ({ toolData }: ToolCardProps) => {
 export const CardGroup = ({ items, links }: ToolsTableProps) => {
   return (
     <>
-      <Card.Group style={{ marginBottom: '100px' }}>
+      <CenteredCards>
         {items.map(tool => (
           <ToolCard key={tool.node.name} toolData={tool} />
         ))}
-      </Card.Group>
+      </CenteredCards>
       {links.length > 0 && <Links links={links} />}
     </>
   );
 };
+
+const CenteredCards = styled(Card.Group)`
+  &&& {
+    margin-bottom: 100px;
+    margin: 0 10px;
+    ${mq({
+      margin: ['0 10px', '0', '0', '0', '0'],
+    })}
+  }
+`;
 
 const CardHeader = styled(OutboundLink)`
   color: ${colors.black};
@@ -85,7 +95,7 @@ const CardHeader = styled(OutboundLink)`
 const StyledCard = styled(Card)`
   &&& {
     ${mq({
-      width: ['80%', '100%', '100%', '45%', '22%'],
+      width: ['100%', '100%', '100%', '45%', '22%'],
     })}
   }
 `;

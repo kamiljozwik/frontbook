@@ -4,6 +4,7 @@ import { Header, List } from 'semantic-ui-react';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { LinkEntry } from '../../shared/types';
+import { mq } from '../layout/breakpoints';
 
 interface LinksProps {
   links: LinkEntry[];
@@ -20,9 +21,9 @@ const LinkItem = ({ title, url }: LinkItemProps) => (
       <List.Header as={OutboundLink} href={url} target="_blank" rel="noopener noreferrer">
         {title}
       </List.Header>
-      <List.Description as={OutboundLink} href={url} target="_blank" rel="noopener noreferrer">
+      <LinkUrl as={OutboundLink} href={url} target="_blank" rel="noopener noreferrer">
         {url}
-      </List.Description>
+      </LinkUrl>
     </List.Content>
   </List.Item>
 );
@@ -41,5 +42,15 @@ export const Links = ({ links }: LinksProps) => {
 };
 
 const LinksWrapper = styled.div`
-  margin-bottom: 50px;
+  ${mq({
+    margin: ['30px 20px', '30px 20px', '30px 0', '30px 0', '30px 0'],
+  })}
+`;
+
+const LinkUrl = styled(List.Description)`
+  &&&&& {
+    ${mq({
+      display: ['none', 'none', 'block', 'block', 'block'],
+    })}
+  }
 `;

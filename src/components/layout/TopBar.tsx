@@ -6,6 +6,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { Logo } from '../SVG';
 import moment from 'moment';
+import { mq } from './breakpoints';
 
 const TopBar = () => {
   const buildTimeData = useStaticQuery(graphql`
@@ -62,11 +63,17 @@ const TopBarContent = styled.div`
 
 const TopBarLinks = styled.div`
   display: flex;
+  align-items: flex-end;
   margin-right: 5%;
+  ${mq({
+    flexDirection: ['column', 'column', 'row', 'row', 'row'],
+  })}
 `;
 
 const TopBarLink = styled(OutboundLink)`
-  font-size: 18px;
+  ${mq({
+    fontSize: ['16px', '16px', '18px', '18px', '18px'],
+  })}
   color: white;
   margin: 0 15px;
   font-weight: 600;

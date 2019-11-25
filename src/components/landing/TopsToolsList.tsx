@@ -22,7 +22,14 @@ const TopsTool = ({ tool, type }: TopsToolProps) => {
       <List.Content>
         <TopsToolData>
           <ToolIcon url={tool.website} style={{ marginRight: '8px' }} />
-          <TopsToolName>{tool.name}</TopsToolName>
+          <TopsToolName
+            title={tool.slogan.slogan}
+            href={type === 'github' ? tool.github : tool.npm}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {tool.name}
+          </TopsToolName>
           <TopsToolDescription>
             <Icon size="small" name={type === 'npm' ? 'arrow down' : 'star'} style={{ color: colors.darkGrey }} />
             {type === 'npm'
@@ -55,7 +62,8 @@ const TopsToolData = styled(List.Header)`
   }
 `;
 
-const TopsToolName = styled.span`
+const TopsToolName = styled.a`
+  color: ${colors.black};
   font-weight: 500;
   display: inline-block;
   max-width: 55%;
@@ -82,12 +90,12 @@ const TopsToolsWrapper = styled(Segment.Group)`
   &&&& {
     border: none;
     box-shadow: none;
+    max-width: 90vw;
   }
 `;
 
 const TopsToolSegment = styled(Segment)`
   &&&& {
-    width: 50%;
     border: none;
     ${mq({
       padding: ['0', '1em 1em', '1em 1em', '1em 1em', '1em 1em'],

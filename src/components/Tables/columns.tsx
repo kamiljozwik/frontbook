@@ -102,7 +102,14 @@ export const columns: Column[] = [
     accessor: d => <ToolName name={d.name} githubURL={d.github} npmURL={d.npm} websiteURL={d.website} />,
     filterMethod: filterName,
     Filter: ({ filter = {}, onChange }) => (
-      <FilterInput width="60%" label="includes:" onChange={event => onChange(event.target.value)} />
+      <FilterInput
+        width="60%"
+        label="includes:"
+        onChange={event => {
+          console.log(event.target.value);
+          return onChange(event.target.value);
+        }}
+      />
     ),
     minWidth: 150,
     sortable: false,

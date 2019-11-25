@@ -57,7 +57,7 @@ const OtherSubcategories = ({ subcategories, activeSubcategory }: OtherSubcatego
 export const CategoryHeader = ({ category, subcategories, subcategory, color }: CategoryHeaderProps) => {
   return (
     <>
-      <HeaderWrapper>
+      <CategoryHeaderWrapper>
         <CategoryWave color={color} />
         <HeaderData>
           <HeaderTitle>
@@ -75,18 +75,32 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
             <SubcategoryImage code={`${category}_${subcategory}` as Subcategory} style={SubcategoryImageStyle} />
           )}
         </HeaderGraphics>
-      </HeaderWrapper>
+      </CategoryHeaderWrapper>
     </>
   );
 };
 
-const HeaderWrapper = styled.div`
+const CategoryHeaderWrapper = styled.div`
   height: calc(40vh - 100px);
+  ${mq({
+    height: [
+      'calc(60vh - 100px)',
+      'calc(40vh - 100px)',
+      'calc(40vh - 100px)',
+      'calc(40vh - 100px)',
+      'calc(40vh - 100px)',
+    ],
+  })}
   width: 80vw;
   margin: 0 auto;
   margin-bottom: 50px;
   display: flex;
   flex-direction: row;
+  & > svg {
+    ${mq({
+      minHeight: ['60vh', '40vh', '40vh', '40vh', '40vh'],
+    })}
+  }
 `;
 
 const HeaderData = styled.div`

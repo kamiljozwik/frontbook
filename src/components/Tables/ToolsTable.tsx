@@ -14,7 +14,6 @@ interface ToolsTableProps {
 }
 
 export const ToolsTable = ({ items, links }: ToolsTableProps) => {
-  // console.log(items)
   return (
     <>
       <StyledTable

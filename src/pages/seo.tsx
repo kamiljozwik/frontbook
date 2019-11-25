@@ -7,7 +7,7 @@ import { CardGroup } from '../components/NonTables';
 import { categoriesNames, CategoryPageNoSubcategories } from '../shared';
 
 const SEOPage = ({ data }: CategoryPageNoSubcategories) => (
-  <Layout category="seo" color={categoriesNames.seo.color}>
+  <Layout pageType="category" category="seo" color={categoriesNames.seo.color}>
     <SEO title={categoriesNames.seo.name} />
     <CardGroup items={data.items.edges} links={data.links.edges} />
   </Layout>

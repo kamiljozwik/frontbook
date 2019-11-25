@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 import styled from '@emotion/styled';
 
 export const CategoryWave = (props: SVGAttributes<Element>) => (
-  <StyledSVG viewBox="0 0 1920 316" fill="none" {...props}>
+  <StyledCategorySVG viewBox="0 0 1920 316" fill="none" {...props}>
     <path d="M0 282.5S253.56 316 398 316c356.584 0 720.5-56 989-56s533 42 533-49.5V0H0v282.5z" fill={props.color} />
     <path
       d="M0 282.5S253.56 316 398 316c356.584 0 720.5-56 989-56s533 42 533-49.5V0H0v282.5z"
@@ -21,10 +21,10 @@ export const CategoryWave = (props: SVGAttributes<Element>) => (
         <stop offset={1} stopColor="#fff" stopOpacity={0.59} />
       </linearGradient>
     </defs>
-  </StyledSVG>
+  </StyledCategorySVG>
 );
 
-const StyledSVG = styled.svg`
+const StyledCategorySVG = styled.svg`
   position: absolute;
   top: 0;
   left: 0;

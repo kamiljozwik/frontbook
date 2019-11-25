@@ -6,7 +6,12 @@ import { SEO } from '../components/helpers';
 import { categoriesNames, CategoryPage } from '../shared';
 
 const JAMScriptPage = ({ data }: CategoryPage) => (
-  <Layout category="jam" subcategories={data.allContentfulToolEntry.distinct} color={categoriesNames.jam.color}>
+  <Layout
+    pageType="category"
+    category="jam"
+    subcategories={data.allContentfulToolEntry.distinct}
+    color={categoriesNames.jam.color}
+  >
     <SEO title={categoriesNames.jam.name} />
     <SubcategoriesList subcategories={data.allContentfulToolEntry.distinct} />
   </Layout>

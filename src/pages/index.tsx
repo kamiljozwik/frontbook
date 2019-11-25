@@ -18,7 +18,7 @@ interface IndexPageProps {
 
 const IndexPage = ({ data }: IndexPageProps) => {
   return (
-    <Layout>
+    <Layout pageType="landing">
       <SEO title="Frontbook" />
       <Searcher allTools={data.allTools.edges} total={data.allTools.totalCount} />
       <Leaderboard githubTops={data.stars_query.edges} npmTops={data.downloads_query.edges} />

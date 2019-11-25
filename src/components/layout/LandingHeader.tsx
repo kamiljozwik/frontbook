@@ -7,17 +7,17 @@ import { mq } from '../layout';
 export const LandingHeader = () => {
   return (
     <>
-      <HeaderWrapper>
+      <LandingHeaderWrapper>
         <LandingWave />
         <HeaderTite>Best front-end tools and resources in one place.</HeaderTite>
         <HeaderSubTite>Compare real numbers and choose the right tools for your next project.</HeaderSubTite>
         <PositionHelper />
-      </HeaderWrapper>
+      </LandingHeaderWrapper>
     </>
   );
 };
 
-const HeaderWrapper = styled.div`
+const LandingHeaderWrapper = styled.div`
   height: calc(80vh - 100px);
   width: 80vw;
   margin: 0 auto;
@@ -32,7 +32,7 @@ const HeaderTite = styled.div`
   line-height: 100%;
   margin-bottom: 20px;
   ${mq({
-    fontSize: ['5vw', '5vw', '5vw', '5vw', '3.2vw'],
+    fontSize: ['8vw', '8vw', '7vw', '5vw', '3.2vw'],
     width: ['100%', '100%', '100%', '100%', '50%'],
   })}
 `;
@@ -41,7 +41,7 @@ const HeaderSubTite = styled.div`
   color: white;
   line-height: 120%;
   ${mq({
-    fontSize: ['3vw', '3vw', '3vw', '3vw', '1.4vw'],
+    fontSize: ['5vw', '5vw', '4vw', '3vw', '1.4vw'],
     width: ['100%', '100%', '100%', '100%', '50%'],
   })}
 `;

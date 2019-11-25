@@ -5,6 +5,7 @@ import { Search, Segment, Header } from 'semantic-ui-react';
 import { SubcategoryNode } from '../../shared/types';
 import { Result, ResultsProps } from './';
 import styled from '@emotion/styled';
+import { mq } from '../';
 
 interface SearcherProps {
   total: number;
@@ -12,10 +13,12 @@ interface SearcherProps {
 }
 
 export const Searcher = ({ allTools, total }: SearcherProps) => {
+  console.log('searcher started');
   const [results, setResults] = useState<ResultsProps[]>();
   const [value, setValue] = useState('');
 
   const handleSearchChange = (e: SyntheticEvent, { value }: { value: string }) => {
+    console.log('search value:', value);
     setValue(value);
     const re = new RegExp(_.escapeRegExp(value), 'i');
     const isMatch = (result: SubcategoryNode) => re.test(result.node.name) || re.test(result.node.slogan.slogan);
@@ -73,6 +76,8 @@ const WarnMessage = styled.div`
 `;
 
 const ToolsCount = styled.span`
-  font-size: 32px;
   font-weight: 600;
+  ${mq({
+    fontSize: ['1em', '32px', '32px', '32px', '32px'],
+  })}
 `;
