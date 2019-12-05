@@ -109,6 +109,9 @@ export interface CategoryPageNoSubcategories {
       edges: LinkEntry[];
     };
   };
+  pageContext?: {
+    category: CategoriesCodes;
+  };
 }
 
 export interface CategoryPage {
@@ -116,5 +119,8 @@ export interface CategoryPage {
     allContentfulToolEntry: {
       distinct: string[];
     };
+  };
+  pageContext?: {
+    category: CategoriesCodes;
   };
 }
