@@ -134,11 +134,10 @@ exports.createPages = async ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const subcategoryTemplate = path.resolve(`src/templates/subcategory.tsx`);
-    const MultiCategoryTemplate = path.resolve(`src/templates/categoryMulti.tsx`);
-    const SingleCategoryTemplate = path.resolve(`src/templates/categorySingle.tsx`);
+    const categoryTemplate = path.resolve(`src/templates/category.tsx`);
     resolve(
       /**
-       * Get all possible subcategories
+       * Get all possible categories and subcategories
        */
       graphql(`
         {
@@ -170,30 +169,14 @@ exports.createPages = async ({ graphql, actions }) => {
         /**
          * Create page for each category
          */
-        const withoutSubcategories = resp.data.subcategories.distinct.filter(el => el.includes('empty'));
-        // .map(el => el.split('_')[0]);
-        const withSubcategories = resp.data.categories.distinct.filter(
-          el => !withoutSubcategories.includes(`${el}_empty`)
-        );
-        console.log('without: ', withoutSubcategories);
-        console.log('with: ', withSubcategories);
-        withSubcategories.forEach(category => {
+        const noSubcategories = ['frontops', 'seo', 'monitor', 'utils'];
+        resp.data.categories.distinct.forEach(category => {
           const path = category;
           createPage({
             path: path,
-            component: MultiCategoryTemplate,
+            component: categoryTemplate,
             context: {
-              category,
-            },
-          });
-        });
-        withoutSubcategories.forEach(category => {
-          const path = category.split('_')[0];
-          createPage({
-            path: path,
-            component: SingleCategoryTemplate,
-            context: {
-              category: `${category}`,
+              category: noSubcategories.includes(category) ? `${category}_empty` : category,
             },
           });
         });

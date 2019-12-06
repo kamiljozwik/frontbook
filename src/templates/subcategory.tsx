@@ -5,7 +5,24 @@ import { Layout, SEO } from '../components';
 import { ToolsTable } from '../components/Tables';
 import { CardGroup } from '../components/NonTables';
 import { categoriesNames, nonTableSubcategories } from '../shared';
-import { SubcategoryProps, CategoriesCodes } from '../shared/types';
+import { CategoriesCodes, SubcategoryNode, LinkEntry } from '../shared/types';
+
+interface SubcategoryProps {
+  data: {
+    subcategory: {
+      edges: SubcategoryNode[];
+    };
+    subcategories: {
+      distinct: string[];
+    };
+    links: {
+      edges: LinkEntry[];
+    };
+  };
+  pageContext: {
+    subcategory: string;
+  };
+}
 
 export default ({ data, pageContext }: SubcategoryProps) => {
   const category = pageContext.subcategory.split('_')[0] as CategoriesCodes;

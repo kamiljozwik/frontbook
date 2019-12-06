@@ -8,11 +8,11 @@ import { Subcategory } from '../../shared/types';
 import { mq } from '../layout';
 import { SubcategoryImage } from '../SVG/subcategories';
 
-interface SubcategoryProps {
+interface SubcategoryCardProps {
   name: Subcategory;
 }
 
-export const SubcategoryCard = ({ name }: SubcategoryProps) => (
+export const SubcategoryCard = ({ name }: SubcategoryCardProps) => (
   <SubcategorySegment>
     <SubcategoryTitle size="large" as={Link} to={`/${name.replace('_', '/')}`}>
       {name

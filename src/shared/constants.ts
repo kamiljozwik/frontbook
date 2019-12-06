@@ -171,5 +171,8 @@ export const categoriesNames = {
   },
 };
 
+/** Categories displayed on landing page */
 export const activeCategories = ['js', 'css', 'jam', 'frontops', 'seo', 'monitor', 'ux', 'utils'];
+
+/** Subcategories displayed with cards rathen than with tables */
 export const nonTableSubcategories = ['js_cheatsheets', 'jam_cms', 'jam_hosting', 'jam_media', 'css_cheatsheets', 'ux_colors', 'ux_design', 'ux_fonts', 'ux_graphics', 'ux_icons', 'ux_inspirations', 'ux_logos'];
