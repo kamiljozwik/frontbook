@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { LandingWave } from '../SVG';
-import { mq } from '../layout';
+import { LandingWave } from '../../SVG';
+import { mq } from '../../../shared';
 
 export const LandingHeader = () => {
   return (

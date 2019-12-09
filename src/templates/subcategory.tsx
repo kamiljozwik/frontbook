@@ -1,9 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, SEO } from '../components';
-import { ToolsTable } from '../components/Tables';
-import { CardGroup } from '../components/NonTables';
+import { Layout, SEO, ToolsTable, CardGroup } from '../components';
 import { categoriesNames, nonTableSubcategories } from '../shared';
 import { CategoriesCodes, SubcategoryNode, LinkEntry } from '../shared/types';
 

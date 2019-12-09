@@ -1,10 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, SubcategoriesList } from '../components';
+import { Layout, SubcategoriesList, ToolsTable, CardGroup } from '../components';
 import { SEO } from '../components/helpers';
-import { ToolsTable } from '../components/Tables';
-import { CardGroup } from '../components/NonTables';
 import { categoriesNames, CategoriesCodes, LinkEntry, SubcategoryNode } from '../shared';
 
 interface QueryData {

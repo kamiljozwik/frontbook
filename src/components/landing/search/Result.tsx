@@ -4,7 +4,8 @@ import numeral from 'numeral';
 import { Link } from 'gatsby';
 import { Card, Label, Icon, SearchResultProps } from 'semantic-ui-react';
 
-import { colors, ToolIcon } from '../../shared';
+import { colors } from '../../../shared';
+import { ToolIcon } from '../..';
 
 export interface ResultsProps extends SearchResultProps {
   title: string;

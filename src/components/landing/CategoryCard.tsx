@@ -3,10 +3,9 @@ import { Link } from 'gatsby';
 import { Header, Grid, Label } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
-import { categoriesNames, CategoriesCodes, SubcategoryNode, colors } from '../../shared';
+import { categoriesNames, CategoriesCodes, SubcategoryNode, colors, mq } from '../../shared';
 import { TopsToolsList } from '../';
 import { CategoryImage } from '../SVG';
-import { mq } from '../layout';
 
 interface CategorySegmentProps {
   code: CategoriesCodes;

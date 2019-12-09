@@ -6,7 +6,7 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { Logo } from '../SVG';
 import moment from 'moment';
-import { mq } from './breakpoints';
+import { mq } from '../../shared';
 
 const TopBar = () => {
   const buildTimeData = useStaticQuery(graphql`

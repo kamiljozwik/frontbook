@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { CategoryWave, Trophy } from '../SVG';
-import { mq } from '../layout';
+import { CategoryWave, Trophy } from '../../SVG';
+import { mq } from '../../../shared';
 
 interface CategoryHeaderProps {
   color: string;

@@ -3,10 +3,9 @@ import { Link } from 'gatsby';
 import { Segment, Header } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
-import { subcategoriesInfo, colors } from '../../shared';
-import { Subcategory } from '../../shared/types';
-import { mq } from '../layout';
-import { SubcategoryImage } from '../SVG/subcategories';
+import { subcategoriesInfo, colors, mq } from '../../../shared';
+import { Subcategory } from '../../../shared/types';
+import { SubcategoryImage } from '../../SVG/subcategories';
 
 interface SubcategoryCardProps {
   name: Subcategory;

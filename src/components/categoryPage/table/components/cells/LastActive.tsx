@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { Icon, Label } from 'semantic-ui-react';
 
-import { ListItem } from '../../../../shared';
+import { ListItem } from '../../../../../shared';
 import { Unknown } from './';
 
 export const LastActive = (item: ListItem) => {

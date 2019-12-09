@@ -3,10 +3,9 @@ import styled from '@emotion/styled';
 import { Icon, Label } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
-import { CategoryWave, CategoryImage } from '../SVG';
-import { categoriesNames, CategoriesCodes, Subcategory } from '../../shared';
-import { mq } from '../layout';
-import { SubcategoryImage } from '../SVG/subcategories';
+import { CategoryWave, CategoryImage } from '../../SVG';
+import { SubcategoryImage } from '../../SVG/subcategories';
+import { categoriesNames, CategoriesCodes, Subcategory, mq } from '../../../shared';
 
 interface CategoryHeaderProps {
   category: CategoriesCodes;

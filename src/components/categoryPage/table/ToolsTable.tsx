@@ -2,9 +2,8 @@ import React from 'react';
 import ReactTable from 'react-table';
 
 import 'react-table/react-table.css';
-import { colors, SubcategoryNode, LinkEntry } from '../../shared';
+import { colors, SubcategoryNode, LinkEntry, mq } from '../../../shared';
 import { columns } from './';
-import { mq } from '../layout';
 import styled from '@emotion/styled';
 import { Links } from '../';
 

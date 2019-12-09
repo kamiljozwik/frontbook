@@ -1,8 +1,8 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 
-import { SubcategoryCard } from './';
-import { Subcategory } from '../../shared';
+import { SubcategoryCard } from '.';
+import { Subcategory } from '../../../shared';
 
 interface SubcategoriesListProps {
   subcategories: string[];

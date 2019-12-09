@@ -4,7 +4,7 @@ import { Header, List } from 'semantic-ui-react';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { LinkEntry } from '../../shared/types';
-import { mq } from '../layout/breakpoints';
+import { mq } from '../../shared';
 
 interface LinksProps {
   links: LinkEntry[];

@@ -2,10 +2,10 @@ import React from 'react';
 import { Column, DefaultFilterFunction } from 'react-table';
 import numeral from 'numeral';
 
+import { ToolIcon } from '../..';
 import { TableHeader } from './components/header';
 import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/filters';
 import { LastActive, WebsiteLink, License, ToolName, Size, FrameworkLabel, Unknown } from './components/cells';
-import { ToolIcon } from '../../shared';
 
 /**
  * Custom Sorting Methods

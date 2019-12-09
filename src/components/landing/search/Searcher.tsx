@@ -2,10 +2,9 @@ import React, { useState, SyntheticEvent } from 'react';
 import _ from 'lodash';
 import { Search, Segment, Header } from 'semantic-ui-react';
 
-import { SubcategoryNode } from '../../shared/types';
-import { Result, ResultsProps } from './';
+import { SubcategoryNode, mq } from '../../../shared';
+import { Result, ResultsProps } from '.';
 import styled from '@emotion/styled';
-import { mq } from '../';
 
 interface SearcherProps {
   total: number;

@@ -2,10 +2,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { Header, Button } from 'semantic-ui-react';
 
-import { TopsToolsList } from './';
-import { SubcategoryNode } from '../../shared';
-import { Trophy } from '../SVG';
-import { mq } from '../layout';
+import { TopsToolsList } from '../';
+import { SubcategoryNode, mq } from '../../../shared';
+import { Trophy } from '../../SVG';
 import { Link } from 'gatsby';
 
 interface LeaderboardProps {

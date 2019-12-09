@@ -3,7 +3,7 @@ import { Item } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { colors } from '../../../../shared';
+import { colors } from '../../../../../shared';
 
 interface ToolNameProps {
   name: string;

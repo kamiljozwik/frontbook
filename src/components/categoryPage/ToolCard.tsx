@@ -4,9 +4,8 @@ import numeral from 'numeral';
 import styled from '@emotion/styled';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { ToolIcon, SubcategoryNode, colors, LinkEntry } from '../../shared';
-import { mq } from '../layout';
-import { Links } from '..';
+import { SubcategoryNode, colors, LinkEntry, mq } from '../../shared';
+import { Links, ToolIcon } from '..';
 
 interface ToolsTableProps {
   items: SubcategoryNode[];

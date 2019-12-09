@@ -1,7 +1,8 @@
 import React from 'react';
 import { Icon, Label } from 'semantic-ui-react';
-import { Unknown } from './Unknown';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
+
+import { Unknown } from './Unknown';
 
 export const WebsiteLink = ({ url }: { url?: string }) =>
   url ? (

@@ -3,8 +3,8 @@ import { Header, Icon, List, Segment } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import numeral from 'numeral';
 
-import { colors, ListItem, ToolIcon, SubcategoryNode } from '../../shared';
-import { mq } from '../layout';
+import { colors, ListItem, SubcategoryNode, mq } from '../../../shared';
+import { ToolIcon } from '../..';
 
 interface TopsToolProps {
   tool: ListItem;
