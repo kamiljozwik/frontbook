@@ -2,8 +2,7 @@ import React from 'react';
 
 import { LandingHeader, CategoryHeader, LeaderboardHeader } from './';
 import { CategoriesCodes, colors } from '../../../shared';
-
-type PageTypes = 'landing' | 'category' | 'leaderboard';
+import { PageTypes } from '../';
 
 interface HeaderProps {
   pageType: PageTypes;

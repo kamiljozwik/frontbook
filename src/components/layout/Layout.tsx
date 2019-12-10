@@ -2,14 +2,14 @@ import React, { ReactNode, useEffect } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { PageHeader } from './Headers';
 import TopBar from './TopBar';
+import { PageHeader } from './headers';
 import { colors, CategoriesCodes, mq } from '../../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
 
-type PageTypes = 'landing' | 'category' | 'leaderboard';
+export type PageTypes = '404' | 'landing' | 'category' | 'leaderboard';
 interface LayoutProps {
   children: ReactNode;
   category?: CategoriesCodes;
