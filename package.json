@@ -46,12 +46,14 @@
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.11.0",
+    "@testing-library/cypress": "^5.0.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
     "babel-jest": "^24.9.0",
     "babel-preset-gatsby": "^0.2.25",
+    "cypress": "^3.7.0",
     "eslint": "^6.7.2",
     "eslint-config-prettier": "^6.7.0",
     "eslint-config-react-app": "^5.1.0",
@@ -60,7 +62,8 @@
     "eslint-plugin-react": "^7.17.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "start-server-and-test": "^1.10.6"
   },
   "resolutions": {
     "react-helmet/react-side-effect": "2.1.0"
@@ -81,7 +84,9 @@
     "serve": "gatsby serve",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:update": "jest -- -u"
+    "test:update": "jest -- -u",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
   },
   "repository": {
     "type": "git",
