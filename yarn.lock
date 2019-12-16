@@ -1834,6 +1834,13 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
+"@types/jest@^24.0.23":
+  version "24.0.23"
+  resolved "https://registry.yarnpkg.com/@types/jest/-/jest-24.0.23.tgz#046f8e2ade026fe831623e361a36b6fb9a4463e4"
+  integrity sha512-L7MBvwfNpe7yVPTXLn32df/EK+AMBFAFvZrRuArGs7npEWnlziUXK+5GMIUTI4NIuwok3XibsjXCs5HxviYXjg==
+  dependencies:
+    jest-diff "^24.3.0"
+
 "@types/jquery@*":
   version "3.3.31"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.3.31.tgz#27c706e4bf488474e1cb54a71d8303f37c93451b"
@@ -2117,7 +2124,7 @@
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
   integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
 
-"@types/testing-library__cypress@^5.0.0":
+"@types/testing-library__cypress@^5.0.0", "@types/testing-library__cypress@^5.0.1":
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/@types/testing-library__cypress/-/testing-library__cypress-5.0.1.tgz#d05a264eb5d5a45659699a4e0309a7cebe57b344"
   integrity sha512-z2JKxVTh3PDeLbATRofwDUImEwuytsBeu8Si6YLzxwc2HK4xGIDs50HFlwYD9MPlclGDQRm0QL7ynnaIjRtCGg==
@@ -5717,6 +5724,13 @@ eslint-module-utils@^2.4.0:
     debug "^2.6.8"
     pkg-dir "^2.0.0"
 
+eslint-plugin-cypress@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-cypress/-/eslint-plugin-cypress-2.8.0.tgz#95a3fe4aa36dbeccd0337fad09496222905f6d8b"
+  integrity sha512-5J3xn0hH5KWh3wG0tEO7KXQc1LRqveBi0oTLG3+275j6W+P9uB9sNC1t+CWZieqz0rPkHoWWopntsE03WqJ84g==
+  dependencies:
+    globals "^11.12.0"
+
 eslint-plugin-eslint-plugin@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/eslint-plugin-eslint-plugin/-/eslint-plugin-eslint-plugin-2.1.0.tgz#a7a00f15a886957d855feacaafee264f039e62d5"
@@ -7388,7 +7402,7 @@ global@~4.3.0:
     min-document "^2.19.0"
     process "~0.5.1"
 
-globals@^11.1.0:
+globals@^11.1.0, globals@^11.12.0:
   version "11.12.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.12.0.tgz#ab8795338868a0babd8525758018c2a7eb95c42e"
   integrity sha512-WOBp/EEGUiIsJSp7wcv/y6MO+lV9UoncWqxuFfm8eBwzWNgyfBd6Gz+IeKQ9jCmyhoH99g15M3T+QaVHFjizVA==
@@ -8897,7 +8911,7 @@ jest-config@^24.9.0:
     pretty-format "^24.9.0"
     realpath-native "^1.1.0"
 
-jest-diff@^24.0.0, jest-diff@^24.9.0:
+jest-diff@^24.0.0, jest-diff@^24.3.0, jest-diff@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-diff/-/jest-diff-24.9.0.tgz#931b7d0d5778a1baf7452cb816e325e3724055da"
   integrity sha512-qMfrTs8AdJE2iqrTp0hzh7kTd2PQWrsFyj9tORoKmu32xjPjeE4NyjVRDz8ybYwqS2ik8N4hsIpiVTyFeo2lBQ==
