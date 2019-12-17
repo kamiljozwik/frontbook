@@ -23,3 +23,11 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite("visit", (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('findCategoryLink', category => {
+  cy.findByTestId(`category-${category}`)
+    .click()
+    .url()
+    .should('eq', `http://localhost:8000/${category}/`)
+    .go('back');
+});

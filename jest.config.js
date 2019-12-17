@@ -13,4 +13,5 @@ module.exports = {
   },
   setupFilesAfterEnv: [`<rootDir>/jest.setup.js`],
   setupFiles: [`<rootDir>/loadershim.js`],
+  // collectCoverageFrom: ['**/src/**/*.tsx'],
 };

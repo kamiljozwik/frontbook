@@ -63,8 +63,10 @@
     "eslint-plugin-graphql": "^3.1.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.17.0",
+    "husky": "^3.1.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
     "prettier": "^1.19.1",
     "start-server-and-test": "^1.10.6"
   },
@@ -80,16 +82,18 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "yarn run develop",
     "lint": "eslint src/**",
     "lint:fix": "eslint --fix src/**",
     "serve": "gatsby serve",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:update": "jest -- -u",
+    "test:coverage": "jest --coverage",
     "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open"
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "validate": "yarn run test"
   },
   "repository": {
     "type": "git",

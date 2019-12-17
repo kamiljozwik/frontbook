@@ -17,7 +17,7 @@ interface CategorySegmentProps {
 export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegmentProps) => (
   <CardWrapper columns={2}>
     <Grid.Column>
-      <CardHeader to={`/${code}/`}>
+      <CardHeader data-testid={`category-${code}`} to={`/${code}/`}>
         <ToolName size="huge">
           {categoriesNames[code].name}
           <CountLabel basic>
