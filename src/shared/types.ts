@@ -1,4 +1,4 @@
-export type CategoriesCodes = 'js' | 'jam' | 'css' | 'seo' | 'ide' | 'frontops' | 'monitor' | 'ux' | 'utils';
+export type CategoriesCodes = 'js' | 'jam' | 'css' | 'seo' | 'frontops' | 'monitor' | 'ux' | 'utils';
 export type Subcategory =
   | 'js_animations'
   | 'js_security'
@@ -80,41 +80,5 @@ export interface LinkEntry {
   node: {
     title: string;
     url: string;
-  };
-}
-
-export interface SubcategoryProps {
-  data: {
-    subcategory: {
-      edges: SubcategoryNode[];
-    };
-    subcategories: {
-      distinct: string[];
-    };
-    links: {
-      edges: LinkEntry[];
-    };
-  };
-  pageContext: {
-    subcategory: string;
-  };
-}
-
-export interface CategoryPageNoSubcategories {
-  data: {
-    items: {
-      edges: SubcategoryNode[];
-    };
-    links: {
-      edges: LinkEntry[];
-    };
-  };
-}
-
-export interface CategoryPage {
-  data: {
-    allContentfulToolEntry: {
-      distinct: string[];
-    };
   };
 }

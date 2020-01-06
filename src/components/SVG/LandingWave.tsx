@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 import styled from '@emotion/styled';
 
 export const LandingWave = (props: SVGAttributes<Element>) => (
-  <StyledLandingSVG viewBox="0 0 1920 754" fill="none" {...props}>
+  <StyledLandingSVG viewBox="0 0 1920 754" fill="none" preserveAspectRatio="xMinYMin slice" {...props}>
     <path
       d="M0 754s117.38-.5 224.44-60S520 586 680 559c163.377-16 330.21-34.593 487-66.5 142.5-29 165.5-27.5 318.5-80.5s344.91-124 434.5-218V0H0v754z"
       fill="#09F"

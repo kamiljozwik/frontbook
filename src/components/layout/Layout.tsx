@@ -2,15 +2,14 @@ import React, { ReactNode, useEffect } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { LandingHeader, CategoryHeader, LeaderboardHeader } from './';
 import TopBar from './TopBar';
-import { colors, CategoriesCodes } from '../../shared';
-import { mq } from '../layout';
+import { PageHeader } from './headers';
+import { colors, CategoriesCodes, mq } from '../../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
 
-type PageTypes = 'landing' | 'category' | 'leaderboard';
+export type PageTypes = '404' | 'landing' | 'category' | 'leaderboard';
 interface LayoutProps {
   children: ReactNode;
   category?: CategoriesCodes;
@@ -19,33 +18,6 @@ interface LayoutProps {
   color?: string;
   pageType: PageTypes;
 }
-
-const headerFactory = (
-  pageType: PageTypes,
-  category?: CategoriesCodes,
-  subcategory?: string,
-  subcategories?: string[],
-  color?: string
-) => {
-  switch (pageType) {
-    case 'landing':
-      return <LandingHeader />;
-    case 'category':
-      return (
-        <CategoryHeader
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          category={category!}
-          subcategory={subcategory}
-          subcategories={subcategories}
-          color={color || colors.default}
-        />
-      );
-    case 'leaderboard':
-      return <LeaderboardHeader color={color || colors.default} />;
-    default:
-      return <LandingHeader />;
-  }
-};
 
 export const Layout = ({
   children,
@@ -61,7 +33,13 @@ export const Layout = ({
   return (
     <>
       <TopBar />
-      {headerFactory(pageType, category, subcategory, subcategories, color)}
+      <PageHeader
+        pageType={pageType}
+        category={category}
+        subcategory={subcategory}
+        subcategories={subcategories}
+        color={color}
+      />
       <PageContentWrapper>
         <Global
           styles={css`

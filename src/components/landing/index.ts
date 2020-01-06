@@ -1,3 +1,3 @@
 export * from './CategoryCard';
-export * from './TopsToolsList';
-export * from './Leaderboard';
+export * from './leaderboard';
+export * from './search';

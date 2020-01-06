@@ -1,0 +1,9 @@
+{
+  "*.+(js|ts|tsx)": [
+    "eslint --ignore-pattern '!.eslintrc.js' --ignore-pattern '!.prettierrc.js' --ignore-pattern 'cypress/support/index.d.ts'"
+  ],
+  "**/*.+(js|json|ts|tsx)": [
+    "prettier --write",
+    "git add"
+  ]
+}

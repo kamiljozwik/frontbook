@@ -3,10 +3,9 @@ import { Link } from 'gatsby';
 import { Header, Grid, Label } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
-import { categoriesNames, CategoriesCodes, SubcategoryNode, colors } from '../../shared';
+import { categoriesNames, CategoriesCodes, SubcategoryNode, colors, mq } from '../../shared';
 import { TopsToolsList } from '../';
 import { CategoryImage } from '../SVG';
-import { mq } from '../layout';
 
 interface CategorySegmentProps {
   code: CategoriesCodes;
@@ -18,7 +17,7 @@ interface CategorySegmentProps {
 export const CategoryCard = ({ code, count, npmTops, githubTops }: CategorySegmentProps) => (
   <CardWrapper columns={2}>
     <Grid.Column>
-      <CardHeader to={`/${code}/`}>
+      <CardHeader data-testid={`category-${code}`} to={`/${code}/`}>
         <ToolName size="huge">
           {categoriesNames[code].name}
           <CountLabel basic>

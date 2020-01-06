@@ -134,23 +134,27 @@ exports.createPages = async ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const subcategoryTemplate = path.resolve(`src/templates/subcategory.tsx`);
+    const categoryTemplate = path.resolve(`src/templates/category.tsx`);
     resolve(
       /**
-       * Get all possible subcategories
+       * Get all possible categories and subcategories
        */
       graphql(`
         {
-          allContentfulToolEntry {
+          categories: allContentfulToolEntry {
+            distinct(field: category)
+          }
+          subcategories: allContentfulToolEntry {
             distinct(field: subcategory)
           }
         }
-      `).then(subcategories => {
-        subcategories.errors && reject(subcategories.errors);
+      `).then(resp => {
+        resp.errors && reject(resp.errors);
 
         /**
          * Create page for each subcategory
          */
-        subcategories.data.allContentfulToolEntry.distinct.forEach(subcategory => {
+        resp.data.subcategories.distinct.forEach(subcategory => {
           const path = subcategory.replace('_', '/');
           !path.includes('empty') &&
             createPage({
@@ -160,6 +164,21 @@ exports.createPages = async ({ graphql, actions }) => {
                 subcategory,
               },
             });
+        });
+
+        /**
+         * Create page for each category
+         */
+        const noSubcategories = ['frontops', 'seo', 'monitor', 'utils'];
+        resp.data.categories.distinct.forEach(category => {
+          const path = category;
+          createPage({
+            path: path,
+            component: categoryTemplate,
+            context: {
+              category: noSubcategories.includes(category) ? `${category}_empty` : category,
+            },
+          });
         });
       })
     );

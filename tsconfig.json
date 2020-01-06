@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "es2015",
-      "es2018.promise"
-    ],
+    "lib": ["dom", "es2015", "es2018.promise"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -19,12 +15,6 @@
     "noEmit": true,
     "jsx": "preserve"
   },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    ".cache",
-    "public"
-  ]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", ".cache", "public"]
 }
