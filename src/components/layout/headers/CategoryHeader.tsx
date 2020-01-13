@@ -80,14 +80,14 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
 };
 
 const CategoryHeaderWrapper = styled.div`
-  height: calc(40vh - 100px);
+  height: calc(50vh - 100px);
   ${mq({
     height: [
       'calc(60vh - 100px)',
-      'calc(40vh - 100px)',
-      'calc(40vh - 100px)',
-      'calc(40vh - 100px)',
-      'calc(40vh - 100px)',
+      'calc(50vh - 100px)',
+      'calc(50vh - 100px)',
+      'calc(50vh - 100px)',
+      'calc(50vh - 100px)',
     ],
   })}
   width: 80vw;
@@ -97,7 +97,7 @@ const CategoryHeaderWrapper = styled.div`
   flex-direction: row;
   & > svg {
     ${mq({
-      minHeight: ['60vh', '40vh', '40vh', '40vh', '40vh'],
+      minHeight: ['60vh', '50vh', '50vh', '50vh', '50vh'],
     })}
   }
 `;
@@ -148,6 +148,9 @@ const SubcategoryLabel = styled(Label)`
   &&& {
     transition: 0.1s;
     opacity: ${props => (props.isactive === 'true' ? 0.8 : 0.5)};
+    ${mq({
+      fontSize: ['10px', '10px', '10px', '10px', '12px'],
+    })}
     &&:hover {
       transition: 0.1s;
       opacity: 0.8;
