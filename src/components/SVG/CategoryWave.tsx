@@ -29,5 +29,5 @@ const StyledCategorySVG = styled.svg`
   top: 0;
   left: 0;
   z-index: -1;
-  min-height: 40vh;
+  min-height: 50vh;
 `;

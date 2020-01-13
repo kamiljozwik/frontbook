@@ -12,7 +12,7 @@ export const LeaderboardHeader = ({ color }: CategoryHeaderProps) => {
   return (
     <>
       <LeaderboardHeaderWrapper>
-        <CategoryWave color={color} style={{ minHeight: '40vh' }} />
+        <CategoryWave color={color} style={{ minHeight: '50vh' }} />
         <HeaderData>
           <HeaderTitle>Front-end tools leaderboard</HeaderTitle>
         </HeaderData>
@@ -25,7 +25,7 @@ export const LeaderboardHeader = ({ color }: CategoryHeaderProps) => {
 };
 
 const LeaderboardHeaderWrapper = styled.div`
-  height: calc(40vh - 100px);
+  height: calc(50vh - 100px);
   width: 80vw;
   margin: 0 auto;
   margin-bottom: 50px;
