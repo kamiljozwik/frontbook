@@ -3,7 +3,7 @@ import { graphql } from 'gatsby';
 import { Grid } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 
-import { Layout, CategoryCard, Searcher, Leaderboard } from '../components';
+import { Layout, CategoryCard, CategoryItem, Searcher, Leaderboard, Footer } from '../components';
 import { SEO } from '../components/helpers';
 import { CategoriesCodes, activeCategories, SubcategoryNode } from '../shared';
 
@@ -22,7 +22,7 @@ const IndexPage = ({ data }: IndexPageProps) => {
       <SEO title="Frontbook" />
       <Searcher allTools={data.allTools.edges} total={data.allTools.totalCount} />
       <Leaderboard githubTops={data.stars_query.edges} npmTops={data.downloads_query.edges} />
-      <Categories divided="vertically" centered>
+      {/* <Categories divided="vertically" centered>
         {activeCategories.map(category => (
           <CategoryCard
             key={category}
@@ -32,18 +32,35 @@ const IndexPage = ({ data }: IndexPageProps) => {
             githubTops={data[`${category}_github_tops`] ? data[`${category}_github_tops`].edges : undefined}
           />
         ))}
-      </Categories>
+      </Categories> */}
+      <CategoriesList>
+        {activeCategories.map(category => (
+          <CategoryItem
+            key={category}
+            code={category as CategoriesCodes}
+            count={data[category] ? data[category].totalCount : 0}
+          />
+        ))}
+      </CategoriesList>
+      <Footer />
     </Layout>
   );
 };
 
 export default IndexPage;
 
-const Categories = styled(Grid)`
-  &&& {
-    flex-direction: column;
-    align-items: center;
-  }
+// const Categories = styled(Grid)`
+//   &&& {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//   }
+// `;
+
+const CategoriesList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 `;
 
 export const query = graphql`
