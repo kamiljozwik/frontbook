@@ -3,9 +3,8 @@ import styled from '@emotion/styled';
 import { Icon, Label } from 'semantic-ui-react';
 import { Link } from 'gatsby';
 
-import { CategoryWave, CategoryImage } from '../../SVG';
-import { SubcategoryImage } from '../../SVG/subcategories';
-import { categoriesNames, CategoriesCodes, Subcategory, mq } from '../../../shared';
+import { CategoryWave } from '../../SVG';
+import { categoriesNames, CategoriesCodes, mq } from '../../../shared';
 
 interface CategoryHeaderProps {
   category: CategoriesCodes;
@@ -18,21 +17,6 @@ interface OtherSubcategoriesProps {
   subcategories?: string[];
   activeSubcategory?: string;
 }
-
-const CategoryImageStyle = {
-  width: '8vw',
-  height: '8vw',
-  margin: '10px',
-  border: '4px solid white',
-  borderRadius: '50%',
-};
-
-const SubcategoryImageStyle = {
-  width: '5vw',
-  height: '5vw',
-  border: '2px solid white',
-  borderRadius: '33%',
-};
 
 const OtherSubcategories = ({ subcategories, activeSubcategory }: OtherSubcategoriesProps) => {
   return (
@@ -68,12 +52,6 @@ export const CategoryHeader = ({ category, subcategories, subcategory, color }: 
           </HeaderTitle>
           <OtherSubcategories subcategories={subcategories} activeSubcategory={subcategory} />
         </HeaderData>
-        <HeaderGraphics>
-          <CategoryImage code={category} style={CategoryImageStyle} />
-          {subcategory && (
-            <SubcategoryImage code={`${category}_${subcategory}` as Subcategory} style={SubcategoryImageStyle} />
-          )}
-        </HeaderGraphics>
       </CategoryHeaderWrapper>
     </>
   );
@@ -103,26 +81,9 @@ const CategoryHeaderWrapper = styled.div`
 `;
 
 const HeaderData = styled.div`
-  width: 80%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  ${mq({
-    width: ['100%', '100%', '80%', '80%', '80%'],
-  })}
-`;
-
-const HeaderGraphics = styled.div`
-  opacity: 0.8;
-  height: 80%;
-  align-items: center;
-  margin: 0 auto;
-  justify-content: center;
-  ${mq({
-    display: ['none', 'none', 'flex', 'flex', 'flex'],
-    flexDirection: ['column', 'column', 'column', 'row', 'row'],
-  })}
 `;
 
 const HeaderTitle = styled.div`

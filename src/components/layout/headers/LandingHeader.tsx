@@ -9,8 +9,8 @@ export const LandingHeader = () => {
     <>
       <LandingHeaderWrapper>
         <LandingWave />
-        <HeaderTite>Best front-end tools and resources in one place.</HeaderTite>
-        <HeaderSubTite>Compare real numbers and choose the right tools for your next project.</HeaderSubTite>
+        <HeaderTitle>Best front-end tools and resources in one place.</HeaderTitle>
+        <HeaderSubtitle>Compare real numbers and choose the right tools for your next project.</HeaderSubtitle>
         <PositionHelper />
       </LandingHeaderWrapper>
     </>
@@ -26,22 +26,23 @@ const LandingHeaderWrapper = styled.div`
   justify-content: center;
 `;
 
-const HeaderTite = styled.div`
+const HeaderTitle = styled.div`
   font-weight: 700;
   color: white;
   line-height: 100%;
   margin-bottom: 20px;
+  letter-spacing: 1px;
   ${mq({
-    fontSize: ['8vw', '8vw', '7vw', '5vw', '3.2vw'],
+    fontSize: ['30px', '30px', '30px', '30px', '42px'],
     width: ['100%', '100%', '100%', '100%', '50%'],
   })}
 `;
-const HeaderSubTite = styled.div`
+const HeaderSubtitle = styled.div`
   font-weight: 300;
   color: white;
   line-height: 120%;
   ${mq({
-    fontSize: ['5vw', '5vw', '4vw', '3vw', '1.4vw'],
+    fontSize: ['20px', '20px', '20px', '20px', '20px'],
     width: ['100%', '100%', '100%', '100%', '50%'],
   })}
 `;

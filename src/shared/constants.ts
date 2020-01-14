@@ -151,7 +151,7 @@ export const categoriesNames = {
   seo: {
     name: 'SEO',
     info:
-      'Even greatest and most efficient applications can be useless when potential users can not find it in the web. SEO is here to helps our apps improve their position in search engines like Google or Bing. It is definitely something you must take into considerations during your development process so check this section for more information.',
+      'Even greatest and most efficient applications can be useless when potential users can not find it in the web. SEO is here to helps our apps improve their position in search engines like Google or Bing.',
     color: '#525E54',
     subcategories: {
       empty: 'empty',
@@ -169,7 +169,7 @@ export const categoriesNames = {
   frontops: {
     name: 'FrontOps',
     info:
-      'Coding web application is the hardest part in process of creation of our product. But is has to be accessible  somewhere outside our local machine. How to build, publish and deploy our application - here is what FrontOps is all about.',
+      'Coding web application is the hardest part in process of creation of our product. But is has to be accessible  somewhere outside our local machine. How to build, publish and deploy our application - check it here.',
     color: '#10893E',
     subcategories: {
       empty: 'empty',
@@ -178,7 +178,7 @@ export const categoriesNames = {
   monitor: {
     name: 'Monitor',
     info:
-      'Is my website online? Is it working properly? Can users log into their accounts? How many people are currently online? Which parts of my website are not viewed very often? You never find answers to this questions without any monitoring tools constantly "watching" your website. Check out this section and see what tools are waiting for you.',
+      'Is my site online? Is it working properly? How many people are currently online? You never find answers to this questions without any monitoring tools constantly "watching" your website.',
     color: '#6B69D6',
     subcategories: {
       empty: 'empty',
@@ -187,7 +187,7 @@ export const categoriesNames = {
   ux: {
     name: 'UX',
     info:
-      'Which colors and fonts to use? Margins or shadows? How many columns to use? How to show this section on mobile devices? Creating websites without any mockups or at least simple sketches can significantly lengthen the process of development and brings us constants visual refactors. Do not do it. Be smart. Use UX tools to be sure what you really want to build.',
+      'Creating websites without any mockups or at least simple sketches can significantly lengthen the process of development and brings us constant refactors. Do not do it. Use UX tools to be sure what you really want to build.',
     color: '#C239B3',
     subcategories: {
       colors: 'Colors',

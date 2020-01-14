@@ -25,7 +25,6 @@ export const CategoryItem = ({ code, count }: CategoryItemProps) => {
       <Face2>
         <Face2Content>
           <CategoryDescription>{categoriesNames[code].info}</CategoryDescription>
-          {/* <CategoryLink to={`/${code}/`}>Read More</CategoryLink> */}
         </Face2Content>
       </Face2>
     </Card>
@@ -110,18 +109,4 @@ const Face2Content = styled.div``;
 const CategoryDescription = styled.div`
   margin: 0;
   padding: 0;
-`;
-
-const CategoryLink = styled(Link)`
-  margin: 15px 0 0;
-  display: inline-block;
-  text-decoration: none;
-  font-weight: 900;
-  color: #333;
-  padding: 5px;
-  border: 1px solid #333;
-  &:hover {
-    background: #333;
-    color: #fff;
-  }
 `;

@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Header, Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 
 import { TopsToolsList } from '../';
 import { SubcategoryNode, mq } from '../../../shared';
 import { Trophy } from '../../SVG';
 import { Link } from 'gatsby';
+import { SectionHeader } from '../SectionHeader';
 
 interface LeaderboardProps {
   npmTops: SubcategoryNode[];
@@ -18,11 +19,7 @@ export const Leaderboard = ({ npmTops, githubTops, full }: LeaderboardProps) => 
     <FlexWrapper style={{ borderWidth: full ? '0px' : '3px' }}>
       {!full && <ResponsiveTrophy />}
       <LeaderboardWrapper style={{ width: full ? '50%' : '480px' }}>
-        {!full && (
-          <Header size="huge" textAlign="center">
-            Tools leaderboard
-          </Header>
-        )}
+        {!full && <SectionHeader title="Tools leaderboard" />}
         <TopsToolsList.Wrapper horizontal>
           <TopsToolsList.Segment>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</TopsToolsList.Segment>
           <TopsToolsList.Segment>
@@ -45,7 +42,7 @@ const FlexWrapper = styled.div`
   align-items: center;
   justify-content: center;
   margin-top: 25px;
-  margin-bottom: 50px;
+  margin-bottom: 70px;
   padding: 20px 0;
   border-style: solid;
   border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(23, 124, 190, 0.5), rgba(0, 0, 0, 0)) 100% 0% 100% 0%;
