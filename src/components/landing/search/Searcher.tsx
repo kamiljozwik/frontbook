@@ -1,4 +1,5 @@
 import React, { useState, SyntheticEvent } from 'react';
+import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
 import { Search, Segment, Header } from 'semantic-ui-react';
 
@@ -6,14 +7,37 @@ import { SubcategoryNode, mq } from '../../../shared';
 import { Result, ResultsProps } from '.';
 import styled from '@emotion/styled';
 
-interface SearcherProps {
-  total: number;
-  allTools: SubcategoryNode[];
-}
-
-export const Searcher = ({ allTools, total }: SearcherProps) => {
+export const Searcher = () => {
   const [results, setResults] = useState<ResultsProps[]>();
   const [value, setValue] = useState('');
+
+  const data = useStaticQuery(graphql`
+    query searcherQuery {
+      allTools: allContentfulToolEntry(sort: { fields: fields___githubData___stars, order: DESC }) {
+        totalCount
+        edges {
+          node {
+            name
+            slogan {
+              slogan
+            }
+            subcategory
+            website
+            fields {
+              githubData {
+                stars
+              }
+              npmData {
+                downloads
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
+  const allTools = data.allTools.edges;
+  const total = data.allTools.totalCount;
 
   const handleSearchChange = (e: SyntheticEvent, { value }: { value: string }) => {
     setValue(value);
@@ -52,6 +76,8 @@ export const Searcher = ({ allTools, total }: SearcherProps) => {
     </Segment>
   );
 };
+
+export default Searcher;
 
 const StyledSearch = styled(Search)`
   &&& {

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { Button } from 'semantic-ui-react';
+import { Link } from 'gatsby';
 
 import { TopsToolsList } from '../';
 import { SubcategoryNode, mq } from '../../../shared';
 import { Trophy } from '../../SVG';
-import { Link } from 'gatsby';
 import { SectionHeader } from '../SectionHeader';
 
 interface LeaderboardProps {

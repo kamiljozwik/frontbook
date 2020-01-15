@@ -54,7 +54,7 @@ const WithSubcategories = ({ data }: QueryData) => {
 
 const Stats = ({ category, npmTops, githubTops }: StatsProps) => {
   return (
-    <StatsWrapper>
+    <StatsWrapper color={categoriesNames[category].color}>
       <StatsHeader>{`Top 5 ${categoriesNames[category].name} tools`}</StatsHeader>
       <ListWrapper>
         <StatsColumn>
@@ -93,6 +93,9 @@ export default ({ data, pageContext }: CategoryTemplate) => {
 
 const StatsWrapper = styled.div`
   display: block;
+  border-style: solid;
+  border-image: linear-gradient(to right, rgba(0, 0, 0, 0), ${props => props.color}, rgba(0, 0, 0, 0)) 0% 0% 100% 0%;
+  margin-bottom: 50px;
 `;
 
 const StatsHeader = styled.div`

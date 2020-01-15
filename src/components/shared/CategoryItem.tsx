@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { ReactChild } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
-import { CategoriesCodes, categoriesNames, mq } from '../../shared';
+import { CategoriesCodes, categoriesNames, subcategoriesInfo, mq, Subcategory, colors } from '../../shared';
 import { CategoryImage } from '../SVG';
+import { SubcategoryImage } from '../SVG/subcategories';
 
 interface CategoryItemProps {
+  code: CategoriesCodes;
+  children?: ReactChild;
+  url?: string;
+}
+
+interface CategoryContentProps {
   code: CategoriesCodes;
   count: number;
 }
 
-// Inspired by https://codepen.io/Jhonierpc/pen/MWgBJpy
-export const CategoryItem = ({ code, count }: CategoryItemProps) => {
+interface SubcategoryContentProps {
+  code: Subcategory;
+}
+
+const CategoryContent = ({ code, count }: CategoryContentProps) => {
   return (
-    <Card color={categoriesNames[code].color} data-testid={`category-${code}`} to={`/${code}/`}>
-      <Face1>
+    <>
+      <Face1 color={colors.darkBlue}>
         <Face1Content>
           {/* TODO: Poprawić ten width na responsywny*/}
           <CategoryImage code={code} style={{ width: '5vw' }} />
@@ -27,9 +37,47 @@ export const CategoryItem = ({ code, count }: CategoryItemProps) => {
           <CategoryDescription>{categoriesNames[code].info}</CategoryDescription>
         </Face2Content>
       </Face2>
+    </>
+  );
+};
+
+const SubcategoryContent = ({ code }: SubcategoryContentProps) => {
+  const category = code.split('_')[0] as CategoriesCodes;
+  return (
+    <>
+      <Face1 color={categoriesNames[category].color}>
+        <Face1Content>
+          {/* TODO: Poprawić ten width na responsywny*/}
+          <SubcategoryImage code={code} style={{ width: '5vw' }} />
+          <CategoryName>
+            {code
+              .split('_')[1]
+              .replace(/-/g, ' ')
+              .toUpperCase()}
+          </CategoryName>
+        </Face1Content>
+      </Face1>
+      <Face2>
+        <Face2Content>
+          <CategoryDescription>{subcategoriesInfo[code]}</CategoryDescription>
+        </Face2Content>
+      </Face2>
+    </>
+  );
+};
+
+// Inspired by https://codepen.io/Jhonierpc/pen/MWgBJpy
+export const CategoryItem = ({ code, children, url }: CategoryItemProps) => {
+  const link = url ? url : code;
+  return (
+    <Card color={categoriesNames[code].color} to={`/${link}/`}>
+      {children}
     </Card>
   );
 };
+
+CategoryItem.Category = CategoryContent;
+CategoryItem.Subcategory = SubcategoryContent;
 
 const height = 200;
 const Card = styled(Link)`
@@ -46,7 +94,13 @@ const Card = styled(Link)`
     z-index: 1;
     & > div:first-of-type {
       background: ${props => props.color};
+      filter: brightness(1);
       transform: translateY(0);
+      svg {
+        transition: 0.5s;
+        filter: none;
+        opacity: 1;
+      }
       & > div {
         opacity: 1;
       }
@@ -61,20 +115,26 @@ const Face1 = styled.div`
   height: ${height}px;
   transition: 0.5s;
   position: relative;
-  background: #184461;
+  background: ${props => props.color};
+  filter: brightness(0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
   transform: translateY(100px);
+  svg {
+    transition: 0.5s;
+    filter: grayscale(1);
+    opacity: 0.4;
+  }
 `;
 
 const Face1Content = styled.div`
-  opacity: 0.2;
   transition: 0.5s;
 `;
 
 const CategoryName = styled.h3`
+  opacity: 0.8;
   margin: 10px 0 0;
   padding: 0;
   color: #fff;

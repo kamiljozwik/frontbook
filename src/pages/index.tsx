@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, Searcher, Leaderboard, Footer, CategoriesGrid } from '../components';
+import { Layout, Searcher, Leaderboard, CategoriesGrid } from '../components';
 import { SEO } from '../components/helpers';
 import { SubcategoryNode } from '../shared';
 
@@ -18,10 +18,9 @@ const IndexPage = ({ data }: IndexPageProps) => {
   return (
     <Layout pageType="landing">
       <SEO title="Frontbook" />
-      <Searcher allTools={data.allTools.edges} total={data.allTools.totalCount} />
+      <Searcher />
       <Leaderboard githubTops={data.stars_query.edges} npmTops={data.downloads_query.edges} />
       <CategoriesGrid data={data} />
-      <Footer />
     </Layout>
   );
 };
@@ -30,27 +29,6 @@ export default IndexPage;
 
 export const query = graphql`
   query indexQuery {
-    allTools: allContentfulToolEntry(sort: { fields: fields___githubData___stars, order: DESC }) {
-      totalCount
-      edges {
-        node {
-          name
-          slogan {
-            slogan
-          }
-          subcategory
-          website
-          fields {
-            githubData {
-              stars
-            }
-            npmData {
-              downloads
-            }
-          }
-        }
-      }
-    }
     stars_query: allContentfulToolEntry(
       sort: { fields: fields___githubData___stars, order: DESC }
       limit: 10
@@ -66,94 +44,6 @@ export const query = graphql`
       sort: { fields: fields___npmData___downloads, order: DESC }
       limit: 10
       filter: { fields: { npmData: { downloads: { gt: 0 } } } }
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    js_npm_tops: allContentfulToolEntry(
-      filter: { category: { eq: "js" }, fields: { npmData: { downloads: { gt: 0 } } } }
-      sort: { fields: fields___npmData___downloads, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    js_github_tops: allContentfulToolEntry(
-      filter: { category: { eq: "js" }, fields: { githubData: { stars: { gt: 0 } } } }
-      sort: { fields: fields___githubData___stars, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    jam_npm_tops: allContentfulToolEntry(
-      filter: { category: { eq: "jam" }, fields: { npmData: { downloads: { gt: 0 } } } }
-      sort: { fields: fields___npmData___downloads, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    jam_github_tops: allContentfulToolEntry(
-      filter: { category: { eq: "jam" }, fields: { githubData: { stars: { gt: 0 } } } }
-      sort: { fields: fields___githubData___stars, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    css_npm_tops: allContentfulToolEntry(
-      filter: { category: { eq: "css" }, fields: { npmData: { downloads: { gt: 0 } } } }
-      sort: { fields: fields___npmData___downloads, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    css_github_tops: allContentfulToolEntry(
-      filter: { category: { eq: "css" }, fields: { githubData: { stars: { gt: 0 } } } }
-      sort: { fields: fields___githubData___stars, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    frontops_npm_tops: allContentfulToolEntry(
-      filter: { category: { eq: "frontops" }, fields: { npmData: { downloads: { gt: 0 } } } }
-      sort: { fields: fields___npmData___downloads, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          ...CategoryTopsFragment
-        }
-      }
-    }
-    frontops_github_tops: allContentfulToolEntry(
-      filter: { category: { eq: "frontops" }, fields: { githubData: { stars: { gt: 0 } } } }
-      sort: { fields: fields___githubData___stars, order: DESC }
-      limit: 5
     ) {
       edges {
         node {

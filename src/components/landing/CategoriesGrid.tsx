@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { CategoryItem } from '.';
 import { CategoriesCodes } from '../../shared/types';
 import { activeCategories } from '../../shared';
 import { SectionHeader } from './SectionHeader';
+import { CategoryItem } from '../';
 
 interface CategoriesGridProps {
   data: {
@@ -23,11 +23,12 @@ export const CategoriesGrid = ({ data }: CategoriesGridProps) => {
       />
       <CategoriesList>
         {activeCategories.map(category => (
-          <CategoryItem
-            key={category}
-            code={category as CategoriesCodes}
-            count={data[category] ? data[category].totalCount : 0}
-          />
+          <CategoryItem key={category} code={category as CategoriesCodes}>
+            <CategoryItem.Category
+              code={category as CategoriesCodes}
+              count={data[category] ? data[category].totalCount : 0}
+            />
+          </CategoryItem>
         ))}
       </CategoriesList>
     </>
