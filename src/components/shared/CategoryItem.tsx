@@ -26,8 +26,7 @@ const CategoryContent = ({ code, count }: CategoryContentProps) => {
     <>
       <Face1 color={colors.darkBlue}>
         <Face1Content>
-          {/* TODO: Poprawić ten width na responsywny*/}
-          <CategoryImage code={code} style={{ width: '5vw' }} />
+          <CategoryImage code={code} style={{ width: '50%' }} />
           <CategoryName>{categoriesNames[code].name}</CategoryName>
           <ToolsCount>{`${count} tools`}</ToolsCount>
         </Face1Content>
@@ -47,8 +46,8 @@ const SubcategoryContent = ({ code }: SubcategoryContentProps) => {
     <>
       <Face1 color={categoriesNames[category].color}>
         <Face1Content>
-          {/* TODO: Poprawić ten width na responsywny*/}
-          <SubcategoryImage code={code} style={{ width: '5vw' }} />
+          <SubcategoryImage code={code} style={{ width: '50%' }} />
+          {/* <CategoryImage code={'js'} style={{ width: '50%' }} /> */}
           <CategoryName>
             {code
               .split('_')[1]
@@ -70,7 +69,7 @@ const SubcategoryContent = ({ code }: SubcategoryContentProps) => {
 export const CategoryItem = ({ code, children, url }: CategoryItemProps) => {
   const link = url ? url : code;
   return (
-    <Card color={categoriesNames[code].color} to={`/${link}/`}>
+    <Card color={categoriesNames[code].color} to={`/${link}/`} data-testid={`category-${code}`}>
       {children}
     </Card>
   );
@@ -131,6 +130,11 @@ const Face1 = styled.div`
 
 const Face1Content = styled.div`
   transition: 0.5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 `;
 
 const CategoryName = styled.h3`

@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
 export const Cssinjs = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 504.113 504.113" xmlSpace="preserve" {...props}>
+  <svg viewBox="0 0 504.113 504.113" xmlSpace="preserve" width="10vw" {...props}>
     <ellipse cx={274.513} cy={428.857} rx={229.6} ry={13.6} fill="#d3c5cc" />
     <path
       d="M341.713 232.057c35.2 35.2 16 152.8-71.2 182.4-63.2 21.6-255.2 32.8-267.2-6.4-14.4-48 12.8 85.6 188.8-154.4 39.2-54.4 114.4-56.8 149.6-21.6z"

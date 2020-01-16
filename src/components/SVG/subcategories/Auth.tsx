@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const Auth = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 125 124" fill="none" {...props}>
+  <svg viewBox="0 0 125 124" fill="none" width="10vw" {...props}>
     <g clipPath="url(#clip0)">
       <path
         d="M59.975 118.99c-20.517 0-37.208-22.647-37.208-43V36.91C22.767 16.558 39.458 0 59.975 0 80.49 0 97.182 16.558 97.182 36.91v39.08c0 20.353-16.691 43-37.207 43zm0-102.289c-11.233 0-20.372 9.066-20.372 20.209v39.08c0 11.144 9.139 20.21 20.372 20.21 11.232 0 20.371-9.066 20.371-20.21V36.91c0-11.143-9.139-20.209-20.371-20.209z"

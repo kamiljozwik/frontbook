@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
 export const DataVisualization = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 460 460" xmlSpace="preserve" {...props}>
+  <svg viewBox="0 0 460 460" xmlSpace="preserve" width="10vw" {...props}>
     <path
       fill="#354a67"
       d="M460 403.568L60 403.568 60 0 30 0 30 403.568 0 403.568 0 433.568 30 433.568 30 460 60 460 60 433.568 460 433.568z"

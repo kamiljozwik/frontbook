@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const DataLayer = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 172 172" fill="none" {...props}>
+  <svg viewBox="0 0 172 172" fill="none" width="10vw" {...props}>
     <path
       d="M19.307 3.51l104.629.001 28.758 28.779v23.983h-4.793V75.46h4.793v93.031h-47.522v-4.798l-38.343.001v4.797H19.307l-.001-83.438H24.1V46.679l-4.793.001V3.51z"
       fill="#1D3577"
