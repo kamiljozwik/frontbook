@@ -41,13 +41,11 @@ const CategoryContent = ({ code, count }: CategoryContentProps) => {
 };
 
 const SubcategoryContent = ({ code }: SubcategoryContentProps) => {
-  const category = code.split('_')[0] as CategoriesCodes;
   return (
     <>
-      <Face1 color={categoriesNames[category].color}>
+      <Face1 color={'#8f8f8f'}>
         <Face1Content>
           <SubcategoryImage code={code} style={{ width: '50%' }} />
-          {/* <CategoryImage code={'js'} style={{ width: '50%' }} /> */}
           <CategoryName>
             {code
               .split('_')[1]
@@ -80,32 +78,41 @@ CategoryItem.Subcategory = SubcategoryContent;
 
 const height = 200;
 const Card = styled(Link)`
-  ${mq({
-    width: ['100%', '100%', '44%', '26%', '20%'],
-  })}
-  height: ${height}px;
-  margin: 1% 1%;
-  position: relative;
-  cursor: pointer;
-  z-index: 0;
-  flex-grow: 1;
-  &:hover {
-    z-index: 1;
-    & > div:first-of-type {
-      background: ${props => props.color};
-      filter: brightness(1);
-      transform: translateY(0);
-      svg {
-        transition: 0.5s;
-        filter: none;
-        opacity: 1;
+  &&& {
+    ${mq({
+      width: ['100%', '100%', '44%', '28%', '23%'],
+    })};
+    height: ${height}px;
+    ${mq({
+      margin: ['3% 1%', '3% 1%', '1% 1%', '1% 1%', '1% 1%'],
+    })};
+    ${mq({
+      paddingLeft: ['32px', '32px', '5px', '5px', '5px'],
+    })};
+    ${mq({
+      paddingRight: ['32px', '32px', '5px', '5px', '5px'],
+    })};
+    position: relative;
+    cursor: pointer;
+    z-index: 0;
+    &:hover {
+      z-index: 1;
+      & > div:first-of-type {
+        background: ${props => props.color};
+        filter: brightness(1);
+        transform: translateY(0);
+        svg {
+          transition: 0.5s;
+          filter: none;
+          opacity: 1;
+        }
+        & > div {
+          opacity: 1;
+        }
       }
-      & > div {
-        opacity: 1;
+      div:nth-of-type(2) {
+        transform: translateY(0);
       }
-    }
-    div:nth-of-type(2) {
-      transform: translateY(0);
     }
   }
 `;
@@ -123,8 +130,8 @@ const Face1 = styled.div`
   transform: translateY(100px);
   svg {
     transition: 0.5s;
-    filter: grayscale(1);
-    opacity: 0.4;
+    filter: grayscale(0.6);
+    opacity: 0.8;
   }
 `;
 
@@ -134,6 +141,7 @@ const Face1Content = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-height: 80%;
 }
 `;
 

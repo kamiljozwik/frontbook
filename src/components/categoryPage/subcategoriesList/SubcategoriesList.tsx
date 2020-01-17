@@ -16,7 +16,7 @@ export const SubcategoriesList = ({ subcategories }: SubcategoriesListProps) => 
         title="This category is divided into more specific subcategories"
         subtitle="Choose the one that best suits your needs"
       />
-      <Grid columns={2} centered relaxed>
+      <Grid relaxed>
         {subcategories.map(name => {
           const code = name.split('_')[0];
           return (

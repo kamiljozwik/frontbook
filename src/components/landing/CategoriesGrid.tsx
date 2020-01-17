@@ -38,5 +38,5 @@ export const CategoriesGrid = ({ data }: CategoriesGridProps) => {
 const CategoriesList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
 `;
