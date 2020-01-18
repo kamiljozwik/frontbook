@@ -1,9 +1,9 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 
-import { Layout, SubcategoriesList, ToolsTable, CardGroup, TopsToolsList } from '../components';
+import { Layout, SubcategoriesList, ToolsTable, CardGroup, TopsToolsList, CategoryNav } from '../components';
 import { SEO } from '../components/helpers';
-import { categoriesNames, CategoriesCodes, LinkEntry, SubcategoryNode, colors, activeCategories, mq } from '../shared';
+import { categoriesNames, CategoriesCodes, LinkEntry, SubcategoryNode, colors } from '../shared';
 import styled from '@emotion/styled';
 
 interface SubcategoryEdges {
@@ -68,14 +68,6 @@ const Stats = ({ category, npmTops, githubTops }: StatsProps) => {
   );
 };
 
-const NavigationItems = () => (
-  <NavList>
-    {activeCategories.map(category => (
-      <NavItem to={`/${category}`}>{category}</NavItem>
-    ))}
-  </NavList>
-);
-
 export default ({ data, pageContext }: CategoryTemplate) => {
   const withSubcategories = ['js', 'css', 'jam', 'ux'];
   const withStats = ['js', 'css', 'jam'];
@@ -89,9 +81,7 @@ export default ({ data, pageContext }: CategoryTemplate) => {
       color={categoriesNames[categoryCode].color}
     >
       <SEO title={categoriesNames[categoryCode].name} />
-      <FixedNavigation>
-        <NavigationItems />
-      </FixedNavigation>
+      <CategoryNav />
       {withStats.includes(categoryCode) && <Stats category={categoryCode} npmTops={npmTops} githubTops={githubTops} />}
       {withSubcategories.includes(categoryCode) ? (
         <WithSubcategories data={data} />
@@ -129,47 +119,6 @@ const ListWrapper = styled.div`
 
 const StatsColumn = styled.div`
   padding: 16px 16px;
-`;
-
-const FixedNavigation = styled.div`
-  position: fixed;
-  padding-right: 50px;
-  left: -60px;
-  transform: translateX(0px);
-  top: 20vh;
-  transition: 0.5s;
-  ${mq({
-    display: ['none', 'none', 'block', 'block', 'block'],
-  })}
-  &:hover {
-    transform: translateX(60px);
-  }
-`;
-
-const NavList = styled.ul`
-  margin: 0;
-  transition: 0.5s;
-  &:hover {
-    color: white;
-  }
-`;
-
-const NavItem = styled(Link)`
-  list-style: none;
-  margin: 0;
-  width: 80px;
-  height: 60px;
-  background: ${colors.darkBlue};
-  text-align: center;
-  color: white;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  &:hover {
-    color: white;
-    filter: drop-shadow(-3px 2px 5px rgba(0, 0, 0, 0.5));
-  }
 `;
 
 export const query = graphql`

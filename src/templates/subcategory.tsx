@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, SEO, ToolsTable, CardGroup } from '../components';
+import { Layout, SEO, ToolsTable, CardGroup, CategoryNav } from '../components';
 import { categoriesNames, nonTableSubcategories } from '../shared';
 import { CategoriesCodes, SubcategoryNode, LinkEntry } from '../shared/types';
 
@@ -36,6 +36,7 @@ export default ({ data, pageContext }: SubcategoryProps) => {
       color={categoriesNames[category].color}
     >
       <SEO title="Tools list" />
+      <CategoryNav />
       {nonTableSubcategories.includes(pageContext.subcategory) ? (
         <CardGroup items={data.subcategory.edges} links={links} />
       ) : (
