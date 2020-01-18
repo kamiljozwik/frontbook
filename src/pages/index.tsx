@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, Searcher, Leaderboard, CategoriesGrid } from '../components';
+import { Layout, Searcher, Leaderboard, CategoriesGrid, FeatureCards } from '../components';
 import { SEO } from '../components/helpers';
 import { SubcategoryNode } from '../shared';
 
@@ -21,6 +21,12 @@ const IndexPage = ({ data }: IndexPageProps) => {
       <Searcher />
       <Leaderboard githubTops={data.stars_query.edges} npmTops={data.downloads_query.edges} />
       <CategoriesGrid data={data} />
+      <FeatureCards>
+        <>
+          <FeatureCards.Card feature="uiExamples" />
+          <FeatureCards.Card feature="amazingCss" />
+        </>
+      </FeatureCards>
     </Layout>
   );
 };
