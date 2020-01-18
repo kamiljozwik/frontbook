@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/camelcase */
 const js_animations =
-  'Animations are a great way to make our website "not boring". Properly used animations can emphasize most important parts of the page and make user more engaged. On the other side it can make our website heavy and slower. Do not experiment with unknown animation libraries - check this section and choose the one what is proper for you.';
+  'Animations are a great way to make our website "not boring". Properly used animations can emphasize most important parts of the page and make user more engaged. Check this section and choose the one what is proper for you.';
 const js_security =
   'In this section you will find great tools you can use to professionally authenticate and authorize users of your applications and also information how to protect your website from any kinds of cyber attacks.';
 const js_cheatsheets =
-  'Browsing long documentations to find a small code syntax or use case for simple solutions makes you think like "Why... why I have to do it again..." ? If so - stop doing it and use cheatsheets instead. Small, very often printable and easy to read documentation summary is usually a better way than Google.';
+  'Browsing long documentations to find a small code snippet or use case for simple solutions makes you think like "Why... why I have to do it again..." ? If so - stop doing it and use cheatsheets instead.';
 const js_css_in_js =
   'You are feeling comfortable with JavaScript but writing CSS makes you cry? There is an alternative for you: "CSS in JSS". It is still CSS, but.. now you can write it inside JS files. Check this section if you want to know more.';
 const js_data_layer =
@@ -14,7 +14,7 @@ const js_data_visualization =
 const js_extensions =
   'JavaScript is great, but... it is not perfect. Using some language extensions, like type checking can bring us a tons of new functionalities and code quality. Sounds interesting? Click the title above.';
 const js_frameworks =
-  'JavaScript is known from its reach frameworks ecosystem. Thanks to it we can create great websites and applications  in a very fast and efficient way without having to set up manually lots of tools and copy/past configurations from documentations a block of texts. If you want to stay up to date with information regarding JavaScript frameworks ecosystem you should check this section quite frequently.';
+  'JavaScript is known from its reach frameworks ecosystem. Thanks to it we can create great applications in a very efficient way. Check this section If you want to stay up to date with information regarding JavaScript frameworks ecosystem you should.';
 const js_graphic =
   'Handling graphics on a page can be tricky and challenging task. Using big and not optimized images can significantly slow down page and discourage users from using again so using right tools and techniques is crucial in this area.';
 const js_interactions =
@@ -22,7 +22,7 @@ const js_interactions =
 const js_search =
   'Searching feature is one of the most important and also one of the most challenging to implement feature in any website  The purpose of this section is to help you create this functionality without hassle.';
 const js_tests =
-  'Nowadays writing automation tests is a very important part of development front-end applications. It protects us from random, unintentional mistakes and errors. It is also crucial when using any CI or CD tools to deploy your app. Check this section to find best testing tools.';
+  'Nowadays writing automation tests is a very important part of applications development. It protects us from random, unintentional mistakes and errors. It is also crucial when using any CI or CD tools to deploy your app.';
 const js_translations =
   'Using on a website only one language narrows a lot potential users. Do not limit yourself only to one country or one commonly used language - add translations and internationalization to you app and significantly increase the number of users.';
 const js_utils =
@@ -40,9 +40,9 @@ const jam_ssg =
   'Static site generator (SSG) is the crucial part of every JAM application. Here you create all the logic and layouts for your website and use API and/or Markdowns to fill it with content. Choosing the right SSG for your project is very important decision.';
 
 const css_animations =
-  'Animations are a great way to make our website "not boring". Properly used animations can emphasize most important parts of the page and make user more engaged. On the other side it can make our website heavy and slower. Do not experiment with unknown animation libraries - check this section and choose the one what is proper for you.';
+  'Animations are a great way to make our website "not boring". Properly used animations can emphasize most important parts of the page and make user more engaged. Check this section and choose the one what is proper for you.';
 const css_cheatsheets =
-  'Browsing long documentations to find a small code syntax or use case for simple solutions makes you think like "Why... why I have to do it again..." ? If so - stop doing it and use cheatsheets instead. Small, very often printable and easy to read documentation summary is usually a better way than Google.';
+  'Browsing long documentations to find a small code snippet or use case for simple solutions makes you think like "Why... why I have to do it again..." ? If so - stop doing it and use cheatsheets instead.';
 const css_frameworks =
   'When creating prototypes or admin-like applications it is easier and much faster to use already created CSS styles gathered in frameworks rather than created them from scratch. CSS frameworks becoming more and more popular so it is worth to know the most popular ones.';
 const css_processors =
@@ -151,7 +151,7 @@ export const categoriesNames = {
   seo: {
     name: 'SEO',
     info:
-      'Even greatest and most efficient applications can be useless when potential users can not find it in the web. SEO is here to helps our apps improve their position in search engines like Google or Bing. It is definitely something you must take into considerations during your development process so check this section for more information.',
+      'Even greatest and most efficient applications can be useless when potential users can not find it in the web. SEO is here to helps our apps improve their position in search engines like Google or Bing.',
     color: '#525E54',
     subcategories: {
       empty: 'empty',
@@ -169,7 +169,7 @@ export const categoriesNames = {
   frontops: {
     name: 'FrontOps',
     info:
-      'Coding web application is the hardest part in process of creation of our product. But is has to be accessible  somewhere outside our local machine. How to build, publish and deploy our application - here is what FrontOps is all about.',
+      'Coding web application is the hardest part in process of creation of our product. But is has to be accessible  somewhere outside our local machine. How to build, publish and deploy our application - check it here.',
     color: '#10893E',
     subcategories: {
       empty: 'empty',
@@ -178,7 +178,7 @@ export const categoriesNames = {
   monitor: {
     name: 'Monitor',
     info:
-      'Is my website online? Is it working properly? Can users log into their accounts? How many people are currently online? Which parts of my website are not viewed very often? You never find answers to this questions without any monitoring tools constantly "watching" your website. Check out this section and see what tools are waiting for you.',
+      'Is my site online? Is it working properly? How many people are currently online? You never find answers to this questions without any monitoring tools constantly "watching" your website.',
     color: '#6B69D6',
     subcategories: {
       empty: 'empty',
@@ -187,8 +187,8 @@ export const categoriesNames = {
   ux: {
     name: 'UX',
     info:
-      'Which colors and fonts to use? Margins or shadows? How many columns to use? How to show this section on mobile devices? Creating websites without any mockups or at least simple sketches can significantly lengthen the process of development and brings us constants visual refactors. Do not do it. Be smart. Use UX tools to be sure what you really want to build.',
-    color: '#C239B3',
+      'Creating websites without any mockups or at least simple sketches can significantly lengthen the process of development and brings us constant refactors. Do not do it. Use UX tools to be sure what you really want to build.',
+    color: '#ce70c5',
     subcategories: {
       colors: 'Colors',
       design: 'Design',

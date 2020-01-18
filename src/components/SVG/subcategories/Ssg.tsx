@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
 export const Ssg = (props: SVGAttributes<Element>) => (
-  <svg x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve" {...props}>
+  <svg x="0px" y="0px" viewBox="0 0 512 512" xmlSpace="preserve" width="10vw" {...props}>
     <path fill="#0071bc" d="M467.134 435.464L256 435.464 44.866 435.464 44.866 150.433 256 150.433 467.134 150.433z" />
     <path
       fill="#e7eced"

@@ -8,6 +8,7 @@ import { colors, CategoriesCodes, mq } from '../../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
+import { Footer } from '.';
 
 export type PageTypes = '404' | 'landing' | 'category' | 'leaderboard';
 interface LayoutProps {
@@ -50,6 +51,7 @@ export const Layout = ({
         />
         <main>{children}</main>
       </PageContentWrapper>
+      <Footer />
     </>
   );
 };

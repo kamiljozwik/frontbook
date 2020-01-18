@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const Colors = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 512 512" xmlSpace="preserve" {...props}>
+  <svg viewBox="0 0 512 512" xmlSpace="preserve" width="10vw" {...props}>
     <path
       transform="rotate(45.001 420.733 191.704)"
       fill="#f23488"
