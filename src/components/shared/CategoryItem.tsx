@@ -127,7 +127,9 @@ const Face1 = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1;
-  transform: translateY(100px);
+  ${mq({
+    display: ['translateY(0px)', 'translateY(0px)', 'translateY(100px)', 'translateY(100px)', 'translateY(100px)'],
+  })};
   svg {
     transition: 0.5s;
     filter: grayscale(0.6);
@@ -163,11 +165,13 @@ const ToolsCount = styled.h4`
 `;
 
 const Face2 = styled.div`
+  ${mq({
+    display: ['none', 'none', 'flex', 'flex', 'flex'],
+  })};
   height: ${height}px;
   transition: 0.5s;
   position: relative;
   background: #fff;
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
