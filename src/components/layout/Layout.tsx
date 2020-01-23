@@ -10,12 +10,13 @@ import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
 import { Footer } from '.';
 
-export type PageTypes = '404' | 'landing' | 'category' | 'leaderboard';
+export type PageTypes = '404' | 'landing' | 'category' | 'page';
 interface LayoutProps {
   children: ReactNode;
   category?: CategoriesCodes;
   subcategories?: string[];
   subcategory?: string;
+  title?: string;
   color?: string;
   pageType: PageTypes;
 }
@@ -25,7 +26,8 @@ export const Layout = ({
   category,
   subcategories,
   subcategory,
-  color = '#D1BF20',
+  title,
+  color = colors.default,
   pageType,
 }: LayoutProps) => {
   useEffect(() => {
@@ -39,6 +41,7 @@ export const Layout = ({
         category={category}
         subcategory={subcategory}
         subcategories={subcategories}
+        title={title}
         color={color}
       />
       <PageContentWrapper>

@@ -1,0 +1,46 @@
+import React from 'react';
+import styled from '@emotion/styled';
+
+import { CategoryWave } from '../../SVG';
+import { colors } from '../../../shared';
+
+interface CategoryHeaderProps {
+  title?: string;
+  color?: string;
+}
+
+export const GeneralHeader = ({ title = 'General Page', color = colors.default }: CategoryHeaderProps) => {
+  return (
+    <>
+      <GeneralHeaderWrapper>
+        <CategoryWave color={color} style={{ minHeight: '50vh' }} />
+        <HeaderData>
+          <HeaderTitle>{title}</HeaderTitle>
+        </HeaderData>
+      </GeneralHeaderWrapper>
+    </>
+  );
+};
+
+const GeneralHeaderWrapper = styled.div`
+  height: calc(50vh - 100px);
+  width: 80vw;
+  margin: 0 auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+`;
+
+const HeaderData = styled.div`
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const HeaderTitle = styled.div`
+  font-weight: 700;
+  color: white;
+  line-height: 100%;
+  font-size: 42px;
+`;

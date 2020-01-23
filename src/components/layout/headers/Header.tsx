@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LandingHeader, CategoryHeader, LeaderboardHeader } from './';
+import { LandingHeader, CategoryHeader, GeneralHeader } from './';
 import { CategoriesCodes, colors } from '../../../shared';
 import { PageTypes } from '../';
 
@@ -9,10 +9,11 @@ interface HeaderProps {
   category?: CategoriesCodes;
   subcategory?: string;
   subcategories?: string[];
+  title?: string;
   color?: string;
 }
 
-export const PageHeader = ({ pageType, category, subcategory, subcategories, color }: HeaderProps) => {
+export const PageHeader = ({ pageType, category, subcategory, subcategories, title, color }: HeaderProps) => {
   switch (pageType) {
     case 'landing':
       return <LandingHeader />;
@@ -26,9 +27,9 @@ export const PageHeader = ({ pageType, category, subcategory, subcategories, col
           color={color || colors.default}
         />
       );
-    case 'leaderboard':
-      return <LeaderboardHeader color={color || colors.default} />;
+    case 'page':
+      return <GeneralHeader title={title} />;
     default:
-      return <LandingHeader />;
+      return <GeneralHeader />;
   }
 };
