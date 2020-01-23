@@ -11,9 +11,10 @@ export interface ResultsProps extends SearchResultProps {
   title: string;
   description: string;
   website?: string;
-  subcategory: string;
+  subcategory?: string;
   stars?: number;
   downloads?: number;
+  oversize?: boolean;
 }
 interface ExtraDataProps {
   githubStars?: number;
@@ -49,13 +50,15 @@ export const Result = (props: any) => (
   <StyledResultCard fluid>
     <Card.Content>
       <Card.Header>
-        <CardHeader to={parseSubcategory(props.subcategory)}>
+        <CardHeader to={props.oversize ? '/' : parseSubcategory(props.subcategory)}>
           {props.title}
           <ToolIcon url={props.website} style={{ width: '16px', height: 'auto' }} />
         </CardHeader>
-        <Card.Meta>
-          <ExtraData githubStars={props.stars} npmDownloads={props.downloads} />
-        </Card.Meta>
+        {!props.oversize && (
+          <Card.Meta>
+            <ExtraData githubStars={props.stars} npmDownloads={props.downloads} />
+          </Card.Meta>
+        )}
       </Card.Header>
       <Card.Description style={{ fontSize: '16px' }}>{props.description}</Card.Description>
     </Card.Content>

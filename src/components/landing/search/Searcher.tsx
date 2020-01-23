@@ -7,6 +7,12 @@ import { SubcategoryNode, mq } from '../../../shared';
 import { Result, ResultsProps } from '.';
 import styled from '@emotion/styled';
 
+const tooMuchResults = {
+  title: 'Too much results.',
+  description: 'Please specify your query.',
+  oversize: true,
+};
+
 export const Searcher = () => {
   const [results, setResults] = useState<ResultsProps[]>();
   const [value, setValue] = useState('');
@@ -53,9 +59,12 @@ export const Searcher = () => {
         downloads: res.node.fields.npmData ? res.node.fields.npmData.downloads : undefined,
       };
     });
-    value.length > 2 ? setResults(tempResults) : setResults(undefined);
+    value.length > 2
+      ? tempResults.length < 11
+        ? setResults(tempResults)
+        : setResults([tooMuchResults])
+      : setResults(undefined);
   };
-
   return (
     <Segment basic textAlign="center" style={{ height: '250px' }}>
       <Header textAlign="center" size="huge" style={{ marginBottom: '50px' }}>
