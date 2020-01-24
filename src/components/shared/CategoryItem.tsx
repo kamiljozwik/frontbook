@@ -176,7 +176,7 @@ const Face2 = styled.div`
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   transform: translateY(-${height / 2}px);
 `;
 

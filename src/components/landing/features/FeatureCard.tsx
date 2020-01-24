@@ -50,7 +50,7 @@ const Card = styled.div`
   ${mq({
     width: ['100%', '100%', '100%', '40%', '40%'],
   })}
-  box-shadow: 0 0 20px -8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px -2px rgba(0, 0, 0, 0.3);
   margin: 20px 0;
   padding: 30px;
   display: flex;
