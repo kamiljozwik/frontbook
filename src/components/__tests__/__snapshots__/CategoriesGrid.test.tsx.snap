@@ -325,7 +325,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
   -webkit-transform: translateY(-100px);
   -ms-transform: translateY(-100px);
   transform: translateY(-100px);
