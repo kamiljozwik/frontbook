@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import styled from '@emotion/styled';
 import { mq, featuresData, Features, colors } from '../../../shared';
 import { CategoryImage } from '../../SVG';
 import { SectionHeader } from '..';
+import { SimpleButton } from '../../shared';
 
 interface FeatureCardsProps {
   children: React.ReactChild;
@@ -19,7 +19,7 @@ export const FeatureCard = ({ feature }: FeatureCardProps) => {
       <CategoryImage code="seo" />
       <CardTitle>{featuresData[feature].title}</CardTitle>
       <CardDescription>{featuresData[feature].description}</CardDescription>
-      <CardButton to={featuresData[feature].link}>More</CardButton>
+      <SimpleButton to={featuresData[feature].link}>More</SimpleButton>
     </Card>
   );
 };
@@ -73,19 +73,4 @@ const CardTitle = styled.h3`
 const CardDescription = styled.p`
   font-size: 18px;
   color: ${colors.darkGrey};
-`;
-
-const CardButton = styled(Link)`
-  border: 1px solid ${colors.darkBlue};
-  padding: 10px;
-  width: 100px;
-  text-align: center;
-  margin-top: 30px;
-  color: ${colors.darkBlue};
-  transition: 0.3s;
-  border-radius: 6px;
-  &:hover {
-    background: ${colors.darkBlue};
-    color: white;
-  }
 `;

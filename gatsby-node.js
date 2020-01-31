@@ -135,6 +135,7 @@ exports.createPages = async ({ graphql, actions }) => {
   return new Promise((resolve, reject) => {
     const subcategoryTemplate = path.resolve(`src/templates/subcategory.tsx`);
     const categoryTemplate = path.resolve(`src/templates/category.tsx`);
+    const UIExampleTemplate = path.resolve(`src/templates/UIExamples.tsx`);
     resolve(
       /**
        * Get all possible categories and subcategories
@@ -146,6 +147,14 @@ exports.createPages = async ({ graphql, actions }) => {
           }
           subcategories: allContentfulToolEntry {
             distinct(field: subcategory)
+          }
+          uiExamples: contentfulShowRoomEntry {
+            useful {
+              links
+            }
+            other {
+              links
+            }
           }
         }
       `).then(resp => {
@@ -180,6 +189,32 @@ exports.createPages = async ({ graphql, actions }) => {
             },
           });
         });
+
+        /**
+         * Create pages for CSS UI examples
+         */
+        function generateUIExamplesPages(path, links, title) {
+          const uiExamplesPerPage = 10;
+          const totalPages = Math.ceil(links.length / uiExamplesPerPage);
+          for (let i = 1; i < totalPages + 1; i++) {
+            createPage({
+              path: `${path}/${i === 1 ? '' : i}`,
+              component: UIExampleTemplate,
+              context: {
+                links: links.slice(i * uiExamplesPerPage - uiExamplesPerPage, i * uiExamplesPerPage),
+                total: links.length,
+                title,
+                pagePath: path,
+                currentPage: i,
+                totalPages,
+              },
+            });
+          }
+        }
+
+        const { useful, other } = resp.data.uiExamples;
+        generateUIExamplesPages('ui-examples', useful.links, 'UI Examples');
+        generateUIExamplesPages('css-is-awesome', other.links, 'CSS is awesome');
       })
     );
   });
