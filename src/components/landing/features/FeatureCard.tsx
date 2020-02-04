@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { mq, featuresData, Features, colors } from '../../../shared';
-import { CategoryImage } from '../../SVG';
+import { mq, featuresData, Features, colors, FeaturesCodes } from '../../../shared';
+import { FeatureImage } from '../../SVG/FeatureImage';
 import { SectionHeader } from '..';
 import { SimpleButton } from '../../shared';
 
 interface FeatureCardsProps {
+  title: string;
+  subtitle?: string;
   children: React.ReactChild;
 }
 
@@ -16,7 +18,7 @@ interface FeatureCardProps {
 export const FeatureCard = ({ feature }: FeatureCardProps) => {
   return (
     <Card>
-      <CategoryImage code="seo" />
+      <FeatureImage code={featuresData[feature].image as FeaturesCodes} />
       <CardTitle>{featuresData[feature].title}</CardTitle>
       <CardDescription>{featuresData[feature].description}</CardDescription>
       <SimpleButton to={featuresData[feature].link}>More</SimpleButton>
@@ -24,13 +26,10 @@ export const FeatureCard = ({ feature }: FeatureCardProps) => {
   );
 };
 
-export const FeatureCards = ({ children }: FeatureCardsProps) => {
+export const FeatureCards = ({ title, subtitle, children }: FeatureCardsProps) => {
   return (
     <>
-      <SectionHeader
-        title="Front-end is not just programming"
-        subtitle="See what you can achieve with CSS (sometimes with a little help from JS)"
-      />
+      <SectionHeader title={title} subtitle={subtitle} />
       <Cards>{children}</Cards>
     </>
   );

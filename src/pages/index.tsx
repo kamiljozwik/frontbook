@@ -1,9 +1,9 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 
-import { Layout, Searcher, Leaderboard, CategoriesGrid, FeatureCards } from '../components';
+import { Layout, Searcher, Leaderboard, CategoriesGrid, FeatureCards, ComingSoon } from '../components';
 import { SEO } from '../components/helpers';
-import { SubcategoryNode } from '../shared';
+import { SubcategoryNode, landingData } from '../shared';
 
 interface IndexPageProps {
   data: {
@@ -21,12 +21,13 @@ const IndexPage = ({ data }: IndexPageProps) => {
       <Searcher />
       <Leaderboard githubTops={data.stars_query.edges} npmTops={data.downloads_query.edges} />
       <CategoriesGrid data={data} />
-      <FeatureCards>
+      <FeatureCards title={landingData.uiExamples.title} subtitle={landingData.uiExamples.subtitle}>
         <>
           <FeatureCards.Card feature="uiExamples" />
           <FeatureCards.Card feature="amazingCss" />
         </>
       </FeatureCards>
+      <ComingSoon />
     </Layout>
   );
 };

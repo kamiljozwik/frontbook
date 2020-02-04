@@ -98,7 +98,7 @@ const HeaderTitle = styled.div`
   })}
 `;
 
-const CategoryLink = styled(Link)`
+export const CategoryLink = styled(Link)`
   color: white;
   &:hover {
     color: white;

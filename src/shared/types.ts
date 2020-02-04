@@ -1,4 +1,5 @@
 export type CategoriesCodes = 'js' | 'jam' | 'css' | 'seo' | 'frontops' | 'monitor' | 'ux' | 'utils';
+export type FeaturesCodes = 'uiExamples' | 'cssAwesome';
 export type Subcategory =
   | 'js_animations'
   | 'js_security'

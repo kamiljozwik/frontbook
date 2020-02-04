@@ -2,15 +2,15 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { LandingWave } from '../../SVG';
-import { mq } from '../../../shared';
+import { mq, landingData } from '../../../shared';
 
 export const LandingHeader = () => {
   return (
     <>
       <LandingHeaderWrapper>
         <LandingWave />
-        <HeaderTitle>Best front-end tools and resources in one place.</HeaderTitle>
-        <HeaderSubtitle>Compare real numbers and choose the right tools for your next project.</HeaderSubtitle>
+        <HeaderTitle>{landingData.header.title}</HeaderTitle>
+        <HeaderSubtitle>{landingData.header.subtitle}</HeaderSubtitle>
         <PositionHelper />
       </LandingHeaderWrapper>
     </>

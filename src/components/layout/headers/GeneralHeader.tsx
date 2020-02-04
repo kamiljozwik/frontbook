@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 
 import { CategoryWave } from '../../SVG';
 import { colors } from '../../../shared';
+import { Icon } from 'semantic-ui-react';
+import { CategoryLink } from './';
 
 interface CategoryHeaderProps {
   title?: string;
@@ -15,7 +17,12 @@ export const GeneralHeader = ({ title = 'General Page', color = colors.default }
       <GeneralHeaderWrapper>
         <CategoryWave color={color} style={{ minHeight: '50vh' }} />
         <HeaderData>
-          <HeaderTitle>{title}</HeaderTitle>
+          <HeaderTitle>
+            <CategoryLink to="/" aria-label="Frontbook home page">
+              <Icon size="small" inverted name="home" />
+            </CategoryLink>
+            {`/ ${title}`}
+          </HeaderTitle>
         </HeaderData>
       </GeneralHeaderWrapper>
     </>
