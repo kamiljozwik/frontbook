@@ -34,9 +34,9 @@ const TopBar = () => {
           </TopBarLink>
         </TopBarLinks>
       </TopBarContent>
-      <LastUpdate>{`Last update: ${moment(buildTime).format('D MMM YYYY | HH:MM')} (${moment(
-        buildTime
-      ).fromNow()})`}</LastUpdate>
+      <LastUpdate>
+        {`Last update: ${moment(buildTime).format('D MMM YYYY | HH:MM')} (${moment(buildTime).fromNow()})`}
+      </LastUpdate>
     </TopBarWrapper>
   );
 };
@@ -86,4 +86,7 @@ const TopBarLink = styled(OutboundLink)`
 
 const LastUpdate = styled.span`
   color: rgba(255, 255, 255, 0.6);
+  ${mq({
+    display: ['none', 'inline-block', 'inline-block', 'inline-block', 'inline-block'],
+  })}
 `;

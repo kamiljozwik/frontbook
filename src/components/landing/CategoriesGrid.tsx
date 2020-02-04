@@ -39,4 +39,5 @@ const CategoriesList = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  margin-bottom: 200px;
 `;

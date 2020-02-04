@@ -3,9 +3,15 @@ import { graphql, useStaticQuery } from 'gatsby';
 import _ from 'lodash';
 import { Search, Segment, Header } from 'semantic-ui-react';
 
-import { SubcategoryNode, mq } from '../../../shared';
+import { SubcategoryNode, mq, landingData } from '../../../shared';
 import { Result, ResultsProps } from '.';
 import styled from '@emotion/styled';
+
+const tooMuchResults = {
+  title: 'Too much results.',
+  description: 'Please specify your query.',
+  oversize: true,
+};
 
 export const Searcher = () => {
   const [results, setResults] = useState<ResultsProps[]>();
@@ -53,15 +59,18 @@ export const Searcher = () => {
         downloads: res.node.fields.npmData ? res.node.fields.npmData.downloads : undefined,
       };
     });
-    value.length > 2 ? setResults(tempResults) : setResults(undefined);
+    value.length > 2
+      ? tempResults.length < 11
+        ? setResults(tempResults)
+        : setResults([tooMuchResults])
+      : setResults(undefined);
   };
-
   return (
     <Segment basic textAlign="center" style={{ height: '250px' }}>
       <Header textAlign="center" size="huge" style={{ marginBottom: '50px' }}>
-        <ToolsCount>{total}</ToolsCount> best front-end tools and resources to choose from!
+        <ToolsCount>{total}</ToolsCount> {landingData.searcher.title}
       </Header>
-      <Header>What are you looking for?</Header>
+      <Header>{landingData.searcher.label}</Header>
       <StyledSearch
         size="big"
         minCharacters={3}

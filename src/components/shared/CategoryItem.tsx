@@ -67,9 +67,9 @@ const SubcategoryContent = ({ code }: SubcategoryContentProps) => {
 export const CategoryItem = ({ code, children, url }: CategoryItemProps) => {
   const link = url ? url : code;
   return (
-    <Card color={categoriesNames[code].color} to={`/${link}/`} data-testid={`category-${code}`}>
+    <ItemCard color={categoriesNames[code].color} to={`/${link}/`} data-testid={`category-${code}`}>
       {children}
-    </Card>
+    </ItemCard>
   );
 };
 
@@ -77,7 +77,7 @@ CategoryItem.Category = CategoryContent;
 CategoryItem.Subcategory = SubcategoryContent;
 
 const height = 200;
-const Card = styled(Link)`
+const ItemCard = styled(Link)`
   &&& {
     ${mq({
       width: ['100%', '100%', '44%', '28%', '23%'],
@@ -176,7 +176,7 @@ const Face2 = styled.div`
   align-items: center;
   padding: 20px;
   box-sizing: border-box;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
   transform: translateY(-${height / 2}px);
 `;
 

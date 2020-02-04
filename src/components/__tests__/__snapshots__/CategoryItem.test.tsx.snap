@@ -1,0 +1,782 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CategoryItem component  renders card for js animation subcategory 1`] = `
+.emotion-6.emotion-6.emotion-6 {
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+}
+
+@media (max-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    width: 100%;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    width: 100%;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-6.emotion-6.emotion-6 {
+    width: 44%;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-6.emotion-6.emotion-6 {
+    width: 28%;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-6.emotion-6.emotion-6 {
+    width: 23%;
+  }
+}
+
+@media (max-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    margin: 3% 1%;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    margin: 3% 1%;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-6.emotion-6.emotion-6 {
+    margin: 1% 1%;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-6.emotion-6.emotion-6 {
+    margin: 1% 1%;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-6.emotion-6.emotion-6 {
+    margin: 1% 1%;
+  }
+}
+
+@media (max-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-left: 32px;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-left: 32px;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-left: 5px;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-left: 5px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-left: 5px;
+  }
+}
+
+@media (max-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-right: 32px;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-right: 32px;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-right: 5px;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-right: 5px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-6.emotion-6.emotion-6 {
+    padding-right: 5px;
+  }
+}
+
+.emotion-6.emotion-6.emotion-6:hover {
+  z-index: 1;
+}
+
+.emotion-6.emotion-6.emotion-6:hover > div:first-of-type {
+  background: #D1BF20;
+  -webkit-filter: brightness(1);
+  filter: brightness(1);
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-6.emotion-6.emotion-6:hover > div:first-of-type svg {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-filter: none;
+  filter: none;
+  opacity: 1;
+}
+
+.emotion-6.emotion-6.emotion-6:hover > div:first-of-type > div {
+  opacity: 1;
+}
+
+.emotion-6.emotion-6.emotion-6:hover div:nth-of-type(2) {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-1 {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-height: 80%;
+}
+
+.emotion-0 {
+  opacity: 0.8;
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.emotion-5 {
+  height: 200px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  background: #fff;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+  -webkit-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+
+@media (max-width:400px) {
+  .emotion-5 {
+    display: none;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-5 {
+    display: none;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.emotion-3 {
+  margin: 0;
+  padding: 0;
+}
+
+.emotion-2 {
+  height: 200px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  background: #8f8f8f;
+  -webkit-filter: brightness(0.8);
+  filter: brightness(0.8);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 1;
+}
+
+@media (max-width:400px) {
+  .emotion-2 {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-2 {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-2 {
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-2 {
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-2 {
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+}
+
+.emotion-2 svg {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-filter: grayscale(0.6);
+  filter: grayscale(0.6);
+  opacity: 0.8;
+}
+
+<a
+  class="emotion-6"
+  color="#D1BF20"
+  data-testid="category-js"
+  href="/js/animations/"
+>
+  <div
+    class="emotion-2"
+    color="#8f8f8f"
+  >
+    <div
+      class="emotion-1"
+    >
+      <svg
+        fill="none"
+        style="width: 50%;"
+        viewBox="0 0 164 164"
+        width="10vw"
+        xml:space="preserve"
+      >
+        <path
+          d="M160.311 88.238h-72.71v72.71h72.71v-72.71z"
+          fill="#94A4A4"
+        />
+        <path
+          d="M31.459 151.39h23.71l-7.378 7.378a3.057 3.057 0 000 4.293 3.024 3.024 0 002.147.905c.771 0 1.543-.301 2.146-.905l12.577-12.577a3.057 3.057 0 000-4.293l-12.577-12.576a3.056 3.056 0 00-4.293 0 3.057 3.057 0 000 4.293l7.379 7.378H31.458c-13.985 0-25.354-11.369-25.354-25.355v-14.857a3.063 3.063 0 00-3.052-3.052A3.063 3.063 0 000 105.074v14.857c0 17.339 14.086 31.459 31.459 31.459zM5.5.939A3.05 3.05 0 003.354.033 3.05 3.05 0 001.207.94a3.017 3.017 0 00-.872 2.146c0 .805.336 1.577.872 2.147a3.05 3.05 0 002.147.905A3.05 3.05 0 005.5 5.232a3.05 3.05 0 00.906-2.147A3.05 3.05 0 005.5.94zM65.667 6.104a3.042 3.042 0 003.052-3.052A3.042 3.042 0 0065.667 0a3.063 3.063 0 00-3.052 3.052 3.042 3.042 0 003.052 3.052zM55.27.033a3.063 3.063 0 00-3.052 3.052 3.042 3.042 0 003.052 3.052 3.042 3.042 0 003.052-3.052A3.063 3.063 0 0055.27.033zM24.114 6.104a3.042 3.042 0 003.052-3.052A3.042 3.042 0 0024.114 0a3.063 3.063 0 00-3.052 3.052c.033 1.71 1.375 3.052 3.052 3.052zM13.75.033A3.063 3.063 0 0010.7 3.085a3.042 3.042 0 003.052 3.052 3.02 3.02 0 003.052-3.052C16.769 1.41 15.428.033 13.75.033zM44.907.033a3.063 3.063 0 00-3.052 3.052 3.063 3.063 0 003.052 3.052 3.042 3.042 0 003.052-3.052C47.926 1.41 46.584.033 44.907.033zM34.51.033a3.063 3.063 0 00-3.051 3.052 3.042 3.042 0 003.051 3.052 3.042 3.042 0 003.052-3.052A3.063 3.063 0 0034.51.033zM78.21 5.232c.57-.57.872-1.342.872-2.147 0-.805-.335-1.576-.872-2.146a3.05 3.05 0 00-2.146-.906 3.05 3.05 0 00-2.147.906 3.018 3.018 0 00-.872 2.146c0 .805.336 1.577.872 2.147a3.05 3.05 0 002.147.905c.805-.033 1.576-.335 2.146-.905zM76.064 20.794c-1.677 0-3.019 1.375-3.019 3.051 0 1.677 1.342 3.052 3.019 3.052a3.063 3.063 0 003.052-3.052c-.034-1.676-1.375-3.051-3.052-3.051zM76.064 62.347c-1.677 0-3.019 1.341-3.019 3.052 0 1.677 1.342 3.052 3.019 3.052a3.063 3.063 0 003.052-3.052c-.034-1.677-1.375-3.052-3.052-3.052zM76.064 31.19a3.006 3.006 0 00-3.019 3.019c0 1.676 1.342 3.051 3.019 3.051a3.063 3.063 0 003.052-3.051c-.034-1.644-1.375-3.019-3.052-3.019zM76.064 51.95c-1.677 0-3.019 1.375-3.019 3.052s1.342 3.052 3.019 3.052a3.042 3.042 0 003.052-3.052c-.034-1.677-1.375-3.052-3.052-3.052zM76.064 41.587c-1.677 0-3.019 1.341-3.019 3.052 0 1.677 1.342 3.052 3.019 3.052a3.063 3.063 0 003.052-3.052c-.034-1.71-1.375-3.052-3.052-3.052zM76.064 10.43c-1.677 0-3.019 1.342-3.019 3.052 0 1.677 1.342 3.052 3.019 3.052a3.063 3.063 0 003.052-3.052c-.034-1.71-1.375-3.052-3.052-3.052zM79.082 75.762c0-.805-.335-1.576-.872-2.147a3.05 3.05 0 00-2.146-.905 3.05 3.05 0 00-2.147.906 3.05 3.05 0 00-.905 2.146c0 .805.335 1.576.905 2.146a3.05 3.05 0 002.147.906 3.05 3.05 0 002.146-.906c.57-.536.872-1.341.872-2.146zM34.51 72.744a3.063 3.063 0 00-3.051 3.052 3.042 3.042 0 003.051 3.051 3.042 3.042 0 003.052-3.051 3.042 3.042 0 00-3.052-3.052zM44.907 72.744a3.063 3.063 0 00-3.052 3.052 3.063 3.063 0 003.052 3.051 3.042 3.042 0 003.052-3.051c-.033-1.71-1.375-3.052-3.052-3.052zM55.27 72.744a3.063 3.063 0 00-3.052 3.052 3.042 3.042 0 003.052 3.051 3.042 3.042 0 003.052-3.051 3.042 3.042 0 00-3.052-3.052zM13.75 72.744a3.063 3.063 0 00-3.051 3.052 3.042 3.042 0 003.052 3.051 3.02 3.02 0 003.052-3.051c-.034-1.71-1.375-3.052-3.052-3.052zM24.114 78.814a3.042 3.042 0 003.052-3.052 3.063 3.063 0 00-3.052-3.052 3.063 3.063 0 00-3.052 3.052c.033 1.71 1.375 3.052 3.052 3.052zM65.667 78.814a3.042 3.042 0 003.052-3.052 3.042 3.042 0 00-3.052-3.052 3.063 3.063 0 00-3.052 3.052 3.042 3.042 0 003.052 3.052zM1.207 73.615a3.017 3.017 0 00-.872 2.147c0 .805.336 1.576.872 2.146a3.05 3.05 0 002.147.906 3.05 3.05 0 002.146-.906 3.05 3.05 0 00.906-2.146 3.05 3.05 0 00-.906-2.147 3.05 3.05 0 00-2.146-.905c-.805.034-1.576.335-2.147.906zM3.354 10.43a3.042 3.042 0 00-3.052 3.052 3.042 3.042 0 003.052 3.052 3.063 3.063 0 003.052-3.052 3.042 3.042 0 00-3.052-3.052zM3.354 20.794a3.063 3.063 0 00-3.052 3.051 3.042 3.042 0 003.052 3.052 3.063 3.063 0 003.052-3.052 3.063 3.063 0 00-3.052-3.051zM3.354 31.19c-1.677 0-3.052 1.342-3.052 3.019a3.042 3.042 0 003.052 3.051 3.063 3.063 0 003.052-3.051c0-1.644-1.375-3.019-3.052-3.019zM3.354 51.95a3.063 3.063 0 00-3.052 3.052 3.042 3.042 0 003.052 3.052 3.042 3.042 0 003.052-3.052 3.063 3.063 0 00-3.052-3.052zM3.354 62.347a3.042 3.042 0 00-3.052 3.052 3.042 3.042 0 003.052 3.052 3.063 3.063 0 003.052-3.052 3.063 3.063 0 00-3.052-3.052zM3.354 41.587a3.042 3.042 0 00-3.052 3.052 3.042 3.042 0 003.052 3.052 3.063 3.063 0 003.052-3.052 3.042 3.042 0 00-3.052-3.052zM111.614.94L99.037 13.515a3.05 3.05 0 00-.905 2.146c0 .805.335 1.576.905 2.147l12.577 12.576a3.025 3.025 0 002.146.906c.772 0 1.543-.302 2.147-.906 1.173-1.174 1.173-3.119 0-4.293l-7.379-7.378h23.712c13.985 0 25.354 11.37 25.354 25.355v14.857a3.063 3.063 0 003.052 3.052 3.063 3.063 0 003.052-3.052V44.069c0-17.34-14.119-31.459-31.458-31.459h-23.712l7.379-7.378c1.173-1.174 1.173-3.119 0-4.293a3.026 3.026 0 00-4.293 0zM163.363 160.914V88.238a3.063 3.063 0 00-3.052-3.052h-72.71a3.063 3.063 0 00-3.052 3.052v72.71A3.063 3.063 0 0087.6 164h72.71c1.677-.034 3.052-1.409 3.052-3.086zm-6.104-3.018H90.653v-66.64h66.606v66.64z"
+          fill="#2C2F33"
+        />
+      </svg>
+      <h3
+        class="emotion-0"
+      >
+        ANIMATIONS
+      </h3>
+    </div>
+  </div>
+  <div
+    class="emotion-5"
+  >
+    <div
+      class="emotion-4"
+    >
+      <div
+        class="emotion-3"
+      >
+        Animations are a great way to make our website "not boring". Properly used animations can emphasize most important parts of the page and make user more engaged. Check this section and choose the one what is proper for you.
+      </div>
+    </div>
+  </div>
+</a>
+`;
+
+exports[`CategoryItem component  renders card for js category 1`] = `
+.emotion-7.emotion-7.emotion-7 {
+  height: 200px;
+  position: relative;
+  cursor: pointer;
+  z-index: 0;
+}
+
+@media (max-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    width: 100%;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    width: 100%;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-7.emotion-7.emotion-7 {
+    width: 44%;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-7.emotion-7.emotion-7 {
+    width: 28%;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-7.emotion-7.emotion-7 {
+    width: 23%;
+  }
+}
+
+@media (max-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    margin: 3% 1%;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    margin: 3% 1%;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-7.emotion-7.emotion-7 {
+    margin: 1% 1%;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-7.emotion-7.emotion-7 {
+    margin: 1% 1%;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-7.emotion-7.emotion-7 {
+    margin: 1% 1%;
+  }
+}
+
+@media (max-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-left: 32px;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-left: 32px;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-left: 5px;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-left: 5px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-left: 5px;
+  }
+}
+
+@media (max-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-right: 32px;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-right: 32px;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-right: 5px;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-right: 5px;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-7.emotion-7.emotion-7 {
+    padding-right: 5px;
+  }
+}
+
+.emotion-7.emotion-7.emotion-7:hover {
+  z-index: 1;
+}
+
+.emotion-7.emotion-7.emotion-7:hover > div:first-of-type {
+  background: #D1BF20;
+  -webkit-filter: brightness(1);
+  filter: brightness(1);
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-7.emotion-7.emotion-7:hover > div:first-of-type svg {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-filter: none;
+  filter: none;
+  opacity: 1;
+}
+
+.emotion-7.emotion-7.emotion-7:hover > div:first-of-type > div {
+  opacity: 1;
+}
+
+.emotion-7.emotion-7.emotion-7:hover div:nth-of-type(2) {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.emotion-3 {
+  height: 200px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  background: #184461;
+  -webkit-filter: brightness(0.8);
+  filter: brightness(0.8);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  z-index: 1;
+}
+
+@media (max-width:400px) {
+  .emotion-3 {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-3 {
+    -webkit-transform: translateY(0px);
+    -ms-transform: translateY(0px);
+    transform: translateY(0px);
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-3 {
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-3 {
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-3 {
+    -webkit-transform: translateY(100px);
+    -ms-transform: translateY(100px);
+    transform: translateY(100px);
+  }
+}
+
+.emotion-3 svg {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-filter: grayscale(0.6);
+  filter: grayscale(0.6);
+  opacity: 0.8;
+}
+
+.emotion-2 {
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  max-height: 80%;
+}
+
+.emotion-0 {
+  opacity: 0.8;
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.emotion-1 {
+  margin: 10px 0 0;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 1em;
+}
+
+.emotion-6 {
+  height: 200px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  position: relative;
+  background: #fff;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+  -webkit-transform: translateY(-100px);
+  -ms-transform: translateY(-100px);
+  transform: translateY(-100px);
+}
+
+@media (max-width:400px) {
+  .emotion-6 {
+    display: none;
+  }
+}
+
+@media (min-width:400px) {
+  .emotion-6 {
+    display: none;
+  }
+}
+
+@media (min-width:600px) {
+  .emotion-6 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width:900px) {
+  .emotion-6 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+@media (min-width:1200px) {
+  .emotion-6 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+
+.emotion-4 {
+  margin: 0;
+  padding: 0;
+}
+
+<a
+  class="emotion-7"
+  color="#D1BF20"
+  data-testid="category-js"
+  href="/js/"
+>
+  <div
+    class="emotion-3"
+    color="#184461"
+  >
+    <div
+      class="emotion-2"
+    >
+      <svg
+        fill="none"
+        style="width: 50%;"
+        viewBox="0 0 400 400"
+        width="10vw"
+        xml:space="preserve"
+      >
+        <path
+          d="M264.179 0h-207.3c-5.772 0-10.45 4.679-10.45 13.757v379.1c0 2.464 4.678 7.143 10.45 7.143H343.12c5.772 0 10.45-4.679 10.45-7.143V92.7c0-4.971-.664-6.571-1.835-7.75L268.621 1.836A6.31 6.31 0 00264.179 0z"
+          fill="#E9E9E0"
+        />
+        <path
+          d="M267.857 1.079v84.635h84.636L267.857 1.08z"
+          fill="#D9D7CA"
+        />
+        <path
+          d="M343.121 400H56.879c-5.772 0-10.45-4.678-10.45-10.45V278.572H353.57V389.55c0 5.772-4.678 10.45-10.45 10.45z"
+          fill="#EEAF4B"
+        />
+        <path
+          d="M185.864 305.136v56.057c0 3.386-.621 6.236-1.857 8.543-1.243 2.307-2.9 4.164-4.979 5.564-2.085 1.4-4.478 2.379-7.178 2.929-2.7.55-5.493.828-8.35.828-1.436 0-3.114-.15-5.029-.443a42.76 42.76 0 01-5.957-1.364 64.31 64.31 0 01-5.907-2.1c-1.893-.778-3.486-1.657-4.786-2.636l4.979-7.907c.65.45 1.578.929 2.786 1.415 1.207.485 2.521.942 3.957 1.364a54.91 54.91 0 004.493 1.121c1.564.329 3.028.486 4.392.486 3.443 0 6.2-.671 8.25-2s3.136-3.6 3.272-6.786v-55.078h11.914v.007zM244.171 358.843c0 2.6-.535 5.129-1.614 7.571a19.741 19.741 0 01-4.543 6.443c-1.957 1.85-4.364 3.336-7.228 4.443-2.865 1.107-6.122 1.657-9.765 1.657-1.564 0-3.171-.085-4.835-.243a38.947 38.947 0 01-5.029-.828 26.402 26.402 0 01-4.836-1.614c-1.528-.686-2.85-1.515-3.957-2.493l2.05-8.4c.907.521 2.065 1.028 3.465 1.514s2.842.943 4.342 1.364c1.493.429 2.993.765 4.493 1.029 1.493.257 2.893.393 4.2.393 3.972 0 7.015-.929 9.129-2.786s3.171-4.607 3.171-8.25c0-2.214-.75-4.1-2.243-5.664-1.5-1.565-3.371-2.979-5.614-4.25a132.508 132.508 0 00-7.278-3.807 44.155 44.155 0 01-7.322-4.493c-2.278-1.722-4.171-3.757-5.664-6.1-1.5-2.343-2.243-5.272-2.243-8.786 0-3.186.586-6.021 1.757-8.493 1.172-2.471 2.75-4.578 4.736-6.3 1.986-1.721 4.3-3.043 6.936-3.957 2.635-.914 5.421-1.364 8.35-1.364 2.992 0 6.021.278 9.078.828 3.057.55 5.529 1.45 7.422 2.686-.393.843-.85 1.771-1.365 2.786-.521 1.014-1.014 1.95-1.464 2.828-.457.879-.85 1.615-1.171 2.2-.329.586-.522.915-.586.979-.393-.193-.829-.45-1.322-.779-.492-.328-1.192-.65-2.1-.978-.914-.329-2.121-.55-3.614-.686-1.5-.136-3.421-.1-5.764.1-1.307.136-2.536.5-3.714 1.121a12.73 12.73 0 00-3.129 2.293 10.338 10.338 0 00-2.15 3.079c-.521 1.136-.779 2.236-.779 3.271 0 2.6.743 4.7 2.243 6.3 1.493 1.6 3.35 2.993 5.565 4.2a90.138 90.138 0 007.228 3.515 39.348 39.348 0 017.279 4.15c2.25 1.621 4.114 3.664 5.614 6.1 1.514 2.442 2.271 5.578 2.271 9.421z"
+          fill="#fff"
+        />
+        <path
+          d="M139.286 135.714v-28.571c0-3.936 3.2-7.143 7.143-7.143a7.14 7.14 0 007.142-7.143 7.14 7.14 0 00-7.142-7.143c-11.815 0-21.429 9.615-21.429 21.429v28.571c0 7.879-6.407 14.286-14.286 14.286-3.95 0-7.143 3.2-7.143 7.143a7.141 7.141 0 007.143 7.143c7.879 0 14.286 6.407 14.286 14.286v28.571c0 11.814 9.614 21.429 21.429 21.429a7.14 7.14 0 007.142-7.143 7.14 7.14 0 00-7.142-7.143c-3.943 0-7.143-3.207-7.143-7.143v-28.571c0-8.572-3.872-16.186-9.872-21.429 6-5.243 9.872-12.857 9.872-21.429zM196.429 142.857c5.917 0 10.714-4.797 10.714-10.714 0-5.917-4.797-10.714-10.714-10.714-5.918 0-10.715 4.797-10.715 10.714 0 5.917 4.797 10.714 10.715 10.714zM282.143 150c-7.879 0-14.286-6.407-14.286-14.286v-28.571c0-11.814-9.614-21.429-21.428-21.429-3.95 0-7.143 3.2-7.143 7.143a7.14 7.14 0 007.143 7.143c3.942 0 7.142 3.207 7.142 7.143v28.571c0 8.572 3.872 16.186 9.872 21.429-6 5.243-9.872 12.857-9.872 21.429v28.571c0 3.936-3.2 7.143-7.142 7.143-3.95 0-7.143 3.2-7.143 7.143a7.141 7.141 0 007.143 7.143c11.814 0 21.428-9.615 21.428-21.429v-28.571c0-7.879 6.407-14.286 14.286-14.286 3.95 0 7.143-3.2 7.143-7.143a7.141 7.141 0 00-7.143-7.143zM196.429 171.429c-3.95 0-7.143 3.2-7.143 7.143V200a7.141 7.141 0 007.143 7.143 7.14 7.14 0 007.142-7.143v-21.428a7.14 7.14 0 00-7.142-7.143z"
+          fill="#EEAF4B"
+        />
+      </svg>
+      <h3
+        class="emotion-0"
+      >
+        JavaScript
+      </h3>
+      <h4
+        class="emotion-1"
+      >
+        10 tools
+      </h4>
+    </div>
+  </div>
+  <div
+    class="emotion-6"
+  >
+    <div
+      class="emotion-5"
+    >
+      <div
+        class="emotion-4"
+      >
+        Essential part of modern front-end and one of the most popular programming language in the world. Tests, extensions, helpers, security and lots more - everything you need to make great JS application without hassle.
+      </div>
+    </div>
+  </div>
+</a>
+`;
