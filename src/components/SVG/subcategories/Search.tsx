@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const Search = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 172 172" fill="none" {...props}>
+  <svg viewBox="0 0 172 172" fill="none" width="10vw" {...props}>
     <path
       d="M157.635 131.026H14.365C6.445 131.026 0 124.582 0 116.66V55.34c0-7.922 6.444-14.366 14.366-14.366h143.268c7.922 0 14.366 6.444 14.366 14.365v61.321c0 7.922-6.444 14.366-14.365 14.366zm-143.27-81a5.319 5.319 0 00-5.312 5.313v61.321a5.319 5.319 0 005.313 5.313h143.268a5.32 5.32 0 005.313-5.313V55.34a5.318 5.318 0 00-5.313-5.314H14.366z"
       fill="#B1404A"

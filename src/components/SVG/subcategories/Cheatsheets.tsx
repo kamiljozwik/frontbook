@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
 export const Cheatsheets = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 172 172" fill="none" {...props}>
+  <svg viewBox="0 0 172 172" fill="none" width="10vw" {...props}>
     <path
       d="M147.696 172H24.304a5.61 5.61 0 01-5.608-5.609V5.609A5.61 5.61 0 0124.304 0h78.522c1.486 0 2.914.592 3.965 1.643l44.87 44.87a5.608 5.608 0 011.643 3.965v115.913a5.61 5.61 0 01-5.608 5.609z"
       fill="#167EE6"

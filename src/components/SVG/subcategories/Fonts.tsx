@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const Fonts = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 498.4 498.4" xmlSpace="preserve" {...props}>
+  <svg viewBox="0 0 498.4 498.4" xmlSpace="preserve" width="10vw" {...props}>
     <path fill="#87dd50" d="M8.8 48H488.8V56H8.8z" />
     <g fill="#62b72a">
       <circle cx={8} cy={50.4} r={8} />

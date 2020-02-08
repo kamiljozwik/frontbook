@@ -98,8 +98,7 @@ exports.onCreateNode = async ({ node, actions }) => {
        * Add field with Bundlephobia Data to tool's Node
        */
 
-      async function getBundlephobiaData(package) {
-        const packageName = package.toLowerCase();
+      async function getBundlephobiaData(packageName) {
         try {
           const response = await axios.get(`https://bundlephobia.com/api/size?package=${packageName}`);
           return response && response.data;
@@ -109,7 +108,7 @@ exports.onCreateNode = async ({ node, actions }) => {
         }
       }
 
-      const bundlephobiaData = await (repoMeta ? getBundlephobiaData(repoMeta.name) : null);
+      const bundlephobiaData = await (npmPackageName ? getBundlephobiaData(npmPackageName) : null);
 
       const selectedBundlephobiaData = bundlephobiaData && {
         size: bundlephobiaData.size,
@@ -135,23 +134,36 @@ exports.createPages = async ({ graphql, actions }) => {
 
   return new Promise((resolve, reject) => {
     const subcategoryTemplate = path.resolve(`src/templates/subcategory.tsx`);
+    const categoryTemplate = path.resolve(`src/templates/category.tsx`);
+    const UIExampleTemplate = path.resolve(`src/templates/UIExamples.tsx`);
     resolve(
       /**
-       * Get all possible subcategories
+       * Get all possible categories and subcategories
        */
       graphql(`
         {
-          allContentfulToolEntry {
+          categories: allContentfulToolEntry {
+            distinct(field: category)
+          }
+          subcategories: allContentfulToolEntry {
             distinct(field: subcategory)
           }
+          uiExamples: contentfulShowRoomEntry {
+            useful {
+              links
+            }
+            other {
+              links
+            }
+          }
         }
-      `).then(subcategories => {
-        subcategories.errors && reject(subcategories.errors);
+      `).then(resp => {
+        resp.errors && reject(resp.errors);
 
         /**
          * Create page for each subcategory
          */
-        subcategories.data.allContentfulToolEntry.distinct.forEach(subcategory => {
+        resp.data.subcategories.distinct.forEach(subcategory => {
           const path = subcategory.replace('_', '/');
           !path.includes('empty') &&
             createPage({
@@ -162,6 +174,47 @@ exports.createPages = async ({ graphql, actions }) => {
               },
             });
         });
+
+        /**
+         * Create page for each category
+         */
+        const noSubcategories = ['frontops', 'seo', 'monitor', 'utils'];
+        resp.data.categories.distinct.forEach(category => {
+          const path = category;
+          createPage({
+            path: path,
+            component: categoryTemplate,
+            context: {
+              category: noSubcategories.includes(category) ? `${category}_empty` : category,
+            },
+          });
+        });
+
+        /**
+         * Create pages for CSS UI examples
+         */
+        function generateUIExamplesPages(path, links, title) {
+          const uiExamplesPerPage = 10;
+          const totalPages = Math.ceil(links.length / uiExamplesPerPage);
+          for (let i = 1; i < totalPages + 1; i++) {
+            createPage({
+              path: `${path}/${i === 1 ? '' : i}`,
+              component: UIExampleTemplate,
+              context: {
+                links: links.slice(i * uiExamplesPerPage - uiExamplesPerPage, i * uiExamplesPerPage),
+                total: links.length,
+                title,
+                pagePath: path,
+                currentPage: i,
+                totalPages,
+              },
+            });
+          }
+        }
+
+        const { useful, other } = resp.data.uiExamples;
+        generateUIExamplesPages('ui-examples', useful.links, 'UI Examples');
+        generateUIExamplesPages('css-is-awesome', other.links, 'CSS is awesome');
       })
     );
   });

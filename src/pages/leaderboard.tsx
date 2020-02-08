@@ -17,7 +17,7 @@ interface LeaderboardData {
 }
 
 const LeaderboardPage = ({ data }: LeaderboardData) => (
-  <Layout pageType="leaderboard" color="#039aff">
+  <Layout pageType="page" title="Front-end tools leaderboard" color="#039aff">
     <SEO title="leaderboard" />
     <Leaderboard githubTops={data.stars.edges} npmTops={data.downloads.edges} full />
   </Layout>

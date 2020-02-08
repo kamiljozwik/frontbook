@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const Utils = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 461.27 461.27" xmlSpace="preserve" {...props}>
+  <svg viewBox="0 0 461.27 461.27" xmlSpace="preserve" width="10vw" {...props}>
     <path
       d="M354.26 363.87v49.24c0 21.59-17.56 39.16-39.16 39.16H146.17c-21.59 0-39.16-17.57-39.16-39.16v-49.24c8.75 12.21 23.03 20.18 39.16 20.18H315.1c16.13 0 30.42-7.97 39.16-20.18z"
       fill="#4489d3"

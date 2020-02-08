@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const Logos = (props: SVGAttributes<Element>) => (
-  <svg viewBox="0 0 504.123 504.123" xmlSpace="preserve" {...props}>
+  <svg viewBox="0 0 504.123 504.123" xmlSpace="preserve" width="10vw" {...props}>
     <linearGradient
       id="a"
       gradientUnits="userSpaceOnUse"

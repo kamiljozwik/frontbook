@@ -2,55 +2,48 @@ import React, { ReactNode, useEffect } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
 
-import { LandingHeader, CategoryHeader, LeaderboardHeader } from './';
 import TopBar from './TopBar';
-import { colors, CategoriesCodes } from '../../shared';
-import { mq } from '../layout';
+import { PageHeader } from './headers';
+import { colors, CategoriesCodes, mq } from '../../shared';
 import './layout.css';
 import 'semantic-ui-css/semantic.min.css';
 import './custom_styles.css';
+import { Footer } from '.';
 
-type PageTypes = 'landing' | 'category' | 'leaderboard';
+export type PageTypes = '404' | 'landing' | 'category' | 'page';
 interface LayoutProps {
   children: ReactNode;
   category?: CategoriesCodes;
   subcategories?: string[];
   subcategory?: string;
+  title?: string;
   color?: string;
-  pageType?: PageTypes;
+  pageType: PageTypes;
 }
-
-const headerFactory = (pageType: any, category: any, subcategory: any, subcategories: any, color: any) => {
-  switch (pageType) {
-    case 'landing':
-      return <LandingHeader />;
-    case 'category':
-      return (
-        <CategoryHeader category={category} subcategory={subcategory} subcategories={subcategories} color={color} />
-      );
-    case 'leaderboard':
-      return <LeaderboardHeader color={color} />;
-    default:
-      return <LandingHeader />;
-  }
-};
 
 export const Layout = ({
   children,
   category,
   subcategories,
   subcategory,
-  color = '#D1BF20',
+  title,
+  color = colors.default,
   pageType,
 }: LayoutProps) => {
   useEffect(() => {
-    // TODO: make it better. Now it jumps a little...
     document.body.scrollTop = 0;
   }, [category]);
   return (
     <>
       <TopBar />
-      {headerFactory(pageType, category, subcategory, subcategories, color)}
+      <PageHeader
+        pageType={pageType}
+        category={category}
+        subcategory={subcategory}
+        subcategories={subcategories}
+        title={title}
+        color={color}
+      />
       <PageContentWrapper>
         <Global
           styles={css`
@@ -61,6 +54,7 @@ export const Layout = ({
         />
         <main>{children}</main>
       </PageContentWrapper>
+      <Footer />
     </>
   );
 };
