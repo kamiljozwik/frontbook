@@ -2,7 +2,7 @@ import React, { SVGAttributes } from 'react';
 
 // tslint:disable: max-line-length
 export const Placeholder = (props: SVGAttributes<Element>) => (
-  <svg width="16vw" viewBox="0 0 512 512" xmlSpace="preserve" {...props}>
+  <svg width="10vw" viewBox="0 0 512 512" xmlSpace="preserve" {...props}>
     <circle cx={256} cy={256} r={256} fill="#fad24d" />
     <ellipse cx={256} cy={421.646} rx={182.284} ry={14.371} fill="#edb937" />
     <path

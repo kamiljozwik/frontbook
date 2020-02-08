@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { mq, featuresData, Features, colors, FeaturesCodes } from '../../../shared';
 import { FeatureImage } from '../../SVG/FeatureImage';
 import { SectionHeader } from '..';
-import { SimpleButton } from '../../shared';
+import { LinkButton } from '../../shared';
 
 interface FeatureCardsProps {
   title: string;
@@ -21,7 +21,7 @@ export const FeatureCard = ({ feature }: FeatureCardProps) => {
       <FeatureImage code={featuresData[feature].image as FeaturesCodes} />
       <CardTitle>{featuresData[feature].title}</CardTitle>
       <CardDescription>{featuresData[feature].description}</CardDescription>
-      <SimpleButton to={featuresData[feature].link}>More</SimpleButton>
+      <LinkButton to={featuresData[feature].link}>More</LinkButton>
     </Card>
   );
 };
@@ -56,6 +56,7 @@ const Card = styled.div`
   flex-direction: column;
   & > svg {
     margin: 0 auto;
+    min-width: 10vw;
     ${mq({
       width: ['25vw', '20vw', '20vw', 'auto', 'auto'],
     })}
