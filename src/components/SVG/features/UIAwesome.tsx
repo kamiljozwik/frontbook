@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
 export const UIAwesome = (props: SVGAttributes<Element>) => (
-  <svg width="16vw" viewBox="0 0 512.009 512.009" xmlSpace="preserve" fill="none" {...props}>
+  <svg width="10vw" viewBox="0 0 512.009 512.009" xmlSpace="preserve" fill="none" {...props}>
     <circle cx={256.004} cy={256.004} r={256.004} fill="#f7b239" />
     <path
       d="M121.499 390.501C29.407 298.407 22.15 153.608 99.723 53.204A258.273 258.273 0 0074.98 74.981c-99.974 99.974-99.974 262.065 0 362.038s262.065 99.974 362.038 0a258.428 258.428 0 0021.777-24.743c-100.403 77.574-245.202 70.317-337.296-21.775z"

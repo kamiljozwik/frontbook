@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
 export const UIUseful = (props: SVGAttributes<Element>) => (
-  <svg width="16vw" viewBox="0 0 512 512" xmlSpace="preserve" fill="none" {...props}>
+  <svg width="10vw" viewBox="0 0 512 512" xmlSpace="preserve" fill="none" {...props}>
     <circle cx={256} cy={256} r={256} fill="#366695" />
     <path
       d="M119.811 335.874l70.968 70.968.145 4.529 98.276 98.49C414.899 493.58 512 386.132 512 256c0-5.697-.205-11.345-.572-16.949L393.194 119.949 119.811 335.874z"

@@ -10,8 +10,10 @@ Layout.mockImplementationOnce(({ children }) => <div>{children}</div>);
 describe('404 Page', () => {
   it('contains NOT FOUND text', () => {
     const { getByText } = render(<NotFoundPage />);
-    const el = getByText('NOT FOUND');
+    const el = getByText('Page not found...');
+    const HomeBtn = getByText('HOME');
 
     expect(el).toBeInTheDocument();
+    expect(HomeBtn).toBeInTheDocument();
   });
 });

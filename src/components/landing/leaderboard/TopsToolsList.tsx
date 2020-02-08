@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Header, Icon, List, Segment } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import numeral from 'numeral';
@@ -7,6 +7,7 @@ import { colors, ListItem, SubcategoryNode, mq } from '../../../shared';
 import { ToolIcon } from '../..';
 
 interface TopsToolProps {
+  style?: CSSProperties;
   tool: ListItem;
   type: 'npm' | 'github';
 }
@@ -16,10 +17,10 @@ interface TopsToolsProps {
   type: 'npm' | 'github';
 }
 
-const TopsTool = ({ tool, type }: TopsToolProps) => {
+export const TopsTool = ({ style, tool, type }: TopsToolProps) => {
   return (
-    <List.Item style={{ margin: '5px 0' }}>
-      <List.Content>
+    <List.Item style={style}>
+      <List.Content style={{ margin: '5px 0' }}>
         <TopsToolData>
           <ToolIcon url={tool.website} style={{ marginRight: '8px' }} />
           <TopsToolName
