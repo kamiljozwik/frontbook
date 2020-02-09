@@ -31,7 +31,7 @@ const UIExamples = ({ pageContext }: CssIsAwesomeProps) => {
       <SectionHeader title={title} subtitle={`${total} proofs that CSS is limited only by our imagination`} />
       <ExamplesWrapper>
         {links.map(link => (
-          <ExampleCard url={link} />
+          <ExampleCard key={link} url={link} />
         ))}
       </ExamplesWrapper>
       <NavButtons>
