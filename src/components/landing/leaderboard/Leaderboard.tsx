@@ -11,28 +11,25 @@ import { SectionHeader } from '../SectionHeader';
 interface LeaderboardProps {
   npmTops: SubcategoryNode[];
   githubTops: SubcategoryNode[];
-  full?: boolean;
 }
 
-export const Leaderboard = ({ npmTops, githubTops, full }: LeaderboardProps) => {
+export const Leaderboard = ({ npmTops, githubTops }: LeaderboardProps) => {
   return (
-    <FlexWrapper style={{ borderWidth: full ? '0px' : '3px' }}>
-      {!full && <ResponsiveTrophy />}
-      <LeaderboardWrapper style={{ width: full ? '50%' : '480px' }}>
-        {!full && <SectionHeader title="Tools leaderboard" />}
+    <FlexWrapper style={{ borderWidth: '3px' }}>
+      <ResponsiveTrophy />
+      <LeaderboardWrapper style={{ width: '480px' }}>
+        <SectionHeader title="Tools leaderboard" />
         <TopsToolsList.Wrapper horizontal>
           <TopsToolsList.Segment>{npmTops ? <TopsToolsList tops={npmTops} type="npm" /> : null}</TopsToolsList.Segment>
           <TopsToolsList.Segment>
             {githubTops ? <TopsToolsList tops={githubTops} type="github" /> : null}
           </TopsToolsList.Segment>
         </TopsToolsList.Wrapper>
-        {!full && (
-          <Button as={Link} to="/leaderboard" primary>
-            See all
-          </Button>
-        )}
+        <Button as={Link} to="/leaderboard" primary>
+          See all
+        </Button>
       </LeaderboardWrapper>
-      {!full && <ResponsiveTrophy />}
+      <ResponsiveTrophy />
     </FlexWrapper>
   );
 };

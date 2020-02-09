@@ -29,6 +29,8 @@ export const PageHeader = ({ pageType, category, subcategory, subcategories, tit
       );
     case 'page':
       return <GeneralHeader title={title} />;
+    case '404':
+      return <GeneralHeader title={title} />;
     default:
       return <GeneralHeader />;
   }
