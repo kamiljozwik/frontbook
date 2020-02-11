@@ -9,7 +9,9 @@ export const CategoryNav = () => {
     <FixedNavigation>
       <NavList>
         {activeCategories.map(category => (
-          <NavItem to={`/${category}`}>{category}</NavItem>
+          <NavItem key={category} to={`/${category}`}>
+            {category.toUpperCase()}
+          </NavItem>
         ))}
       </NavList>
     </FixedNavigation>
@@ -19,7 +21,7 @@ export const CategoryNav = () => {
 const FixedNavigation = styled.div`
   position: fixed;
   z-index: 9;
-  padding-right: 50px;
+  padding: 50px 50px 50px 0;
   left: -60px;
   transform: translateX(0px);
   top: 20vh;
@@ -52,6 +54,7 @@ const NavItem = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 12px;
   &:hover {
     color: white;
     filter: drop-shadow(-3px 2px 5px rgba(0, 0, 0, 0.5));

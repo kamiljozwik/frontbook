@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import styled from '@emotion/styled';
+import { navigate } from 'gatsby';
 
 import { Layout, ExampleCard } from '../components';
-import { SectionHeader, SimpleButton } from '../components/shared';
+import { SectionHeader } from '../components/shared';
+import { Pagination } from 'semantic-ui-react';
 
 interface CssIsAwesomeProps {
   pageContext: {
@@ -17,22 +19,23 @@ interface CssIsAwesomeProps {
 
 const UIExamples = ({ pageContext }: CssIsAwesomeProps) => {
   const { links, total, title, pagePath, currentPage, totalPages } = pageContext;
-  const prevPage = currentPage === 1 || currentPage === 2 ? '' : currentPage - 1;
-  const nextPage = currentPage === totalPages ? currentPage : currentPage + 1;
+
+  const onPageChange = useCallback(
+    (e, data) => {
+      navigate(`${pagePath}/${data.activePage === 1 ? '' : data.activePage}`);
+    },
+    [pagePath]
+  );
   return (
     <Layout pageType="page" title={title}>
       <SectionHeader title={title} subtitle={`${total} proofs that CSS is limited only by our imagination`} />
       <ExamplesWrapper>
         {links.map(link => (
-          <ExampleCard url={link} />
+          <ExampleCard key={link} url={link} />
         ))}
       </ExamplesWrapper>
-      <NavButtons>{`Page ${currentPage} of ${totalPages}`}</NavButtons>
       <NavButtons>
-        <NavButton to={`${pagePath}/`}>First</NavButton>
-        <NavButton to={`${pagePath}/${prevPage}`}>Previous</NavButton>
-        <NavButton to={`${pagePath}/${nextPage}`}>Next</NavButton>
-        <NavButton to={`${pagePath}/${totalPages}`}>Last</NavButton>
+        <Pagination totalPages={totalPages} activePage={currentPage} onPageChange={onPageChange} />
       </NavButtons>
     </Layout>
   );
@@ -53,8 +56,4 @@ export const NavButtons = styled.div`
   justify-content: center;
   width: 100%;
   margin-top: 50px;
-`;
-
-export const NavButton = styled(SimpleButton)`
-  margin: 0 5px;
 `;
