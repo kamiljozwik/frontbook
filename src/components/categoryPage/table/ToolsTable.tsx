@@ -1,11 +1,10 @@
 import React from 'react';
-import ReactTable from 'react-table';
 
-import 'react-table/react-table.css';
 import { colors, SubcategoryNode, LinkEntry, mq } from '../../../shared';
 import { columns } from './';
 import styled from '@emotion/styled';
 import { Links } from '../';
+import { SuiTable } from '../../table';
 
 interface ToolsTableProps {
   items: SubcategoryNode[];
@@ -13,9 +12,10 @@ interface ToolsTableProps {
 }
 
 export const ToolsTable = ({ items, links }: ToolsTableProps) => {
+  const data = items.map(el => el.node);
   return (
     <>
-      <StyledTable
+      {/* <StyledTable
         data={items}
         resizable={false}
         showPagination={false}
@@ -32,13 +32,14 @@ export const ToolsTable = ({ items, links }: ToolsTableProps) => {
         getTheadFilterThProps={TableHeadFilterCell}
         getTrProps={TableBodyRow}
         getTdProps={TableBodyCell}
-      />
+      /> */}
+      <SuiTable columns={columns} data={data} />
       {links.length > 0 && <Links links={links} />}
     </>
   );
 };
 
-const StyledTable = styled(ReactTable)`
+const StyledTable = styled(SuiTable)`
   &&& {
     margin-bottom: 100px;
     overflow-x: scroll;

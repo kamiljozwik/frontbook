@@ -70,7 +70,7 @@ export const SuiTable = <D extends object>({ title, columns, data, disableFilter
     <>
       {title && <SuiTableTitle title={title} />}
       {!disableFilters && <SuiTableFilters headerGroup={headerGroups[headerGroups.length - 1]} />}
-      <Table attached="bottom" sortable celled striped {...getTableProps()}>
+      <Table attached="bottom" sortable {...getTableProps()}>
         <SuiTableHeader headerGroups={headerGroups} state={state as TableStateWithHooks<D>} />
         <SuiTableBody getTableBodyProps={getTableBodyProps} page={page} prepareRow={prepareRow} />
         <SuiTableFooter

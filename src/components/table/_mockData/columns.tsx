@@ -129,5 +129,3 @@ export const columns: Array<ColumnWithFilters<Data>> = [
     ],
   },
 ];
-
-export const simpleColumns = [...columns[0].columns, ...columns[1].columns];
