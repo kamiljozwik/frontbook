@@ -8,6 +8,8 @@ import { LicenseDropdown, FrameworkDropdown, FilterInput } from './components/fi
 import { LastActive, WebsiteLink, License, ToolName, Size, FrameworkLabel, Unknown } from './components/cells';
 import { Assign } from 'utility-types';
 import { ListItem } from '../../../shared/types';
+import { FrameworkFilter } from '../../table/filters';
+import { filterForFrameworks, filterGreaterThan } from '../../table/filterFunctions';
 
 export type FilterAndSort<D extends object> = Assign<UseFiltersColumnOptions<D>, UseSortByColumnOptions<D>>;
 export type ExtendedColumn<D extends object> = Assign<UseTableColumnOptions<D>, FilterAndSort<D>>;
@@ -18,6 +20,7 @@ export const columns: Array<ExtendedColumn<ListItem>> = [
     accessor: data => <ToolIcon url={data.website} />,
     disableSortBy: true,
     disableFilters: true,
+    width: 40,
   },
   {
     Header: 'Name',
@@ -25,9 +28,12 @@ export const columns: Array<ExtendedColumn<ListItem>> = [
   },
   {
     id: 'tool-framework',
-    Header: () => <TableHeader />,
-    accessor: d => <FrameworkLabel name={d.name.toLowerCase()} slogan={d.slogan.slogan.toLowerCase()} />,
+    Header: 'Framework',
+    accessor: data => <FrameworkLabel name={data.name.toLowerCase()} slogan={data.slogan.slogan.toLowerCase()} />,
     disableSortBy: true,
+    width: 40,
+    Filter: FrameworkFilter,
+    filter: filterForFrameworks,
   },
   {
     Header: 'Info',
@@ -36,7 +42,11 @@ export const columns: Array<ExtendedColumn<ListItem>> = [
   },
   {
     Header: 'Minified/gzip',
-    accessor: data => <Size bundlephobiaData={data.fields.bundlephobiaData} />,
+    accessor: 'fields.bundlephobiaData.size',
+    Cell: ({ row }) => <Size bundlephobiaData={row.original.fields.bundlephobiaData} />,
+    width: 40,
+    Filter: FilterInput,
+    filter: filterGreaterThan,
   },
   {
     Header: 'Stars',
@@ -46,36 +56,37 @@ export const columns: Array<ExtendedColumn<ListItem>> = [
       ) : (
         <Unknown />
       ),
+    width: 40,
   },
   {
     Header: 'Downloads',
-    accessor: data =>
-      data.fields.githubData ? (
-        numeral(data.fields.githubData.repository.stargazers.totalCount).format('0,0')
-      ) : (
-        <Unknown />
-      ),
+    accessor: data => (data.fields.npmData ? numeral(data.fields.npmData.downloads).format('0,0') : <Unknown />),
+    width: 40,
   },
   {
     Header: 'Issues',
     accessor: data =>
       data.fields.githubData ? numeral(data.fields.githubData.repository.issues.totalCount).format('0,0') : <Unknown />,
+    width: 40,
   },
   {
     Header: 'License',
     accessor: data => <License githubData={data.fields.githubData} />,
+    width: 40,
   },
   {
     Header: 'Last active',
     accessor: LastActive,
     disableSortBy: true,
     disableFilters: true,
+    width: 40,
   },
   {
     Header: 'URL',
     accessor: data => <WebsiteLink url={data.website} />,
     disableSortBy: true,
     disableFilters: true,
+    width: 40,
   },
 ];
 
@@ -123,7 +134,7 @@ interface SizeData {
  */
 // const filterName: DefaultFilterFunction = (filter, row) =>
 //   row['tool-name'].props.name.toLowerCase().includes(filter.value.toLowerCase());
-// const filterFramework: DefaultFilterFunction = (filter, row) => {
+// const filterFramework: any = (filter, row) => {
 //   const { name, slogan } = row['tool-framework'].props;
 //   if (filter.value === 'all') {
 //     return true;

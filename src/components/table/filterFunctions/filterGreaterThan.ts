@@ -7,4 +7,4 @@ export function filterGreaterThan<D extends object>(rows: Array<Row<D>>, id: any
   });
 }
 
-filterGreaterThan.autoRemove = (val: any) => typeof val !== 'number';
+filterGreaterThan.autoRemove = (val: number) => typeof val !== 'number';

@@ -30,7 +30,7 @@ export const SuiTableFooter = <D extends object>({
         <Table.HeaderCell colSpan={headerGroups.slice(-1)[0].headers.length}>
           <FooterRow>
             <Pagination defaultActivePage={1} totalPages={pageCount} onPageChange={onPageChange} />
-            <Dropdown selection compact options={pageSizes} defaultValue={10} onChange={onPageSizeChange} />
+            <Dropdown selection compact options={pageSizes} defaultValue={20} onChange={onPageSizeChange} />
           </FooterRow>
         </Table.HeaderCell>
       </Table.Row>

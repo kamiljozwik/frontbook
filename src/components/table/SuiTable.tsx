@@ -60,6 +60,7 @@ export const SuiTable = <D extends object>({ title, columns, data, disableFilter
       filterTypes,
       defaultColumn,
       disableFilters,
+      initialState: { pageSize: 20 },
     } as TableOptionsWithHooks<D>,
     useFilters,
     useSortBy,

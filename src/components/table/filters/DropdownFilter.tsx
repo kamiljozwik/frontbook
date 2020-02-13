@@ -15,7 +15,7 @@ export const DropdownFilter = <D extends object>({
     preFilteredRows.forEach(row => {
       options.add(row.values[id]);
     });
-    const values = [...options.values()];
+    const values = [...(options.values() as any)];
     const items = values.map(v => ({ key: v, text: v, value: v }));
     return [{ key: 'all', text: 'All', value: 'all' }, ...items];
   }, [id, preFilteredRows]) as DropdownOption[];
