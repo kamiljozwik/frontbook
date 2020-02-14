@@ -16,7 +16,7 @@ export const NumberRangeColumnFilter = <D extends object>({
         type="number"
         onChange={(e: React.ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
           const val = data.value;
-          setFilter((old: any = []) => [val ? parseInt(val, 10) : undefined, old[1]]);
+          setFilter((old: number[] = []) => [val ? parseInt(val, 10) : undefined, old[1]]);
         }}
         placeholder="min"
       />
@@ -27,7 +27,7 @@ export const NumberRangeColumnFilter = <D extends object>({
         type="number"
         onChange={(e: React.ChangeEvent<HTMLInputElement>, data: InputOnChangeData) => {
           const val = data.value;
-          setFilter((old: any = []) => [old[0], val ? parseInt(val, 10) : undefined]);
+          setFilter((old: number[] = []) => [old[0], val ? parseInt(val, 10) : undefined]);
         }}
         placeholder="max"
       />

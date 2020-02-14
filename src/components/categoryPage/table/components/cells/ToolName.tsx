@@ -7,20 +7,22 @@ import { colors } from '../../../../../shared';
 
 interface ToolNameProps {
   name: string;
-  githubURL: string;
-  npmURL: string;
-  websiteURL: string;
+  githubURL?: string;
+  npmURL?: string;
+  websiteURL?: string;
 }
 
-export const ToolName = ({ name, githubURL, npmURL, websiteURL }: ToolNameProps) => (
-  <Item>
-    <Item.Content>
-      <ToolNameText href={githubURL || npmURL || websiteURL} target="_blank" rel="noopener noreferrer">
-        {name}
-      </ToolNameText>
-    </Item.Content>
-  </Item>
-);
+export const ToolName = ({ name, githubURL, npmURL, websiteURL }: ToolNameProps) => {
+  return (
+    <Item>
+      <Item.Content>
+        <ToolNameText href={githubURL || npmURL || websiteURL} target="_blank" rel="noopener noreferrer">
+          {name}
+        </ToolNameText>
+      </Item.Content>
+    </Item>
+  );
+};
 
 const ToolNameText = styled(OutboundLink)`
   font-weight: 600;

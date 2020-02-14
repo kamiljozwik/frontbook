@@ -1,9 +1,8 @@
 import { Row } from 'react-table';
 
-export const startWith = <D extends object>(rows: Array<Row<D>>, id: number, filterValue: any) => {
+export const startWith = <D extends object>(rows: Array<Row<D>>, id: number, filterValue: string | number) => {
   return rows.filter(row => {
     const rowValue = row.values[id];
-    console.log(row);
     return rowValue !== undefined
       ? String(rowValue)
           .toLowerCase()

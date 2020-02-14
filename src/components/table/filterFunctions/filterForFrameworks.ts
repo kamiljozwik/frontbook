@@ -1,6 +1,6 @@
 import { Row } from 'react-table';
 
-export function filterForFrameworks<D extends object>(rows: Array<Row<D>>, id: any, filterValue: string) {
+export function filterForFrameworks<D extends object>(rows: Array<Row<D>>, id: string[], filterValue: string) {
   return rows.filter(row => {
     const name = row.values.name.toLowerCase();
     const slogan = row.values['slogan.slogan'].toLowerCase();

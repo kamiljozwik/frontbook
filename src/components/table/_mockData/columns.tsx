@@ -1,6 +1,6 @@
 import React from 'react';
 import { UseFiltersColumnOptions, UseTableColumnOptions } from 'react-table';
-import { Label, Icon, Flag, Button } from 'semantic-ui-react';
+import { Label, Icon, Button } from 'semantic-ui-react';
 import { Assign } from 'utility-types';
 
 import { DropdownFilter, SliderColumnFilter, filterGreaterThan, NumberRangeColumnFilter, StatusFilter } from '../.';
@@ -15,6 +15,7 @@ type Data = {
   progress: number;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const clickHandler = (data: any) => {
   console.log('Available data:', data);
   alert('Check DevTools console for more info!');
@@ -56,12 +57,6 @@ export const columns: Array<ColumnWithFilters<Data>> = [
       {
         Header: 'Country',
         accessor: 'country',
-        Cell: ({ cell: { value } }) => (
-          <>
-            <Flag name={value.toLowerCase()} />
-            {value}
-          </>
-        ),
         Filter: DropdownFilter,
         filter: 'includes',
       },

@@ -17,6 +17,7 @@ export const SuiTableHeader = <D extends object>({ headerGroups, state }: SuiTab
         <Table.Row {...headerGroup.getHeaderGroupProps()}>
           {headerGroup.headers.map(column => (
             <Table.HeaderCell
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               {...column.getHeaderProps(sortColumn(column as any))}
               style={{ width: column.width, cursor: index === headerGroups.length - 1 ? 'pointer' : 'auto' }}
               sorted={
