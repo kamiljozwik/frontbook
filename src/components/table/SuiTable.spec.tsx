@@ -18,7 +18,9 @@ const activeFilters = (columns: ColumnWithFilters<typeof data>[]) => {
 
 describe('SUI Table', () => {
   it('should render SUI table with title bar and filters', () => {
-    const { getByText, container, getByTestId } = render(<SuiTable title={title} columns={columns} data={data} />);
+    const { getByText, container, getByTestId } = render(
+      <SuiTable title={title} columns={columns} data={data} pagination />
+    );
 
     /**Table Title */
     const tableTitle = getByText(title.content);

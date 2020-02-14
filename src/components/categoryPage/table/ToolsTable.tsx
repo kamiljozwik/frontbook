@@ -11,10 +11,11 @@ interface ToolsTableProps {
 }
 
 export const ToolsTable = ({ items, links }: ToolsTableProps) => {
-  const data = items.map(el => el.node);
+  const data = React.useMemo(() => items.map(el => el.node), [items]);
+  const memoColumns = React.useMemo(() => columns, []);
   return (
     <>
-      <SuiTable columns={columns} data={data} />
+      <SuiTable columns={memoColumns} data={data} />
       {links.length > 0 && <Links links={links} />}
     </>
   );

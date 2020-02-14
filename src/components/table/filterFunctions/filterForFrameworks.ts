@@ -12,5 +12,3 @@ export function filterForFrameworks<D extends object>(rows: Array<Row<D>>, id: s
     return name.includes(filterValue) || slogan.includes(filterValue);
   });
 }
-
-filterForFrameworks.autoRemove = (val: string) => typeof val !== 'string';
