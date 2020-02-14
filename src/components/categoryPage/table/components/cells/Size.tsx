@@ -16,6 +16,7 @@ export const Size = ({ bundlephobiaData }: SizeProps) => {
   const size = bundlephobiaData && numeral(bundlephobiaData.size / 1024).format('0,0');
   const gzip = bundlephobiaData && numeral(bundlephobiaData.gzip / 1024).format('0,0');
   const dependencyCount = bundlephobiaData ? bundlephobiaData.dependencyCount : 0;
+
   return bundlephobiaData ? (
     size !== '0' ? (
       <SizeWrapper title={`${dependencyCount} dependencies`}>

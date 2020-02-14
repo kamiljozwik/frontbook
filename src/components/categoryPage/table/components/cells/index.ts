@@ -5,3 +5,4 @@ export * from './License';
 export * from './Size';
 export * from './FrameworkLabel';
 export * from './Unknown';
+export * from './NumeralCell';
