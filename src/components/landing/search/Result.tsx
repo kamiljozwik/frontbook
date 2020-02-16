@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import numeral from 'numeral';
 import { Link } from 'gatsby';
 import { Card, Label, Icon, SearchResultProps } from 'semantic-ui-react';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { colors } from '../../../shared';
 import { ToolIcon } from '../..';
@@ -19,6 +20,7 @@ export interface ResultsProps extends SearchResultProps {
 interface ExtraDataProps {
   githubStars?: number;
   npmDownloads?: number;
+  url?: string;
 }
 
 const parseSubcategory = (subcat: string) => {
@@ -30,7 +32,7 @@ const parseSubcategory = (subcat: string) => {
 
 const NoData = () => <span style={{ color: 'grey' }}>no data</span>;
 
-const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
+const ExtraData = ({ githubStars, npmDownloads, url }: ExtraDataProps) => {
   return (
     <Label.Group size="tiny">
       <Label basic>
@@ -40,6 +42,10 @@ const ExtraData = ({ githubStars, npmDownloads }: ExtraDataProps) => {
       <Label basic>
         <Icon name="download" color={npmDownloads ? undefined : 'grey'} />
         {npmDownloads ? ` ${numeral(npmDownloads).format('0,0')}` : <NoData />}
+      </Label>
+      <Label basic as={OutboundLink} href={url} target="_blank" rel="noopener noreferrer">
+        <Icon name="external" color={url ? undefined : 'grey'} />
+        {url ? ` visit` : <NoData />}
       </Label>
     </Label.Group>
   );
@@ -56,7 +62,7 @@ export const Result = (props: any) => (
         </CardHeader>
         {!props.oversize && (
           <Card.Meta>
-            <ExtraData githubStars={props.stars} npmDownloads={props.downloads} />
+            <ExtraData githubStars={props.stars} npmDownloads={props.downloads} url={props.url} />
           </Card.Meta>
         )}
       </Card.Header>
