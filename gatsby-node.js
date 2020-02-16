@@ -1,18 +1,10 @@
-const path = require('path');
-const { GraphQLClient } = require(`graphql-request`);
-const parseGHUrl = require(`parse-github-url`);
-const axios = require('axios');
-
-/**
- * Used to gather repo details data
- */
-const githubApiClient = process.env.GITHUB_TOKEN
-  ? new GraphQLClient(`https://api.github.com/graphql`, {
-      headers: {
-        authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      },
-    })
-  : console.log('GITHUB TOKEN NOT FOUND!');
+const addGithubData = require('./_build-scripts/addGithubData');
+const addNpmData = require('./_build-scripts/addNpmData');
+const addBundlephobiaData = require('./_build-scripts/addBundlephobiaData');
+const createSubcategoryPage = require('./_build-scripts/createSubcategoryPage');
+const createCategoryPage = require('./_build-scripts/createCategoryPage');
+const createUIExamplesPage = require('./_build-scripts/createUIExamplesPage');
+const addBuildTime = require('./_build-scripts/addBuildTime');
 
 exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -22,105 +14,9 @@ exports.onCreateNode = async ({ node, actions }) => {
    */
   switch (node.internal.type) {
     case 'ContentfulToolEntry': {
-      /**
-       * Add field with Github Data to tool's Node
-       */
-      async function getGithubData(owner, name, contentfulName) {
-        try {
-          const response = await githubApiClient.request(`
-            query {
-              repository(owner:"${owner}", name:"${name}") {
-                name
-                description
-                diskUsage
-                issues {
-                  totalCount
-                }
-                stargazers {
-                  totalCount
-                }
-                licenseInfo {
-                  spdxId
-                  url
-                }
-                pushedAt
-              }
-            }
-          `);
-          return response;
-        } catch (error) {
-          console.log('Cannot get data for Github repo: ', `${contentfulName} - ${owner}/${name}`);
-          return null;
-        }
-      }
-
-      const repoMeta = node.github ? parseGHUrl(node.github) : null;
-      const repoData = await (repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);
-
-      const repoDataWithStars = repoData
-        ? {
-            ...repoData,
-            stars: repoData.repository.stargazers.totalCount,
-          }
-        : null;
-
-      createNodeField({
-        node,
-        name: 'githubData',
-        value: repoDataWithStars,
-      });
-
-      /**
-       * Add field with NPM Data to tool's Node
-       */
-      const parseNpmUrl = url => (url.includes('@') ? `@${url.split('@').slice(-1)[0]}` : url.split('/').slice(-1)[0]);
-
-      async function getNPMdata(package) {
-        try {
-          const response = await axios.get(`https://api.npmjs.org/downloads/point/last-week/${package}`);
-          return response.data;
-        } catch (error) {
-          console.log('Cannot get data for npm package: ', package);
-          return null;
-        }
-      }
-
-      const npmPackageName = node.npm ? parseNpmUrl(node.npm) : null;
-      const npmData = await (npmPackageName ? getNPMdata(npmPackageName) : null);
-
-      createNodeField({
-        node,
-        name: 'npmData',
-        value: npmData,
-      });
-
-      /**
-       * Add field with Bundlephobia Data to tool's Node
-       */
-
-      async function getBundlephobiaData(packageName) {
-        try {
-          const response = await axios.get(`https://bundlephobia.com/api/size?package=${packageName}`);
-          return response && response.data;
-        } catch (error) {
-          console.log('Cannot get data from budlephobia for: ', packageName);
-          return null;
-        }
-      }
-
-      const bundlephobiaData = await (npmPackageName ? getBundlephobiaData(npmPackageName) : null);
-
-      const selectedBundlephobiaData = bundlephobiaData && {
-        size: bundlephobiaData.size,
-        gzip: bundlephobiaData.gzip,
-        dependencyCount: bundlephobiaData.dependencyCount,
-      };
-
-      createNodeField({
-        node,
-        name: 'bundlephobiaData',
-        value: selectedBundlephobiaData,
-      });
+      await addGithubData(node, createNodeField);
+      await addNpmData(node, createNodeField);
+      await addBundlephobiaData(node, createNodeField);
       break;
     }
     default: {
@@ -133,13 +29,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
 
   return new Promise((resolve, reject) => {
-    const subcategoryTemplate = path.resolve(`src/templates/subcategory.tsx`);
-    const categoryTemplate = path.resolve(`src/templates/category.tsx`);
-    const UIExampleTemplate = path.resolve(`src/templates/UIExamples.tsx`);
     resolve(
-      /**
-       * Get all possible categories and subcategories
-       */
+      /* Query for data */
       graphql(`
         {
           categories: allContentfulToolEntry {
@@ -160,61 +51,14 @@ exports.createPages = async ({ graphql, actions }) => {
       `).then(resp => {
         resp.errors && reject(resp.errors);
 
-        /**
-         * Create page for each subcategory
-         */
-        resp.data.subcategories.distinct.forEach(subcategory => {
-          const path = subcategory.replace('_', '/');
-          !path.includes('empty') &&
-            createPage({
-              path: path,
-              component: subcategoryTemplate,
-              context: {
-                subcategory,
-              },
-            });
-        });
+        /* Create page for each subcategory */
+        createSubcategoryPage(resp, createPage);
 
-        /**
-         * Create page for each category
-         */
-        const noSubcategories = ['frontops', 'seo', 'monitor', 'utils'];
-        resp.data.categories.distinct.forEach(category => {
-          const path = category;
-          createPage({
-            path: path,
-            component: categoryTemplate,
-            context: {
-              category: noSubcategories.includes(category) ? `${category}_empty` : category,
-            },
-          });
-        });
+        /* Create page for each category */
+        createCategoryPage(resp, createPage);
 
-        /**
-         * Create pages for CSS UI examples
-         */
-        function generateUIExamplesPages(path, links, title) {
-          const uiExamplesPerPage = 10;
-          const totalPages = Math.ceil(links.length / uiExamplesPerPage);
-          for (let i = 1; i < totalPages + 1; i++) {
-            createPage({
-              path: `${path}/${i === 1 ? '' : i}`,
-              component: UIExampleTemplate,
-              context: {
-                links: links.slice(i * uiExamplesPerPage - uiExamplesPerPage, i * uiExamplesPerPage),
-                total: links.length,
-                title,
-                pagePath: path,
-                currentPage: i,
-                totalPages,
-              },
-            });
-          }
-        }
-
-        const { useful, other } = resp.data.uiExamples;
-        generateUIExamplesPages('ui-examples', useful.links, 'UI Examples');
-        generateUIExamplesPages('css-is-awesome', other.links, 'CSS is awesome');
+        /* Create pages for CSS UI examples */
+        createUIExamplesPage(resp, createPage);
       })
     );
   });
@@ -235,26 +79,5 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 
 exports.sourceNodes = ({ actions, createNodeId, createContentDigest }) => {
   const { createNode } = actions;
-  const buildTime = new Date();
-
-  const BuildData = {
-    buildTime,
-  };
-
-  const nodeContent = JSON.stringify(BuildData);
-
-  const nodeMeta = {
-    id: createNodeId(`buildTime`),
-    parent: null,
-    children: [],
-    internal: {
-      type: `BuildTime`,
-      mediaType: `text/html`,
-      content: nodeContent,
-      contentDigest: createContentDigest(BuildData),
-    },
-  };
-
-  const node = Object.assign({}, BuildData, nodeMeta);
-  createNode(node);
+  addBuildTime(createNodeId, createNode, createContentDigest);
 };
