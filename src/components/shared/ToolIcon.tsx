@@ -13,5 +13,5 @@ export const ToolIcon = ({ url, style }: ToolIconProps) =>
   url ? (
     <Image alt="tool icon" src={`https://www.google.com/s2/favicons?domain=${url}`} style={style} />
   ) : (
-    <Icon name="ban" color="grey" style={{ ...style, iconStyle }} />
+    <Icon name="globe" color="grey" style={{ ...style, iconStyle }} />
   );
