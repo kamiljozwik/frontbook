@@ -60,6 +60,9 @@ export interface ListItem {
           url?: string;
         };
         pushedAt: Date;
+        releases: {
+          nodes: Release[];
+        };
       };
     };
     npmData?: {
@@ -82,4 +85,13 @@ export interface LinkEntry {
     title: string;
     url: string;
   };
+}
+
+export interface Release {
+  name: string;
+  isPrerelease: boolean;
+  isDraft: boolean;
+  publishedAt: string;
+  tagName: string;
+  url: string;
 }
