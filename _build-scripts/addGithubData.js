@@ -86,7 +86,6 @@ const addGithubData = async (node, createNodeField, releases) => {
     name: 'githubData',
     value: repoDataWithStars,
   });
-
   repoData && updateReleasesData(repoData, releases, node.website);
 };
 

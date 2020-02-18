@@ -46,7 +46,7 @@ const FlexWrapper = styled.div`
 `;
 
 const LeaderboardWrapper = styled.div`
-  min-width: 480px;
+  min-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
