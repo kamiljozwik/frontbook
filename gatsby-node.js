@@ -4,10 +4,7 @@ const addBundlephobiaData = require('./_build-scripts/addBundlephobiaData');
 const createSubcategoryPage = require('./_build-scripts/createSubcategoryPage');
 const createCategoryPage = require('./_build-scripts/createCategoryPage');
 const createUIExamplesPage = require('./_build-scripts/createUIExamplesPage');
-const createReleasesPage = require('./_build-scripts/createReleasesPage');
 const addBuildTime = require('./_build-scripts/addBuildTime');
-
-const releases = [];
 
 exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -17,7 +14,7 @@ exports.onCreateNode = async ({ node, actions }) => {
    */
   switch (node.internal.type) {
     case 'ContentfulToolEntry': {
-      await addGithubData(node, createNodeField, releases);
+      await addGithubData(node, createNodeField);
       await addNpmData(node, createNodeField);
       await addBundlephobiaData(node, createNodeField);
       break;
@@ -61,9 +58,6 @@ exports.createPages = async ({ graphql, actions }) => {
 
         /* Create pages for CSS UI examples */
         createUIExamplesPage(resp, createPage);
-
-        /* Create releases page */
-        createReleasesPage(releases, createPage);
       })
     );
   });

@@ -1,12 +1,14 @@
 import React from 'react';
 import moment from 'moment';
 import numeral from 'numeral';
+import { sortBy } from 'lodash';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import styled from '@emotion/styled';
 import { Feed, Label, Icon, Popup, Divider } from 'semantic-ui-react';
 
 import { Layout, ToolIcon, SectionHeader } from '../components';
-import { Release, colors, getReleaseType } from '../shared';
+import { Release, colors, getReleaseType, SubcategoryNode, getLastReleases } from '../shared';
+import { graphql } from 'gatsby';
 
 interface ContextRelease {
   name: string;
@@ -14,11 +16,13 @@ interface ContextRelease {
   stars: number;
   releases: Release[];
 }
-
-interface ReleasesProps {
-  pageContext: {
-    releases: ContextRelease[];
+interface ReleasesQuery {
+  allContentfulToolEntry: {
+    edges: SubcategoryNode[];
   };
+}
+interface ReleasesProps {
+  data: ReleasesQuery;
 }
 
 interface ReleaseItemProps {
@@ -108,20 +112,34 @@ const ReleaseItem = ({ tool, url, stars = 0, releases }: ReleaseItemProps) => {
   );
 };
 
-const Releases = ({ pageContext }: ReleasesProps) => {
+const Releases = ({ data }: ReleasesProps) => {
+  const releasesData = data.allContentfulToolEntry.edges
+    .filter(e => e.node.fields.githubData)
+    .map(e => e.node)
+    .filter(getLastReleases)
+    .map(el => ({
+      name: el.fields.githubData?.repository.name,
+      website: el.website,
+      stars: el.fields.githubData?.stars,
+      releases: el.fields.githubData?.repository.releases.nodes,
+    }));
+
+  const sortedReleases = sortBy(releasesData, [o => o.releases && o.releases[1].publishedAt]).reverse();
+
   return (
     <Layout pageType="page" title="Last releases">
       <SectionHeader title="Releases from last 30 days" subtitle="Keep up to date with your favourite tools" />
       <Divider />
       <ReleasesList>
-        {pageContext.releases.map(release => {
+        {sortedReleases.map(release => {
           return (
             <ReleaseItem
               key={release.name}
               tool={release.name}
               url={release.website}
               stars={release.stars}
-              releases={release.releases}
+              // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+              releases={release.releases!}
             />
           );
         })}
@@ -162,5 +180,35 @@ const TagName = styled(OutboundLink)`
   &&& {
     color: ${colors.black};
     opacity: 0.8;
+  }
+`;
+
+export const query = graphql`
+  query ReleasesQuery {
+    allContentfulToolEntry {
+      edges {
+        node {
+          website
+          fields {
+            githubData {
+              stars
+              repository {
+                name
+                releases {
+                  nodes {
+                    name
+                    isPrerelease
+                    isDraft
+                    publishedAt
+                    tagName
+                    url
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;

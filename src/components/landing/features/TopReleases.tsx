@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import { SubcategoryNode, GithubData, getReleaseType, getLastReleases } from '../../../shared';
+import { SubcategoryNode, ListItem, getReleaseType, getLastReleases } from '../../../shared';
 import { FeatureSection } from './FeatureSection';
 import { Placeholder } from '../../SVG';
 
@@ -10,14 +10,17 @@ interface TopReleasesQuery {
   };
 }
 
-const filterPopular = (GHData?: GithubData) => {
-  const [releaseType, isMajorCorrect] = GHData?.repository.releases
-    ? getReleaseType(GHData.repository.releases.nodes)
+const filterPopular = (itemData?: ListItem) => {
+  const [releaseType, isMajorCorrect] = itemData?.fields.githubData?.repository.releases
+    ? getReleaseType(itemData?.fields.githubData?.repository.releases.nodes)
     : [];
   const POPULAR_LEVEL = 30000;
 
   const isImportant = releaseType === 'major' || releaseType === 'minor';
-  const isPopular = GHData && GHData.stars ? GHData.stars > POPULAR_LEVEL : false;
+  const isPopular =
+    itemData?.fields.githubData && itemData?.fields.githubData.stars
+      ? itemData?.fields.githubData.stars > POPULAR_LEVEL
+      : false;
   return isImportant && isPopular && isMajorCorrect;
 };
 
@@ -55,7 +58,7 @@ export const TopReleases = () => {
 
   const releases = edges
     .filter(e => e.node.fields.githubData)
-    .map(e => e.node.fields.githubData)
+    .map(e => e.node)
     .filter(getLastReleases)
     .filter(filterPopular);
 
@@ -67,7 +70,7 @@ export const TopReleases = () => {
       <FeatureSection.Info title="Last releases">
         <div>
           {releases.map(rel => (
-            <div>{rel?.repository.name}</div>
+            <div>{rel?.fields.githubData?.repository.name}</div>
           ))}
         </div>
       </FeatureSection.Info>

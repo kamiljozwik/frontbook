@@ -1,4 +1,4 @@
-import { Release, GithubData } from './types';
+import { Release, ListItem } from './types';
 import moment from 'moment';
 import ms from 'ms';
 
@@ -27,10 +27,12 @@ export const getReleaseType = (releases: Release[]) => {
 };
 
 /** Update array with releases from last 30 days */
-export const getLastReleases = (GHData?: GithubData) => {
+export const getLastReleases = (ItemData?: ListItem) => {
   const now = moment();
   const publishedAt =
-    GHData && GHData.repository.releases.nodes[1] ? GHData.repository.releases.nodes[1].publishedAt : '2000-01-01';
+    ItemData?.fields.githubData && ItemData?.fields.githubData.repository.releases.nodes[1]
+      ? ItemData?.fields.githubData.repository.releases.nodes[1].publishedAt
+      : '2000-01-01';
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const duration = moment.duration(now.diff(publishedAt)) as any;
   return duration['_milliseconds'] < ms('30d');

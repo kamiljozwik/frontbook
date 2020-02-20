@@ -34,7 +34,6 @@ const filterFn = el => {
 };
 
 const addTopReleases = (createNodeId, createNode, createContentDigest, releases) => {
-  console.log('inside releases: ', releases);
   const filtered = releases.filter(filterFn);
 
   const sortedReleases = _.sortBy(filtered, [

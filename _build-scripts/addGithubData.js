@@ -1,7 +1,5 @@
 const parseGHUrl = require(`parse-github-url`);
 const { GraphQLClient } = require(`graphql-request`);
-const moment = require('moment');
-const ms = require('ms');
 
 /** Used to gather repo details data */
 const githubApiClient = process.env.GITHUB_TOKEN
@@ -52,25 +50,8 @@ async function getGithubData(owner, name, contentfulName) {
   }
 }
 
-/** Update array with releases from last 30 days */
-const updateReleasesData = (repoData, releases, website) => {
-  const now = moment();
-  const publishedAt = repoData.repository.releases.nodes[1]
-    ? repoData.repository.releases.nodes[1].publishedAt
-    : '2000-01-01';
-  const duration = moment.duration(now.diff(publishedAt));
-
-  duration['_milliseconds'] < ms('30d') &&
-    releases.push({
-      name: repoData.repository.name,
-      website,
-      stars: repoData.repository.stargazers.totalCount,
-      releases: repoData.repository.releases.nodes,
-    });
-};
-
 /** Main function */
-const addGithubData = async (node, createNodeField, releases) => {
+const addGithubData = async (node, createNodeField) => {
   const repoMeta = node.github ? parseGHUrl(node.github) : null;
   const repoData = await (repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);
 
@@ -86,7 +67,6 @@ const addGithubData = async (node, createNodeField, releases) => {
     name: 'githubData',
     value: repoDataWithStars,
   });
-  repoData && updateReleasesData(repoData, releases, node.website);
 };
 
 module.exports = addGithubData;
