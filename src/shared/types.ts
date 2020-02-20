@@ -33,6 +33,29 @@ export type Subcategory =
   | 'ux_inspirations'
   | 'ux_logos';
 
+export interface GithubData {
+  stars?: number;
+  repository: {
+    name: string;
+    description?: string;
+    diskUsage: number;
+    issues: {
+      totalCount: number;
+    };
+    stargazers: {
+      totalCount: number;
+    };
+    licenseInfo: {
+      spdxId?: string;
+      url?: string;
+    };
+    pushedAt: Date;
+    releases: {
+      nodes: Release[];
+    };
+  };
+}
+
 export interface ListItem {
   name: string;
   subcategory: string;
@@ -43,28 +66,7 @@ export interface ListItem {
   npm?: string;
   website?: string;
   fields: {
-    githubData?: {
-      stars?: number;
-      repository: {
-        name: string;
-        description?: string;
-        diskUsage: number;
-        issues: {
-          totalCount: number;
-        };
-        stargazers: {
-          totalCount: number;
-        };
-        licenseInfo: {
-          spdxId?: string;
-          url?: string;
-        };
-        pushedAt: Date;
-        releases: {
-          nodes: Release[];
-        };
-      };
-    };
+    githubData?: GithubData;
     npmData?: {
       downloads: number;
     };

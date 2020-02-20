@@ -3,10 +3,10 @@ import moment from 'moment';
 import numeral from 'numeral';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 import styled from '@emotion/styled';
+import { Feed, Label, Icon, Popup, Divider } from 'semantic-ui-react';
 
 import { Layout, ToolIcon, SectionHeader } from '../components';
-import { Release, colors } from '../shared';
-import { Feed, Label, Icon, Popup, Divider } from 'semantic-ui-react';
+import { Release, colors, getReleaseType } from '../shared';
 
 interface ContextRelease {
   name: string;
@@ -31,6 +31,7 @@ interface ReleaseItemProps {
 const ReleaseTags = ({ releases }: ReleaseItemProps) => {
   const oldTag = releases[0].tagName;
   const newTag = releases[1].tagName;
+  const isMajorCorrect = getReleaseType(releases)[1];
   return (
     <Feed.Extra>
       <Label basic>
@@ -38,7 +39,7 @@ const ReleaseTags = ({ releases }: ReleaseItemProps) => {
           {oldTag}
         </TagName>
       </Label>
-      <Icon name="arrow right" />
+      {isMajorCorrect ? <Icon name="arrow right" /> : <Icon name="question circle" />}
       <Label basic>
         <TagName href={releases[1].url} target="_blank" rel="noopener noreferrer">
           {newTag}
@@ -49,24 +50,7 @@ const ReleaseTags = ({ releases }: ReleaseItemProps) => {
 };
 
 const ReleaseLabels = ({ releases }: ReleaseItemProps) => {
-  const tagRegEx = /(\d+\.)(\d+\.)(\d+)/gm;
-  const oldTag = releases[0].tagName;
-  const newTag = releases[1].tagName;
-  const [mainOldTag] = oldTag.split('-');
-  const [mainNewTag] = newTag.split('-');
-
-  const oldTagClear = mainOldTag.match(tagRegEx);
-  const newTagClear = mainNewTag.match(tagRegEx);
-
-  console.log(oldTagClear);
-  console.log(newTagClear);
-
-  const [oldMajor, oldMinor, oldPatch] = oldTagClear ? oldTagClear[0].split('.') : [];
-  const [newMajor, newMinor, newPatch] = newTagClear ? newTagClear[0].split('.') : [];
-
-  const releaseType =
-    oldMajor !== newMajor ? 'major' : oldMinor !== newMinor ? 'minor' : oldPatch !== newPatch ? 'patch' : 'other';
-  console.log(releaseType);
+  const [releaseType] = getReleaseType(releases);
 
   return (
     <Feed.Extra>
@@ -89,7 +73,6 @@ const ReleaseLabels = ({ releases }: ReleaseItemProps) => {
 };
 
 const ReleaseItem = ({ tool, url, stars = 0, releases }: ReleaseItemProps) => {
-  console.log(tool);
   return (
     <ReleaseItemWrapper>
       <Feed.Label>

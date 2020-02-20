@@ -63,7 +63,6 @@ exports.createPages = async ({ graphql, actions }) => {
         createUIExamplesPage(resp, createPage);
 
         /* Create releases page */
-        /* Create releases page */
         createReleasesPage(releases, createPage);
       })
     );

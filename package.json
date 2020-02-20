@@ -8,6 +8,7 @@
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
     "@types/faker": "^4.1.9",
+    "@types/ms": "^0.7.31",
     "axios": "^0.19.2",
     "facepaint": "^1.2.1",
     "faker": "^4.1.0",
