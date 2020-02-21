@@ -40,7 +40,11 @@ const LeaderboardPage = ({ data }: LeaderboardData) => {
   return (
     <Layout pageType="page" title="Front-end tools leaderboard" color="#039aff">
       <SEO title="leaderboard" />
-      <SectionHeader title="Most starred and downladed resources" subtitle="Always use trusted and appreciated tools" />
+      <SectionHeader
+        title="Most starred and downladed resources"
+        subtitle="Always use trusted and appreciated tools"
+        showDivider={false}
+      />
       <Divider />
       {statData ? (
         <ListWrapper>

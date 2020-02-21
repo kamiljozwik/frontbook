@@ -1,53 +1,69 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { colors } from '../../../shared';
+import { SectionHeader } from '..';
 
 interface FeatureInfoProps {
-  title: string;
+  title?: string;
   desc?: string;
+  textOnly?: boolean;
   children?: React.ReactNode;
 }
 
-const FeatureImage = ({ children }: { children: React.ReactNode }) => {
-  return <FeatureImageWrapper>{children}</FeatureImageWrapper>;
-};
-
-const FeatureInfo = ({ title, desc, children }: FeatureInfoProps) => {
+const FeatureInfo = ({ title, desc, textOnly = false, children }: FeatureInfoProps) => {
   return (
-    <FeatureInfoWrapper>
-      <FeatureTitle>{title}</FeatureTitle>
+    <FeatureInfoWrapper textOnly={textOnly}>
+      {title && <FeatureTitle>{title}</FeatureTitle>}
       {desc && <FeatureDesc>{desc}</FeatureDesc>}
-      {children && <FeatureDescContent>{children}</FeatureDescContent>}
+      {children && <FeatureInfoContent>{children}</FeatureInfoContent>}
     </FeatureInfoWrapper>
   );
 };
 
-export const FeatureSection = ({ children }: { children: React.ReactNode }) => {
-  return <FeatureSectionWrapper>{children}</FeatureSectionWrapper>;
+interface FeatureSectionProps {
+  children: React.ReactNode;
+  title: string;
+  subtitle: string;
+}
+
+export const FeatureSection = ({ title, subtitle, children }: FeatureSectionProps) => {
+  return (
+    <>
+      <SectionHeader title={title} subtitle={subtitle} />
+      <FeatureSectionWrapper>{children}</FeatureSectionWrapper>
+    </>
+  );
 };
 
-FeatureSection.Image = FeatureImage;
 FeatureSection.Info = FeatureInfo;
 
-const FeatureSectionWrapper = styled.div`
-  position: relative;
+const FeatureSectionWrapper = styled.section`
+  margin: 50px 0 80px 0;
+  display: flex;
+  justify-content: space-between;
 `;
 
-const FeatureImageWrapper = styled.div`
+const FeatureInfoWrapper = styled.div<{ textOnly: boolean }>`
   position: relative;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: ${props => (props.textOnly ? '0 10%' : '0')};
 `;
 
-const FeatureInfoWrapper = styled.div`
-  position: relative;
-`;
-
-const FeatureTitle = styled.div`
-  position: relative;
+const FeatureTitle = styled.h4`
+  font-size: 26px;
+  font-weight: 600;
 `;
 
 const FeatureDesc = styled.div`
-  position: relative;
+  font-size: 18px;
+  line-height: 22px;
+  color: ${colors.darkGrey};
+  margin-bottom: 20px;
 `;
 
-const FeatureDescContent = styled.div`
+const FeatureInfoContent = styled.div`
   position: relative;
 `;

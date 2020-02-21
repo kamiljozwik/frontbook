@@ -21,13 +21,13 @@ const IndexPage = ({ data }: IndexPageProps) => {
       <Searcher />
       <Leaderboard githubTops={data.stars_query.edges} npmTops={data.downloads_query.edges} />
       <CategoriesGrid data={data} />
+      <TopReleases />
       <FeatureCards title={landingData.uiExamples.title} subtitle={landingData.uiExamples.subtitle}>
         <>
           <FeatureCards.Card feature="uiExamples" />
           <FeatureCards.Card feature="amazingCss" />
         </>
       </FeatureCards>
-      <TopReleases />
       <ComingSoon />
     </Layout>
   );

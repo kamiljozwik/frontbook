@@ -10,12 +10,6 @@ import { Layout, ToolIcon, SectionHeader } from '../components';
 import { Release, colors, getReleaseType, SubcategoryNode, getLastReleases } from '../shared';
 import { graphql } from 'gatsby';
 
-interface ContextRelease {
-  name: string;
-  website: string;
-  stars: number;
-  releases: Release[];
-}
 interface ReleasesQuery {
   allContentfulToolEntry: {
     edges: SubcategoryNode[];
@@ -25,14 +19,14 @@ interface ReleasesProps {
   data: ReleasesQuery;
 }
 
-interface ReleaseItemProps {
+export interface ReleaseItemProps {
   tool?: string;
   url?: string;
   stars?: number;
   releases: Release[];
 }
 
-const ReleaseTags = ({ releases }: ReleaseItemProps) => {
+export const ReleaseTags = ({ releases }: ReleaseItemProps) => {
   const oldTag = releases[0].tagName;
   const newTag = releases[1].tagName;
   const isMajorCorrect = getReleaseType(releases)[1];
@@ -53,7 +47,7 @@ const ReleaseTags = ({ releases }: ReleaseItemProps) => {
   );
 };
 
-const ReleaseLabels = ({ releases }: ReleaseItemProps) => {
+export const ReleaseLabels = ({ releases }: ReleaseItemProps) => {
   const [releaseType] = getReleaseType(releases);
 
   return (
@@ -76,7 +70,7 @@ const ReleaseLabels = ({ releases }: ReleaseItemProps) => {
   );
 };
 
-const ReleaseItem = ({ tool, url, stars = 0, releases }: ReleaseItemProps) => {
+export const ReleaseItem = ({ tool, url, stars = 0, releases }: ReleaseItemProps) => {
   return (
     <ReleaseItemWrapper>
       <Feed.Label>
@@ -128,7 +122,11 @@ const Releases = ({ data }: ReleasesProps) => {
 
   return (
     <Layout pageType="page" title="Last releases">
-      <SectionHeader title="Releases from last 30 days" subtitle="Keep up to date with your favourite tools" />
+      <SectionHeader
+        title="Releases from last 30 days"
+        subtitle="Keep up to date with your favourite tools"
+        showDivider={false}
+      />
       <Divider />
       <ReleasesList>
         {sortedReleases.map(release => {
@@ -167,10 +165,11 @@ const ReleaseItemWrapper = styled(Feed.Event)`
     width: 25%;
     box-shadow: 0 2px 7px -2px rgba(0, 0, 0, 0.3);
     padding: 20px 0;
+    border-radius: 16px;
   }
 `;
 
-const ToolName = styled.span`
+export const ToolName = styled.span`
   display: inline-block;
   font-size: 22px;
   margin: 10px 0 10px 5px;
