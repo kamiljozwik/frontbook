@@ -9,7 +9,7 @@ export const LandingHeader = () => {
     <>
       <LandingHeaderWrapper>
         <LandingWave />
-        <HeaderTitle>{landingData.header.title}</HeaderTitle>
+        <LandingHeaderTitle>{landingData.header.title}</LandingHeaderTitle>
         <HeaderSubtitle>{landingData.header.subtitle}</HeaderSubtitle>
         <PositionHelper />
       </LandingHeaderWrapper>
@@ -26,7 +26,7 @@ const LandingHeaderWrapper = styled.div`
   justify-content: center;
 `;
 
-const HeaderTitle = styled.div`
+const LandingHeaderTitle = styled.div`
   font-weight: 700;
   color: white;
   line-height: 100%;

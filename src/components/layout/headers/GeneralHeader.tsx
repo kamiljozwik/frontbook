@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { CategoryWave } from '../../SVG';
-import { colors } from '../../../shared';
+import { colors, mq } from '../../../shared';
 import { Icon } from 'semantic-ui-react';
 import { CategoryLink } from './';
 
@@ -49,5 +49,7 @@ const HeaderTitle = styled.div`
   font-weight: 700;
   color: white;
   line-height: 100%;
-  font-size: 42px;
+  ${mq({
+    fontSize: ['5vw', '5vw', '5vw', '4vw', '2.3vw'],
+  })}
 `;
