@@ -28,6 +28,8 @@ export const Searcher = () => {
               slogan
             }
             subcategory
+            github
+            npm
             website
             fields {
               githubData {
@@ -50,10 +52,12 @@ export const Searcher = () => {
     const re = new RegExp(_.escapeRegExp(value), 'i');
     const isMatch = (result: SubcategoryNode) => re.test(result.node.name) || re.test(result.node.slogan.slogan);
     const tempResults = _.filter(allTools, isMatch).map(res => {
+      console.log(res);
       return {
         title: res.node.name,
         description: res.node.slogan.slogan,
         website: res.node.website,
+        url: res.node.github || res.node.npm || res.node.website,
         subcategory: res.node.subcategory,
         stars: res.node.fields.githubData ? res.node.fields.githubData.stars : undefined,
         downloads: res.node.fields.npmData ? res.node.fields.npmData.downloads : undefined,
