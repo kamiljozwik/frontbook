@@ -2,12 +2,19 @@
 
 exports[`CategoriesGrid component  renders categories card on landing page 1`] = `
 .emotion-0 {
+  margin: 10px 0;
+  height: 0;
+  border-image: linear-gradient(to right,rgba(0,0,0,0),rgba(23,124,190,0.5),rgba(0,0,0,0)) 100% 0% 0% 0%;
+  border-style: solid;
+}
+
+.emotion-1 {
   font-weight: 800;
   text-align: center;
   color: #1e1e1e;
   width: 100%;
   line-height: 100%;
-  margin-top: 10px;
+  margin-top: 40px;
   -webkit-letter-spacing: 1px;
   -moz-letter-spacing: 1px;
   -ms-letter-spacing: 1px;
@@ -15,7 +22,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   font-size: 28px;
 }
 
-.emotion-1 {
+.emotion-2 {
   font-weight: 800;
   text-align: center;
   color: #757575;
@@ -27,7 +34,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   letter-spacing: 1px;
 }
 
-.emotion-66 {
+.emotion-67 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -42,7 +49,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   margin-bottom: 200px;
 }
 
-.emotion-9.emotion-9.emotion-9 {
+.emotion-10.emotion-10.emotion-10 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -50,130 +57,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-9.emotion-9.emotion-9 {
+  .emotion-10.emotion-10.emotion-10 {
     padding-right: 5px;
   }
 }
 
-.emotion-9.emotion-9.emotion-9:hover {
+.emotion-10.emotion-10.emotion-10:hover {
   z-index: 1;
 }
 
-.emotion-9.emotion-9.emotion-9:hover > div:first-of-type {
+.emotion-10.emotion-10.emotion-10:hover > div:first-of-type {
   background: #D1BF20;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -182,7 +189,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-9.emotion-9.emotion-9:hover > div:first-of-type svg {
+.emotion-10.emotion-10.emotion-10:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -190,17 +197,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-9.emotion-9.emotion-9:hover > div:first-of-type > div {
+.emotion-10.emotion-10.emotion-10:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-9.emotion-9.emotion-9:hover div:nth-of-type(2) {
+.emotion-10.emotion-10.emotion-10:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-5 {
+.emotion-6 {
   height: 200px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -224,7 +231,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-5 {
+  .emotion-6 {
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px);
@@ -232,7 +239,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (min-width:400px) {
-  .emotion-5 {
+  .emotion-6 {
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px);
@@ -240,7 +247,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (min-width:600px) {
-  .emotion-5 {
+  .emotion-6 {
     -webkit-transform: translateY(100px);
     -ms-transform: translateY(100px);
     transform: translateY(100px);
@@ -248,7 +255,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (min-width:900px) {
-  .emotion-5 {
+  .emotion-6 {
     -webkit-transform: translateY(100px);
     -ms-transform: translateY(100px);
     transform: translateY(100px);
@@ -256,14 +263,14 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (min-width:1200px) {
-  .emotion-5 {
+  .emotion-6 {
     -webkit-transform: translateY(100px);
     -ms-transform: translateY(100px);
     transform: translateY(100px);
   }
 }
 
-.emotion-5 svg {
+.emotion-6 svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: grayscale(0.6);
@@ -271,7 +278,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 0.8;
 }
 
-.emotion-4 {
+.emotion-5 {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   display: -webkit-box;
@@ -292,7 +299,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   max-height: 80%;
 }
 
-.emotion-2 {
+.emotion-3 {
   opacity: 0.8;
   margin: 10px 0 0;
   padding: 0;
@@ -301,7 +308,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   font-size: 1.5em;
 }
 
-.emotion-3 {
+.emotion-4 {
   margin: 10px 0 0;
   padding: 0;
   color: #fff;
@@ -309,7 +316,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   font-size: 1em;
 }
 
-.emotion-8 {
+.emotion-9 {
   height: 200px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -332,19 +339,19 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-8 {
+  .emotion-9 {
     display: none;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-8 {
+  .emotion-9 {
     display: none;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-8 {
+  .emotion-9 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -353,7 +360,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (min-width:900px) {
-  .emotion-8 {
+  .emotion-9 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -362,7 +369,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (min-width:1200px) {
-  .emotion-8 {
+  .emotion-9 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -370,12 +377,12 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   }
 }
 
-.emotion-6 {
+.emotion-7 {
   margin: 0;
   padding: 0;
 }
 
-.emotion-17.emotion-17.emotion-17 {
+.emotion-18.emotion-18.emotion-18 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -383,130 +390,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-17.emotion-17.emotion-17 {
+  .emotion-18.emotion-18.emotion-18 {
     padding-right: 5px;
   }
 }
 
-.emotion-17.emotion-17.emotion-17:hover {
+.emotion-18.emotion-18.emotion-18:hover {
   z-index: 1;
 }
 
-.emotion-17.emotion-17.emotion-17:hover > div:first-of-type {
+.emotion-18.emotion-18.emotion-18:hover > div:first-of-type {
   background: #00B7C3;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -515,7 +522,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-17.emotion-17.emotion-17:hover > div:first-of-type svg {
+.emotion-18.emotion-18.emotion-18:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -523,17 +530,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-17.emotion-17.emotion-17:hover > div:first-of-type > div {
+.emotion-18.emotion-18.emotion-18:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-17.emotion-17.emotion-17:hover div:nth-of-type(2) {
+.emotion-18.emotion-18.emotion-18:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-25.emotion-25.emotion-25 {
+.emotion-26.emotion-26.emotion-26 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -541,130 +548,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-25.emotion-25.emotion-25 {
+  .emotion-26.emotion-26.emotion-26 {
     padding-right: 5px;
   }
 }
 
-.emotion-25.emotion-25.emotion-25:hover {
+.emotion-26.emotion-26.emotion-26:hover {
   z-index: 1;
 }
 
-.emotion-25.emotion-25.emotion-25:hover > div:first-of-type {
+.emotion-26.emotion-26.emotion-26:hover > div:first-of-type {
   background: #00C7B7;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -673,7 +680,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-25.emotion-25.emotion-25:hover > div:first-of-type svg {
+.emotion-26.emotion-26.emotion-26:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -681,17 +688,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-25.emotion-25.emotion-25:hover > div:first-of-type > div {
+.emotion-26.emotion-26.emotion-26:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-25.emotion-25.emotion-25:hover div:nth-of-type(2) {
+.emotion-26.emotion-26.emotion-26:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-33.emotion-33.emotion-33 {
+.emotion-34.emotion-34.emotion-34 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -699,130 +706,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-33.emotion-33.emotion-33 {
+  .emotion-34.emotion-34.emotion-34 {
     padding-right: 5px;
   }
 }
 
-.emotion-33.emotion-33.emotion-33:hover {
+.emotion-34.emotion-34.emotion-34:hover {
   z-index: 1;
 }
 
-.emotion-33.emotion-33.emotion-33:hover > div:first-of-type {
+.emotion-34.emotion-34.emotion-34:hover > div:first-of-type {
   background: #10893E;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -831,7 +838,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-33.emotion-33.emotion-33:hover > div:first-of-type svg {
+.emotion-34.emotion-34.emotion-34:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -839,17 +846,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-33.emotion-33.emotion-33:hover > div:first-of-type > div {
+.emotion-34.emotion-34.emotion-34:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-33.emotion-33.emotion-33:hover div:nth-of-type(2) {
+.emotion-34.emotion-34.emotion-34:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-41.emotion-41.emotion-41 {
+.emotion-42.emotion-42.emotion-42 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -857,130 +864,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-41.emotion-41.emotion-41 {
+  .emotion-42.emotion-42.emotion-42 {
     padding-right: 5px;
   }
 }
 
-.emotion-41.emotion-41.emotion-41:hover {
+.emotion-42.emotion-42.emotion-42:hover {
   z-index: 1;
 }
 
-.emotion-41.emotion-41.emotion-41:hover > div:first-of-type {
+.emotion-42.emotion-42.emotion-42:hover > div:first-of-type {
   background: #525E54;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -989,7 +996,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-41.emotion-41.emotion-41:hover > div:first-of-type svg {
+.emotion-42.emotion-42.emotion-42:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -997,17 +1004,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-41.emotion-41.emotion-41:hover > div:first-of-type > div {
+.emotion-42.emotion-42.emotion-42:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-41.emotion-41.emotion-41:hover div:nth-of-type(2) {
+.emotion-42.emotion-42.emotion-42:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-49.emotion-49.emotion-49 {
+.emotion-50.emotion-50.emotion-50 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -1015,130 +1022,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-49.emotion-49.emotion-49 {
+  .emotion-50.emotion-50.emotion-50 {
     padding-right: 5px;
   }
 }
 
-.emotion-49.emotion-49.emotion-49:hover {
+.emotion-50.emotion-50.emotion-50:hover {
   z-index: 1;
 }
 
-.emotion-49.emotion-49.emotion-49:hover > div:first-of-type {
+.emotion-50.emotion-50.emotion-50:hover > div:first-of-type {
   background: #6B69D6;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -1147,7 +1154,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-49.emotion-49.emotion-49:hover > div:first-of-type svg {
+.emotion-50.emotion-50.emotion-50:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -1155,17 +1162,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-49.emotion-49.emotion-49:hover > div:first-of-type > div {
+.emotion-50.emotion-50.emotion-50:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-49.emotion-49.emotion-49:hover div:nth-of-type(2) {
+.emotion-50.emotion-50.emotion-50:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-57.emotion-57.emotion-57 {
+.emotion-58.emotion-58.emotion-58 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -1173,130 +1180,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-57.emotion-57.emotion-57 {
+  .emotion-58.emotion-58.emotion-58 {
     padding-right: 5px;
   }
 }
 
-.emotion-57.emotion-57.emotion-57:hover {
+.emotion-58.emotion-58.emotion-58:hover {
   z-index: 1;
 }
 
-.emotion-57.emotion-57.emotion-57:hover > div:first-of-type {
+.emotion-58.emotion-58.emotion-58:hover > div:first-of-type {
   background: #ce70c5;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -1305,7 +1312,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-57.emotion-57.emotion-57:hover > div:first-of-type svg {
+.emotion-58.emotion-58.emotion-58:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -1313,17 +1320,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-57.emotion-57.emotion-57:hover > div:first-of-type > div {
+.emotion-58.emotion-58.emotion-58:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-57.emotion-57.emotion-57:hover div:nth-of-type(2) {
+.emotion-58.emotion-58.emotion-58:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-65.emotion-65.emotion-65 {
+.emotion-66.emotion-66.emotion-66 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -1331,130 +1338,130 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 }
 
 @media (max-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-65.emotion-65.emotion-65 {
+  .emotion-66.emotion-66.emotion-66 {
     padding-right: 5px;
   }
 }
 
-.emotion-65.emotion-65.emotion-65:hover {
+.emotion-66.emotion-66.emotion-66:hover {
   z-index: 1;
 }
 
-.emotion-65.emotion-65.emotion-65:hover > div:first-of-type {
+.emotion-66.emotion-66.emotion-66:hover > div:first-of-type {
   background: #8E8CD8;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -1463,7 +1470,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   transform: translateY(0);
 }
 
-.emotion-65.emotion-65.emotion-65:hover > div:first-of-type svg {
+.emotion-66.emotion-66.emotion-66:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -1471,11 +1478,11 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
   opacity: 1;
 }
 
-.emotion-65.emotion-65.emotion-65:hover > div:first-of-type > div {
+.emotion-66.emotion-66.emotion-66:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-65.emotion-65.emotion-65:hover div:nth-of-type(2) {
+.emotion-66.emotion-66.emotion-66:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
@@ -1484,29 +1491,32 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 <div>
   <div
     class="emotion-0"
+  />
+  <div
+    class="emotion-1"
   >
     Explore best tools and resources
   </div>
   <div
-    class="emotion-1"
+    class="emotion-2"
   >
     Browse all categories and find the best solutions for your project
   </div>
   <div
-    class="emotion-66"
+    class="emotion-67"
   >
     <a
-      class="emotion-9"
+      class="emotion-10"
       color="#D1BF20"
       data-testid="category-js"
       href="/js/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             fill="none"
@@ -1537,25 +1547,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             />
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             JavaScript
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             1 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             Essential part of modern front-end and one of the most popular programming language in the world. Tests, extensions, helpers, security and lots more - everything you need to make great JS application without hassle.
           </div>
@@ -1563,17 +1573,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
       </div>
     </a>
     <a
-      class="emotion-17"
+      class="emotion-18"
       color="#00B7C3"
       data-testid="category-css"
       href="/css/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             fill="none"
@@ -1604,25 +1614,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             />
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             CSS
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             3 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             Web apps does not just have to work well, it has to look great too! Here comes the CSS - the beauty part of front-end. If you want to know it better and find best tools regarding this technology - this section is for you!
           </div>
@@ -1630,17 +1640,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
       </div>
     </a>
     <a
-      class="emotion-25"
+      class="emotion-26"
       color="#00C7B7"
       data-testid="category-jam"
       href="/jam/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             fill="none"
@@ -1683,25 +1693,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             />
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             JAM
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             2 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             JAM Stack is the newest way of creating modern websites and simple applications. Mix of JavaScript, headless CMSes and Markdowns brings us a very efficient and much simpler way of creating blogs, SPAs and web applications.
           </div>
@@ -1709,17 +1719,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
       </div>
     </a>
     <a
-      class="emotion-33"
+      class="emotion-34"
       color="#10893E"
       data-testid="category-frontops"
       href="/frontops/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             fill="none"
@@ -1782,25 +1792,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             />
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             FrontOps
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             5 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             Coding web application is the hardest part in process of creation of our product. But is has to be accessible  somewhere outside our local machine. How to build, publish and deploy our application - check it here.
           </div>
@@ -1808,17 +1818,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
       </div>
     </a>
     <a
-      class="emotion-41"
+      class="emotion-42"
       color="#525E54"
       data-testid="category-seo"
       href="/seo/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             style="width: 50%;"
@@ -1858,25 +1868,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             </g>
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             SEO
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             4 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             Even greatest and most efficient applications can be useless when potential users can not find it in the web. SEO is here to helps our apps improve their position in search engines like Google or Bing.
           </div>
@@ -1884,17 +1894,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
       </div>
     </a>
     <a
-      class="emotion-49"
+      class="emotion-50"
       color="#6B69D6"
       data-testid="category-monitor"
       href="/monitor/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             fill="none"
@@ -1941,25 +1951,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             />
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             Monitor
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             6 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             Is my site online? Is it working properly? How many people are currently online? You never find answers to this questions without any monitoring tools constantly "watching" your website.
           </div>
@@ -1967,17 +1977,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
       </div>
     </a>
     <a
-      class="emotion-57"
+      class="emotion-58"
       color="#ce70c5"
       data-testid="category-ux"
       href="/ux/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             fill="none"
@@ -2012,25 +2022,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             />
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             UX
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             7 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             Creating websites without any mockups or at least simple sketches can significantly lengthen the process of development and brings us constant refactors. Do not do it. Use UX tools to be sure what you really want to build.
           </div>
@@ -2038,17 +2048,17 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
       </div>
     </a>
     <a
-      class="emotion-65"
+      class="emotion-66"
       color="#8E8CD8"
       data-testid="category-utils"
       href="/utils/"
     >
       <div
-        class="emotion-5"
+        class="emotion-6"
         color="#184461"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
         >
           <svg
             fill="none"
@@ -2087,25 +2097,25 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
             />
           </svg>
           <h3
-            class="emotion-2"
+            class="emotion-3"
           >
             Utilities
           </h3>
           <h4
-            class="emotion-3"
+            class="emotion-4"
           >
             8 tools
           </h4>
         </div>
       </div>
       <div
-        class="emotion-8"
+        class="emotion-9"
       >
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             There are some tools that hard to categorize into one of the above sections but are so great and helpful that has to be included in Frontbook. Check them, use them and make your daily work much more enjoyable experience.
           </div>

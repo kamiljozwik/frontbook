@@ -1,7 +1,6 @@
 import { Row } from 'react-table';
 
 export function filterForLicenses<D extends object>(rows: Array<Row<D>>, id: string[], filterValue: string) {
-  console.log(filterValue);
   return rows.filter(row => {
     const rowValue = row.values[id[0]];
     if (filterValue === 'mit') {

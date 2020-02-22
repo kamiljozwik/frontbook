@@ -11,13 +11,13 @@ interface SectionHeaderProps {
 export const SectionHeader = ({ title, subtitle = '' }: SectionHeaderProps) => {
   return (
     <>
-      <HeaderTitle>{title}</HeaderTitle>
+      <SectionHeaderTitle>{title}</SectionHeaderTitle>
       <HeaderSubtitle>{subtitle}</HeaderSubtitle>
     </>
   );
 };
 
-const HeaderTitle = styled.div`
+const SectionHeaderTitle = styled.div`
   font-weight: 800;
   text-align: center;
   color: ${colors.black};

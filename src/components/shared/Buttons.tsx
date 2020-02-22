@@ -4,6 +4,7 @@ import { colors } from '../../shared';
 
 export const LinkButton = styled(Link)`
   background: ${colors.logoDark};
+  display: inline-block;
   padding: 10px;
   width: 100px;
   text-align: center;

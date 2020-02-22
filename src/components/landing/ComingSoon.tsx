@@ -17,4 +17,5 @@ const ComingSoonText = styled.div`
   padding: 40px 0;
   box-shadow: 0 8px 20px -2px rgba(0, 0, 0, 0.3);
   font-weight: 800;
+  line-height: 40px;
 `;
