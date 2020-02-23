@@ -1,5 +1,6 @@
 const parseGHUrl = require(`parse-github-url`);
 const { GraphQLClient } = require(`graphql-request`);
+const faker = require('faker');
 
 /** Used to gather repo details data */
 const githubApiClient = process.env.GITHUB_TOKEN
@@ -50,10 +51,61 @@ async function getGithubData(owner, name, contentfulName) {
   }
 }
 
+function getMockedGithubData(name) {
+  const tag = faker.system.semver();
+  const releaseType = faker.random.number({ min: 0, max: 2 });
+  const nextTag = tag
+    .split('.')
+    .map((el, index) => (index === releaseType ? parseInt(el) + 1 : el))
+    .join('.');
+  return {
+    repository: {
+      name: name,
+      description: faker.lorem.sentence(),
+      diskUsage: faker.random.number({ min: 0, max: 1000 }),
+      issues: {
+        totalCount: faker.random.number({ min: 0, max: 200 }),
+      },
+      stargazers: {
+        totalCount: faker.random.number({ min: 0, max: 100000 }),
+      },
+      licenseInfo: {
+        spdxId: faker.random.arrayElement(['MIT', 'NOASSERTION', 'Apache-2.0', 'BSD-3-Clause']),
+        url: 'https://google.com',
+      },
+      pushedAt: faker.date.past(1),
+      releases: {
+        nodes: [
+          {
+            name: name,
+            isPrerelease: faker.random.boolean(),
+            isDraft: 'false',
+            publishedAt: new Date(),
+            tagName: tag,
+            url: 'https://github.com/kamiljozwik/frontbook',
+          },
+          {
+            name: name,
+            isPrerelease: faker.random.boolean(),
+            isDraft: 'false',
+            publishedAt: faker.date.between(new Date(), new Date(new Date().getTime() - 1000 * 60 * 60 * 24 * 120)),
+            tagName: nextTag,
+            url: 'https://github.com/kamiljozwik/frontbook',
+          },
+        ],
+      },
+    },
+  };
+}
+
 /** Main function */
 const addGithubData = async (node, createNodeField) => {
   const repoMeta = node.github ? parseGHUrl(node.github) : null;
-  const repoData = await (repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);
+  const repoData = await (repoMeta
+    ? process.env.GATSBY_USE_MOCKS
+      ? getMockedGithubData(repoMeta.name)
+      : getGithubData(repoMeta.owner, repoMeta.name, node.name)
+    : null);
 
   const repoDataWithStars = repoData
     ? {
