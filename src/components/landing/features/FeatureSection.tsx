@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { colors } from '../../../shared';
+import { colors, mq } from '../../../shared';
 import { SectionHeader } from '..';
 
 interface FeatureInfoProps {
@@ -40,12 +40,15 @@ FeatureSection.Info = FeatureInfo;
 const FeatureSectionWrapper = styled.section`
   margin: 50px 0 80px 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 `;
 
 const FeatureInfoWrapper = styled.div<{ textOnly: boolean }>`
   position: relative;
-  width: 50%;
+  ${mq({
+    width: ['100%', '100%', '50%', '50%', '50%'],
+  })}
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,8 +56,13 @@ const FeatureInfoWrapper = styled.div<{ textOnly: boolean }>`
 `;
 
 const FeatureTitle = styled.h4`
-  font-size: 26px;
-  font-weight: 600;
+  &&& {
+    font-size: 26px;
+    font-weight: 600;
+    ${mq({
+      marginTop: ['20px', '20px', '0', '0', '0'],
+    })}
+  }
 `;
 
 const FeatureDesc = styled.div`

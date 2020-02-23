@@ -4,7 +4,7 @@ import { sortBy } from 'lodash';
 import styled from '@emotion/styled';
 import { Feed, Divider } from 'semantic-ui-react';
 
-import { Layout, SectionHeader } from '../components';
+import { Layout, SectionHeader, ReleasesList } from '../components';
 import { Release, SubcategoryNode, getLastReleases, ListItem, getReleaseType } from '../shared';
 import { ReleaseItem, ReleasesFilters } from '../components/releases';
 
@@ -105,16 +105,6 @@ const Releases = ({ data }: ReleasesProps) => {
 };
 
 export default Releases;
-
-const ReleasesList = styled(Feed)`
-  &&& {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-`;
 
 export const query = graphql`
   query ReleasesQuery {

@@ -100,7 +100,7 @@ export const TopReleases = () => {
   );
 };
 
-const ReleasesList = styled(Feed)`
+export const ReleasesList = styled(Feed)`
   &&& {
     display: flex;
     flex-direction: row;

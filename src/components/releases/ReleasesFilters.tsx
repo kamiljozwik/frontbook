@@ -103,7 +103,9 @@ const ReleasesFiltersWrapper = styled.div`
 `;
 
 const Filter = styled.div`
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   margin: 0 20px;
 `;
 
@@ -117,16 +119,19 @@ const FilterOptions = styled.div`
 `;
 
 const OptionLabel = styled(Label)`
-  cursor: pointer;
-  &&&:hover {
-    background: ${colors.grey};
+  &&& {
+    cursor: pointer;
+    margin: 2px;
+    &&&:hover {
+      background: ${colors.grey};
+    }
   }
 `;
 
 const OptionIcon = styled(Icon)<{ active: string }>`
   &&& {
     position: relative;
-    margin: 0 5px;
+    margin: 5px;
     opacity: ${props => (props.active === 'true' ? 1 : 0.3)};
     &:hover {
       opacity: 1;
