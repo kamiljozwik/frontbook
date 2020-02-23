@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { graphql } from 'gatsby';
 import { FixedSizeList, ListChildComponentProps } from 'react-window';
+import styled from '@emotion/styled';
+import { Divider } from 'semantic-ui-react';
 
-import { Layout, TopsTool } from '../components';
+import { Layout, TopsTool, SectionHeader } from '../components';
 import { SEO } from '../components/helpers';
 import { SubcategoryNode, BasicLoader } from '../shared';
-import styled from '@emotion/styled';
 
 interface LeaderboardData {
   data: {
@@ -39,6 +40,12 @@ const LeaderboardPage = ({ data }: LeaderboardData) => {
   return (
     <Layout pageType="page" title="Front-end tools leaderboard" color="#039aff">
       <SEO title="leaderboard" />
+      <SectionHeader
+        title="Most starred and downladed resources"
+        subtitle="Always use trusted and appreciated tools"
+        showDivider={false}
+      />
+      <Divider />
       {statData ? (
         <ListWrapper>
           <ToolsSection>

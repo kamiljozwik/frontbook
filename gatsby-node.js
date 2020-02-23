@@ -27,7 +27,6 @@ exports.onCreateNode = async ({ node, actions }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
   return new Promise((resolve, reject) => {
     resolve(
       /* Query for data */

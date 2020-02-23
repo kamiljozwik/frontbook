@@ -52,7 +52,6 @@ export const Searcher = () => {
     const re = new RegExp(_.escapeRegExp(value), 'i');
     const isMatch = (result: SubcategoryNode) => re.test(result.node.name) || re.test(result.node.slogan.slogan);
     const tempResults = _.filter(allTools, isMatch).map(res => {
-      console.log(res);
       return {
         title: res.node.name,
         description: res.node.slogan.slogan,

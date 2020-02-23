@@ -1,9 +1,7 @@
 const parseGHUrl = require(`parse-github-url`);
 const { GraphQLClient } = require(`graphql-request`);
 
-/**
- * Used to gather repo details data
- */
+/** Used to gather repo details data */
 const githubApiClient = process.env.GITHUB_TOKEN
   ? new GraphQLClient(`https://api.github.com/graphql`, {
       headers: {
@@ -12,6 +10,7 @@ const githubApiClient = process.env.GITHUB_TOKEN
     })
   : console.log('GITHUB TOKEN NOT FOUND!');
 
+/** Query Github with GraphQL */
 async function getGithubData(owner, name, contentfulName) {
   try {
     const response = await githubApiClient.request(`
@@ -31,6 +30,16 @@ async function getGithubData(owner, name, contentfulName) {
             url
           }
           pushedAt
+          releases(last: 2) {
+            nodes {
+              name
+              isPrerelease
+              isDraft
+              publishedAt
+              tagName
+              url
+            }
+          }
         }
       }
     `);
@@ -41,6 +50,7 @@ async function getGithubData(owner, name, contentfulName) {
   }
 }
 
+/** Main function */
 const addGithubData = async (node, createNodeField) => {
   const repoMeta = node.github ? parseGHUrl(node.github) : null;
   const repoData = await (repoMeta ? getGithubData(repoMeta.owner, repoMeta.name, node.name) : null);

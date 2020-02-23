@@ -2,15 +2,18 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { colors } from '../../shared';
+import { Divider } from '../shared';
 
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
+  showDivider?: boolean;
 }
 
-export const SectionHeader = ({ title, subtitle = '' }: SectionHeaderProps) => {
+export const SectionHeader = ({ title, subtitle = '', showDivider = true }: SectionHeaderProps) => {
   return (
     <>
+      {showDivider && <Divider />}
       <HeaderTitle>{title}</HeaderTitle>
       <HeaderSubtitle>{subtitle}</HeaderSubtitle>
     </>
@@ -23,7 +26,7 @@ const HeaderTitle = styled.div`
   color: ${colors.black};
   width: 100%;
   line-height: 100%;
-  margin-top: 10px;
+  margin-top: 40px;
   letter-spacing: 1px;
   font-size: 28px;
 `;
