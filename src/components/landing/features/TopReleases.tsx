@@ -14,7 +14,7 @@ interface TopReleasesQuery {
 }
 
 const filterPopular = (itemData?: ListItem) => {
-  const POPULAR_LEVEL = 30000; // GH stars
+  const POPULAR_LEVEL = 20000; // GH stars
 
   const [releaseType, isMajorCorrect] = itemData?.fields.githubData?.repository.releases
     ? getReleaseType(itemData?.fields.githubData?.repository.releases.nodes)
