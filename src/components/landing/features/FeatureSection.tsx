@@ -8,11 +8,12 @@ interface FeatureInfoProps {
   desc?: string;
   textOnly?: boolean;
   children?: React.ReactNode;
+  style?: React.CSSProperties;
 }
 
-const FeatureInfo = ({ title, desc, textOnly = false, children }: FeatureInfoProps) => {
+const FeatureInfo = ({ title, desc, textOnly = false, style, children }: FeatureInfoProps) => {
   return (
-    <FeatureInfoWrapper textOnly={textOnly}>
+    <FeatureInfoWrapper textOnly={textOnly} style={style}>
       {title && <FeatureTitle>{title}</FeatureTitle>}
       {desc && <FeatureDesc>{desc}</FeatureDesc>}
       {children && <FeatureInfoContent>{children}</FeatureInfoContent>}

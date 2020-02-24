@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import { sortBy } from 'lodash';
-import styled from '@emotion/styled';
-import { Feed, Divider } from 'semantic-ui-react';
+import { Divider } from 'semantic-ui-react';
 
-import { Layout, SectionHeader, ReleasesList } from '../components';
+import { Layout, SectionHeader, ReleasesList, SEO } from '../components';
 import { Release, SubcategoryNode, getLastReleases, ListItem, getReleaseType } from '../shared';
 import { ReleaseItem, ReleasesFilters } from '../components/releases';
 
@@ -69,6 +68,7 @@ const Releases = ({ data }: ReleasesProps) => {
 
   return (
     <Layout pageType="page" title="Last releases">
+      <SEO title="releases" />
       <SectionHeader
         title="Releases from last 30 days"
         subtitle="Keep up to date with your favourite tools"

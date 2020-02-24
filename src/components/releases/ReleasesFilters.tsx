@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react';
-import { Popularity, Tags } from '../../pages/releases';
+import { Label, Icon, Popup } from 'semantic-ui-react';
 import styled from '@emotion/styled';
-import { Label, Icon } from 'semantic-ui-react';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
+
+import { Popularity, Tags } from '../../pages/releases';
 import { colors } from '../../shared';
 
 interface ReleasesFiltersProps {
@@ -81,16 +83,29 @@ export const ReleasesFilters = ({
           <OptionLabel {...labelProps} basic={tagFilter !== Tags.all} color="grey">
             All
           </OptionLabel>
-          <OptionLabel {...labelProps} basic={tagFilter !== Tags.patch} color="teal">
-            Patch
-          </OptionLabel>
-          <OptionLabel {...labelProps} basic={tagFilter !== Tags.minor} color="purple">
-            Minor
-          </OptionLabel>
           <OptionLabel {...labelProps} basic={tagFilter !== Tags.major} color="red">
             Major
           </OptionLabel>
+          .
+          <OptionLabel {...labelProps} basic={tagFilter !== Tags.minor} color="purple">
+            Minor
+          </OptionLabel>
+          .
+          <OptionLabel {...labelProps} basic={tagFilter !== Tags.patch} color="teal">
+            Patch
+          </OptionLabel>
         </FilterOptions>
+        <Popup
+          content={`Read more about semantic versioning`}
+          trigger={
+            <span>
+              <VersioningLink href="https://semver.org/" target="_blank" rel="noopener noreferrer">
+                Semantic Versioning
+              </VersioningLink>
+            </span>
+          }
+          name="star"
+        />
       </Filter>
     </ReleasesFiltersWrapper>
   );
@@ -103,6 +118,7 @@ const ReleasesFiltersWrapper = styled.div`
 `;
 
 const Filter = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -137,4 +153,13 @@ const OptionIcon = styled(Icon)<{ active: string }>`
       opacity: 1;
     }
   }
+`;
+
+const VersioningLink = styled(OutboundLink)`
+  color: ${colors.darkGrey};
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+  bottom: -7px;
+  margin-left: 5px;
 `;

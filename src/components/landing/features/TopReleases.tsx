@@ -75,7 +75,7 @@ export const TopReleases = () => {
 
   return (
     <FeatureSection title={featuresData.releases.title} subtitle={featuresData.releases.description}>
-      <FeatureSection.Info>
+      <FeatureSection.Info style={{ width: '55%' }}>
         <ReleasesList>
           {releases.map(release => (
             <ReleaseItemBasic
@@ -92,6 +92,7 @@ export const TopReleases = () => {
       <FeatureSection.Info
         title={featuresData.releases.extraData.title}
         desc={featuresData.releases.extraData.description}
+        style={{ width: '45%' }}
         textOnly
       >
         <LinkButton to="/releases">More</LinkButton>
