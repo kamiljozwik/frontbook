@@ -9,6 +9,7 @@
     "@emotion/styled": "^10.0.27",
     "@types/faker": "^4.1.9",
     "@types/ms": "^0.7.31",
+    "@types/url-metadata": "^2.1.0",
     "axios": "^0.19.2",
     "facepaint": "^1.2.1",
     "faker": "^4.1.0",
@@ -39,6 +40,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
     "typescript": "^3.7.5",
+    "url-metadata": "^2.4.0",
     "utility-types": "^3.10.0"
   },
   "devDependencies": {
