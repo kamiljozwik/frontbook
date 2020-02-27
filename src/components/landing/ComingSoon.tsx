@@ -11,10 +11,10 @@ const ComingSoonText = styled.div`
   font-size: 26px;
   letter-spacing: 1px;
   color: white;
-  background: ${colors.black};
+  background: ${colors.darkGrey};
   width: 80%;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 22px 0;
   box-shadow: 0 8px 20px -2px rgba(0, 0, 0, 0.3);
   font-weight: 800;
   line-height: 40px;

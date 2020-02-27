@@ -1,11 +1,11 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { SubcategoryNode, ListItem, getReleaseType, getLastReleases, featuresData } from '../../../shared';
-import { FeatureSection } from './FeatureSection';
 import { Feed } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { ReleaseItemBasic } from '../../releases';
 import { LinkButton } from '../../shared';
+import { FeatureSection } from './components';
 
 interface TopReleasesQuery {
   allContentfulToolEntry: {
@@ -95,7 +95,7 @@ export const TopReleases = () => {
         style={{ width: '45%' }}
         textOnly
       >
-        <LinkButton to="/releases">More</LinkButton>
+        <LinkButton to={featuresData.releases.link}>More</LinkButton>
       </FeatureSection.Info>
     </FeatureSection>
   );

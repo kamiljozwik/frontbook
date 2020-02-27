@@ -1,9 +1,9 @@
-export type Features = 'uiExamples' | 'amazingCss' | 'releases';
+export type Features = 'uiExamples' | 'amazingCss' | 'releases' | 'learning';
 export interface DataKeys {
   title: string;
   description: string;
   image?: string;
-  link?: string;
+  link: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   extraData?: any;
 }
@@ -27,10 +27,21 @@ export const featuresData: FeaturesData = {
   releases: {
     title: 'Keep up to date with your favourite tools',
     description: 'Check regularly for the latest releases and never let yourself be surprised by breaking changes',
+    link: '/releases',
     extraData: {
       title: 'Last releases',
       description:
         'Here you can find most important releases from last 30 days. Click "More" to see all releases from last month',
+    },
+  },
+  learning: {
+    title: 'Never stop learning',
+    description:
+      'In this section you can find great learning resources, blogs, podcasts, etc. All to help you keep growing',
+    link: '/learning',
+    extraData: {
+      title: 'Learning resources',
+      description: 'On the right you can see one of many great sources of knowledge. Click "More" to check them all',
     },
   },
 };

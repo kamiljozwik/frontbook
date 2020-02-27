@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Card, Image, Label, Segment } from 'semantic-ui-react';
+import { Card, Image, Label, Segment, Icon } from 'semantic-ui-react';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { Layout } from '../components';
@@ -12,34 +12,35 @@ type ogData = {
   description: string;
   image: string;
 };
-type resourceType = 'other' | 'blog' | 'podcast';
+type resourceType = 'other' | 'blog' | 'podcast' | 'video';
 
-interface LearningData {
-  data: {
-    learningResources: {
-      edges: {
-        node: {
-          name: string;
-          url: string;
-          type: resourceType;
-          fields: {
-            ogData: ogData;
-          };
+export interface LearningData {
+  learningResources: {
+    edges: {
+      node: {
+        name: string;
+        url: string;
+        type: resourceType[];
+        fields: {
+          ogData: ogData;
         };
-      }[];
-    };
+      };
+    }[];
   };
+}
+interface LearningPageProps {
+  data: LearningData;
 }
 
 interface ResourceProps {
   url: string;
-  type: resourceType;
+  type: resourceType[];
   ogData: ogData;
 }
 
-const Resource = ({ url, type, ogData }: ResourceProps) => {
+export const Resource = ({ url, type, ogData }: ResourceProps) => {
   return (
-    <Card as={OutboundLink} href={url}>
+    <Card as={OutboundLink} href={url} target="_blank" rel="noopener noreferrer">
       {ogData.image && ogData.image !== 'https:' ? (
         <StyledImage src={ogData.image} wrapped ui={false} alt="learning resource" />
       ) : (
@@ -53,13 +54,15 @@ const Resource = ({ url, type, ogData }: ResourceProps) => {
         <Card.Description>{ogData.description}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <Label basic>{type}</Label>
+        <Label basic>
+          <Icon name={type.includes('video') ? 'youtube' : type.includes('blog') ? 'pencil' : 'globe'} /> {type}
+        </Label>
       </Card.Content>
     </Card>
   );
 };
 
-const LearningPage = ({ data }: LearningData) => {
+const LearningPage = ({ data }: LearningPageProps) => {
   const {
     learningResources: { edges },
   } = data;

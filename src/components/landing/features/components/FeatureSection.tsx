@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { colors, mq } from '../../../shared';
-import { SectionHeader } from '..';
+import { colors, mq } from '../../../../shared';
+import { SectionHeader } from '../../../shared';
 
 interface FeatureInfoProps {
   title?: string;

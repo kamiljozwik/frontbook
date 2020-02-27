@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { mq, featuresData, Features, colors, FeaturesCodes } from '../../../shared';
-import { FeatureImage } from '../../SVG/FeatureImage';
-import { SectionHeader } from '..';
-import { LinkButton } from '../../shared';
+import { mq, featuresData, Features, colors, FeaturesCodes } from '../../../../shared';
+import { FeatureImage } from '../../../SVG/FeatureImage';
+import { LinkButton, SectionHeader } from '../../../shared';
 
 interface FeatureCardsProps {
   title: string;
