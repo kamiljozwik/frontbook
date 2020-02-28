@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import { Segment } from 'semantic-ui-react';
+import { Segment, Icon } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
@@ -27,10 +27,10 @@ const TopBar = () => {
         </Link>
         <TopBarLinks>
           <TopBarLink href="https://spectrum.chat/frontbook" target="_blank" rel="noopener noreferrer">
-            Spectrum
+            <Icon inverted name="comment alternate" /> Spectrum
           </TopBarLink>
           <TopBarLink href="https://github.com/kamiljozwik/frontbook" target="_blank" rel="noopener noreferrer">
-            Github
+            <Icon inverted name="github" /> Github
           </TopBarLink>
         </TopBarLinks>
       </TopBarContent>

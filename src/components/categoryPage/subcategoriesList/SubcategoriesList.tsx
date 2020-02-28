@@ -4,6 +4,7 @@ import { Grid } from 'semantic-ui-react';
 import { Subcategory, CategoriesCodes } from '../../../shared';
 import { CategoryItem } from '../..';
 import { SectionHeader } from '../../shared';
+import styled from '@emotion/styled';
 
 interface SubcategoriesListProps {
   subcategories: string[];
@@ -11,7 +12,7 @@ interface SubcategoriesListProps {
 
 export const SubcategoriesList = ({ subcategories }: SubcategoriesListProps) => {
   return (
-    <>
+    <SubcategoriesListWrapper>
       <SectionHeader
         title="This category is divided into more specific subcategories"
         subtitle="Choose the one that best suits your needs"
@@ -26,6 +27,10 @@ export const SubcategoriesList = ({ subcategories }: SubcategoriesListProps) => 
           );
         })}
       </Grid>
-    </>
+    </SubcategoriesListWrapper>
   );
 };
+
+const SubcategoriesListWrapper = styled.div`
+  margin-bottom: 200px;
+`;

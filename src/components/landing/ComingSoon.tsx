@@ -11,7 +11,7 @@ const ComingSoonText = styled.div`
   font-size: 26px;
   letter-spacing: 1px;
   color: white;
-  background: ${colors.darkGrey};
+  background: ${colors.darkBlue};
   width: 80%;
   margin: 0 auto;
   padding: 22px 0;
