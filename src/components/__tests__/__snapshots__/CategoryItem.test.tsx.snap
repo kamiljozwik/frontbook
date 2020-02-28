@@ -341,7 +341,7 @@ exports[`CategoryItem component  renders card for js animation subcategory 1`] =
     >
       <svg
         fill="none"
-        style="width: 50%;"
+        style="width: 40%;"
         viewBox="0 0 164 164"
         width="10vw"
         xml:space="preserve"

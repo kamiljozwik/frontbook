@@ -30,9 +30,9 @@ export const Layout = ({
   color = colors.default,
   pageType,
 }: LayoutProps) => {
-  // useEffect(() => {
-  //   document.body.scrollTop = 0;
-  // }, [category]);
+  useEffect(() => {
+    document.body.scrollTop = 0;
+  }, [category]);
   return (
     <>
       <TopBar />

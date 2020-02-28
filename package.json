@@ -101,7 +101,7 @@
     "serve": "gatsby serve",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:update": "jest -- -u",
+    "test:update": "jest -u",
     "test:coverage": "jest --coverage",
     "cy:open": "cypress open",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",

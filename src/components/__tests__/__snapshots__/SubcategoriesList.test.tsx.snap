@@ -1,17 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SubcategoriesList component  renders subcategories cards for CSS category 1`] = `
-.emotion-37 {
+.emotion-38 {
   margin-bottom: 200px;
 }
 
 .emotion-0 {
+  margin: 10px 0;
+  height: 0;
+  border-image: linear-gradient(to right,rgba(0,0,0,0),rgba(23,124,190,0.5),rgba(0,0,0,0)) 100% 0% 0% 0%;
+  border-style: solid;
+}
+
+.emotion-1 {
   font-weight: 800;
   text-align: center;
-  color: #1e1e1e;
+  color: #184461;
+  -webkit-filter: brightness(0.8);
+  filter: brightness(0.8);
   width: 100%;
   line-height: 100%;
-  margin-top: 10px;
+  margin-top: 40px;
   -webkit-letter-spacing: 1px;
   -moz-letter-spacing: 1px;
   -ms-letter-spacing: 1px;
@@ -19,7 +28,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   font-size: 28px;
 }
 
-.emotion-1 {
+.emotion-2 {
   font-weight: 800;
   text-align: center;
   color: #757575;
@@ -31,7 +40,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   letter-spacing: 1px;
 }
 
-.emotion-8.emotion-8.emotion-8 {
+.emotion-9.emotion-9.emotion-9 {
   height: 200px;
   position: relative;
   cursor: pointer;
@@ -39,130 +48,130 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (max-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     width: 100%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     width: 100%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     width: 44%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     width: 28%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     width: 23%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     margin: 3% 1%;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     margin: 1% 1%;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     margin: 1% 1%;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-left: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-left: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-left: 5px;
   }
 }
 
 @media (max-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-right: 32px;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:900px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-right: 5px;
   }
 }
 
 @media (min-width:1200px) {
-  .emotion-8.emotion-8.emotion-8 {
+  .emotion-9.emotion-9.emotion-9 {
     padding-right: 5px;
   }
 }
 
-.emotion-8.emotion-8.emotion-8:hover {
+.emotion-9.emotion-9.emotion-9:hover {
   z-index: 1;
 }
 
-.emotion-8.emotion-8.emotion-8:hover > div:first-of-type {
+.emotion-9.emotion-9.emotion-9:hover > div:first-of-type {
   background: #00B7C3;
   -webkit-filter: brightness(1);
   filter: brightness(1);
@@ -171,7 +180,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   transform: translateY(0);
 }
 
-.emotion-8.emotion-8.emotion-8:hover > div:first-of-type svg {
+.emotion-9.emotion-9.emotion-9:hover > div:first-of-type svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: none;
@@ -179,17 +188,17 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   opacity: 1;
 }
 
-.emotion-8.emotion-8.emotion-8:hover > div:first-of-type > div {
+.emotion-9.emotion-9.emotion-9:hover > div:first-of-type > div {
   opacity: 1;
 }
 
-.emotion-8.emotion-8.emotion-8:hover div:nth-of-type(2) {
+.emotion-9.emotion-9.emotion-9:hover div:nth-of-type(2) {
   -webkit-transform: translateY(0);
   -ms-transform: translateY(0);
   transform: translateY(0);
 }
 
-.emotion-4 {
+.emotion-5 {
   height: 200px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -213,7 +222,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (max-width:400px) {
-  .emotion-4 {
+  .emotion-5 {
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px);
@@ -221,7 +230,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (min-width:400px) {
-  .emotion-4 {
+  .emotion-5 {
     -webkit-transform: translateY(0px);
     -ms-transform: translateY(0px);
     transform: translateY(0px);
@@ -229,7 +238,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (min-width:600px) {
-  .emotion-4 {
+  .emotion-5 {
     -webkit-transform: translateY(100px);
     -ms-transform: translateY(100px);
     transform: translateY(100px);
@@ -237,7 +246,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (min-width:900px) {
-  .emotion-4 {
+  .emotion-5 {
     -webkit-transform: translateY(100px);
     -ms-transform: translateY(100px);
     transform: translateY(100px);
@@ -245,14 +254,14 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (min-width:1200px) {
-  .emotion-4 {
+  .emotion-5 {
     -webkit-transform: translateY(100px);
     -ms-transform: translateY(100px);
     transform: translateY(100px);
   }
 }
 
-.emotion-4 svg {
+.emotion-5 svg {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-filter: grayscale(0.6);
@@ -260,7 +269,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   opacity: 0.8;
 }
 
-.emotion-3 {
+.emotion-4 {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   display: -webkit-box;
@@ -281,7 +290,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   max-height: 80%;
 }
 
-.emotion-2 {
+.emotion-3 {
   opacity: 0.8;
   margin: 10px 0 0;
   padding: 0;
@@ -290,7 +299,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   font-size: 1.5em;
 }
 
-.emotion-7 {
+.emotion-8 {
   height: 200px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
@@ -313,19 +322,19 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (max-width:400px) {
-  .emotion-7 {
+  .emotion-8 {
     display: none;
   }
 }
 
 @media (min-width:400px) {
-  .emotion-7 {
+  .emotion-8 {
     display: none;
   }
 }
 
 @media (min-width:600px) {
-  .emotion-7 {
+  .emotion-8 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -334,7 +343,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (min-width:900px) {
-  .emotion-7 {
+  .emotion-8 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -343,7 +352,7 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
 }
 
 @media (min-width:1200px) {
-  .emotion-7 {
+  .emotion-8 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -351,22 +360,26 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
   }
 }
 
-.emotion-5 {
+.emotion-6 {
   margin: 0;
   padding: 0;
 }
 
 <div>
   <div
-    class="emotion-37"
+    class="emotion-38"
   >
     <div
       class="emotion-0"
+      color="rgba(23, 124, 190, 0.5)"
+    />
+    <div
+      class="emotion-1"
     >
       This category is divided into more specific subcategories
     </div>
     <div
-      class="emotion-1"
+      class="emotion-2"
     >
       Choose the one that best suits your needs
     </div>
@@ -374,21 +387,21 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
       class="ui relaxed grid"
     >
       <a
-        class="emotion-8"
+        class="emotion-9"
         color="#00B7C3"
         data-testid="category-css"
         href="/css/animations/"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
           color="#8f8f8f"
         >
           <div
-            class="emotion-3"
+            class="emotion-4"
           >
             <svg
               fill="none"
-              style="width: 50%;"
+              style="width: 40%;"
               viewBox="0 0 164 164"
               width="10vw"
               xml:space="preserve"
@@ -403,20 +416,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
               />
             </svg>
             <h3
-              class="emotion-2"
+              class="emotion-3"
             >
               ANIMATIONS
             </h3>
           </div>
         </div>
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             <div
-              class="emotion-5"
+              class="emotion-6"
             >
               Animations are a great way to make our website "not boring". Properly used animations can emphasize most important parts of the page and make user more engaged. Check this section and choose the one what is proper for you.
             </div>
@@ -424,21 +437,21 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
         </div>
       </a>
       <a
-        class="emotion-8"
+        class="emotion-9"
         color="#00B7C3"
         data-testid="category-css"
         href="/css/cheatsheets/"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
           color="#8f8f8f"
         >
           <div
-            class="emotion-3"
+            class="emotion-4"
           >
             <svg
               fill="none"
-              style="width: 50%;"
+              style="width: 40%;"
               viewBox="0 0 172 172"
               width="10vw"
             >
@@ -480,20 +493,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
               />
             </svg>
             <h3
-              class="emotion-2"
+              class="emotion-3"
             >
               CHEATSHEETS
             </h3>
           </div>
         </div>
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             <div
-              class="emotion-5"
+              class="emotion-6"
             >
               Browsing long documentations to find a small code snippet or use case for simple solutions makes you think like "Why... why I have to do it again..." ? If so - stop doing it and use cheatsheets instead.
             </div>
@@ -501,20 +514,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
         </div>
       </a>
       <a
-        class="emotion-8"
+        class="emotion-9"
         color="#00B7C3"
         data-testid="category-css"
         href="/css/frameworks/"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
           color="#8f8f8f"
         >
           <div
-            class="emotion-3"
+            class="emotion-4"
           >
             <svg
-              style="width: 50%;"
+              style="width: 40%;"
               viewBox="0 0 512 512"
               width="10vw"
               xml:space="preserve"
@@ -551,20 +564,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
               />
             </svg>
             <h3
-              class="emotion-2"
+              class="emotion-3"
             >
               FRAMEWORKS
             </h3>
           </div>
         </div>
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             <div
-              class="emotion-5"
+              class="emotion-6"
             >
               When creating prototypes or admin-like applications it is easier and much faster to use already created CSS styles gathered in frameworks rather than created them from scratch. CSS frameworks becoming more and more popular so it is worth to know the most popular ones.
             </div>
@@ -572,20 +585,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
         </div>
       </a>
       <a
-        class="emotion-8"
+        class="emotion-9"
         color="#00B7C3"
         data-testid="category-css"
         href="/css/processors/"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
           color="#8f8f8f"
         >
           <div
-            class="emotion-3"
+            class="emotion-4"
           >
             <svg
-              style="width: 50%;"
+              style="width: 40%;"
               viewBox="0 0 512 512"
               width="10vw"
               x="0px"
@@ -610,20 +623,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
               />
             </svg>
             <h3
-              class="emotion-2"
+              class="emotion-3"
             >
               PROCESSORS
             </h3>
           </div>
         </div>
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             <div
-              class="emotion-5"
+              class="emotion-6"
             >
               Writing pure CSS styles that will work in almost all browser within all systems is really tough job. Thankfully we can use CSS processors which bring writing CSS to next level and simplify our work very much. This knowledge is crucial for every front-end developer.
             </div>
@@ -631,20 +644,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
         </div>
       </a>
       <a
-        class="emotion-8"
+        class="emotion-9"
         color="#00B7C3"
         data-testid="category-css"
         href="/css/utils/"
       >
         <div
-          class="emotion-4"
+          class="emotion-5"
           color="#8f8f8f"
         >
           <div
-            class="emotion-3"
+            class="emotion-4"
           >
             <svg
-              style="width: 50%;"
+              style="width: 40%;"
               viewBox="0 0 461.27 461.27"
               width="10vw"
               xml:space="preserve"
@@ -694,20 +707,20 @@ exports[`SubcategoriesList component  renders subcategories cards for CSS catego
               />
             </svg>
             <h3
-              class="emotion-2"
+              class="emotion-3"
             >
               UTILS
             </h3>
           </div>
         </div>
         <div
-          class="emotion-7"
+          class="emotion-8"
         >
           <div
-            class="emotion-6"
+            class="emotion-7"
           >
             <div
-              class="emotion-5"
+              class="emotion-6"
             >
               If you think that creating fancy border shapes or filling backgrounds with multi color gradients is a hard task, then you should check this section - with right tools it is much easier than you might imagine.
             </div>

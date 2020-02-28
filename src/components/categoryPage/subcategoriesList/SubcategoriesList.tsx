@@ -8,14 +8,16 @@ import styled from '@emotion/styled';
 
 interface SubcategoriesListProps {
   subcategories: string[];
+  color?: string;
 }
 
-export const SubcategoriesList = ({ subcategories }: SubcategoriesListProps) => {
+export const SubcategoriesList = ({ subcategories, color }: SubcategoriesListProps) => {
   return (
     <SubcategoriesListWrapper>
       <SectionHeader
         title="This category is divided into more specific subcategories"
         subtitle="Choose the one that best suits your needs"
+        dividerColor={color}
       />
       <Grid relaxed>
         {subcategories.map(name => {

@@ -7,6 +7,7 @@ import { Feed, Popup, Icon } from 'semantic-ui-react';
 import { Release } from '../../shared';
 import { ToolIcon } from '..';
 import { ReleaseTags, ReleaseLabels } from './';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 export interface ReleaseItemProps {
   tool?: string;
@@ -50,7 +51,9 @@ export const ReleaseItem = ({
         </Feed.Date>
         <Feed.Summary>
           <ToolIcon url={url} style={{ width: '16px', height: 'auto' }} />
-          <ToolName>{tool}</ToolName>
+          <OutboundLink href={releases[1].url.split('releases')[0]} target="_blank" rel="noopener noreferrer">
+            <ToolName>{tool}</ToolName>
+          </OutboundLink>
         </Feed.Summary>
         <ReleaseTags releases={releases} />
         <ReleaseLabels releases={releases} />

@@ -82,7 +82,7 @@ function getMockedGithubData(name) {
             isDraft: 'false',
             publishedAt: new Date(),
             tagName: tag,
-            url: 'https://github.com/kamiljozwik/frontbook',
+            url: 'https://github.com/facebook/react/releases/tag/v16.12.0',
           },
           {
             name: name,
@@ -90,7 +90,7 @@ function getMockedGithubData(name) {
             isDraft: 'false',
             publishedAt: faker.date.between(new Date(), new Date(new Date().getTime() - 1000 * 60 * 60 * 24 * 120)),
             tagName: nextTag,
-            url: 'https://github.com/kamiljozwik/frontbook',
+            url: 'https://github.com/facebook/react/releases/tag/v16.13.0',
           },
         ],
       },
