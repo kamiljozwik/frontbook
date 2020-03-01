@@ -14,7 +14,7 @@ interface TopReleasesQuery {
 }
 
 const filterPopular = (itemData?: ListItem) => {
-  const POPULAR_LEVEL = 30000; // GH stars
+  const POPULAR_LEVEL = 20000; // GH stars
 
   const [releaseType, isMajorCorrect] = itemData?.fields.githubData?.repository.releases
     ? getReleaseType(itemData?.fields.githubData?.repository.releases.nodes)
@@ -75,7 +75,7 @@ export const TopReleases = () => {
 
   return (
     <FeatureSection title={featuresData.releases.title} subtitle={featuresData.releases.description}>
-      <FeatureSection.Info>
+      <FeatureSection.Info style={{ width: '55%' }}>
         <ReleasesList>
           {releases.map(release => (
             <ReleaseItemBasic
@@ -92,6 +92,7 @@ export const TopReleases = () => {
       <FeatureSection.Info
         title={featuresData.releases.extraData.title}
         desc={featuresData.releases.extraData.description}
+        style={{ width: '45%' }}
         textOnly
       >
         <LinkButton to="/releases">More</LinkButton>
@@ -100,7 +101,7 @@ export const TopReleases = () => {
   );
 };
 
-const ReleasesList = styled(Feed)`
+export const ReleasesList = styled(Feed)`
   &&& {
     display: flex;
     flex-direction: row;

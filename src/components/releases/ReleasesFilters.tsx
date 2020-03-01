@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react';
-import { Popularity, Tags } from '../../pages/releases';
+import { Label, Icon, Popup } from 'semantic-ui-react';
 import styled from '@emotion/styled';
-import { Label, Icon } from 'semantic-ui-react';
+import { OutboundLink } from 'gatsby-plugin-google-analytics';
+
+import { Popularity, Tags } from '../../pages/releases';
 import { colors } from '../../shared';
 
 interface ReleasesFiltersProps {
@@ -81,16 +83,29 @@ export const ReleasesFilters = ({
           <OptionLabel {...labelProps} basic={tagFilter !== Tags.all} color="grey">
             All
           </OptionLabel>
-          <OptionLabel {...labelProps} basic={tagFilter !== Tags.patch} color="teal">
-            Patch
-          </OptionLabel>
-          <OptionLabel {...labelProps} basic={tagFilter !== Tags.minor} color="purple">
-            Minor
-          </OptionLabel>
           <OptionLabel {...labelProps} basic={tagFilter !== Tags.major} color="red">
             Major
           </OptionLabel>
+          .
+          <OptionLabel {...labelProps} basic={tagFilter !== Tags.minor} color="purple">
+            Minor
+          </OptionLabel>
+          .
+          <OptionLabel {...labelProps} basic={tagFilter !== Tags.patch} color="teal">
+            Patch
+          </OptionLabel>
         </FilterOptions>
+        <Popup
+          content={`Read more about semantic versioning`}
+          trigger={
+            <span>
+              <VersioningLink href="https://semver.org/" target="_blank" rel="noopener noreferrer">
+                Semantic Versioning
+              </VersioningLink>
+            </span>
+          }
+          name="star"
+        />
       </Filter>
     </ReleasesFiltersWrapper>
   );
@@ -103,7 +118,10 @@ const ReleasesFiltersWrapper = styled.div`
 `;
 
 const Filter = styled.div`
-  display: inline-block;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
   margin: 0 20px;
 `;
 
@@ -117,19 +135,31 @@ const FilterOptions = styled.div`
 `;
 
 const OptionLabel = styled(Label)`
-  cursor: pointer;
-  &&&:hover {
-    background: ${colors.grey};
+  &&& {
+    cursor: pointer;
+    margin: 2px;
+    &&&:hover {
+      background: ${colors.grey};
+    }
   }
 `;
 
 const OptionIcon = styled(Icon)<{ active: string }>`
   &&& {
     position: relative;
-    margin: 0 5px;
+    margin: 5px;
     opacity: ${props => (props.active === 'true' ? 1 : 0.3)};
     &:hover {
       opacity: 1;
     }
   }
+`;
+
+const VersioningLink = styled(OutboundLink)`
+  color: ${colors.darkGrey};
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+  bottom: -7px;
+  margin-left: 5px;
 `;

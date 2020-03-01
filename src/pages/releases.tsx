@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import { sortBy } from 'lodash';
-import styled from '@emotion/styled';
-import { Feed, Divider } from 'semantic-ui-react';
+import { Divider } from 'semantic-ui-react';
 
-import { Layout, SectionHeader } from '../components';
+import { Layout, SectionHeader, ReleasesList, SEO } from '../components';
 import { Release, SubcategoryNode, getLastReleases, ListItem, getReleaseType } from '../shared';
 import { ReleaseItem, ReleasesFilters } from '../components/releases';
 
@@ -69,6 +68,7 @@ const Releases = ({ data }: ReleasesProps) => {
 
   return (
     <Layout pageType="page" title="Last releases">
+      <SEO title="releases" />
       <SectionHeader
         title="Releases from last 30 days"
         subtitle="Keep up to date with your favourite tools"
@@ -105,16 +105,6 @@ const Releases = ({ data }: ReleasesProps) => {
 };
 
 export default Releases;
-
-const ReleasesList = styled(Feed)`
-  &&& {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-evenly;
-  }
-`;
 
 export const query = graphql`
   query ReleasesQuery {
