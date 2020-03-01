@@ -6,7 +6,6 @@ interface DividerProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTML
 }
 
 export const Divider = ({ color = 'rgba(23, 124, 190, 0.5)', ...restProps }: DividerProps) => {
-  console.log(restProps);
   return <StyledDivider color={color} {...restProps} />;
 };
 
