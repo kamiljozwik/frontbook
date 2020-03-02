@@ -68,7 +68,12 @@ const LearningPage = ({ data }: LearningPageProps) => {
   } = data;
   return (
     <Layout pageType="page" title="Learning resources">
-      <SEO title="learning resources" image="https://frontbook.s3-eu-west-1.amazonaws.com/images/learning.png" />
+      <SEO
+        title="Learning resources"
+        description="Frontend learning resources"
+        image="https://frontbook.s3-eu-west-1.amazonaws.com/images/learning.png"
+        url="https://frontbook.dev/learning"
+      />
       <Card.Group itemsPerRow={3} stackable>
         {edges.map(el => (
           <Resource key={el.node.url} url={el.node.url} type={el.node.type} ogData={el.node.fields.ogData} />
