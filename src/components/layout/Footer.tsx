@@ -47,7 +47,7 @@ export const Footer = () => {
         </Link>
       </FooterRow>
       <FooterRow>
-        <FooterRowLinkItem to="/leaderboard">Tools Leaderboard</FooterRowLinkItem>
+        <FooterRowLinkItem to="/leaderboard">Leaderboard</FooterRowLinkItem>
         <FooterRowLinkItem to="/js">Best Tools</FooterRowLinkItem>
         <FooterRowLinkItem to="/releases">Last Releases</FooterRowLinkItem>
         <FooterRowLinkItem to="/ui-examples">UI Examples</FooterRowLinkItem>

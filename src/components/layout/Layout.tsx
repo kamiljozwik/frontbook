@@ -1,8 +1,8 @@
 import React, { ReactNode, useEffect } from 'react';
 import { Global, css } from '@emotion/core';
 import styled from '@emotion/styled';
+import { TopBar } from './TopBar';
 
-import TopBar from './TopBar';
 import { PageHeader } from './headers';
 import { colors, CategoriesCodes, mq } from '../../shared';
 import './layout.css';

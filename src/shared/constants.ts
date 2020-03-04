@@ -106,7 +106,7 @@ export const categoriesNames = {
       'Essential part of modern front-end and one of the most popular programming language in the world. Tests, extensions, helpers, security and lots more - everything you need to make great JS application without hassle.',
     color: '#D1BF20',
     subcategories: {
-      animation: 'Animation',
+      animations: 'Animation',
       security: 'Security',
       cheatsheets: 'Cheatsheets',
       css_in_js: 'CSS in JS',
@@ -129,10 +129,10 @@ export const categoriesNames = {
       'JAM Stack is the newest way of creating modern websites and simple applications. Mix of JavaScript, headless CMSes and Markdowns brings us a very efficient and much simpler way of creating blogs, SPAs and web applications.',
     color: '#00C7B7',
     subcategories: {
-      jam_cms: 'CMS',
-      jam_hosting: 'Hosting',
-      jam_media: 'Media',
-      jam_ssg: 'Static Site Generators',
+      cms: 'CMS',
+      hosting: 'Hosting',
+      media: 'Media',
+      ssg: 'Static Site Generators',
     },
   },
   css: {
@@ -153,15 +153,6 @@ export const categoriesNames = {
     info:
       'Even greatest and most efficient applications can be useless when potential users can not find it in the web. SEO is here to helps our apps improve their position in search engines like Google or Bing.',
     color: '#525E54',
-    subcategories: {
-      empty: 'empty',
-    },
-  },
-  ide: {
-    name: 'IDE',
-    info:
-      'IDE info enthusiastically integrate next-generation convergence for proactive bandwidth. Assertively deliver bricks-and-clicks leadership with installed base core competencies. ',
-    color: '#767676',
     subcategories: {
       empty: 'empty',
     },

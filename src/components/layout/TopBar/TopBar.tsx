@@ -4,12 +4,13 @@ import { Segment, Icon } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
-import { Logo } from '../SVG';
+import { Logo } from '../../SVG';
 import moment from 'moment';
-import { mq } from '../../shared';
-import { Divider } from '../shared';
+import { mq } from '../../../shared';
+import { Divider } from '../../shared';
+import { Navigation } from './Navigation';
 
-const TopBar = () => {
+export const TopBar = () => {
   const buildTimeData = useStaticQuery(graphql`
     query BuildTimeQuery {
       allBuildTime {
@@ -26,6 +27,7 @@ const TopBar = () => {
         <Link to="/" aria-label="Frontbook main page">
           <Logo height="60px" textcolor="white" style={{ margin: '20px 0' }} />
         </Link>
+        <Navigation />
         <TopBarLinks>
           <TopBarLink href="https://spectrum.chat/frontbook" target="_blank" rel="noopener noreferrer">
             <Icon inverted name="comment alternate" /> Spectrum
@@ -42,8 +44,6 @@ const TopBar = () => {
     </TopBarWrapper>
   );
 };
-
-export default TopBar;
 
 const TopBarWrapper = styled(Segment.Inline)`
   &&& {
