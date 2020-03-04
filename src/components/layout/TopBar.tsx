@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link, useStaticQuery, graphql } from 'gatsby';
-import { Segment } from 'semantic-ui-react';
+import { Segment, Icon } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { OutboundLink } from 'gatsby-plugin-google-analytics';
 
 import { Logo } from '../SVG';
 import moment from 'moment';
 import { mq } from '../../shared';
+import { Divider } from '../shared';
 
 const TopBar = () => {
   const buildTimeData = useStaticQuery(graphql`
@@ -27,13 +28,14 @@ const TopBar = () => {
         </Link>
         <TopBarLinks>
           <TopBarLink href="https://spectrum.chat/frontbook" target="_blank" rel="noopener noreferrer">
-            Spectrum
+            <Icon inverted name="comment alternate" /> Spectrum
           </TopBarLink>
           <TopBarLink href="https://github.com/kamiljozwik/frontbook" target="_blank" rel="noopener noreferrer">
-            Github
+            <Icon inverted name="github" /> Github
           </TopBarLink>
         </TopBarLinks>
       </TopBarContent>
+      <Divider color="rgba(255, 255, 255, 0.5)" style={{ margin: 0 }} />
       <LastUpdate>
         {`Last update: ${moment(buildTime).format('D MMM YYYY | HH:MM')} (${moment(buildTime).fromNow()})`}
       </LastUpdate>
@@ -50,8 +52,6 @@ const TopBarWrapper = styled(Segment.Inline)`
     margin: 0 auto;
     height: 100px;
     border-width: 3px;
-    border-style: solid;
-    border-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0)) 0% 0% 100% 0%;
   }
 `;
 
@@ -77,10 +77,10 @@ const TopBarLink = styled(OutboundLink)`
   color: white;
   margin: 0 15px;
   font-weight: 600;
-  opacity: 0.8;
+  opacity: 1;
   &:hover {
     color: white;
-    opacity: 1;
+    opacity: 0.8;
   }
 `;
 

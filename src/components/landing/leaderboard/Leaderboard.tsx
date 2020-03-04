@@ -6,8 +6,7 @@ import { Link } from 'gatsby';
 import { TopsToolsList } from '../';
 import { SubcategoryNode, mq } from '../../../shared';
 import { Trophy } from '../../SVG';
-import { SectionHeader } from '../SectionHeader';
-import { Divider } from '../../shared';
+import { Divider, SectionHeader } from '../../shared';
 
 interface LeaderboardProps {
   npmTops: SubcategoryNode[];

@@ -11,7 +11,9 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 .emotion-1 {
   font-weight: 800;
   text-align: center;
-  color: #1e1e1e;
+  color: #184461;
+  -webkit-filter: brightness(0.8);
+  filter: brightness(0.8);
   width: 100%;
   line-height: 100%;
   margin-top: 40px;
@@ -1491,6 +1493,7 @@ exports[`CategoriesGrid component  renders categories card on landing page 1`] =
 <div>
   <div
     class="emotion-0"
+    color="rgba(23, 124, 190, 0.5)"
   />
   <div
     class="emotion-1"

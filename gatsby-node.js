@@ -5,6 +5,7 @@ const createSubcategoryPage = require('./_build-scripts/createSubcategoryPage');
 const createCategoryPage = require('./_build-scripts/createCategoryPage');
 const createUIExamplesPage = require('./_build-scripts/createUIExamplesPage');
 const addBuildTime = require('./_build-scripts/addBuildTime');
+const addOgData = require('./_build-scripts/addOgData');
 
 exports.onCreateNode = async ({ node, actions }) => {
   const { createNodeField } = actions;
@@ -14,9 +15,15 @@ exports.onCreateNode = async ({ node, actions }) => {
    */
   switch (node.internal.type) {
     case 'ContentfulToolEntry': {
-      await addGithubData(node, createNodeField);
-      await addNpmData(node, createNodeField);
-      await addBundlephobiaData(node, createNodeField);
+      await Promise.all([
+        addGithubData(node, createNodeField),
+        addNpmData(node, createNodeField),
+        addBundlephobiaData(node, createNodeField),
+      ]);
+      break;
+    }
+    case 'ContentfulLearningResourcesEntry': {
+      await addOgData(node, createNodeField);
       break;
     }
     default: {

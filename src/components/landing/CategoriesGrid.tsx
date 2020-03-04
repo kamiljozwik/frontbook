@@ -3,8 +3,7 @@ import styled from '@emotion/styled';
 
 import { CategoriesCodes } from '../../shared/types';
 import { activeCategories } from '../../shared';
-import { SectionHeader } from './SectionHeader';
-import { CategoryItem } from '../';
+import { CategoryItem, SectionHeader } from '../';
 
 interface CategoriesGridProps {
   data: {

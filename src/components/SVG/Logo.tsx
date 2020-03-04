@@ -1,7 +1,7 @@
 import React, { SVGAttributes } from 'react';
 
 interface LogoProps extends SVGAttributes<Element> {
-  textcolor: string;
+  textcolor?: string;
 }
 // tslint:disable: max-line-length
 export const Logo = (props: LogoProps) => (

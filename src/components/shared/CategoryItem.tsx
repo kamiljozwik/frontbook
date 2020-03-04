@@ -45,7 +45,7 @@ const SubcategoryContent = ({ code }: SubcategoryContentProps) => {
     <>
       <Face1 color={'#8f8f8f'}>
         <Face1Content>
-          <SubcategoryImage code={code} style={{ width: '50%' }} />
+          <SubcategoryImage code={code} style={{ width: '40%' }} />
           <CategoryName>
             {code
               .split('_')[1]

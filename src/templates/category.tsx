@@ -10,6 +10,10 @@ interface SubcategoryEdges {
   edges: SubcategoryNode[];
 }
 
+interface WithSubcategoriesProps extends QueryData {
+  color?: string;
+}
+
 interface QueryData {
   data: {
     items: SubcategoryEdges;
@@ -48,13 +52,13 @@ const NoSubcategories = ({ categoryCode, data }: CategoryPageNoSubcategories) =>
   );
 };
 
-const WithSubcategories = ({ data }: QueryData) => {
-  return <SubcategoriesList subcategories={data.subcategories.distinct} />;
+const WithSubcategories = ({ data, color }: WithSubcategoriesProps) => {
+  return <SubcategoriesList subcategories={data.subcategories.distinct} color={color} />;
 };
 
 const Stats = ({ category, npmTops, githubTops }: StatsProps) => {
   return (
-    <StatsWrapper color={categoriesNames[category].color}>
+    <StatsWrapper>
       <StatsHeader>{`Top 5 ${categoriesNames[category].name} tools`}</StatsHeader>
       <ListWrapper>
         <StatsColumn>
@@ -84,7 +88,7 @@ export default ({ data, pageContext }: CategoryTemplate) => {
       <CategoryNav />
       {withStats.includes(categoryCode) && <Stats category={categoryCode} npmTops={npmTops} githubTops={githubTops} />}
       {withSubcategories.includes(categoryCode) ? (
-        <WithSubcategories data={data} />
+        <WithSubcategories data={data} color={categoriesNames[categoryCode].color} />
       ) : (
         <NoSubcategories categoryCode={categoryCode} data={data} />
       )}
@@ -93,9 +97,6 @@ export default ({ data, pageContext }: CategoryTemplate) => {
 };
 
 const StatsWrapper = styled.div`
-  display: block;
-  border-style: solid;
-  border-image: linear-gradient(to right, rgba(0, 0, 0, 0), ${props => props.color}, rgba(0, 0, 0, 0)) 0% 0% 100% 0%;
   margin-bottom: 50px;
 `;
 
