@@ -98,7 +98,8 @@ const NavWrapper = styled(Menu)`
 const NavItem = styled(Menu.Item)`
   &&&&&& {
     font-weight: 600;
-    margin: 0 5px;
+    font-size: 18px;
+    margin: 0 3px;
     color: white;
     a:not(.pointing) {
       color: white;
@@ -116,7 +117,7 @@ const NavItem = styled(Menu.Item)`
       color: white;
       display: none;
     }
-    .dropdown.link.item {
+    .item {
       .text {
         color: ${colors.black};
       }
