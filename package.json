@@ -27,7 +27,7 @@
     "gatsby-source-graphql": "^2.1.33",
     "gatsby-transformer-sharp": "^2.3.14",
     "graphql-request": "^1.8.2",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "moment": "^2.24.0",
     "ms": "^2.1.2",
     "numeral": "^2.0.6",
