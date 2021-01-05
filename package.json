@@ -10,7 +10,7 @@
     "@types/faker": "^4.1.9",
     "@types/ms": "^0.7.31",
     "@types/url-metadata": "^2.1.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "facepaint": "^1.2.1",
     "faker": "^4.1.0",
     "gatsby": "^2.19.12",
